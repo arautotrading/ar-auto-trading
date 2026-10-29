@@ -1,15 +1,21 @@
-AR AUTO TRADING CO., LTD. — landing page prototype
+AR AUTO TRADING — Royal Black & Gold Website
+================================================
 
-Files:
-- index.html: website landing page
-- ar-auto-trading-logo.jpg: cropped logo from the provided business card
-- README.txt: setup notes
+Files to upload to your GitHub repository:
+- index.html
+- ar-auto-trading-royal-logo.png
 
-Selected contact number: 070-7670-7404
+iPhone upload steps:
+1. Download this ZIP and tap it in the Files app to extract it.
+2. Open https://github.com/arautotrading/ar-auto-trading
+3. Choose Add file -> Upload files.
+4. Upload BOTH index.html and ar-auto-trading-royal-logo.png from the extracted folder.
+5. Commit directly to the main branch. If GitHub asks to replace index.html, confirm.
+6. Wait 1–2 minutes and refresh https://arautotrading.github.io/ar-auto-trading/
 
-Before publishing:
-1. Replace REPLACE_WITH_YOUR_BUSINESS_EMAIL in index.html with the real business enquiry email.
-2. Review the cropped logo image; replace it with a clean original logo file if available.
-3. Confirm the address, business details, service coverage, and business hours before publishing.
-4. The current enquiry form is a prototype and does not automatically send or store submissions. Configure a form backend or receiving email before advertising.
-5. Verify rights to all photos used by the website before commercial publication.
+The page includes:
+Phone: 070-7670-7404
+LINE: https://line.me/ti/p/XSZXtxFExl
+Email: Arautotrading7@gmail.com
+
+Note: the enquiry form opens the visitor's email app; submissions are not stored by the website.
