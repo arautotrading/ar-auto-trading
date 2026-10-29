@@ -3,209 +3,572 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="AR AUTO TRADING CO., LTD. — buying and selling used cars, accident vehicles, trucks, heavy equipment and classic cars across Japan.">
-  <title>AR AUTO TRADING CO., LTD. | Used Vehicles & Heavy Equipment</title>
+  <title>AR AUTO TRADING CO., LTD. | Luxury Vehicles & Heavy Machinery</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  
   <style>
-    :root{--gold:#d8b15a;--gold2:#f2d58a;--ink:#101311;--panel:#171c19;--muted:#b8c0b9;--green:#3f8f6b}
-    *{box-sizing:border-box} html{scroll-behavior:smooth}
-    body{margin:0;background:#0c0f0d;color:#f6f4ee;font-family:Arial,Helvetica,sans-serif;line-height:1.6}
-    a{color:inherit;text-decoration:none}
-    .wrap{width:min(1120px,92%);margin:auto}
-    header{position:sticky;top:0;z-index:10;background:rgba(12,15,13,.94);backdrop-filter:blur(12px);border-bottom:1px solid #2a302c}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 0}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:1.3px;min-width:0}
-    .brand-logo{display:block;width:245px;max-width:42vw;height:auto;object-fit:contain}
-    nav{display:flex;align-items:center;gap:22px;font-size:13px;color:#e2e5e0}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:7px;font-weight:700;font-size:14px;border:1px solid var(--gold);transition:.2s}
-    .btn-gold{background:var(--gold);color:#171711}.btn-outline{color:var(--gold);background:transparent}
-    .btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
-    .hero{position:relative;overflow:hidden;background:radial-gradient(ellipse at 78% 35%,#30483a 0,#16221b 26%,#0c0f0d 65%);padding:86px 0 76px}
-    .hero:after{content:"AR";position:absolute;right:-2%;bottom:-25%;font-size:clamp(220px,40vw,520px);font-weight:900;letter-spacing:-25px;color:rgba(216,177,90,.045);pointer-events:none}
-    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:42px;align-items:center;position:relative;z-index:1}
-    .eyebrow{color:var(--gold);font-size:12px;font-weight:800;letter-spacing:3px;text-transform:uppercase}
-    h1{font-size:clamp(38px,5.3vw,68px);line-height:1.06;letter-spacing:-1.8px;margin:17px 0}
-    h1 span{color:var(--gold)}
-    .lead{color:#d0d6d1;font-size:17px;max-width:590px}
-    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-    .visual{min-height:320px;border:1px solid #39443c;border-radius:18px;padding:24px;background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.015));display:flex;flex-direction:column;justify-content:flex-end;box-shadow:0 22px 65px #0007}
-    .visual-top{display:flex;justify-content:space-between;color:var(--gold);font-size:12px;letter-spacing:2px}
-    .car-graphic{height:155px;position:relative;margin:28px 0 20px}
-    .car-graphic svg{width:100%;height:100%;overflow:visible}
-    .visual-caption{font-size:22px;font-weight:800}
-    .visual-caption small{display:block;font-size:12px;color:var(--muted);font-weight:400;margin-top:5px}
-    .trustbar{border-top:1px solid #252b27;border-bottom:1px solid #252b27;background:#111613}
-    .trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:20px 0}
-    .trust-item{display:flex;align-items:center;gap:12px;color:#e7e9e4;font-size:13px}
-    .trust-item b{color:var(--gold);font-size:20px}
-    section{padding:76px 0}
-    .section-head{text-align:center;max-width:700px;margin:0 auto 36px}
-    .section-head h2{font-size:clamp(28px,4vw,42px);margin:10px 0}
-    .section-head p{color:var(--muted);margin:0}
-    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .card{background:var(--panel);border:1px solid #2b342e;border-radius:12px;padding:25px;min-height:190px}
-    .icon{font-size:29px;margin-bottom:13px}
-    .card h3{margin:0 0 8px;font-size:19px}
-    .card p{color:var(--muted);font-size:14px;margin:0}
+    :root {
+      --bg-dark: #050505;
+      --bg-panel: #0a0a0a;
+      --gold: #cda34f;
+      --gold-light: #f4d78a;
+      --gold-grad: linear-gradient(135deg, #bf953f 0%, #fcf6ba 50%, #b38728 100%);
+      --text: #ffffff;
+      --text-muted: #a3a3a3;
+      --border: rgba(205, 163, 79, 0.3);
+      --border-light: rgba(205, 163, 79, 0.6);
+    }
 
-    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .gallery-card{overflow:hidden;border-radius:12px;border:1px solid #303a33;background:#171c19;transition:transform .2s,border-color .2s}
-    .gallery-card:hover{transform:translateY(-4px);border-color:var(--gold)}
-    .gallery-photo{height:220px;overflow:hidden;background:#202720}
-    .gallery-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
-    .gallery-card:hover .gallery-photo img{transform:scale(1.04)}
-    .gallery-info{padding:16px 18px}
-    .gallery-info h3{font-size:17px;margin:0 0 5px}
-    .gallery-info p{font-size:13px;color:var(--muted);margin:0}
-    .gallery-note{max-width:780px;margin:24px auto 0;padding:14px 16px;border:1px solid #303a33;border-radius:8px;color:#b8c0b9;font-size:12px;text-align:center}
-    @media(max-width:800px){.gallery-grid{grid-template-columns:repeat(2,1fr)}.gallery-photo{height:190px}}
-    @media(max-width:520px){.gallery-grid{grid-template-columns:1fr 1fr;gap:10px}.gallery-photo{height:135px}.gallery-info{padding:12px}.gallery-info h3{font-size:14px}.gallery-info p{font-size:11px}}
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
 
-    .about{background:#121714;border-top:1px solid #252d27;border-bottom:1px solid #252d27}
-    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
-    .about h2{font-size:clamp(28px,4vw,42px);line-height:1.15;margin:12px 0 18px}
-    .about p{color:var(--muted)}
-    .checks{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
-    .checks div{border:1px solid #303a33;background:#171e19;padding:13px;border-radius:8px;font-size:13px}
-    .checks span{color:var(--gold);margin-right:7px}
-    .contact-panel{display:grid;grid-template-columns:.85fr 1.15fr;gap:30px;background:linear-gradient(130deg,#1a241d,#121613);border:1px solid #374238;border-radius:16px;padding:32px}
-    .contact-panel h2{font-size:34px;line-height:1.1;margin:12px 0}
-    .contact-panel p{color:var(--muted)}
-    .contact-list{display:grid;gap:12px;margin-top:24px}
-    .contact-row{display:flex;gap:12px;align-items:center;padding:13px;border:1px solid #364039;border-radius:8px;background:#101511}
-    .contact-row b{display:block;font-size:14px}.contact-row small{display:block;color:var(--muted);font-size:12px;overflow-wrap:anywhere}
-    form{display:grid;gap:12px}
-    input,select,textarea{width:100%;padding:13px 14px;border:1px solid #3b463e;border-radius:7px;background:#0e120f;color:#f7f5ef;font:inherit}
-    textarea{min-height:115px;resize:vertical}
-    .form-note{font-size:11px!important;color:#9ba59d!important}
-    footer{border-top:1px solid #28302b;padding:24px 0;color:#9ca69e;font-size:12px}
-    .footer-inner{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
-    @media(max-width:800px){nav a:not(.btn){display:none}.hero-grid,.about-grid,.contact-panel{grid-template-columns:1fr}.hero{padding:60px 0}.visual{min-height:260px}.cards{grid-template-columns:1fr 1fr}.trust-grid{grid-template-columns:1fr}.contact-panel{padding:22px}}
-    @media(max-width:520px){.cards{grid-template-columns:1fr}.brand-logo{width:175px;max-width:44vw}.nav>.btn{padding:10px 12px;font-size:12px}.checks{grid-template-columns:1fr 1fr}section{padding:58px 0}}
+    /* ----- TYPOGRAPHY ----- */
+    h1, h2, h3, .serif { font-family: 'Cinzel', serif; font-weight: 600; }
+    .gold-text {
+      background: var(--gold-grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .script-text { font-family: 'Playfair Display', serif; font-style: italic; }
+
+    /* ----- HEADER ----- */
+    header {
+      position: absolute; top: 0; left: 0; width: 100%; z-index: 100;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 100%);
+    }
+    .nav-container {
+      width: min(1400px, 95%); margin: auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 15px 0;
+    }
+    .logo img { height: 65px; width: auto; object-fit: contain; }
+    .nav-links {
+      display: flex; gap: 30px; font-size: 13px; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 1px;
+    }
+    .nav-links a { transition: color 0.3s; position: relative; padding-bottom: 5px; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .nav-links a.active::after {
+      content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px;
+      background: var(--gold);
+    }
+    .lang-toggle { display: flex; gap: 15px; font-size: 12px; align-items: center; }
+    .lang-btn { display: flex; align-items: center; gap: 6px; cursor: pointer; opacity: 0.7; transition: 0.3s; }
+    .lang-btn:hover, .lang-btn.active { opacity: 1; color: var(--gold); }
+
+    /* ----- HERO SECTION ----- */
+    .hero {
+      position: relative;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1920&q=85');
+      background-size: cover;
+      background-position: center;
+      padding-top: 80px;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(90deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 45%, rgba(0,0,0,0.2) 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      width: min(1400px, 95%); margin: auto;
+      max-width: 700px;
+    }
+    .hero h1 {
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 1.1;
+      margin-bottom: 15px;
+    }
+    .hero h2 {
+      font-size: clamp(18px, 2.5vw, 24px);
+      font-weight: 500;
+      margin-bottom: 20px;
+      color: #e0e0e0;
+    }
+    .hero p {
+      font-size: 16px; color: var(--text-muted);
+      margin-bottom: 30px; max-width: 550px;
+    }
+    .hero-tagline {
+      display: flex; align-items: center; gap: 15px; margin-bottom: 40px;
+      color: var(--gold); font-size: 13px; letter-spacing: 1px; font-weight: 600;
+    }
+    .hero-tagline::before, .hero-tagline::after {
+      content: ''; height: 1px; width: 40px; background: var(--gold);
+    }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 15px 35px; border-radius: 50px;
+      font-family: 'Cinzel', serif; font-size: 15px; font-weight: 600;
+      border: 1px solid var(--gold); color: var(--gold-light);
+      background: transparent; cursor: pointer; transition: 0.3s;
+    }
+    .btn:hover { background: var(--gold); color: #000; box-shadow: 0 0 20px rgba(205,163,79,0.4); }
+    
+    .hero-bottom-text {
+      position: absolute; bottom: 30px; right: 5%; z-index: 2;
+      font-size: 26px; color: var(--gold-light); opacity: 0.8;
+    }
+
+    /* ----- SERVICES ICONS BAR ----- */
+    .services-bar {
+      background: var(--bg-panel);
+      border-top: 2px solid var(--border);
+      border-bottom: 2px solid var(--border);
+      position: relative; z-index: 10;
+    }
+    .services-grid {
+      width: min(1400px, 95%); margin: auto;
+      display: grid; grid-template-columns: repeat(5, 1fr);
+    }
+    .service-item {
+      padding: 40px 20px; text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.05);
+      transition: 0.3s;
+    }
+    .service-item:last-child { border-right: none; }
+    .service-item:hover { background: rgba(205, 163, 79, 0.05); }
+    .service-icon { width: 50px; height: 50px; margin: 0 auto 15px auto; color: var(--gold); }
+    .service-icon svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.5; }
+    .service-item h3 { font-size: 16px; color: #fff; margin-bottom: 8px; }
+    .service-item p { font-size: 12px; color: var(--text-muted); line-height: 1.4; }
+
+    /* ----- FEATURED CATEGORIES ----- */
+    .featured {
+      padding: 90px 0;
+      background: radial-gradient(circle at center top, #111 0%, #050505 70%);
+    }
+    .section-title {
+      text-align: center; margin-bottom: 50px;
+      display: flex; align-items: center; justify-content: center; gap: 20px;
+    }
+    .section-title::before, .section-title::after {
+      content: ''; height: 1px; width: 100px; background: var(--border-light);
+    }
+    .section-title span { display: block; font-size: 12px; letter-spacing: 3px; color: var(--gold); margin-bottom: 8px; }
+    .section-title h2 { font-size: 32px; color: #fff; }
+
+    .categories-grid {
+      width: min(1400px, 95%); margin: auto;
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px;
+    }
+    .cat-card {
+      position: relative; border-radius: 8px; overflow: hidden;
+      aspect-ratio: 3/4; border: 1px solid var(--border);
+      cursor: pointer; display: flex; flex-direction: column; justify-content: flex-end;
+    }
+    .cat-card img {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.5s ease; z-index: 1;
+    }
+    .cat-card:hover img { transform: scale(1.08); }
+    .cat-card::after {
+      content: ''; position: absolute; inset: 0; z-index: 2;
+      background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 40%, transparent 100%);
+    }
+    .cat-content {
+      position: relative; z-index: 3; padding: 20px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .cat-content h3 { font-size: 16px; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
+    .cat-arrow {
+      width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--gold);
+      display: grid; place-items: center; color: var(--gold); transition: 0.3s;
+    }
+    .cat-card:hover .cat-arrow { background: var(--gold); color: #000; }
+
+    /* ----- FOOTER BANNER ----- */
+    .footer-banner {
+      position: relative;
+      border-top: 2px solid var(--gold);
+      background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover; background-position: center;
+      padding: 40px 0;
+    }
+    .footer-banner::before {
+      content: ''; position: absolute; inset: 0; background: rgba(5,5,5,0.85);
+    }
+    .footer-inner {
+      position: relative; z-index: 2;
+      width: min(1400px, 95%); margin: auto;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 30px;
+    }
+    .fbrand { display: flex; flex-direction: column; }
+    .fbrand img { height: 70px; margin-bottom: 10px; }
+    .fbrand p { color: var(--gold-light); font-size: 20px; }
+    
+    .fcontact { display: flex; gap: 40px; align-items: center; }
+    .fcontact-item { display: flex; align-items: center; gap: 12px; }
+    .fcontact-icon {
+      width: 45px; height: 45px; border-radius: 50%; background: rgba(205,163,79,0.1);
+      display: grid; place-items: center; color: var(--gold); border: 1px solid var(--border);
+    }
+    .fcontact-text span { display: block; font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+    .fcontact-text strong { font-size: 15px; font-weight: 500; color: #fff; }
+
+    .fcta { max-width: 250px; }
+    .fcta h3 { font-size: 20px; color: #fff; margin-bottom: 5px; }
+    .fcta p { font-size: 12px; color: var(--text-muted); margin-bottom: 15px; }
+
+    /* ----- BOTTOM FOOTER ----- */
+    .bottom-footer {
+      background: #000; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.05);
+      font-size: 12px; color: var(--text-muted);
+    }
+    .bf-inner {
+      width: min(1400px, 95%); margin: auto;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;
+    }
+    .bf-links { display: flex; gap: 20px; }
+    .bf-links a:hover { color: var(--gold); }
+
+    /* ----- CONTACT MODAL ----- */
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 999;
+      display: none; place-items: center; opacity: 0; transition: opacity 0.3s;
+      backdrop-filter: blur(5px);
+    }
+    .modal-overlay.active { display: grid; opacity: 1; }
+    .modal-content {
+      background: var(--bg-panel); border: 1px solid var(--gold);
+      padding: 40px; border-radius: 12px; width: min(500px, 90%); position: relative;
+      box-shadow: 0 10px 40px rgba(205,163,79,0.2);
+    }
+    .close-modal {
+      position: absolute; top: 15px; right: 20px; font-size: 24px;
+      color: var(--text-muted); cursor: pointer; transition: 0.3s;
+    }
+    .close-modal:hover { color: var(--gold); }
+    .modal-content h2 { color: var(--gold); margin-bottom: 20px; font-size: 24px; text-align: center; }
+    
+    /* Reused Form Styles */
+    form { display: grid; gap: 15px; }
+    input, select, textarea {
+      width: 100%; padding: 14px 16px; border: 1px solid rgba(205,163,79,0.3);
+      border-radius: 6px; background: #000; color: #fff; font: inherit; font-size: 14px;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none; border-color: var(--gold); box-shadow: 0 0 10px rgba(205,163,79,0.1);
+    }
+    textarea { min-height: 100px; resize: vertical; }
+    select option { background: #111; }
+    .form-note { font-size: 11px; color: var(--text-muted); text-align: center; margin-top: 5px; }
+
+    /* ----- RESPONSIVE ----- */
+    @media (max-width: 1100px) {
+      .categories-grid { grid-template-columns: repeat(3, 1fr); }
+      .services-grid { grid-template-columns: repeat(3, 1fr); }
+      .service-item:nth-child(3) { border-right: none; }
+      .service-item { border-bottom: 1px solid rgba(255,255,255,0.05); }
+      .fcontact { flex-wrap: wrap; gap: 20px; }
+    }
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hero { min-height: 80vh; text-align: center; padding-top: 120px; }
+      .hero-content { margin: 0 auto; }
+      .hero::before { background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.9)); }
+      .hero-tagline { justify-content: center; }
+      .hero-bottom-text { display: none; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .fbrand img { margin: 0 auto 10px; }
+      .fcontact { justify-content: center; }
+      .fcta { max-width: 100%; }
+    }
+    @media (max-width: 600px) {
+      .categories-grid { grid-template-columns: repeat(2, 1fr); }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .service-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.05); }
+      .service-item:nth-child(even) { border-right: none; }
+      .service-item:nth-child(3) { border-right: 1px solid rgba(255,255,255,0.05); }
+      .service-item:last-child { grid-column: span 2; border-bottom: none; }
+      .logo img { height: 50px; }
+      .section-title h2 { font-size: 24px; }
+      .section-title::before, .section-title::after { width: 40px; }
+      .fcontact { flex-direction: column; align-items: flex-start; width: 100%; }
+      .bf-inner { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 400px) {
+      .categories-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
-<header>
-  <div class="wrap nav">
-    <a class="brand" href="#top" aria-label="AR AUTO TRADING home">
-      <img class="brand-logo" src="ar-auto-trading-royal-logo.png" alt="AR AUTO TRADING CO., LTD. royal gold logo">
-    </a>
-    <nav><a href="#services">Services</a><a href="#gallery">Gallery</a><a href="#about">About Us</a><a href="#contact" class="btn btn-gold">Contact Us ↗</a></nav>
-  </div>
-</header>
 
-<main id="top">
+  <!-- HEADER -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <img src="ar-auto-trading-royal-logo.png" alt="AR AUTO TRADING CO., LTD.">
+      </a>
+      <nav class="nav-links">
+        <a href="#" class="active">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#gallery">Vehicle Gallery</a>
+        <a href="#services">Services</a>
+        <a href="#company">Company Info</a>
+        <a href="#" onclick="openModal()">Contact</a>
+      </nav>
+      <div class="lang-toggle">
+        <div class="lang-btn active">🇬🇧 EN</div>
+        <div class="lang-btn">🇯🇵 日本語</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
   <section class="hero">
-    <div class="wrap hero-grid">
+    <div class="hero-content">
+      <h1 class="gold-text">AR AUTO TRADING<br>CO., LTD.</h1>
+      <h2 class="gold-text">Your Trusted Partner in Vehicles &amp; Heavy Machinery</h2>
+      <p>We provide quality used cars, accident vehicles, classic cars, trucks, excavators and construction machinery from Japan to the world.</p>
+      
+      <div class="hero-tagline">Best Quality &bull; Fair Price &bull; Global Support</div>
+      
+      <a href="#gallery" class="btn">View Our Vehicles &rarr;</a>
+    </div>
+    <div class="hero-bottom-text script-text">
+      Cars &times; Trucks &times; Machinery<br>
+      <span style="font-size: 18px;">All in One Place</span>
+    </div>
+  </section>
+
+  <!-- SERVICES BAR -->
+  <section class="services-bar" id="services">
+    <div class="services-grid">
+      <div class="service-item">
+        <div class="service-icon">
+          <!-- Car Icon -->
+          <svg viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+        </div>
+        <h3>Used Cars</h3>
+        <p>Quality vehicles for your next journey</p>
+      </div>
+      <div class="service-item">
+        <div class="service-icon">
+          <!-- Accident Icon -->
+          <svg viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/><path d="M12 2v4M10 4h4"/></svg>
+        </div>
+        <h3>Accident Vehicles</h3>
+        <p>Reliable options at great value</p>
+      </div>
+      <div class="service-item">
+        <div class="service-icon">
+          <!-- Classic Car Icon -->
+          <svg viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/><path d="M8 10V6h8v4"/></svg>
+        </div>
+        <h3>Classic Cars</h3>
+        <p>Timeless classics for true enthusiasts</p>
+      </div>
+      <div class="service-item">
+        <div class="service-icon">
+          <!-- Truck Icon -->
+          <svg viewBox="0 0 24 24"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <h3>Trucks &amp; Commercial</h3>
+        <p>For your business and logistics</p>
+      </div>
+      <div class="service-item">
+        <div class="service-icon">
+          <!-- Excavator Icon -->
+          <svg viewBox="0 0 24 24"><path d="M3 20h18v2H3zM5 14h4v6H5zM9 8h10v6H9zM19 8l3-4-2-1-3 4"/><circle cx="7" cy="11" r="3"/><path d="M7 14v2"/><path d="M15 14v2"/></svg>
+        </div>
+        <h3>Excavators &amp; Machinery</h3>
+        <p>Power for your projects</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED CATEGORIES -->
+  <section class="featured" id="gallery">
+    <div class="section-title">
       <div>
-        <div class="eyebrow">Trusted vehicle & equipment trading · Japan</div>
-        <h1>Every Vehicle.<br><span>Every Condition.</span><br>Real Value.</h1>
-        <p class="lead">We buy and sell used cars, accident-damaged vehicles, non-running vehicles, trucks, classic cars and heavy equipment across Japan.</p>
-        <div class="hero-actions">
-          <a class="btn btn-gold" href="#contact">Get a Valuation ↗</a>
-          <a class="btn btn-outline" href="tel:07076707404">☎ Call 070-7670-7404</a>
+        <span>FEATURED CATEGORIES</span>
+        <h2 class="gold-text">Explore Our Vehicle Collection</h2>
+      </div>
+    </div>
+    
+    <div class="categories-grid">
+      <a href="#" class="cat-card">
+        <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80" alt="Used Cars">
+        <div class="cat-content">
+          <h3>Used Cars</h3>
+          <div class="cat-arrow">&#10095;</div>
         </div>
-      </div>
-      <div class="visual" aria-label="AR Auto Trading vehicle trading">
-        <div class="visual-top"><span>AR AUTO TRADING</span><span>JAPAN</span></div>
-        <div class="car-graphic">
-          <svg viewBox="0 0 560 200" role="img" aria-label="Stylized car illustration">
-            <defs><linearGradient id="gold" x1="0" x2="1"><stop stop-color="#9f7831"/><stop offset=".48" stop-color="#f2d58a"/><stop offset="1" stop-color="#b88a3a"/></linearGradient></defs>
-            <path d="M45 128 L72 112 L112 105 L166 52 Q180 38 204 38 L344 38 Q367 39 386 59 L431 105 L487 118 Q510 125 515 146 L511 159 L44 159 L35 146 Q34 136 45 128Z" fill="#1a211c" stroke="url(#gold)" stroke-width="4"/>
-            <path d="M180 55 Q190 47 207 47 L263 47 L263 100 L143 100Z" fill="#31453a" stroke="#a98a4b" stroke-width="2"/>
-            <path d="M277 47 L341 47 Q357 49 371 66 L401 100 L277 100Z" fill="#31453a" stroke="#a98a4b" stroke-width="2"/>
-            <path d="M52 130 L111 117 L448 117 L492 130" fill="none" stroke="#d8b15a" stroke-width="2"/>
-            <circle cx="132" cy="155" r="31" fill="#090b0a" stroke="#8f9b91" stroke-width="5"/><circle cx="132" cy="155" r="13" fill="#b9c0b9"/>
-            <circle cx="419" cy="155" r="31" fill="#090b0a" stroke="#8f9b91" stroke-width="5"/><circle cx="419" cy="155" r="13" fill="#b9c0b9"/>
-            <path d="M52 133 L80 132 M471 132 L496 136" stroke="#f2d58a" stroke-width="5" stroke-linecap="round"/>
-          </svg>
+      </a>
+      
+      <a href="#" class="cat-card">
+        <img src="https://images.unsplash.com/photo-1590362891991-f776e747a588?auto=format&fit=crop&w=600&q=80" alt="Accident Vehicles">
+        <div class="cat-content">
+          <h3>Accident Vehicles</h3>
+          <div class="cat-arrow">&#10095;</div>
         </div>
-        <div class="visual-caption">Your vehicle, our business.<small>Fair enquiries · Flexible vehicle conditions · Nationwide Japan</small></div>
+      </a>
+      
+      <a href="#" class="cat-card">
+        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80" alt="Classic Cars">
+        <div class="cat-content">
+          <h3>Classic Cars</h3>
+          <div class="cat-arrow">&#10095;</div>
+        </div>
+      </a>
+      
+      <a href="#" class="cat-card">
+        <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60f?auto=format&fit=crop&w=600&q=80" alt="Trucks & Commercial">
+        <div class="cat-content">
+          <h3>Trucks &amp; Commercial</h3>
+          <div class="cat-arrow">&#10095;</div>
+        </div>
+      </a>
+      
+      <a href="#" class="cat-card">
+        <img src="https://images.unsplash.com/photo-1580901368919-7738efb0f87e?auto=format&fit=crop&w=600&q=80" alt="Heavy Machinery">
+        <div class="cat-content">
+          <h3>Heavy Machinery</h3>
+          <div class="cat-arrow">&#10095;</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER BANNER (Contact Info) -->
+  <section class="footer-banner" id="contact-info">
+    <div class="footer-inner">
+      
+      <div class="fbrand">
+        <img src="ar-auto-trading-royal-logo.png" alt="AR AUTO TRADING">
+        <p class="script-text">Drive Your Future With Us</p>
       </div>
-    </div>
-  </section>
 
-  <div class="trustbar"><div class="wrap trust-grid">
-    <div class="trust-item"><b>01</b><span>Cars in running or non-running condition</span></div>
-    <div class="trust-item"><b>02</b><span>Accident vehicles and repair projects</span></div>
-    <div class="trust-item"><b>03</b><span>Trucks, machinery and heavy equipment</span></div>
-  </div></div>
-
-  <section id="services">
-    <div class="wrap">
-      <div class="section-head"><div class="eyebrow">What We Trade</div><h2>Vehicles & Equipment We Handle</h2><p>Tell us what you have. Share photos and details so we can review your enquiry.</p></div>
-      <div class="cards">
-        <article class="card"><div class="icon">🚗</div><h3>Used Cars</h3><p>Used cars, vans, SUVs and family vehicles in a range of conditions.</p></article>
-        <article class="card"><div class="icon">🛠️</div><h3>Accident & Damaged Cars</h3><p>Accident-damaged, broken, non-running and repairable vehicles.</p></article>
-        <article class="card"><div class="icon">🏁</div><h3>Classic Cars</h3><p>Classic, vintage and enthusiast vehicles and project cars.</p></article>
-        <article class="card"><div class="icon">🚚</div><h3>Trucks & Commercial Vehicles</h3><p>Work trucks, commercial vans and business-use vehicles.</p></article>
-        <article class="card"><div class="icon">🏗️</div><h3>Heavy Equipment</h3><p>Excavators, forklifts and construction or industrial machinery.</p></article>
-        <article class="card"><div class="icon">🌏</div><h3>Export & Trading</h3><p>Vehicle and equipment trading enquiries for domestic and international customers.</p></article>
-      </div>
-    </div>
-  </section>
-
-
-  <section id="gallery">
-    <div class="wrap">
-      <div class="section-head"><div class="eyebrow">Vehicle Gallery</div><h2>Explore What We Trade</h2><p>A selection of vehicle and equipment categories handled by AR AUTO TRADING.</p></div>
-      <div class="gallery-grid">
-        <article class="gallery-card"><div class="gallery-photo"><img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=85" alt="Premium used car" loading="lazy"></div><div class="gallery-info"><h3>Used Cars</h3><p>Cars, SUVs and vans</p></div></article>
-        <article class="gallery-card"><div class="gallery-photo"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=85" alt="Sports and classic style car" loading="lazy"></div><div class="gallery-info"><h3>Classic & Sports Cars</h3><p>Classic cars and projects</p></div></article>
-        <article class="gallery-card"><div class="gallery-photo"><img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=900&q=85" alt="Vehicle on road" loading="lazy"></div><div class="gallery-info"><h3>Vehicle Stock</h3><p>Vehicles in various conditions</p></div></article>
-        <article class="gallery-card"><div class="gallery-photo"><img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=900&q=85" alt="SUV vehicle" loading="lazy"></div><div class="gallery-info"><h3>SUVs & 4WD</h3><p>Family and utility vehicles</p></div></article>
-        <article class="gallery-card"><div class="gallery-photo"><img src="https://images.unsplash.com/photo-1519003722824-194d4455a60f?auto=format&fit=crop&w=900&q=85" alt="Commercial truck" loading="lazy"></div><div class="gallery-info"><h3>Trucks & Commercial</h3><p>Business and transport vehicles</p></div></article>
-        <article class="gallery-card"><div class="gallery-photo"><img src="https://images.unsplash.com/photo-1580901368919-7738efb0f87e?auto=format&fit=crop&w=900&q=85" alt="Heavy equipment" loading="lazy"></div><div class="gallery-info"><h3>Heavy Equipment</h3><p>Machinery and construction equipment</p></div></article>
-      </div>
-      <div class="gallery-note">Gallery photos are illustrative examples, not a statement that these exact vehicles are currently in stock. Contact us for current availability or send your own stock photos to build a real inventory gallery.</div>
-    </div>
-  </section>
-
-  <section class="about" id="about">
-    <div class="wrap about-grid">
-      <div><div class="eyebrow">About AR</div><h2>Practical solutions for your vehicle trading needs.</h2><p>AR AUTO TRADING CO., LTD. welcomes enquiries about vehicles and equipment, including units that may need repair. Send us the make, model, year, mileage, condition and a few photos to help us review your request.</p><div class="checks"><div><span>✓</span>Cars & vans</div><div><span>✓</span>Accident vehicles</div><div><span>✓</span>Classic vehicles</div><div><span>✓</span>Trucks & machinery</div></div></div>
-      <div class="visual"><div class="visual-top"><span>YOUR ENQUIRY</span><span>01 / 04</span></div><div class="visual-caption" style="font-size:30px;margin-top:70px">Share the details.<br><span style="color:var(--gold)">Start a conversation.</span><small>Call, LINE or email us to discuss your vehicle.</small></div></div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="wrap">
-      <div class="contact-panel">
-        <div>
-          <div class="eyebrow">Contact AR Auto Trading</div><h2>Have a vehicle to sell?</h2><p>Contact us with the details. We welcome enquiries from across Japan.</p>
-          <div class="contact-list">
-            <a class="contact-row" href="tel:07076707404"><span>📞</span><span><b>Phone</b><small>070-7670-7404</small></span></a>
-            <a class="contact-row" href="https://line.me/ti/p/XSZXtxFExl" target="_blank" rel="noopener"><span>🟢</span><span><b>LINE</b><small>Chat with AR AUTO TRADING</small></span></a>
-            <a class="contact-row" href="mailto:Arautotrading7@gmail.com"><span>✉️</span><span><b>Email</b><small>Arautotrading7@gmail.com</small></span></a>
+      <div class="fcontact">
+        <!-- Phone -->
+        <a href="tel:07076707404" class="fcontact-item">
+          <div class="fcontact-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
           </div>
-        </div>
-        <div>
-          <form id="enquiryForm">
-            <input id="name" name="name" placeholder="Your name" required>
-            <input id="contact" name="contact" placeholder="Phone number or email" required>
-            <select id="vehicle" name="vehicle" required><option value="">Vehicle / equipment type</option><option>Used car</option><option>Accident or damaged vehicle</option><option>Non-running vehicle</option><option>Classic car</option><option>Truck / commercial vehicle</option><option>Excavator / forklift / machinery</option><option>Other</option></select>
-            <textarea id="details" name="details" placeholder="Make, model, year, mileage, condition and location"></textarea>
-            <button class="btn btn-gold" type="submit">Prepare Email Enquiry ↗</button>
-            <p class="form-note">This form opens your email app with the details filled in. It does not submit or store information on this website.</p>
-          </form>
-        </div>
+          <div class="fcontact-text">
+            <span>Phone</span>
+            <strong>070-7670-7404</strong>
+          </div>
+        </a>
+
+        <!-- LINE -->
+        <a href="https://line.me/ti/p/XSZXtxFExl" target="_blank" class="fcontact-item">
+          <div class="fcontact-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.036 9.608.391.084.922.258 1.057.592.121.303.079.778.039 1.085l-.171 1.037c-.053.303-.242 1.187 1.043.647 1.285-.539 6.93-4.082 9.457-6.99 1.742-1.921 2.539-3.884 2.539-5.979zm-16.663 3.061h-2.326c-.331 0-.599-.269-.599-.599v-5.659c0-.331.269-.599.599-.599h2.326c.331 0 .599.269.599.599s-.269.599-.599.599h-1.727v1.454h1.727c.331 0 .599.269.599.599s-.269.599-.599.599h-1.727v1.454h1.727c.331 0 .599.269.599.599s-.269.599-.599.599zm4.188-6.258c0-.331-.269-.599-.599-.599s-.599.269-.599.599v5.659c0 .331.269.599.599.599s.599-.269.599-.599v-5.659zm6.221 5.659c0 .331-.269.599-.599.599h-2.326c-.331 0-.599-.269-.599-.599v-5.659c0-.331.269-.599.599-.599s.599.269.599.599v5.06h1.727c.331 0 .599.269.599.599zm4.725-5.659c0 .331-.269.599-.599.599h-1.727v1.454h1.727c.331 0 .599.269.599.599s-.269.599-.599.599h-1.727v1.454h1.727c.331 0 .599.269.599.599s-.269.599-.599.599h-2.326c-.331 0-.599-.269-.599-.599v-5.659c0-.331.269-.599.599-.599h2.326c.331 0 .599.269.599.599z"/></svg>
+          </div>
+          <div class="fcontact-text">
+            <span>LINE</span>
+            <strong>Contact on LINE</strong>
+          </div>
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:Arautotrading7@gmail.com" class="fcontact-item">
+          <div class="fcontact-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          </div>
+          <div class="fcontact-text">
+            <span>Email</span>
+            <strong>Arautotrading7@gmail.com</strong>
+          </div>
+        </a>
       </div>
+
+      <div class="fcta">
+        <h3 class="gold-text">Get in Touch</h3>
+        <p>We are always ready to help you. Feel free to contact us anytime.</p>
+        <button class="btn" style="padding: 10px 25px; font-size: 14px;" onclick="openModal()">Contact Us &rarr;</button>
+      </div>
+
     </div>
   </section>
-</main>
 
-<footer><div class="wrap footer-inner"><span>© <span id="year"></span> AR AUTO TRADING CO., LTD. All rights reserved.</span><span>Vehicle & equipment trading · Japan</span></div></footer>
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-  document.getElementById('enquiryForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const name = document.getElementById('name').value.trim();
-    const contact = document.getElementById('contact').value.trim();
-    const vehicle = document.getElementById('vehicle').value;
-    const details = document.getElementById('details').value.trim();
-    const subject = encodeURIComponent('Vehicle / Equipment Enquiry - AR AUTO TRADING');
-    const body = encodeURIComponent('Name: ' + name + '\nContact: ' + contact + '\nVehicle type: ' + vehicle + '\nDetails: ' + details);
-    window.location.href = 'mailto:Arautotrading7@gmail.com?subject=' + subject + '&body=' + body;
-  });
-</script>
+  <!-- BOTTOM FOOTER -->
+  <footer class="bottom-footer">
+    <div class="bf-inner">
+      <div>&copy; <span id="year"></span> AR AUTO TRADING CO., LTD. All rights reserved.</div>
+      <div class="bf-links">
+        <a href="#">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#gallery">Vehicle Gallery</a>
+        <a href="#services">Services</a>
+        <a href="#company">Company Info</a>
+        <a href="#" onclick="openModal()">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CONTACT MODAL -->
+  <div class="modal-overlay" id="contactModal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+      <h2>Vehicle / Equipment Enquiry</h2>
+      <form id="enquiryForm">
+        <input id="name" name="name" placeholder="Your name" required>
+        <input id="contact" name="contact" placeholder="Phone number or email" required>
+        <select id="vehicle" name="vehicle" required>
+          <option value="">Vehicle / equipment type</option>
+          <option>Used car</option>
+          <option>Accident or damaged vehicle</option>
+          <option>Non-running vehicle</option>
+          <option>Classic car</option>
+          <option>Truck / commercial vehicle</option>
+          <option>Excavator / forklift / machinery</option>
+          <option>Other</option>
+        </select>
+        <textarea id="details" name="details" placeholder="Make, model, year, mileage, condition and location"></textarea>
+        <button class="btn" type="submit" style="background:var(--gold); color:#000;">Prepare Email Enquiry &nearr;</button>
+        <p class="form-note">This form opens your email app. It does not store data on this website.</p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Set Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Modal Logic
+    const modal = document.getElementById('contactModal');
+    function openModal() { modal.classList.add('active'); }
+    function closeModal() { modal.classList.remove('active'); }
+    
+    // Close modal on clicking outside
+    modal.addEventListener('click', function(e) {
+      if(e.target === modal) closeModal();
+    });
+
+    // Form Logic
+    document.getElementById('enquiryForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const contact = document.getElementById('contact').value.trim();
+      const vehicle = document.getElementById('vehicle').value;
+      const details = document.getElementById('details').value.trim();
+      
+      const subject = encodeURIComponent('Vehicle / Equipment Enquiry - AR AUTO TRADING');
+      const body = encodeURIComponent(
+        'Name: ' + name + '\nContact: ' + contact + '\nVehicle type: ' + vehicle + '\nDetails: ' + details
+      );
+      
+      window.location.href = 'mailto:Arautotrading7@gmail.com?subject=' + subject + '&body=' + body;
+      closeModal();
+    });
+  </script>
 </body>
 </html>
