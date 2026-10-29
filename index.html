@@ -46,6 +46,20 @@
     .icon{font-size:29px;margin-bottom:13px}
     .card h3{margin:0 0 8px;font-size:19px}
     .card p{color:var(--muted);font-size:14px;margin:0}
+
+    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .gallery-card{overflow:hidden;border-radius:12px;border:1px solid #303a33;background:#171c19;transition:transform .2s,border-color .2s}
+    .gallery-card:hover{transform:translateY(-4px);border-color:var(--gold)}
+    .gallery-photo{height:220px;overflow:hidden;background:#202720}
+    .gallery-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
+    .gallery-card:hover .gallery-photo img{transform:scale(1.04)}
+    .gallery-info{padding:16px 18px}
+    .gallery-info h3{font-size:17px;margin:0 0 5px}
+    .gallery-info p{font-size:13px;color:var(--muted);margin:0}
+    .gallery-note{max-width:780px;margin:24px auto 0;padding:14px 16px;border:1px solid #303a33;border-radius:8px;color:#b8c0b9;font-size:12px;text-align:center}
+    @media(max-width:800px){.gallery-grid{grid-template-columns:repeat(2,1fr)}.gallery-photo{height:190px}}
+    @media(max-width:520px){.gallery-grid{grid-template-columns:1fr 1fr;gap:10px}.gallery-photo{height:135px}.gallery-info{padding:12px}.gallery-info h3{font-size:14px}.gallery-info p{font-size:11px}}
+
     .about{background:#121714;border-top:1px solid #252d27;border-bottom:1px solid #252d27}
     .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
     .about h2{font-size:clamp(28px,4vw,42px);line-height:1.15;margin:12px 0 18px}
@@ -75,7 +89,7 @@
     <a class="brand" href="#top" aria-label="AR AUTO TRADING home">
       <img class="brand-logo" src="ar-auto-trading-royal-logo.png" alt="AR AUTO TRADING CO., LTD. royal gold logo">
     </a>
-    <nav><a href="#services">Services</a><a href="#about">About Us</a><a href="#contact" class="btn btn-gold">Contact Us ↗</a></nav>
+    <nav><a href="#services">Services</a><a href="#gallery">Gallery</a><a href="#about">About Us</a><a href="#contact" class="btn btn-gold">Contact Us ↗</a></nav>
   </div>
 </header>
 
@@ -127,6 +141,22 @@
         <article class="card"><div class="icon">🏗️</div><h3>Heavy Equipment</h3><p>Excavators, forklifts and construction or industrial machinery.</p></article>
         <article class="card"><div class="icon">🌏</div><h3>Export & Trading</h3><p>Vehicle and equipment trading enquiries for domestic and international customers.</p></article>
       </div>
+    </div>
+  </section>
+
+
+  <section id="gallery">
+    <div class="wrap">
+      <div class="section-head"><div class="eyebrow">Vehicle Gallery</div><h2>Explore What We Trade</h2><p>A selection of vehicle and equipment categories handled by AR AUTO TRADING.</p></div>
+      <div class="gallery-grid">
+        <article class="gallery-card"><div class="gallery-photo"><img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=85" alt="Premium used car" loading="lazy"></div><div class="gallery-info"><h3>Used Cars</h3><p>Cars, SUVs and vans</p></div></article>
+        <article class="gallery-card"><div class="gallery-photo"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=85" alt="Sports and classic style car" loading="lazy"></div><div class="gallery-info"><h3>Classic & Sports Cars</h3><p>Classic cars and projects</p></div></article>
+        <article class="gallery-card"><div class="gallery-photo"><img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=900&q=85" alt="Vehicle on road" loading="lazy"></div><div class="gallery-info"><h3>Vehicle Stock</h3><p>Vehicles in various conditions</p></div></article>
+        <article class="gallery-card"><div class="gallery-photo"><img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=900&q=85" alt="SUV vehicle" loading="lazy"></div><div class="gallery-info"><h3>SUVs & 4WD</h3><p>Family and utility vehicles</p></div></article>
+        <article class="gallery-card"><div class="gallery-photo"><img src="https://images.unsplash.com/photo-1519003722824-194d4455a60f?auto=format&fit=crop&w=900&q=85" alt="Commercial truck" loading="lazy"></div><div class="gallery-info"><h3>Trucks & Commercial</h3><p>Business and transport vehicles</p></div></article>
+        <article class="gallery-card"><div class="gallery-photo"><img src="https://images.unsplash.com/photo-1580901368919-7738efb0f87e?auto=format&fit=crop&w=900&q=85" alt="Heavy equipment" loading="lazy"></div><div class="gallery-info"><h3>Heavy Equipment</h3><p>Machinery and construction equipment</p></div></article>
+      </div>
+      <div class="gallery-note">Gallery photos are illustrative examples, not a statement that these exact vehicles are currently in stock. Contact us for current availability or send your own stock photos to build a real inventory gallery.</div>
     </div>
   </section>
 
