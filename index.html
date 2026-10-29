@@ -66,8 +66,8 @@
       content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px;
       background: var(--gold);
     }
-    .lang-toggle { display: flex; gap: 15px; font-size: 12px; align-items: center; }
-    .lang-btn { display: flex; align-items: center; gap: 6px; cursor: pointer; opacity: 0.7; transition: 0.3s; }
+    .lang-toggle { display: flex; gap: 15px; font-size: 13px; align-items: center; font-weight: 600; }
+    .lang-btn { display: flex; align-items: center; gap: 6px; cursor: pointer; opacity: 0.5; transition: 0.3s; }
     .lang-btn:hover, .lang-btn.active { opacity: 1; color: var(--gold); }
 
     /* ----- HERO SECTION ----- */
@@ -317,16 +317,16 @@
         <img src="ar-auto-trading-royal-logo.png" alt="AR AUTO TRADING CO., LTD.">
       </a>
       <nav class="nav-links">
-        <a href="#" class="active">Home</a>
-        <a href="#about">About Us</a>
-        <a href="#gallery">Vehicle Gallery</a>
-        <a href="#services">Services</a>
-        <a href="#company">Company Info</a>
-        <a href="#" onclick="openModal()">Contact</a>
+        <a href="#" class="active" data-en="Home" data-ja="ホーム">Home</a>
+        <a href="#about" data-en="About Us" data-ja="会社概要">About Us</a>
+        <a href="#gallery" data-en="Vehicle Gallery" data-ja="車両ギャラリー">Vehicle Gallery</a>
+        <a href="#services" data-en="Services" data-ja="サービス">Services</a>
+        <a href="#company" data-en="Company Info" data-ja="会社情報">Company Info</a>
+        <a href="#" onclick="openModal()" data-en="Contact" data-ja="お問い合わせ">Contact</a>
       </nav>
       <div class="lang-toggle">
-        <div class="lang-btn active">🇬🇧 EN</div>
-        <div class="lang-btn">🇯🇵 日本語</div>
+        <div class="lang-btn active" id="btn-en" onclick="setLanguage('en')">🇬🇧 EN</div>
+        <div class="lang-btn" id="btn-ja" onclick="setLanguage('ja')">🇯🇵 日本語</div>
       </div>
     </div>
   </header>
@@ -334,17 +334,17 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
-      <h1 class="gold-text">AR AUTO TRADING<br>CO., LTD.</h1>
-      <h2 class="gold-text">Your Trusted Partner in Vehicles &amp; Heavy Machinery</h2>
-      <p>We provide quality used cars, accident vehicles, classic cars, trucks, excavators and construction machinery from Japan to the world.</p>
+      <h1 class="gold-text" data-en="AR AUTO TRADING<br>CO., LTD." data-ja="株式会社 ARオートトレーディング">AR AUTO TRADING<br>CO., LTD.</h1>
+      <h2 class="gold-text" data-en="Your Trusted Partner in Vehicles &amp; Heavy Machinery" data-ja="車両・重機の信頼できるパートナー">Your Trusted Partner in Vehicles &amp; Heavy Machinery</h2>
+      <p data-en="We provide quality used cars, accident vehicles, classic cars, trucks, excavators and construction machinery from Japan to the world." data-ja="日本から世界へ、高品質な中古車、事故車、クラシックカー、トラック、ユンボ、建設機械を提供します。">We provide quality used cars, accident vehicles, classic cars, trucks, excavators and construction machinery from Japan to the world.</p>
       
-      <div class="hero-tagline">Best Quality &bull; Fair Price &bull; Global Support</div>
+      <div class="hero-tagline" data-en="Best Quality &bull; Fair Price &bull; Global Support" data-ja="最高の品質 &bull; 公正な価格 &bull; グローバルサポート">Best Quality &bull; Fair Price &bull; Global Support</div>
       
-      <a href="#gallery" class="btn">View Our Vehicles &rarr;</a>
+      <a href="#gallery" class="btn" data-en="View Our Vehicles &rarr;" data-ja="車両を見る &rarr;">View Our Vehicles &rarr;</a>
     </div>
     <div class="hero-bottom-text script-text">
-      Cars &times; Trucks &times; Machinery<br>
-      <span style="font-size: 18px;">All in One Place</span>
+      <span data-en="Cars &times; Trucks &times; Machinery" data-ja="車 &times; トラック &times; 重機">Cars &times; Trucks &times; Machinery</span><br>
+      <span style="font-size: 18px;" data-en="All in One Place" data-ja="すべてがここに">All in One Place</span>
     </div>
   </section>
 
@@ -353,43 +353,38 @@
     <div class="services-grid">
       <div class="service-item">
         <div class="service-icon">
-          <!-- Car Icon -->
           <svg viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
         </div>
-        <h3>Used Cars</h3>
-        <p>Quality vehicles for your next journey</p>
+        <h3 data-en="Used Cars" data-ja="中古車">Used Cars</h3>
+        <p data-en="Quality vehicles for your next journey" data-ja="次なる旅のための高品質な車両">Quality vehicles for your next journey</p>
       </div>
       <div class="service-item">
         <div class="service-icon">
-          <!-- Accident Icon -->
           <svg viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/><path d="M12 2v4M10 4h4"/></svg>
         </div>
-        <h3>Accident Vehicles</h3>
-        <p>Reliable options at great value</p>
+        <h3 data-en="Accident Vehicles" data-ja="事故車">Accident Vehicles</h3>
+        <p data-en="Reliable options at great value" data-ja="お得な選択肢">Reliable options at great value</p>
       </div>
       <div class="service-item">
         <div class="service-icon">
-          <!-- Classic Car Icon -->
           <svg viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/><path d="M8 10V6h8v4"/></svg>
         </div>
-        <h3>Classic Cars</h3>
-        <p>Timeless classics for true enthusiasts</p>
+        <h3 data-en="Classic Cars" data-ja="クラシックカー">Classic Cars</h3>
+        <p data-en="Timeless classics for true enthusiasts" data-ja="愛好家のための不朽の名車">Timeless classics for true enthusiasts</p>
       </div>
       <div class="service-item">
         <div class="service-icon">
-          <!-- Truck Icon -->
           <svg viewBox="0 0 24 24"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
         </div>
-        <h3>Trucks &amp; Commercial</h3>
-        <p>For your business and logistics</p>
+        <h3 data-en="Trucks &amp; Commercial" data-ja="トラック・商用車">Trucks &amp; Commercial</h3>
+        <p data-en="For your business and logistics" data-ja="ビジネスと物流のために">For your business and logistics</p>
       </div>
       <div class="service-item">
         <div class="service-icon">
-          <!-- Excavator Icon -->
           <svg viewBox="0 0 24 24"><path d="M3 20h18v2H3zM5 14h4v6H5zM9 8h10v6H9zM19 8l3-4-2-1-3 4"/><circle cx="7" cy="11" r="3"/><path d="M7 14v2"/><path d="M15 14v2"/></svg>
         </div>
-        <h3>Excavators &amp; Machinery</h3>
-        <p>Power for your projects</p>
+        <h3 data-en="Excavators &amp; Machinery" data-ja="重機・建設機械">Excavators &amp; Machinery</h3>
+        <p data-en="Power for your projects" data-ja="プロジェクトのためのパワー">Power for your projects</p>
       </div>
     </div>
   </section>
@@ -398,8 +393,8 @@
   <section class="featured" id="gallery">
     <div class="section-title">
       <div>
-        <span>FEATURED CATEGORIES</span>
-        <h2 class="gold-text">Explore Our Vehicle Collection</h2>
+        <span data-en="FEATURED CATEGORIES" data-ja="注目のカテゴリー">FEATURED CATEGORIES</span>
+        <h2 class="gold-text" data-en="Explore Our Vehicle Collection" data-ja="車両コレクションを探索する">Explore Our Vehicle Collection</h2>
       </div>
     </div>
     
@@ -407,7 +402,7 @@
       <a href="#" class="cat-card">
         <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80" alt="Used Cars">
         <div class="cat-content">
-          <h3>Used Cars</h3>
+          <h3 data-en="Used Cars" data-ja="中古車">Used Cars</h3>
           <div class="cat-arrow">&#10095;</div>
         </div>
       </a>
@@ -415,7 +410,7 @@
       <a href="#" class="cat-card">
         <img src="https://images.unsplash.com/photo-1590362891991-f776e747a588?auto=format&fit=crop&w=600&q=80" alt="Accident Vehicles">
         <div class="cat-content">
-          <h3>Accident Vehicles</h3>
+          <h3 data-en="Accident Vehicles" data-ja="事故車">Accident Vehicles</h3>
           <div class="cat-arrow">&#10095;</div>
         </div>
       </a>
@@ -423,7 +418,7 @@
       <a href="#" class="cat-card">
         <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80" alt="Classic Cars">
         <div class="cat-content">
-          <h3>Classic Cars</h3>
+          <h3 data-en="Classic Cars" data-ja="クラシックカー">Classic Cars</h3>
           <div class="cat-arrow">&#10095;</div>
         </div>
       </a>
@@ -431,7 +426,7 @@
       <a href="#" class="cat-card">
         <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60f?auto=format&fit=crop&w=600&q=80" alt="Trucks & Commercial">
         <div class="cat-content">
-          <h3>Trucks &amp; Commercial</h3>
+          <h3 data-en="Trucks &amp; Commercial" data-ja="トラック・商用車">Trucks &amp; Commercial</h3>
           <div class="cat-arrow">&#10095;</div>
         </div>
       </a>
@@ -439,20 +434,20 @@
       <a href="#" class="cat-card">
         <img src="https://images.unsplash.com/photo-1580901368919-7738efb0f87e?auto=format&fit=crop&w=600&q=80" alt="Heavy Machinery">
         <div class="cat-content">
-          <h3>Heavy Machinery</h3>
+          <h3 data-en="Heavy Machinery" data-ja="重機・建設機械">Heavy Machinery</h3>
           <div class="cat-arrow">&#10095;</div>
         </div>
       </a>
     </div>
   </section>
 
-  <!-- FOOTER BANNER (Contact Info) -->
+  <!-- FOOTER BANNER -->
   <section class="footer-banner" id="contact-info">
     <div class="footer-inner">
       
       <div class="fbrand">
         <img src="ar-auto-trading-royal-logo.png" alt="AR AUTO TRADING">
-        <p class="script-text">Drive Your Future With Us</p>
+        <p class="script-text" data-en="Drive Your Future With Us" data-ja="私たちと未来をドライブしましょう">Drive Your Future With Us</p>
       </div>
 
       <div class="fcontact">
@@ -462,7 +457,7 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
           </div>
           <div class="fcontact-text">
-            <span>Phone</span>
+            <span data-en="Phone" data-ja="電話">Phone</span>
             <strong>070-7670-7404</strong>
           </div>
         </a>
@@ -473,8 +468,8 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.036 9.608.391.084.922.258 1.057.592.121.303.079.778.039 1.085l-.171 1.037c-.053.303-.242 1.187 1.043.647 1.285-.539 6.93-4.082 9.457-6.99 1.742-1.921 2.539-3.884 2.539-5.979zm-16.663 3.061h-2.326c-.331 0-.599-.269-.599-.599v-5.659c0-.331.269-.599.599-.599h2.326c.331 0 .599.269.599.599s-.269.599-.599.599h-1.727v1.454h1.727c.331 0 .599.269.599.599s-.269.599-.599.599h-1.727v1.454h1.727c.331 0 .599.269.599.599s-.269.599-.599.599zm4.188-6.258c0-.331-.269-.599-.599-.599s-.599.269-.599.599v5.659c0 .331.269.599.599.599s.599-.269.599-.599v-5.659zm6.221 5.659c0 .331-.269.599-.599.599h-2.326c-.331 0-.599-.269-.599-.599v-5.659c0-.331.269-.599.599-.599s.599.269.599.599v5.06h1.727c.331 0 .599.269.599.599zm4.725-5.659c0 .331-.269.599-.599.599h-1.727v1.454h1.727c.331 0 .599.269.599.599s-.269.599-.599.599h-1.727v1.454h1.727c.331 0 .599.269.599.599s-.269.599-.599.599h-2.326c-.331 0-.599-.269-.599-.599v-5.659c0-.331.269-.599.599-.599h2.326c.331 0 .599.269.599.599z"/></svg>
           </div>
           <div class="fcontact-text">
-            <span>LINE</span>
-            <strong>Contact on LINE</strong>
+            <span data-en="LINE" data-ja="LINE">LINE</span>
+            <strong data-en="Contact on LINE" data-ja="LINEで連絡する">Contact on LINE</strong>
           </div>
         </a>
 
@@ -484,16 +479,16 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
           </div>
           <div class="fcontact-text">
-            <span>Email</span>
+            <span data-en="Email" data-ja="メール">Email</span>
             <strong>Arautotrading7@gmail.com</strong>
           </div>
         </a>
       </div>
 
       <div class="fcta">
-        <h3 class="gold-text">Get in Touch</h3>
-        <p>We are always ready to help you. Feel free to contact us anytime.</p>
-        <button class="btn" style="padding: 10px 25px; font-size: 14px;" onclick="openModal()">Contact Us &rarr;</button>
+        <h3 class="gold-text" data-en="Get in Touch" data-ja="お問い合わせ">Get in Touch</h3>
+        <p data-en="We are always ready to help you. Feel free to contact us anytime." data-ja="いつでも喜んでお手伝いします。お気軽にご連絡ください。">We are always ready to help you. Feel free to contact us anytime.</p>
+        <button class="btn" style="padding: 10px 25px; font-size: 14px;" onclick="openModal()" data-en="Contact Us &rarr;" data-ja="お問い合わせ &rarr;">Contact Us &rarr;</button>
       </div>
 
     </div>
@@ -502,14 +497,14 @@
   <!-- BOTTOM FOOTER -->
   <footer class="bottom-footer">
     <div class="bf-inner">
-      <div>&copy; <span id="year"></span> AR AUTO TRADING CO., LTD. All rights reserved.</div>
+      <div>&copy; <span id="year"></span> AR AUTO TRADING CO., LTD. <span data-en="All rights reserved." data-ja="無断転載を禁じます。">All rights reserved.</span></div>
       <div class="bf-links">
-        <a href="#">Home</a>
-        <a href="#about">About Us</a>
-        <a href="#gallery">Vehicle Gallery</a>
-        <a href="#services">Services</a>
-        <a href="#company">Company Info</a>
-        <a href="#" onclick="openModal()">Contact</a>
+        <a href="#" data-en="Home" data-ja="ホーム">Home</a>
+        <a href="#about" data-en="About Us" data-ja="会社概要">About Us</a>
+        <a href="#gallery" data-en="Vehicle Gallery" data-ja="車両ギャラリー">Vehicle Gallery</a>
+        <a href="#services" data-en="Services" data-ja="サービス">Services</a>
+        <a href="#company" data-en="Company Info" data-ja="会社情報">Company Info</a>
+        <a href="#" onclick="openModal()" data-en="Contact" data-ja="お問い合わせ">Contact</a>
       </div>
     </div>
   </footer>
@@ -518,23 +513,23 @@
   <div class="modal-overlay" id="contactModal">
     <div class="modal-content">
       <span class="close-modal" onclick="closeModal()">&times;</span>
-      <h2>Vehicle / Equipment Enquiry</h2>
+      <h2 data-en="Vehicle / Equipment Enquiry" data-ja="車両・重機のお問い合わせ">Vehicle / Equipment Enquiry</h2>
       <form id="enquiryForm">
-        <input id="name" name="name" placeholder="Your name" required>
-        <input id="contact" name="contact" placeholder="Phone number or email" required>
+        <input id="name" name="name" placeholder="Your name" data-en-placeholder="Your name" data-ja-placeholder="お名前" required>
+        <input id="contact" name="contact" placeholder="Phone number or email" data-en-placeholder="Phone number or email" data-ja-placeholder="電話番号またはメールアドレス" required>
         <select id="vehicle" name="vehicle" required>
-          <option value="">Vehicle / equipment type</option>
-          <option>Used car</option>
-          <option>Accident or damaged vehicle</option>
-          <option>Non-running vehicle</option>
-          <option>Classic car</option>
-          <option>Truck / commercial vehicle</option>
-          <option>Excavator / forklift / machinery</option>
-          <option>Other</option>
+          <option value="" data-en="Vehicle / equipment type" data-ja="車両・重機の種類">Vehicle / equipment type</option>
+          <option data-en="Used car" data-ja="中古車">Used car</option>
+          <option data-en="Accident or damaged vehicle" data-ja="事故車・損傷車">Accident or damaged vehicle</option>
+          <option data-en="Non-running vehicle" data-ja="不動車">Non-running vehicle</option>
+          <option data-en="Classic car" data-ja="クラシックカー">Classic car</option>
+          <option data-en="Truck / commercial vehicle" data-ja="トラック・商用車">Truck / commercial vehicle</option>
+          <option data-en="Excavator / forklift / machinery" data-ja="ユンボ・フォークリフト・重機">Excavator / forklift / machinery</option>
+          <option data-en="Other" data-ja="その他">Other</option>
         </select>
-        <textarea id="details" name="details" placeholder="Make, model, year, mileage, condition and location"></textarea>
-        <button class="btn" type="submit" style="background:var(--gold); color:#000;">Prepare Email Enquiry &nearr;</button>
-        <p class="form-note">This form opens your email app. It does not store data on this website.</p>
+        <textarea id="details" name="details" placeholder="Make, model, year, mileage, condition and location" data-en-placeholder="Make, model, year, mileage, condition and location" data-ja-placeholder="メーカー、モデル、年式、走行距離、状態、地域"></textarea>
+        <button class="btn" type="submit" style="background:var(--gold); color:#000;" data-en="Prepare Email Enquiry &nearr;" data-ja="メール問い合わせを作成 &nearr;">Prepare Email Enquiry &nearr;</button>
+        <p class="form-note" data-en="This form opens your email app. It does not store data on this website." data-ja="このフォームはメールアプリを開きます。ウェブサイト上にデータは保存されません。">This form opens your email app. It does not store data on this website.</p>
       </form>
     </div>
   </div>
@@ -543,7 +538,25 @@
     // Set Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Modal Logic
+    // --- LANGUAGE SWITCH LOGIC ---
+    function setLanguage(lang) {
+      // 1. Translate all elements with data-en and data-ja
+      document.querySelectorAll('[data-en]').forEach(el => {
+        el.innerHTML = el.getAttribute('data-' + lang);
+      });
+
+      // 2. Translate placeholders
+      document.querySelectorAll('[data-en-placeholder]').forEach(el => {
+        el.setAttribute('placeholder', el.getAttribute('data-' + lang + '-placeholder'));
+      });
+
+      // 3. Update active button styling
+      document.getElementById('btn-en').classList.remove('active');
+      document.getElementById('btn-ja').classList.remove('active');
+      document.getElementById('btn-' + lang).classList.add('active');
+    }
+
+    // --- MODAL LOGIC ---
     const modal = document.getElementById('contactModal');
     function openModal() { modal.classList.add('active'); }
     function closeModal() { modal.classList.remove('active'); }
@@ -553,7 +566,7 @@
       if(e.target === modal) closeModal();
     });
 
-    // Form Logic
+    // --- FORM LOGIC ---
     document.getElementById('enquiryForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const name = document.getElementById('name').value.trim();
