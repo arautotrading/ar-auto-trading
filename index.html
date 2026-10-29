@@ -1,396 +1,860 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AR AUTO TRADING CO., LTD. | Luxury Vehicles & Heavy Machinery</title>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
-  
-  <!-- Supabase JS -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  
-  <style>
-    :root { --bg-dark: #050505; --bg-panel: #0a0a0a; --gold: #cda34f; --gold-light: #f4d78a; --gold-grad: linear-gradient(135deg, #bf953f 0%, #fcf6ba 50%, #b38728 100%); --text: #ffffff; --text-muted: #a3a3a3; --border: rgba(205, 163, 79, 0.3); --border-light: rgba(205, 163, 79, 0.6); }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { background-color: var(--bg-dark); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; overflow-x: hidden; }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; height: auto; display: block; }
-    h1, h2, h3, .serif { font-family: 'Cinzel', serif; font-weight: 600; }
-    .gold-text { background: var(--gold-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .script-text { font-family: 'Playfair Display', serif; font-style: italic; }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#050505">
+<title>AR AUTO TRADING CO., LTD. | Luxury Vehicles & Heavy Machinery</title>
 
-    header { position: absolute; top: 0; left: 0; width: 100%; z-index: 100; border-bottom: 1px solid var(--border); background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 100%); }
-    .nav-container { width: min(1400px, 95%); margin: auto; display: flex; align-items: center; justify-content: space-between; padding: 15px 0; }
-    .logo img { height: 65px; width: auto; object-fit: contain; }
-    .nav-links { display: flex; gap: 30px; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
-    .nav-links a { transition: color 0.3s; position: relative; padding-bottom: 5px; cursor: pointer; }
-    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
-    .lang-toggle { display: flex; gap: 15px; font-size: 13px; align-items: center; font-weight: 600; }
-    .lang-btn { display: flex; align-items: center; gap: 6px; cursor: pointer; opacity: 0.5; transition: 0.3s; }
-    .lang-btn:hover, .lang-btn.active { opacity: 1; color: var(--gold); }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
 
-    .hero { position: relative; min-height: 90vh; display: flex; align-items: center; background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1920&q=85'); background-size: cover; background-position: center; padding-top: 80px; }
-    .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 45%, rgba(0,0,0,0.2) 100%); }
-    .hero-content { position: relative; z-index: 2; width: min(1400px, 95%); margin: auto; max-width: 700px; }
-    .hero h1 { font-size: clamp(42px, 6vw, 72px); line-height: 1.1; margin-bottom: 15px; }
-    .hero h2 { font-size: clamp(18px, 2.5vw, 24px); font-weight: 500; margin-bottom: 20px; color: #e0e0e0; }
-    .hero p { font-size: 16px; color: var(--text-muted); margin-bottom: 30px; max-width: 550px; }
-    .hero-tagline { display: flex; align-items: center; gap: 15px; margin-bottom: 40px; color: var(--gold); font-size: 13px; letter-spacing: 1px; font-weight: 600; }
-    .hero-tagline::before, .hero-tagline::after { content: ''; height: 1px; width: 40px; background: var(--gold); }
-    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 15px 35px; border-radius: 50px; font-family: 'Cinzel', serif; font-size: 15px; font-weight: 600; border: 1px solid var(--gold); color: var(--gold-light); background: transparent; cursor: pointer; transition: 0.3s; }
-    .btn:hover { background: var(--gold); color: #000; box-shadow: 0 0 20px rgba(205,163,79,0.4); }
-    
-    .services-bar { background: var(--bg-panel); border-top: 2px solid var(--border); border-bottom: 2px solid var(--border); position: relative; z-index: 10; }
-    .services-grid { width: min(1400px, 95%); margin: auto; display: grid; grid-template-columns: repeat(5, 1fr); }
-    .service-item { padding: 40px 20px; text-align: center; border-right: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
-    .service-item:last-child { border-right: none; }
-    .service-icon { width: 50px; height: 50px; margin: 0 auto 15px auto; color: var(--gold); }
-    .service-icon svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.5; }
-    .service-item h3 { font-size: 16px; color: #fff; margin-bottom: 8px; }
-    .service-item p { font-size: 12px; color: var(--text-muted); line-height: 1.4; }
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-    .featured { padding: 90px 0; background: radial-gradient(circle at center top, #111 0%, #050505 70%); }
-    .section-title { text-align: center; margin-bottom: 50px; display: flex; align-items: center; justify-content: center; gap: 20px; }
-    .section-title::before, .section-title::after { content: ''; height: 1px; width: 100px; background: var(--border-light); }
-    .section-title span { display: block; font-size: 12px; letter-spacing: 3px; color: var(--gold); margin-bottom: 8px; }
-    .section-title h2 { font-size: 32px; color: #fff; }
-    .categories-grid { width: min(1400px, 95%); margin: auto; display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; }
-    .cat-card { position: relative; border-radius: 8px; overflow: hidden; aspect-ratio: 3/4; border: 1px solid var(--border); cursor: pointer; display: flex; flex-direction: column; justify-content: flex-end; }
-    .cat-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; z-index: 1; }
-    .cat-card:hover img { transform: scale(1.08); }
-    .cat-card::after { content: ''; position: absolute; inset: 0; z-index: 2; background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 40%, transparent 100%); }
-    .cat-content { position: relative; z-index: 3; padding: 20px; display: flex; justify-content: space-between; align-items: center; }
-    .cat-content h3 { font-size: 16px; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
-    .cat-arrow { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--gold); display: grid; place-items: center; color: var(--gold); transition: 0.3s; }
+<style>
+:root {
+  --bg:#050505;
+  --panel:#0a0a0a;
+  --gold:#cda34f;
+  --gold-light:#f4d78a;
+  --text:#fff;
+  --muted:#aaa;
+  --border:rgba(205,163,79,.35);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:Inter,sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+h1,h2,h3,.serif{font-family:Cinzel,serif}
+.gold-text{
+  background:linear-gradient(135deg,#bf953f,#fcf6ba,#b38728);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.script-text{font-family:"Playfair Display",serif;font-style:italic}
 
-    .footer-banner { position: relative; border-top: 2px solid var(--gold); background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; padding: 40px 0; }
-    .footer-banner::before { content: ''; position: absolute; inset: 0; background: rgba(5,5,5,0.85); }
-    .footer-inner { position: relative; z-index: 2; width: min(1400px, 95%); margin: auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 30px; }
-    .fbrand img { height: 70px; margin-bottom: 10px; }
-    .fbrand p { color: var(--gold-light); font-size: 20px; }
-    .fcontact { display: flex; gap: 40px; align-items: center; }
-    .fcontact-item { display: flex; align-items: center; gap: 12px; }
-    .fcontact-icon { width: 45px; height: 45px; border-radius: 50%; background: rgba(205,163,79,0.1); display: grid; place-items: center; color: var(--gold); border: 1px solid var(--border); }
-    .fcontact-text span { display: block; font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
-    .fcontact-text strong { font-size: 15px; font-weight: 500; color: #fff; }
-    .fcta { max-width: 250px; }
-    .fcta h3 { font-size: 20px; color: #fff; margin-bottom: 5px; }
-    .fcta p { font-size: 12px; color: var(--text-muted); margin-bottom: 15px; }
+header{
+  position:absolute;top:0;left:0;width:100%;z-index:10;
+  border-bottom:1px solid var(--border);
+  background:linear-gradient(#000e,#0008);
+}
+.nav-container{
+  width:min(1400px,95%);margin:auto;padding:15px 0;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+.logo img{height:60px;width:auto;object-fit:contain}
+.nav-links{display:flex;gap:22px;font-size:12px;text-transform:uppercase;letter-spacing:1px}
+.nav-links a:hover{color:var(--gold)}
+.lang-toggle{display:flex;gap:12px;font-size:13px}
+.lang-btn{cursor:pointer;opacity:.6}
+.lang-btn.active,.lang-btn:hover{opacity:1;color:var(--gold)}
 
-    .bottom-footer { background: #000; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.05); font-size: 12px; color: var(--text-muted); }
-    .bf-inner { width: min(1400px, 95%); margin: auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
-    .bf-links { display: flex; gap: 20px; }
+.hero{
+  min-height:90vh;display:flex;align-items:center;padding:130px 0 80px;
+  position:relative;background:
+  linear-gradient(90deg,#000f,#000b 50%,#0004),
+  url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1920&q=85')
+  center/cover;
+}
+.hero-content{width:min(1400px,95%);margin:auto;max-width:760px}
+.hero h1{font-size:clamp(38px,6vw,72px);line-height:1.15;margin-bottom:20px}
+.hero h2{font-size:clamp(18px,2.5vw,25px);margin-bottom:20px}
+.hero p{color:#ccc;max-width:560px;margin-bottom:25px}
+.hero-tagline{color:var(--gold);letter-spacing:1px;margin-bottom:30px;font-size:13px}
 
-    /* MODAL */
-    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 999; display: none; place-items: center; opacity: 0; transition: opacity 0.3s; backdrop-filter: blur(5px); }
-    .modal-overlay.active { display: grid; opacity: 1; }
-    .modal-content { background: var(--bg-panel); border: 1px solid var(--gold); padding: 30px 20px; border-radius: 12px; width: min(550px, 95%); position: relative; box-shadow: 0 10px 40px rgba(205,163,79,0.2); max-height: 90vh; overflow-y: auto; }
-    .close-modal { position: absolute; top: 15px; right: 20px; font-size: 24px; color: var(--text-muted); cursor: pointer; }
-    .modal-content h2 { color: var(--gold); margin-bottom: 20px; font-size: 20px; text-align: center; }
-    
-    form { display: grid; gap: 12px; }
-    .step-label { font-size: 11px; color: var(--gold); margin-bottom: 4px; display: block; text-transform: uppercase; letter-spacing: 1px;}
-    input, select, textarea { width: 100%; padding: 12px 14px; border: 1px solid rgba(205,163,79,0.3); border-radius: 6px; background: #000; color: #fff; font: inherit; font-size: 14px; appearance: none; }
-    input:focus, select:focus, textarea:focus { outline: none; border-color: var(--gold); }
-    select option, select optgroup { background: #111; color: #fff; }
-    .dropdown-row { display: flex; gap: 10px; }
-    .dropdown-row > div { flex: 1; }
-    .file-upload-wrapper { border: 1px dashed var(--gold); padding: 15px; border-radius: 6px; text-align: center; background: rgba(205,163,79,0.05); }
-    .file-upload-wrapper input[type="file"] { display: none; }
-    .file-upload-label { cursor: pointer; color: var(--gold-light); font-size: 13px; display: flex; align-items: center; justify-content: center; gap: 8px; }
-    .submit-area { display: grid; gap: 10px; margin-top: 5px; }
-    .btn-line-photo { background: #06C755; color: #fff; border: none; padding: 12px; border-radius: 50px; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 600; font-size: 14px; }
+.btn{
+  display:inline-flex;justify-content:center;align-items:center;gap:8px;
+  padding:13px 28px;border:1px solid var(--gold);border-radius:40px;
+  background:transparent;color:var(--gold-light);font-family:Cinzel,serif;
+  cursor:pointer;transition:.25s;font-size:14px;
+}
+.btn:hover{background:var(--gold);color:#000}
+.btn:disabled{opacity:.55;cursor:wait}
 
-    @media (max-width: 1100px) { .categories-grid, .services-grid { grid-template-columns: repeat(3, 1fr); } .service-item:nth-child(3) { border-right: none; } }
-    @media (max-width: 900px) { .nav-links { display: none; } .hero { text-align: center; padding-top: 120px; } .hero::before { background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.9)); } .hero-tagline { justify-content: center; } .footer-inner { flex-direction: column; text-align: center; } .fcontact { justify-content: center; } .fbrand img { margin: 0 auto 10px; } }
-    @media (max-width: 600px) { .categories-grid, .services-grid { grid-template-columns: repeat(2, 1fr); } .service-item:last-child { grid-column: span 2; } .dropdown-row { flex-direction: column; } .categories-grid { gap: 10px; } .fcontact { flex-direction: column; align-items: flex-start; } }
-  </style>
+.services-bar{border-top:2px solid var(--border);border-bottom:2px solid var(--border);background:var(--panel)}
+.services-grid{
+  width:min(1400px,95%);margin:auto;display:grid;
+  grid-template-columns:repeat(5,1fr);
+}
+.service-item{text-align:center;padding:30px 12px;border-right:1px solid #222}
+.service-item:last-child{border:0}
+.service-icon{font-size:30px;color:var(--gold);margin-bottom:10px}
+.service-item h3{font-size:14px;margin-bottom:7px}
+.service-item p{font-size:12px;color:var(--muted)}
+
+.featured{padding:80px 0;background:radial-gradient(circle at top,#151515,#050505 70%)}
+.section-title{text-align:center;margin-bottom:35px}
+.section-title span{display:block;color:var(--gold);font-size:12px;letter-spacing:3px}
+.section-title h2{font-size:clamp(23px,4vw,34px);margin-top:8px}
+.categories-grid{
+  width:min(1400px,95%);margin:auto;display:grid;
+  grid-template-columns:repeat(5,1fr);gap:15px;
+}
+.cat-card{
+  position:relative;aspect-ratio:3/4;overflow:hidden;
+  border:1px solid var(--border);border-radius:8px;
+  display:flex;align-items:flex-end;
+  background:#171717;
+}
+.cat-card img{position:absolute;width:100%;height:100%;object-fit:cover;transition:.4s}
+.cat-card:hover img{transform:scale(1.07)}
+.cat-card:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent,#000e)}
+.cat-content{position:relative;z-index:1;padding:15px;width:100%}
+.cat-content h3{font-size:14px}
+
+.footer-banner{
+  padding:45px 0;border-top:2px solid var(--gold);
+  background:linear-gradient(#000d,#000e),
+  url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80') center/cover;
+}
+.footer-inner{
+  width:min(1400px,95%);margin:auto;display:flex;
+  justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;
+}
+.fbrand img{height:65px;margin-bottom:10px}
+.fbrand p{color:var(--gold-light);font-size:18px}
+.fcontact{display:flex;gap:25px;flex-wrap:wrap}
+.fcontact-item{font-size:13px}
+.fcontact-item span{display:block;color:var(--muted);font-size:11px;text-transform:uppercase}
+.fcontact-item strong{font-weight:500;overflow-wrap:anywhere}
+.fcta h3{font-size:19px}
+.fcta p{font-size:12px;color:var(--muted);margin-bottom:10px}
+.bottom-footer{background:#000;padding:18px 0;color:var(--muted);font-size:12px}
+.bf-inner{width:min(1400px,95%);margin:auto;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+.modal-overlay{
+  position:fixed;inset:0;background:#000e;z-index:999;
+  display:none;place-items:center;padding:12px;
+}
+.modal-overlay.active{display:grid}
+.modal-content{
+  width:min(550px,100%);max-height:92vh;overflow-y:auto;
+  background:var(--panel);border:1px solid var(--gold);
+  border-radius:12px;padding:28px 20px;position:relative;
+}
+.close-modal{position:absolute;right:18px;top:8px;font-size:28px;cursor:pointer;color:#aaa}
+.modal-content h2{text-align:center;color:var(--gold);font-size:20px;margin-bottom:20px;padding-right:20px}
+form{display:grid;gap:12px}
+.step-label{display:block;color:var(--gold);font-size:11px;letter-spacing:1px;margin-bottom:4px}
+input,select,textarea{
+  width:100%;padding:12px 13px;border:1px solid var(--border);
+  border-radius:6px;background:#000;color:#fff;font:inherit;font-size:14px;
+}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold)}
+select option,select optgroup{background:#111;color:#fff}
+textarea{min-height:90px;resize:vertical}
+.dropdown-row{display:flex;gap:10px}
+.dropdown-row>div{flex:1;min-width:0}
+.file-upload-wrapper{
+  border:1px dashed var(--gold);padding:15px;border-radius:6px;
+  text-align:center;background:#cda34f0d;
+}
+.file-upload-wrapper input[type=file]{padding:8px;border:0;background:transparent}
+.file-note{font-size:11px;color:var(--muted);margin-top:5px}
+#file-name{display:block;color:var(--gold);font-size:12px;margin-top:8px;overflow-wrap:anywhere}
+.submit-area{display:grid;gap:10px;margin-top:5px}
+.submit-area .btn{width:100%}
+.btn-line-photo{
+  background:#06c755;color:white;border:0;padding:12px;border-radius:40px;
+  display:flex;align-items:center;justify-content:center;font-weight:600;font-size:14px;
+}
+#status-message{font-size:13px;overflow-wrap:anywhere}
+#status-message.error{color:#ff9a9a}
+#status-message.success{color:#a6f0a6}
+
+@media(max-width:1050px){
+  .categories-grid,.services-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:800px){
+  .nav-links{display:none}
+  .hero{text-align:center;min-height:75vh}
+  .footer-inner{flex-direction:column;text-align:center}
+  .fcontact{justify-content:center}
+  .fbrand img{margin:0 auto 10px}
+}
+@media(max-width:550px){
+  .categories-grid,.services-grid{grid-template-columns:repeat(2,1fr)}
+  .service-item:last-child{grid-column:span 2}
+  .dropdown-row{flex-direction:column}
+  .fcontact{flex-direction:column;align-items:center}
+  .cat-content h3{font-size:12px}
+}
+</style>
 </head>
+
 <body>
+<header>
+  <div class="nav-container">
+    <a href="#" class="logo">
+      <img src="ar-auto-trading-royal-logo.png" alt="AR AUTO TRADING CO., LTD.">
+    </a>
 
-  <header>
-    <div class="nav-container">
-      <a href="#" class="logo"><img src="ar-auto-trading-royal-logo.png" alt="AR AUTO TRADING CO., LTD."></a>
-      <nav class="nav-links">
-        <a href="#" class="active" data-en="Home" data-ja="ホーム">Home</a>
-        <a href="#about" data-en="About Us" data-ja="会社概要">About Us</a>
-        <a href="#gallery" data-en="Vehicle Gallery" data-ja="車両ギャラリー">Vehicle Gallery</a>
-        <a href="#services" data-en="Services" data-ja="サービス">Services</a>
-        <a href="#company" data-en="Company Info" data-ja="会社情報">Company Info</a>
-        <!-- FIXED: Added href="javascript:void(0);" -->
-        <a href="javascript:void(0);" onclick="openModal()" data-en="Contact" data-ja="お問い合わせ">Contact</a>
-      </nav>
-      <div class="lang-toggle">
-        <div class="lang-btn active" id="btn-en" onclick="setLanguage('en')">🇬🇧 EN</div>
-        <div class="lang-btn" id="btn-ja" onclick="setLanguage('ja')">🇯🇵 日本語</div>
-      </div>
-    </div>
-  </header>
+    <nav class="nav-links">
+      <a href="#" data-en="Home" data-ja="ホーム">Home</a>
+      <a href="#services" data-en="Services" data-ja="サービス">Services</a>
+      <a href="#gallery" data-en="Vehicle Gallery" data-ja="車両ギャラリー">Vehicle Gallery</a>
+      <a href="#company" data-en="Company Info" data-ja="会社情報">Company Info</a>
+      <a href="javascript:void(0)" onclick="openModal()" data-en="Contact" data-ja="お問い合わせ">Contact</a>
+    </nav>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1 class="gold-text" data-en="AR AUTO TRADING<br>CO., LTD." data-ja="株式会社 ARオートトレーディング">AR AUTO TRADING<br>CO., LTD.</h1>
-      <h2 class="gold-text" data-en="Your Trusted Partner in Vehicles &amp; Heavy Machinery" data-ja="車両・重機の信頼できるパートナー">Your Trusted Partner in Vehicles &amp; Heavy Machinery</h2>
-      <p data-en="We provide quality used cars, accident vehicles, classic cars, trucks, excavators and construction machinery from Japan to the world." data-ja="日本から世界へ、高品質な中古車、事故車、クラシックカー、トラック、ユンボ、建設機械を提供します。">We provide quality used cars, accident vehicles, classic cars, trucks, excavators and construction machinery from Japan to the world.</p>
-      <div class="hero-tagline" data-en="Best Quality &bull; Fair Price &bull; Global Support" data-ja="最高の品質 &bull; 公正な価格 &bull; グローバルサポート">Best Quality &bull; Fair Price &bull; Global Support</div>
-      <a href="#gallery" class="btn" data-en="View Our Vehicles &rarr;" data-ja="車両を見る &rarr;">View Our Vehicles &rarr;</a>
-    </div>
-  </section>
-
-  <section class="services-bar" id="services">
-    <div class="services-grid">
-      <div class="service-item"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg></div><h3 data-en="Used Cars" data-ja="中古車">Used Cars</h3><p data-en="Quality vehicles for your next journey" data-ja="次なる旅のための高品質な車両">Quality vehicles for your next journey</p></div>
-      <div class="service-item"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/><path d="M12 2v4M10 4h4"/></svg></div><h3 data-en="Accident Vehicles" data-ja="事故車">Accident Vehicles</h3><p data-en="Reliable options at great value" data-ja="お得な選択肢">Reliable options at great value</p></div>
-      <div class="service-item"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/><path d="M8 10V6h8v4"/></svg></div><h3 data-en="Classic Cars" data-ja="クラシックカー">Classic Cars</h3><p data-en="Timeless classics for true enthusiasts" data-ja="愛好家のための不朽の名車">Timeless classics for true enthusiasts</p></div>
-      <div class="service-item"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><h3 data-en="Trucks &amp; Commercial" data-ja="トラック・商用車">Trucks &amp; Commercial</h3><p data-en="For your business and logistics" data-ja="ビジネスと物流のために">For your business and logistics</p></div>
-      <div class="service-item"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M3 20h18v2H3zM5 14h4v6H5zM9 8h10v6H9zM19 8l3-4-2-1-3 4"/><circle cx="7" cy="11" r="3"/><path d="M7 14v2"/><path d="M15 14v2"/></svg></div><h3 data-en="Excavators &amp; Machinery" data-ja="重機・建設機械">Excavators &amp; Machinery</h3><p data-en="Power for your projects" data-ja="プロジェクトのためのパワー">Power for your projects</p></div>
-    </div>
-  </section>
-
-  <section class="featured" id="gallery">
-    <div class="section-title"><div><span data-en="FEATURED CATEGORIES" data-ja="注目のカテゴリー">FEATURED CATEGORIES</span><h2 class="gold-text" data-en="Explore Our Vehicle Collection" data-ja="車両コレクションを探索する">Explore Our Vehicle Collection</h2></div></div>
-    <div class="categories-grid">
-      <a class="cat-card"><img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80"><div class="cat-content"><h3 data-en="Used Cars" data-ja="中古車">Used Cars</h3><div class="cat-arrow">&#10095;</div></div></a>
-      <a class="cat-card"><img src="https://images.unsplash.com/photo-1590362891991-f776e747a588?auto=format&fit=crop&w=600&q=80"><div class="cat-content"><h3 data-en="Accident Vehicles" data-ja="事故車">Accident Vehicles</h3><div class="cat-arrow">&#10095;</div></div></a>
-      <a class="cat-card"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80"><div class="cat-content"><h3 data-en="Classic Cars" data-ja="クラシックカー">Classic Cars</h3><div class="cat-arrow">&#10095;</div></div></a>
-      <a class="cat-card"><img src="https://images.unsplash.com/photo-1519003722824-194d4455a60f?auto=format&fit=crop&w=600&q=80"><div class="cat-content"><h3 data-en="Trucks &amp; Commercial" data-ja="トラック・商用車">Trucks &amp; Commercial</h3><div class="cat-arrow">&#10095;</div></div></a>
-      <a class="cat-card"><img src="https://images.unsplash.com/photo-1580901368919-7738efb0f87e?auto=format&fit=crop&w=600&q=80"><div class="cat-content"><h3 data-en="Heavy Machinery" data-ja="重機・建設機械">Heavy Machinery</h3><div class="cat-arrow">&#10095;</div></div></a>
-    </div>
-  </section>
-
-  <section class="footer-banner">
-    <div class="footer-inner">
-      <div class="fbrand"><img src="ar-auto-trading-royal-logo.png"><p class="script-text" data-en="Drive Your Future With Us" data-ja="私たちと未来をドライブしましょう">Drive Your Future With Us</p></div>
-      <div class="fcontact">
-        <a href="tel:07076707404" class="fcontact-item"><div class="fcontact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div><div class="fcontact-text"><span data-en="Phone" data-ja="電話">Phone</span><strong>070-7670-7404</strong></div></a>
-        <a href="https://line.me/ti/p/XSZXtxFExl" target="_blank" class="fcontact-item"><div class="fcontact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.036 9.608.391.084.922.258 1.057.592.121.303.079.778.039 1.085l-.171 1.037c-.053.303-.242 1.187 1.043.647 1.285-.539 6.93-4.082 9.457-6.99 1.742-1.921 2.539-3.884 2.539-5.979zm-16.663 3.061h-2.326c-.331 0-.599-.269-.599-.599v-5.659c0-.331.269-.599.599-.599h2.326c.331 0 .599.269.599.599s-.269.599-.599.599h-1.727v1.454h1.727c.331 0 .599.269.599.599s-.269.599-.599.599h-1.727v1.454h1.727c.331 0 .599.269.599.599s-.269.599-.599.599zm4.188-6.258c0-.331-.269-.599-.599-.599s-.599.269-.599.599v5.659c0 .331.269.599.599.599s.599-.269.599-.599v-5.659zm6.221 5.659c0 .331-.269.599-.599.599h-2.326c-.331 0-.599-.269-.599-.599v-5.659c0-.331.269-.599.599-.599s.599.269.599.599v5.06h1.727c.331 0 .599.269.599.599zm4.725-5.659c0 .331-.269.599-.599.599h-1.727v1.454h1.727c.331 0 .599.269.599.599s-.269.599-.599.599h-1.727v1.454h1.727c.331 0 .599.269.599.599s-.269.599-.599.599h-2.326c-.331 0-.599-.269-.599-.599v-5.659c0-.331.269-.599.599-.599h2.326c.331 0 .599.269.599.599z"/></svg></div><div class="fcontact-text"><span>LINE</span><strong data-en="Contact on LINE" data-ja="LINEで連絡する">Contact on LINE</strong></div></a>
-        <a href="mailto:Arautotrading7@gmail.com" class="fcontact-item"><div class="fcontact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div><div class="fcontact-text"><span data-en="Email" data-ja="メール">Email</span><strong>Arautotrading7@gmail.com</strong></div></a>
-      </div>
-      <!-- FIXED: Added onclick to button -->
-      <div class="fcta"><h3 class="gold-text" data-en="Get in Touch" data-ja="お問い合わせ">Get in Touch</h3><p data-en="We are always ready to help you." data-ja="いつでも喜んでお手伝いします。">We are always ready to help you.</p><button class="btn" style="padding: 10px 25px; font-size: 14px;" onclick="openModal()" data-en="Contact Us &rarr;" data-ja="お問い合わせ &rarr;">Contact Us &rarr;</button></div>
-    </div>
-  </section>
-
-  <!-- MODAL -->
-  <div class="modal-overlay" id="contactModal">
-    <div class="modal-content">
-      <span class="close-modal" onclick="closeModal()">&times;</span>
-      <h2 data-en="Vehicle Enquiry" data-ja="車両のお問い合わせ">Vehicle Enquiry</h2>
-      
-      <form id="enquiryForm">
-        <input id="name" placeholder="Your name" data-en-placeholder="Your name" data-ja-placeholder="お名前" required>
-        <input id="contact" placeholder="Phone or email" data-en-placeholder="Phone or email" data-ja-placeholder="電話番号またはメール" required>
-        
-        <div>
-          <span class="step-label" data-en="STEP 1: Maker" data-ja="STEP1: メーカー">STEP 1: Maker</span>
-          <select id="maker" required>
-            <option value="" data-en="Select Maker" data-ja="メーカーを選択">Select Maker</option>
-            <optgroup label="国産車 (Domestic)">
-              <option value="トヨタ" data-en="Toyota" data-ja="トヨタ">トヨタ</option><option value="日産" data-en="Nissan" data-ja="日産">日産</option><option value="スズキ" data-en="Suzuki" data-ja="スズキ">スズキ</option><option value="ダイハツ" data-en="Daihatsu" data-ja="ダイハツ">ダイハツ</option><option value="ホンダ" data-en="Honda" data-ja="ホンダ">ホンダ</option><option value="マツダ" data-en="Mazda" data-ja="マツダ">マツダ</option><option value="スバル" data-en="Subaru" data-ja="スバル">スバル</option><option value="三菱" data-en="Mitsubishi" data-ja="三菱">三菱</option><option value="いすゞ" data-en="Isuzu" data-ja="いすゞ">いすゞ</option><option value="日野" data-en="Hino" data-ja="日野">日野</option><option value="レクサス" data-en="Lexus" data-ja="レクサス">レクサス</option><option value="三菱ふそう" data-en="Fuso" data-ja="三菱ふそう">三菱ふそう</option><option value="光岡" data-en="Mitsuoka" data-ja="光岡">光岡</option><option value="UDトラックス" data-en="UD Trucks" data-ja="UDトラックス">UDトラックス</option>
-            </optgroup>
-            <optgroup label="輸入車 (Imported)">
-              <option value="メルセデス・ベンツ" data-en="Mercedes-Benz" data-ja="メルセデス・ベンツ">メルセデス・ベンツ</option><option value="BMW" data-en="BMW" data-ja="BMW">BMW</option><option value="フォルクスワーゲン" data-en="Volkswagen" data-ja="フォルクスワーゲン">フォルクスワーゲン</option><option value="アウディ" data-en="Audi" data-ja="アウディ">アウディ</option><option value="MINI" data-en="MINI" data-ja="MINI">MINI</option><option value="ボルボ" data-en="Volvo" data-ja="ボルボ">ボルボ</option><option value="ジープ" data-en="Jeep" data-ja="ジープ">ジープ</option><option value="プジョー" data-en="Peugeot" data-ja="プジョー">プジョー</option><option value="ルノー" data-en="Renault" data-ja="ルノー">ルノー</option><option value="ポルシェ" data-en="Porsche" data-ja="ポルシェ">ポルシェ</option><option value="フィアット" data-en="Fiat" data-ja="フィアット">フィアット</option><option value="スマート" data-en="Smart" data-ja="スマート">スマート</option><option value="ランドローバー" data-en="Land Rover" data-ja="ランドローバー">ランドローバー</option><option value="シトロエン" data-en="Citroen" data-ja="シトロエン">シトロエン</option><option value="ジャガー" data-en="Jaguar" data-ja="ジャガー">ジャガー</option><option value="アバルト" data-en="Abarth" data-ja="アバルト">アバルト</option><option value="アルファロメオ" data-en="Alfa Romeo" data-ja="アルファロメオ">アルファロメオ</option><option value="マセラティ" data-en="Maserati" data-ja="マセラティ">マセラティ</option><option value="シボレー" data-en="Chevrolet" data-ja="シボレー">シボレー</option><option value="フェラーリ" data-en="Ferrari" data-ja="フェラーリ">フェラーリ</option><option value="キャデラック" data-en="Cadillac" data-ja="キャデラック">キャデラック</option><option value="フォード" data-en="Ford" data-ja="フォード">フォード</option><option value="ランボルギーニ" data-en="Lamborghini" data-ja="ランボルギーニ">ランボルギーニ</option><option value="ベントレー" data-en="Bentley" data-ja="ベントレー">ベントレー</option><option value="ダッジ" data-en="Dodge" data-ja="ダッジ">ダッジ</option><option value="アストンマーチン" data-en="Aston Martin" data-ja="アストンマーチン">アストンマーチン</option><option value="ロールス・ロイス" data-en="Rolls-Royce" data-ja="ロールス・ロイス">ロールス・ロイス</option><option value="アルピナ" data-en="Alpina" data-ja="アルピナ">アルピナ</option><option value="クライスラー" data-en="Chrysler" data-ja="クライスラー">クライスラー</option><option value="ロータス" data-en="Lotus" data-ja="ロータス">ロータス</option><option value="ヒュンダイ" data-en="Hyundai" data-ja="ヒュンダイ">ヒュンダイ</option><option value="GMC" data-en="GMC" data-ja="GMC">GMC</option><option value="ローバー" data-en="Rover" data-ja="ローバー">ローバー</option><option value="ランチア" data-en="Lancia" data-ja="ランチア">ランチア</option><option value="MG" data-en="MG" data-ja="MG">MG</option><option value="ポンティアック" data-en="Pontiac" data-ja="ポンティアック">ポンティアック</option><option value="ビュイック" data-en="Buick" data-ja="ビュイック">ビュイック</option><option value="サーブ" data-en="Saab" data-ja="サーブ">サーブ</option><option value="ハマー" data-en="Hummer" data-ja="ハマー">ハマー</option><option value="オペル" data-en="Opel" data-ja="オペル">オペル</option><option value="リンカーン" data-en="Lincoln" data-ja="リンカーン">リンカーン</option><option value="サターン" data-en="Saturn" data-ja="サターン">サターン</option><option value="AMG" data-en="AMG" data-ja="AMG">AMG</option><option value="デイムラー" data-en="Daimler" data-ja="デイムラー">デイムラー</option><option value="マーキュリー" data-en="Mercury" data-ja="マーキュリー">マーキュリー</option><option value="その他・不明" data-en="Other" data-ja="その他・不明">その他・不明</option>
-            </optgroup>
-          </select>
-        </div>
-
-        <div>
-          <span class="step-label" data-en="STEP 2: Model" data-ja="STEP2: 車種">STEP 2: Model</span>
-          <select id="model" required disabled>
-            <option value="" data-en="Select Maker First" data-ja="メーカーを先に選択">Select Maker First</option>
-          </select>
-        </div>
-
-        <div class="dropdown-row">
-          <div><span class="step-label" data-en="STEP 3: Year" data-ja="STEP3: 年式">STEP 3: Year</span><input type="number" id="year" placeholder="2018"></div>
-          <div><span class="step-label" data-en="STEP 4: Mileage" data-ja="STEP4: 走行距離">STEP 4: Mileage</span><input type="text" id="mileage" placeholder="50,000 km"></div>
-        </div>
-
-        <textarea id="details" placeholder="Condition, damage details, location, etc." data-en-placeholder="Condition, damage details, location, etc." data-ja-placeholder="状態、損傷の詳細、地域など"></textarea>
-        
-        <div>
-          <span class="step-label" data-en="Photos (Optional)" data-ja="写真の添付 (任意)">Photos (Optional)</span>
-          <div class="file-upload-wrapper">
-            <label for="photos" class="file-upload-label">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-              <span data-en="Tap to select photos" data-ja="タップして写真を選択">Tap to select photos</span>
-            </label>
-            <input type="file" id="photos" accept="image/*" multiple>
-            <span id="file-name" style="display:block; margin-top:8px; font-size:12px; color:var(--gold);"></span>
-          </div>
-        </div>
-        
-        <div class="submit-area">
-          <button class="btn" type="submit" id="submitBtn" style="background:var(--gold); color:#000;" data-en="Submit Enquiry" data-ja="送信する">Submit Enquiry</button>
-          <div style="text-align:center; font-size:12px; color:var(--text-muted); margin: 5px 0;">- OR -</div>
-          <a href="https://line.me/ti/p/XSZXtxFExl" target="_blank" class="btn-line-photo">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.036 9.608.391.084.922.258 1.057.592.121.303.079.778.039 1.085l-.171 1.037c-.053.303-.242 1.187 1.043.647 1.285-.539 6.93-4.082 9.457-6.99 1.742-1.921 2.539-3.884 2.539-5.979zm-16.663 3.061h-2.326c-.331 0-.599-.269-.599-.599v-5.659c0-.331.269-.599.599-.599h2.326c.331 0 .599.269.599.599s-.269.599-.599.599h-1.727v1.454h1.727c.331 0 .599.269.599.599s-.269.599-.599.599h-1.727v1.454h1.727c.331 0 .599.269.599.599s-.269.599-.599.599zm4.188-6.258c0-.331-.269-.599-.599-.599s-.599.269-.599.599v5.659c0 .331.269.599.599.599s.599-.269.599-.599v-5.659zm6.221 5.659c0 .331-.269.599-.599.599h-2.326c-.331 0-.599-.269-.599-.599v-5.659c0-.331.269-.599.599-.599s.599.269.599.599v5.06h1.727c.331 0 .599.269.599.599zm4.725-5.659c0 .331-.269.599-.599.599h-1.727v1.454h1.727c.331 0 .599.269.599.599s-.269.599-.599.599h-1.727v1.454h1.727c.331 0 .599.269.599.599s-.269.599-.599.599h-2.326c-.331 0-.599-.269-.599-.599v-5.659c0-.331.269-.599.599-.599h2.326c.331 0 .599.269.599.599z"/></svg>
-            <span data-en="Send Photos via LINE" data-ja="LINEで写真を送る">Send Photos via LINE</span>
-          </a>
-        </div>
-      </form>
+    <div class="lang-toggle">
+      <div class="lang-btn active" id="btn-en" onclick="setLanguage('en')">🇬🇧 EN</div>
+      <div class="lang-btn" id="btn-ja" onclick="setLanguage('ja')">🇯🇵 日本語</div>
     </div>
   </div>
+</header>
 
-  <script>
-    // --- MODAL LOGIC (Moved to top so it always works instantly) ---
-    const modal = document.getElementById('contactModal');
-    function openModal() { modal.classList.add('active'); }
-    function closeModal() { modal.classList.remove('active'); }
-    modal.addEventListener('click', function(e) { if(e.target === modal) closeModal(); });
+<section class="hero">
+  <div class="hero-content">
+    <h1 class="gold-text">AR AUTO TRADING<br>CO., LTD.</h1>
+    <h2 class="gold-text"
+        data-en="Your Trusted Partner in Vehicles & Heavy Machinery"
+        data-ja="車両・重機の信頼できるパートナー">
+      Your Trusted Partner in Vehicles & Heavy Machinery
+    </h2>
+    <p data-en="We provide quality used cars, accident vehicles, classic cars, trucks, excavators and construction machinery from Japan to the world."
+       data-ja="日本から世界へ、高品質な中古車、事故車、クラシックカー、トラック、ユンボ、建設機械を提供します。">
+      We provide quality used cars, accident vehicles, classic cars, trucks, excavators and construction machinery from Japan to the world.
+    </p>
+    <div class="hero-tagline"
+         data-en="Best Quality • Fair Price • Global Support"
+         data-ja="最高の品質 • 公正な価格 • グローバルサポート">
+      Best Quality • Fair Price • Global Support
+    </div>
+    <a href="#gallery" class="btn" data-en="View Our Vehicles →" data-ja="車両を見る →">View Our Vehicles →</a>
+  </div>
+</section>
 
-    // --- SUPABASE INIT ---
-    const supabaseUrl = 'https://wgxjmqqpdnzxodacvucq.supabase.co';
-    const supabaseKey = 'sb_publishable_1jkh0BxfGfW7StQFGeC8Ig_O3gvj0PZ';
-    const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
+<section class="services-bar" id="services">
+  <div class="services-grid">
+    <div class="service-item"><div class="service-icon">🚘</div><h3 data-en="Used Cars" data-ja="中古車">Used Cars</h3><p data-en="Quality vehicles for your next journey" data-ja="高品質な車両">Quality vehicles for your next journey</p></div>
+    <div class="service-item"><div class="service-icon">🔧</div><h3 data-en="Accident Vehicles" data-ja="事故車">Accident Vehicles</h3><p data-en="Reliable options at great value" data-ja="お得な選択肢">Reliable options at great value</p></div>
+    <div class="service-item"><div class="service-icon">🏎️</div><h3 data-en="Classic Cars" data-ja="クラシックカー">Classic Cars</h3><p data-en="Timeless classics for enthusiasts" data-ja="愛好家のための名車">Timeless classics for enthusiasts</p></div>
+    <div class="service-item"><div class="service-icon">🚚</div><h3 data-en="Trucks & Commercial" data-ja="トラック・商用車">Trucks & Commercial</h3><p data-en="For business and logistics" data-ja="ビジネスと物流のために">For business and logistics</p></div>
+    <div class="service-item"><div class="service-icon">🏗️</div><h3 data-en="Heavy Machinery" data-ja="重機・建設機械">Heavy Machinery</h3><p data-en="Power for your projects" data-ja="プロジェクトのために">Power for your projects</p></div>
+  </div>
+</section>
 
-    // --- LANGUAGE SWITCH ---
-    function setLanguage(lang) {
-      document.querySelectorAll('[data-en]').forEach(el => {
-        if (el.tagName === 'OPTION') el.textContent = el.getAttribute('data-' + lang);
-        else el.innerHTML = el.getAttribute('data-' + lang);
-      });
-      document.querySelectorAll('[data-en-placeholder]').forEach(el => {
-        el.setAttribute('placeholder', el.getAttribute('data-' + lang + '-placeholder'));
-      });
-      document.getElementById('btn-en').classList.remove('active');
-      document.getElementById('btn-ja').classList.remove('active');
-      document.getElementById('btn-' + lang).classList.add('active');
+<section class="featured" id="gallery">
+  <div class="section-title">
+    <span data-en="FEATURED CATEGORIES" data-ja="注目のカテゴリー">FEATURED CATEGORIES</span>
+    <h2 class="gold-text" data-en="Explore Our Vehicle Collection" data-ja="車両コレクション">Explore Our Vehicle Collection</h2>
+  </div>
+
+  <div class="categories-grid">
+    <a class="cat-card" href="javascript:void(0)" onclick="openModal()">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80" alt="Used cars">
+      <div class="cat-content"><h3 data-en="Used Cars" data-ja="中古車">Used Cars</h3></div>
+    </a>
+    <a class="cat-card" href="javascript:void(0)" onclick="openModal()">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1590362891991-f776e747a588?auto=format&fit=crop&w=600&q=80" alt="Accident vehicles">
+      <div class="cat-content"><h3 data-en="Accident Vehicles" data-ja="事故車">Accident Vehicles</h3></div>
+    </a>
+    <a class="cat-card" href="javascript:void(0)" onclick="openModal()">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80" alt="Classic cars">
+      <div class="cat-content"><h3 data-en="Classic Cars" data-ja="クラシックカー">Classic Cars</h3></div>
+    </a>
+    <a class="cat-card" href="javascript:void(0)" onclick="openModal()">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1519003722824-194d4455a60f?auto=format&fit=crop&w=600&q=80" alt="Trucks">
+      <div class="cat-content"><h3 data-en="Trucks & Commercial" data-ja="トラック・商用車">Trucks & Commercial</h3></div>
+    </a>
+    <a class="cat-card" href="javascript:void(0)" onclick="openModal()">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1580901368919-7738efb0f87e?auto=format&fit=crop&w=600&q=80" alt="Heavy machinery">
+      <div class="cat-content"><h3 data-en="Heavy Machinery" data-ja="重機・建設機械">Heavy Machinery</h3></div>
+    </a>
+  </div>
+</section>
+
+<section class="footer-banner" id="company">
+  <div class="footer-inner">
+    <div class="fbrand">
+      <img src="ar-auto-trading-royal-logo.png" alt="AR AUTO TRADING">
+      <p class="script-text" data-en="Drive Your Future With Us" data-ja="私たちと未来へ">Drive Your Future With Us</p>
+    </div>
+
+    <div class="fcontact">
+      <a href="tel:07076707404" class="fcontact-item">
+        <span data-en="Phone" data-ja="電話">Phone</span><strong>070-7670-7404</strong>
+      </a>
+      <a href="https://line.me/ti/p/XSZXtxFExl" target="_blank" rel="noopener" class="fcontact-item">
+        <span>LINE</span><strong data-en="Contact on LINE" data-ja="LINEで連絡する">Contact on LINE</strong>
+      </a>
+      <a href="mailto:Arautotrading7@gmail.com" class="fcontact-item">
+        <span data-en="Email" data-ja="メール">Email</span><strong>Arautotrading7@gmail.com</strong>
+      </a>
+    </div>
+
+    <div class="fcta">
+      <h3 class="gold-text" data-en="Get in Touch" data-ja="お問い合わせ">Get in Touch</h3>
+      <p data-en="We are always ready to help you." data-ja="いつでもお問い合わせください。">We are always ready to help you.</p>
+      <button class="btn" onclick="openModal()" data-en="Contact Us →" data-ja="お問い合わせ →">Contact Us →</button>
+    </div>
+  </div>
+</section>
+
+<footer class="bottom-footer">
+  <div class="bf-inner">
+    <span>© <span id="currentYear"></span> AR AUTO TRADING CO., LTD.</span>
+    <span data-en="Quality Vehicles • Fair Prices • Worldwide Support" data-ja="高品質な車両 • 公正な価格 • 世界中へのサポート">Quality Vehicles • Fair Prices • Worldwide Support</span>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="contactModal">
+  <div class="modal-content">
+    <span class="close-modal" onclick="closeModal()" aria-label="Close">&times;</span>
+
+    <h2 data-en="Vehicle Enquiry" data-ja="車両のお問い合わせ">Vehicle Enquiry</h2>
+
+    <form id="enquiryForm">
+      <input id="name" name="name" autocomplete="name"
+             placeholder="Your name" data-en-placeholder="Your name"
+             data-ja-placeholder="お名前" required maxlength="150">
+
+      <input id="contact" name="contact" autocomplete="email"
+             placeholder="Phone or email" data-en-placeholder="Phone or email"
+             data-ja-placeholder="電話番号またはメール" required maxlength="200">
+
+      <div>
+        <label class="step-label" for="maker" data-en="STEP 1: Maker" data-ja="STEP 1：メーカー">STEP 1: Maker</label>
+        <select id="maker" name="maker" required>
+          <option value="" data-en="Select Maker" data-ja="メーカーを選択">Select Maker</option>
+          <optgroup label="Domestic / 国産車">
+            <option value="トヨタ" data-en="Toyota" data-ja="トヨタ">Toyota</option>
+            <option value="日産" data-en="Nissan" data-ja="日産">Nissan</option>
+            <option value="スズキ" data-en="Suzuki" data-ja="スズキ">Suzuki</option>
+            <option value="ダイハツ" data-en="Daihatsu" data-ja="ダイハツ">Daihatsu</option>
+            <option value="ホンダ" data-en="Honda" data-ja="ホンダ">Honda</option>
+            <option value="マツダ" data-en="Mazda" data-ja="マツダ">Mazda</option>
+            <option value="スバル" data-en="Subaru" data-ja="スバル">Subaru</option>
+            <option value="三菱" data-en="Mitsubishi" data-ja="三菱">Mitsubishi</option>
+            <option value="いすゞ" data-en="Isuzu" data-ja="いすゞ">Isuzu</option>
+            <option value="日野" data-en="Hino" data-ja="日野">Hino</option>
+            <option value="レクサス" data-en="Lexus" data-ja="レクサス">Lexus</option>
+            <option value="三菱ふそう" data-en="Mitsubishi Fuso" data-ja="三菱ふそう">Mitsubishi Fuso</option>
+            <option value="UDトラックス" data-en="UD Trucks" data-ja="UDトラックス">UD Trucks</option>
+          </optgroup>
+          <optgroup label="Imported / 輸入車">
+            <option value="メルセデス・ベンツ" data-en="Mercedes-Benz" data-ja="メルセデス・ベンツ">Mercedes-Benz</option>
+            <option value="BMW">BMW</option>
+            <option value="フォルクスワーゲン" data-en="Volkswagen" data-ja="フォルクスワーゲン">Volkswagen</option>
+            <option value="アウディ" data-en="Audi" data-ja="アウディ">Audi</option>
+            <option value="MINI">MINI</option>
+            <option value="ボルボ" data-en="Volvo" data-ja="ボルボ">Volvo</option>
+            <option value="ジープ" data-en="Jeep" data-ja="ジープ">Jeep</option>
+            <option value="ポルシェ" data-en="Porsche" data-ja="ポルシェ">Porsche</option>
+            <option value="フィアット" data-en="Fiat" data-ja="フィアット">Fiat</option>
+            <option value="アルファロメオ" data-en="Alfa Romeo" data-ja="アルファロメオ">Alfa Romeo</option>
+            <option value="フェラーリ" data-en="Ferrari" data-ja="フェラーリ">Ferrari</option>
+            <option value="ランボルギーニ" data-en="Lamborghini" data-ja="ランボルギーニ">Lamborghini</option>
+            <option value="ランドローバー" data-en="Land Rover" data-ja="ランドローバー">Land Rover</option>
+            <option value="その他・不明" data-en="Other / Unknown" data-ja="その他・不明">Other / Unknown</option>
+          </optgroup>
+        </select>
+      </div>
+
+      <div>
+        <label class="step-label" for="model" data-en="STEP 2: Model" data-ja="STEP 2：車種">STEP 2: Model</label>
+        <select id="model" name="model" required disabled>
+          <option value="" data-en="Select Maker First" data-ja="先にメーカーを選択">Select Maker First</option>
+        </select>
+      </div>
+
+      <div class="dropdown-row">
+        <div>
+          <label class="step-label" for="year" data-en="STEP 3: Year" data-ja="STEP 3：年式">STEP 3: Year</label>
+          <input type="number" id="year" name="year" min="1900" max="2100" placeholder="2018">
+        </div>
+        <div>
+          <label class="step-label" for="mileage" data-en="STEP 4: Mileage" data-ja="STEP 4：走行距離">STEP 4: Mileage</label>
+          <input type="text" id="mileage" name="mileage" placeholder="50,000 km" maxlength="100">
+        </div>
+      </div>
+
+      <textarea id="details" name="details"
+        placeholder="Condition, damage details, location, etc."
+        data-en-placeholder="Condition, damage details, location, etc."
+        data-ja-placeholder="状態、損傷の詳細、地域など" maxlength="5000"></textarea>
+
+      <div>
+        <label class="step-label" for="photos" data-en="Photos (Optional)" data-ja="写真（任意）">Photos (Optional)</label>
+        <div class="file-upload-wrapper">
+          <input type="file" id="photos" name="photos" accept="image/jpeg,image/png,image/webp,image/gif" multiple>
+          <label for="photos" style="cursor:pointer;color:var(--gold-light)" data-en="Tap to select photos" data-ja="タップして写真を選択">Tap to select photos</label>
+          <span id="file-name"></span>
+          <div class="file-note" data-en="Maximum 5 photos, 10 MB per photo." data-ja="写真は最大5枚、1枚10MBまで。">Maximum 5 photos, 10 MB per photo.</div>
+        </div>
+      </div>
+
+      <div class="submit-area">
+        <button class="btn" type="submit" id="submitBtn" style="background:var(--gold);color:#000">
+          <span data-en="Submit Enquiry" data-ja="送信する">Submit Enquiry</span>
+        </button>
+
+        <div id="status-message" role="status" aria-live="polite"></div>
+
+        <div style="text-align:center;font-size:12px;color:var(--muted)">— OR —</div>
+
+        <a href="https://line.me/ti/p/XSZXtxFExl" target="_blank" rel="noopener" class="btn-line-photo">
+          <span data-en="Contact Us via LINE" data-ja="LINEでお問い合わせ">Contact Us via LINE</span>
+        </a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+(() => {
+  "use strict";
+
+  // SUPABASE CONFIGURATION
+  const SUPABASE_URL = "https://wgxjmqqpdnzxodacvucq.supabase.co";
+  const SUPABASE_KEY = "sb_publishable_1jkh0BxfGfW7StQFGeC8Ig_O3gvj0PZ";
+
+  // Must match the actual names in your Supabase project.
+  const TABLE_NAME = "vehicle_enquiries";
+  const BUCKET_NAME = "vehicle-submissions";
+
+  const MAX_PHOTOS = 5;
+  const MAX_FILE_SIZE = 10 * 1024 * 1024;
+
+  const modal = document.getElementById("contactModal");
+  const form = document.getElementById("enquiryForm");
+  const submitBtn = document.getElementById("submitBtn");
+  const statusMessage = document.getElementById("status-message");
+  const photoInput = document.getElementById("photos");
+  const fileNameDisplay = document.getElementById("file-name");
+  const makerSelect = document.getElementById("maker");
+  const modelSelect = document.getElementById("model");
+
+  let supabaseClient = null;
+  let currentLanguage = "en";
+
+  const translations = {
+    en: {
+      selectMaker: "Select Maker",
+      selectModel: "Select Model",
+      selectMakerFirst: "Select Maker First",
+      other: "Other / Unknown",
+      uploading: "Submitting... Please wait",
+      submit: "Submit Enquiry",
+      photosSelected: n => `${n} photo(s) selected`,
+      noPhotos: "No photos selected",
+      tooManyPhotos: `Please select no more than ${MAX_PHOTOS} photos.`,
+      fileTooLarge: "Each photo must be 10 MB or smaller.",
+      invalidType: "Please select JPG, PNG, WEBP, or GIF images only.",
+      success: "Thank you! Your enquiry has been submitted successfully.",
+      failed: "Submission failed. Please try again or contact us via LINE.",
+      configError: "The submission service could not be initialized. Please contact us via LINE."
+    },
+    ja: {
+      selectMaker: "メーカーを選択",
+      selectModel: "車種を選択",
+      selectMakerFirst: "先にメーカーを選択",
+      other: "その他・不明",
+      uploading: "送信中です。しばらくお待ちください",
+      submit: "送信する",
+      photosSelected: n => `${n}枚の写真を選択しました`,
+      noPhotos: "写真が選択されていません",
+      tooManyPhotos: `写真は最大${MAX_PHOTOS}枚までです。`,
+      fileTooLarge: "写真1枚のサイズは10MB以下にしてください。",
+      invalidType: "JPG、PNG、WEBP、GIF形式の画像を選択してください。",
+      success: "お問い合わせを送信しました。ありがとうございます。",
+      failed: "送信に失敗しました。LINEでお問い合わせください。",
+      configError: "送信サービスを初期化できません。LINEでお問い合わせください。"
+    }
+  };
+
+  const carModels = {
+    "トヨタ": ["Alphard","Prius","Land Cruiser","HiAce","Supra","Corolla","Harrier","Yaris","Crown","Aqua"],
+    "日産": ["Serena","Note","Skyline","GT-R","Elgrand","X-Trail","Kicks","Leaf","Sakura","Fairlady Z"],
+    "ホンダ": ["N-BOX","Fit","Civic","Stepwgn","CR-V","Freed","Vezel","Accord","Odyssey"],
+    "スズキ": ["Swift","Hustler","Jimny","Spacia","Solio","Alto","Wagon R","Every"],
+    "ダイハツ": ["Tanto","Move","Mira e:S","Hijet","Copen","Rocky","Thor"],
+    "マツダ": ["CX-5","CX-8","Mazda3","Mazda2","Roadster (MX-5)","CX-60"],
+    "スバル": ["Forester","Impreza","Levorg","Outback","WRX","BRZ","Crosstrek"],
+    "三菱": ["Delica D:5","Outlander","Pajero","Eclipse Cross","Lancer Evolution"],
+    "レクサス": ["RX","NX","LX","LS","UX","ES","IS","LC"],
+    "メルセデス・ベンツ": ["C-Class","E-Class","S-Class","GLC","GLE","A-Class","Sprinter"],
+    "BMW": ["1 Series","2 Series","3 Series","5 Series","7 Series","X1","X3","X5","M3","M5"],
+    "フォルクスワーゲン": ["Golf","Polo","Tiguan","Passat","Touareg"],
+    "アウディ": ["A3","A4","A6","Q3","Q5","Q7"],
+    "MINI": ["Cooper","Clubman","Countryman"],
+    "ボルボ": ["XC40","XC60","XC90","V40","V60"],
+    "ポルシェ": ["911","Cayenne","Macan","Panamera","Taycan"],
+    "フィアット": ["500","Panda","Punto"],
+    "アルファロメオ": ["Giulia","Giulietta","156","147","Alfetta","Spider"],
+    "フェラーリ": ["California","458","488","F8","Roma"],
+    "ランドローバー": ["Defender","Discovery","Range Rover","Range Rover Sport"]
+  };
+
+  const t = () => translations[currentLanguage];
+
+  function setStatus(message, type = "") {
+    statusMessage.textContent = message;
+    statusMessage.className = type;
+  }
+
+  window.openModal = function() {
+    modal.classList.add("active");
+  };
+
+  window.closeModal = function() {
+    modal.classList.remove("active");
+  };
+
+  modal.addEventListener("click", event => {
+    if (event.target === modal) window.closeModal();
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") window.closeModal();
+  });
+
+  window.setLanguage = function(lang) {
+    if (lang !== "en" && lang !== "ja") return;
+    currentLanguage = lang;
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll("[data-en][data-ja]").forEach(el => {
+      // Do not replace the text of the currently submitting button.
+      if (el.closest("#submitBtn") && submitBtn.disabled) return;
+      el.textContent = el.getAttribute("data-" + lang);
+    });
+
+    document.querySelectorAll("[data-en-placeholder][data-ja-placeholder]").forEach(el => {
+      el.placeholder = el.getAttribute("data-" + lang + "-placeholder");
+    });
+
+    document.getElementById("btn-en").classList.toggle("active", lang === "en");
+    document.getElementById("btn-ja").classList.toggle("active", lang === "ja");
+
+    refreshMakerModelOptions();
+    refreshPhotoLabel();
+  };
+
+  function refreshMakerModelOptions() {
+    const previousMaker = makerSelect.value;
+    const previousModel = modelSelect.value;
+
+    Array.from(makerSelect.options).forEach(option => {
+      const translated = option.getAttribute("data-" + currentLanguage);
+      if (translated) option.textContent = translated;
+    });
+
+    makerSelect.options[0].textContent = t().selectMaker;
+
+    if (!previousMaker) {
+      modelSelect.innerHTML = "";
+      const option = document.createElement("option");
+      option.value = "";
+      option.textContent = t().selectMakerFirst;
+      modelSelect.appendChild(option);
+      modelSelect.disabled = true;
+      return;
     }
 
-    // --- MAKER & MODEL DATA ---
-    const carModels = {
-      "トヨタ": ["Alphard", "Prius", "Land Cruiser", "HiAce", "Supra", "Corolla", "Harrier", "Yaris", "Crown", "Aqua"],
-      "日産": ["Serena", "Note", "Skyline", "GT-R", "Elgrand", "X-Trail", "Kicks", "Leaf", "Sakura", "Fairlady Z"],
-      "ホンダ": ["N-BOX", "Fit", "Civic", "Stepwgn", "CR-V", "Freed", "Vezel", "Accord", "Odyssey"],
-      "スズキ": ["Swift", "Hustler", "Jimny", "Spacia", "Solio", "Alto", "Wagon R", "Every"],
-      "ダイハツ": ["Tanto", "Move", "Mira e:S", "Hijet", "Copen", "Rocky", "Thor"],
-      "マツダ": ["CX-5", "CX-8", "Mazda3", "Mazda2", "Roadster (MX-5)", "CX-60"],
-      "スバル": ["Forester", "Impreza", "Levorg", "Outback", "WRX", "BRZ", "Crosstrek"],
-      "三菱": ["Delica D:5", "Outlander", "Pajero", "Eclipse Cross", "Lancer Evolution"],
-      "レクサス": ["RX", "NX", "LX", "LS", "UX", "ES", "IS", "LC"],
-      "メルセデス・ベンツ": ["C-Class", "E-Class", "S-Class", "GLC", "GLE", "A-Class", "Sprinter"],
-      "BMW": ["3 Series", "5 Series", "7 Series", "X1", "X3", "X5", "M3", "M5"],
-      "ポルシェ": ["911", "Cayenne", "Macan", "Panamera", "Taycan"]
-    };
+    populateModels(previousMaker, previousModel);
+  }
 
-    const makerSelect = document.getElementById('maker');
-    const modelSelect = document.getElementById('model');
+  function populateModels(maker, selectedModel = "") {
+    modelSelect.innerHTML = "";
 
-    makerSelect.addEventListener('change', function() {
-      const selectedMaker = this.value;
-      const isJapanese = document.getElementById('btn-ja').classList.contains('active');
-      modelSelect.innerHTML = '';
-      let defaultText = isJapanese ? "車種を選択" : "Select Model";
-      let otherText = isJapanese ? "その他・不明" : "Other / Unknown";
+    const defaultOption = document.createElement("option");
+    defaultOption.value = "";
+    defaultOption.textContent = t().selectModel;
+    modelSelect.appendChild(defaultOption);
 
-      if (selectedMaker) {
-        let models = carModels[selectedMaker] || [otherText];
-        let defaultOpt = document.createElement('option');
-        defaultOpt.value = ""; defaultOpt.textContent = defaultText;
-        modelSelect.appendChild(defaultOpt);
-        models.forEach(model => {
-          let option = document.createElement('option');
-          option.value = model; option.textContent = model;
-          modelSelect.appendChild(option);
-        });
-        if(!models.includes(otherText)) {
-           let otherOpt = document.createElement('option');
-           otherOpt.value = "Other"; otherOpt.textContent = otherText;
-           modelSelect.appendChild(otherOpt);
-        }
-        modelSelect.disabled = false;
-      } else {
-        modelSelect.innerHTML = `<option value="">${defaultText}</option>`;
-        modelSelect.disabled = true;
-      }
+    const models = carModels[maker] || [];
+
+    models.forEach(model => {
+      const option = document.createElement("option");
+      option.value = model;
+      option.textContent = model;
+      modelSelect.appendChild(option);
     });
 
-    document.getElementById('photos').addEventListener('change', function() {
-      const fileCount = this.files.length;
-      const fileNameDisplay = document.getElementById('file-name');
-      const isJapanese = document.getElementById('btn-ja').classList.contains('active');
-      if (fileCount > 0) {
-        fileNameDisplay.textContent = isJapanese ? `${fileCount} 枚の写真が選択されました` : `${fileCount} photo(s) selected`;
-      } else {
+    const otherOption = document.createElement("option");
+    otherOption.value = "Other";
+    otherOption.textContent = t().other;
+    modelSelect.appendChild(otherOption);
+
+    modelSelect.disabled = false;
+
+    if (selectedModel && Array.from(modelSelect.options).some(o => o.value === selectedModel)) {
+      modelSelect.value = selectedModel;
+    }
+  }
+
+  makerSelect.addEventListener("change", () => {
+    populateModels(makerSelect.value);
+  });
+
+  function refreshPhotoLabel() {
+    const count = photoInput.files.length;
+    fileNameDisplay.textContent = count ? t().photosSelected(count) : "";
+  }
+
+  photoInput.addEventListener("change", () => {
+    const files = Array.from(photoInput.files);
+
+    if (files.length > MAX_PHOTOS) {
+      photoInput.value = "";
+      fileNameDisplay.textContent = "";
+      setStatus(t().tooManyPhotos, "error");
+      return;
+    }
+
+    const allowedTypes = ["image/jpeg","image/png","image/webp","image/gif"];
+
+    for (const file of files) {
+      if (file.size > MAX_FILE_SIZE) {
+        photoInput.value = "";
         fileNameDisplay.textContent = "";
+        setStatus(t().fileTooLarge, "error");
+        return;
       }
-    });
 
-    // --- FORM SUBMIT (UPLOAD PHOTOS & SAVE TO DB) ---
-    document.getElementById('enquiryForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const submitBtn = document.getElementById('submitBtn');
-      const originalBtnText = submitBtn.innerHTML;
-      
-      submitBtn.innerHTML = 'Uploading... Please wait...';
-      submitBtn.disabled = true;
+      if (!allowedTypes.includes(file.type)) {
+        photoInput.value = "";
+        fileNameDisplay.textContent = "";
+        setStatus(t().invalidType, "error");
+        return;
+      }
+    }
 
-      try {
-        const name = document.getElementById('name').value.trim();
-        const contact = document.getElementById('contact').value.trim();
-        const maker = document.getElementById('maker').value;
-        const model = document.getElementById('model').value;
-        const year = document.getElementById('year').value;
-        const mileage = document.getElementById('mileage').value;
-        const details = document.getElementById('details').value.trim();
-        const files = document.getElementById('photos').files;
+    setStatus("");
+    refreshPhotoLabel();
+  });
 
-        let photoUrls = [];
+  function safeExtension(file) {
+    const allowed = {
+      "image/jpeg": "jpg",
+      "image/png": "png",
+      "image/webp": "webp",
+      "image/gif": "gif"
+    };
+    return allowed[file.type];
+  }
 
-        // 1. Upload Photos to Supabase Storage
-        for (let i = 0; i < files.length; i++) {
-          const file = files[i];
-          const fileExt = file.name.split('.').pop();
-          const fileName = `${Date.now()}-${Math.random().toString(36).substring(2)}.${fileExt}`;
-          
-          const { data, error } = await supabaseClient.storage
-            .from('vehicle-submissions')
-            .upload(fileName, file);
+  function makeStoragePath(file) {
+    const randomId = (
+      typeof crypto !== "undefined" && crypto.randomUUID
+        ? crypto.randomUUID()
+        : Date.now() + "-" + Math.random().toString(36).slice(2)
+    );
 
-          if (error) throw error;
+    return "enquiries/" + randomId + "." + safeExtension(file);
+  }
 
-          const { data: urlData } = supabaseClient.storage
-            .from('vehicle-submissions')
-            .getPublicUrl(fileName);
-            
-          photoUrls.push(urlData.publicUrl);
+  function readableError(error) {
+    if (!error) return "Unknown error";
+    const parts = [];
+
+    if (error.message) parts.push(error.message);
+    if (error.code) parts.push("Code: " + error.code);
+    if (error.details) parts.push(error.details);
+    if (error.hint) parts.push("Hint: " + error.hint);
+
+    return parts.join(" | ") || String(error);
+  }
+
+  async function uploadPhotos(files) {
+    const uploadedPaths = [];
+
+    for (const file of files) {
+      const path = makeStoragePath(file);
+
+      const { error } = await supabaseClient.storage
+        .from(BUCKET_NAME)
+        .upload(path, file, {
+          cacheControl: "3600",
+          upsert: false,
+          contentType: file.type
+        });
+
+      if (error) {
+        // Best-effort cleanup of photos already uploaded in this submission.
+        if (uploadedPaths.length) {
+          const { error: cleanupError } = await supabaseClient.storage
+            .from(BUCKET_NAME)
+            .remove(uploadedPaths);
+
+          if (cleanupError) {
+            console.error("Photo cleanup failed:", cleanupError);
+          }
         }
 
-        // 2. Insert Data into Database
-        const { error: dbError } = await supabaseClient
-          .from('enquiries')
-          .insert([{
-            name: name,
-            contact: contact,
-            maker: maker,
-            model: model,
-            year: year,
-            mileage: mileage,
-            details: details,
-            photo_urls: photoUrls
-          }]);
-
-        if (dbError) throw dbError;
-
-        // 3. Success Message
-        alert('Thank you! Your enquiry has been submitted successfully.');
-        this.reset();
-        document.getElementById('file-name').textContent = '';
-        closeModal();
-
-      } catch (error) {
-        console.error('Error:', error);
-        alert('Something went wrong. Please try again or contact us via LINE.');
-      } finally {
-        submitBtn.innerHTML = originalBtnText;
-        submitBtn.disabled = false;
+        throw new Error("Photo upload failed: " + readableError(error));
       }
-    });
-  </script>
+
+      // Store the path, NOT a public URL. The bucket remains private.
+      uploadedPaths.push(path);
+    }
+
+    return uploadedPaths;
+  }
+
+  function cleanupUploadedPhotos(paths) {
+    if (!paths.length || !supabaseClient) return;
+
+    supabaseClient.storage
+      .from(BUCKET_NAME)
+      .remove(paths)
+      .then(({ error }) => {
+        if (error) console.error("Could not clean up uploaded photos:", error);
+      });
+  }
+
+  let isSubmitting = false;
+
+  form.addEventListener("submit", async event => {
+    event.preventDefault();
+
+    if (isSubmitting) return;
+
+    if (!supabaseClient) {
+      setStatus(t().configError, "error");
+      console.error("Supabase client is unavailable.");
+      return;
+    }
+
+    const files = Array.from(photoInput.files);
+
+    if (files.length > MAX_PHOTOS) {
+      setStatus(t().tooManyPhotos, "error");
+      return;
+    }
+
+    for (const file of files) {
+      if (file.size > MAX_FILE_SIZE) {
+        setStatus(t().fileTooLarge, "error");
+        return;
+      }
+
+      if (!safeExtension(file)) {
+        setStatus(t().invalidType, "error");
+        return;
+      }
+    }
+
+    const name = document.getElementById("name").value.trim();
+    const contact = document.getElementById("contact").value.trim();
+    const maker = makerSelect.value;
+    const model = modelSelect.value;
+    const yearValue = document.getElementById("year").value.trim();
+    const mileageValue = document.getElementById("mileage").value.trim();
+    const details = document.getElementById("details").value.trim();
+
+    if (!name || !contact || !maker || !model) {
+      setStatus(
+        currentLanguage === "ja"
+          ? "必須項目を入力してください。"
+          : "Please complete all required fields.",
+        "error"
+      );
+      return;
+    }
+
+    const year = yearValue ? Number(yearValue) : null;
+
+    if (year !== null && (!Number.isInteger(year) || year < 1900 || year > 2100)) {
+      setStatus(
+        currentLanguage === "ja" ? "年式を確認してください。" : "Please enter a valid year.",
+        "error"
+      );
+      return;
+    }
+
+    isSubmitting = true;
+    submitBtn.disabled = true;
+    submitBtn.textContent = t().uploading;
+    setStatus("");
+
+    let uploadedPaths = [];
+
+    try {
+      // 1. Upload any selected photos to the PRIVATE bucket.
+      uploadedPaths = await uploadPhotos(files);
+
+      // 2. Save the enquiry and private storage paths to the database.
+      const enquiry = {
+        name,
+        contact,
+        maker,
+        model,
+        year,
+        mileage: mileageValue || null,
+        details: details || null,
+        photo_urls: uploadedPaths
+      };
+
+      const { error: dbError } = await supabaseClient
+        .from(TABLE_NAME)
+        .insert([enquiry]);
+
+      if (dbError) {
+        console.error("Supabase database insert failed:", dbError);
+        throw new Error("Database save failed: " + readableError(dbError));
+      }
+
+      // 3. Show success and reset the form.
+      setStatus(t().success, "success");
+      form.reset();
+      modelSelect.innerHTML = "";
+      const placeholder = document.createElement("option");
+      placeholder.value = "";
+      placeholder.textContent = t().selectMakerFirst;
+      modelSelect.appendChild(placeholder);
+      modelSelect.disabled = true;
+      fileNameDisplay.textContent = "";
+
+      // Close after the user has had a moment to see the success message.
+      window.setTimeout(() => {
+        window.closeModal();
+        setStatus("");
+      }, 2500);
+
+    } catch (error) {
+      console.error("Enquiry submission failed:", error);
+
+      // If the database insert failed after uploading photos, remove those
+      // uploaded files where the configured storage policies permit it.
+      if (uploadedPaths.length) {
+        cleanupUploadedPhotos(uploadedPaths);
+      }
+
+      const detail = readableError(error);
+      console.error("Detailed submission error:", detail);
+
+      setStatus(
+        (currentLanguage === "ja" ? "送信エラー： " : "Submission error: ") + detail,
+        "error"
+      );
+
+    } finally {
+      isSubmitting = false;
+      submitBtn.disabled = false;
+      submitBtn.textContent = t().submit;
+    }
+  });
+
+  document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+  // Initialize Supabase.
+  try {
+    if (!window.supabase || !window.supabase.createClient) {
+      throw new Error("Supabase JavaScript library did not load.");
+    }
+
+    supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  } catch (error) {
+    console.error("Supabase initialization failed:", error);
+    setStatus(t().configError, "error");
+  }
+})();
+</script>
 </body>
 </html>
