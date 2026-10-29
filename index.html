@@ -86,7 +86,7 @@
     .bf-links { display: flex; gap: 20px; }
 
     /* MODAL */
-    .modal-overlay {    position: fixed; inset input: 0; background: rgba(0,,0,0,0.9); z-index: 999 select; display: none; place-items: center;, opacity: 0; transition: opacity 0.3s; text backdrop-filter: blur(5px); }
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 999; display: none; place-items: center; opacity: 0; transition: opacity 0.3s; backdrop-filter: blur(5px); }
     .modal-overlay.active { display: grid; opacity: 1; }
     .modal-content { background: var(--bg-panel); border: 1px solid var(--gold); padding: 30px 20px; border-radius: 12px; width: min(550px, 95%); position: relative; box-shadow: 0 10px 40px rgba(205,163,79,0.2); max-height: 90vh; overflow-y: auto; }
     .close-modal { position: absolute; top: 15px; right: 20px; font-size: 24px; color: var(--text-muted); cursor: pointer; }
@@ -94,7 +94,7 @@
     
     form { display: grid; gap: 12px; }
     .step-label { font-size: 11px; color: var(--gold); margin-bottom: 4px; display: block; text-transform: uppercase; letter-spacing: 1px;}
-area { width: 100%; padding: 12px 14px; border: 1px solid rgba(205,163,79,0.3); border-radius: 6px; background: #000; color: #fff; font: inherit; font-size: 14px; appearance: none; }
+    input, select, textarea { width: 100%; padding: 12px 14px; border: 1px solid rgba(205,163,79,0.3); border-radius: 6px; background: #000; color: #fff; font: inherit; font-size: 14px; appearance: none; }
     input:focus, select:focus, textarea:focus { outline: none; border-color: var(--gold); }
     select option, select optgroup { background: #111; color: #fff; }
     .dropdown-row { display: flex; gap: 10px; }
@@ -102,7 +102,6 @@ area { width: 100%; padding: 12px 14px; border: 1px solid rgba(205,163,79,0.3); 
     .file-upload-wrapper { border: 1px dashed var(--gold); padding: 15px; border-radius: 6px; text-align: center; background: rgba(205,163,79,0.05); }
     .file-upload-wrapper input[type="file"] { display: none; }
     .file-upload-label { cursor: pointer; color: var(--gold-light); font-size: 13px; display: flex; align-items: center; justify-content: center; gap: 8px; }
-    .form-note { font-size: 11px; color: var(--text-muted); text-align: center; margin-top: 5px; }
     .submit-area { display: grid; gap: 10px; margin-top: 5px; }
     .btn-line-photo { background: #06C755; color: #fff; border: none; padding: 12px; border-radius: 50px; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 600; font-size: 14px; }
 
@@ -122,7 +121,8 @@ area { width: 100%; padding: 12px 14px; border: 1px solid rgba(205,163,79,0.3); 
         <a href="#gallery" data-en="Vehicle Gallery" data-ja="車両ギャラリー">Vehicle Gallery</a>
         <a href="#services" data-en="Services" data-ja="サービス">Services</a>
         <a href="#company" data-en="Company Info" data-ja="会社情報">Company Info</a>
-        <a onclick="openModal()" data-en="Contact" data-ja="お問い合わせ">Contact</a>
+        <!-- FIXED: Added href="javascript:void(0);" -->
+        <a href="javascript:void(0);" onclick="openModal()" data-en="Contact" data-ja="お問い合わせ">Contact</a>
       </nav>
       <div class="lang-toggle">
         <div class="lang-btn active" id="btn-en" onclick="setLanguage('en')">🇬🇧 EN</div>
@@ -170,6 +170,7 @@ area { width: 100%; padding: 12px 14px; border: 1px solid rgba(205,163,79,0.3); 
         <a href="https://line.me/ti/p/XSZXtxFExl" target="_blank" class="fcontact-item"><div class="fcontact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.036 9.608.391.084.922.258 1.057.592.121.303.079.778.039 1.085l-.171 1.037c-.053.303-.242 1.187 1.043.647 1.285-.539 6.93-4.082 9.457-6.99 1.742-1.921 2.539-3.884 2.539-5.979zm-16.663 3.061h-2.326c-.331 0-.599-.269-.599-.599v-5.659c0-.331.269-.599.599-.599h2.326c.331 0 .599.269.599.599s-.269.599-.599.599h-1.727v1.454h1.727c.331 0 .599.269.599.599s-.269.599-.599.599h-1.727v1.454h1.727c.331 0 .599.269.599.599s-.269.599-.599.599zm4.188-6.258c0-.331-.269-.599-.599-.599s-.599.269-.599.599v5.659c0 .331.269.599.599.599s.599-.269.599-.599v-5.659zm6.221 5.659c0 .331-.269.599-.599.599h-2.326c-.331 0-.599-.269-.599-.599v-5.659c0-.331.269-.599.599-.599s.599.269.599.599v5.06h1.727c.331 0 .599.269.599.599zm4.725-5.659c0 .331-.269.599-.599.599h-1.727v1.454h1.727c.331 0 .599.269.599.599s-.269.599-.599.599h-1.727v1.454h1.727c.331 0 .599.269.599.599s-.269.599-.599.599h-2.326c-.331 0-.599-.269-.599-.599v-5.659c0-.331.269-.599.599-.599h2.326c.331 0 .599.269.599.599z"/></svg></div><div class="fcontact-text"><span>LINE</span><strong data-en="Contact on LINE" data-ja="LINEで連絡する">Contact on LINE</strong></div></a>
         <a href="mailto:Arautotrading7@gmail.com" class="fcontact-item"><div class="fcontact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div><div class="fcontact-text"><span data-en="Email" data-ja="メール">Email</span><strong>Arautotrading7@gmail.com</strong></div></a>
       </div>
+      <!-- FIXED: Added onclick to button -->
       <div class="fcta"><h3 class="gold-text" data-en="Get in Touch" data-ja="お問い合わせ">Get in Touch</h3><p data-en="We are always ready to help you." data-ja="いつでも喜んでお手伝いします。">We are always ready to help you.</p><button class="btn" style="padding: 10px 25px; font-size: 14px;" onclick="openModal()" data-en="Contact Us &rarr;" data-ja="お問い合わせ &rarr;">Contact Us &rarr;</button></div>
     </div>
   </section>
@@ -236,10 +237,16 @@ area { width: 100%; padding: 12px 14px; border: 1px solid rgba(205,163,79,0.3); 
   </div>
 
   <script>
+    // --- MODAL LOGIC (Moved to top so it always works instantly) ---
+    const modal = document.getElementById('contactModal');
+    function openModal() { modal.classList.add('active'); }
+    function closeModal() { modal.classList.remove('active'); }
+    modal.addEventListener('click', function(e) { if(e.target === modal) closeModal(); });
+
     // --- SUPABASE INIT ---
     const supabaseUrl = 'https://wgxjmqqpdnzxodacvucq.supabase.co';
     const supabaseKey = 'sb_publishable_1jkh0BxfGfW7StQFGeC8Ig_O3gvj0PZ';
-    const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+    const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
 
     // --- LANGUAGE SWITCH ---
     function setLanguage(lang) {
@@ -314,12 +321,6 @@ area { width: 100%; padding: 12px 14px; border: 1px solid rgba(205,163,79,0.3); 
       }
     });
 
-    // --- MODAL ---
-    const modal = document.getElementById('contactModal');
-    function openModal() { modal.classList.add('active'); }
-    function closeModal() { modal.classList.remove('active'); }
-    modal.addEventListener('click', function(e) { if(e.target === modal) closeModal(); });
-
     // --- FORM SUBMIT (UPLOAD PHOTOS & SAVE TO DB) ---
     document.getElementById('enquiryForm').addEventListener('submit', async function(e) {
       e.preventDefault();
@@ -347,14 +348,13 @@ area { width: 100%; padding: 12px 14px; border: 1px solid rgba(205,163,79,0.3); 
           const fileExt = file.name.split('.').pop();
           const fileName = `${Date.now()}-${Math.random().toString(36).substring(2)}.${fileExt}`;
           
-          const { data, error } = await supabase.storage
+          const { data, error } = await supabaseClient.storage
             .from('vehicle-submissions')
             .upload(fileName, file);
 
           if (error) throw error;
 
-          // Get Public URL for the uploaded image
-          const { data: urlData } = supabase.storage
+          const { data: urlData } = supabaseClient.storage
             .from('vehicle-submissions')
             .getPublicUrl(fileName);
             
@@ -362,7 +362,7 @@ area { width: 100%; padding: 12px 14px; border: 1px solid rgba(205,163,79,0.3); 
         }
 
         // 2. Insert Data into Database
-        const { error: dbError } = await supabase
+        const { error: dbError } = await supabaseClient
           .from('enquiries')
           .insert([{
             name: name,
