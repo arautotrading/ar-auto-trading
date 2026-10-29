@@ -247,17 +247,18 @@
     .modal-overlay.active { display: grid; opacity: 1; }
     .modal-content {
       background: var(--bg-panel); border: 1px solid var(--gold);
-      padding: 40px; border-radius: 12px; width: min(500px, 90%); position: relative;
+      padding: 40px 30px; border-radius: 12px; width: min(500px, 90%); position: relative;
       box-shadow: 0 10px 40px rgba(205,163,79,0.2);
+      max-height: 90vh; overflow-y: auto;
     }
     .close-modal {
       position: absolute; top: 15px; right: 20px; font-size: 24px;
       color: var(--text-muted); cursor: pointer; transition: 0.3s;
     }
     .close-modal:hover { color: var(--gold); }
-    .modal-content h2 { color: var(--gold); margin-bottom: 20px; font-size: 24px; text-align: center; }
+    .modal-content h2 { color: var(--gold); margin-bottom: 20px; font-size: 22px; text-align: center; }
     
-    /* Reused Form Styles */
+    /* Form Styles */
     form { display: grid; gap: 15px; }
     input, select, textarea {
       width: 100%; padding: 14px 16px; border: 1px solid rgba(205,163,79,0.3);
@@ -269,6 +270,9 @@
     textarea { min-height: 100px; resize: vertical; }
     select option { background: #111; }
     .form-note { font-size: 11px; color: var(--text-muted); text-align: center; margin-top: 5px; }
+    
+    /* Dual Dropdown Layout */
+    .dropdown-row { display: flex; gap: 10px; }
 
     /* ----- RESPONSIVE ----- */
     @media (max-width: 1100px) {
@@ -302,6 +306,8 @@
       .section-title::before, .section-title::after { width: 40px; }
       .fcontact { flex-direction: column; align-items: flex-start; width: 100%; }
       .bf-inner { flex-direction: column; text-align: center; }
+      
+      .dropdown-row { flex-direction: column; }
     }
     @media (max-width: 400px) {
       .categories-grid { grid-template-columns: 1fr; }
@@ -465,7 +471,7 @@
         <!-- LINE -->
         <a href="https://line.me/ti/p/XSZXtxFExl" target="_blank" class="fcontact-item">
           <div class="fcontact-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.036 9.608.391.084.922.258 1.057.592.121.303.079.778.039 1.085l-.171 1.037c-.053.303-.242 1.187 1.043.647 1.285-.539 6.93-4.082 9.457-6.99 1.742-1.921 2.539-3.884 2.539-5.979zm-16.663 3.061h-2.326c-.331 0-.599-.269-.599-.599v-5.659c0-.331.269-.599.599-.599h2.326c.331 0 .599.269.599.599s-.269.599-.599.599h-1.727v1.454h1.727c.331 0 .599.269.599.599s-.269.599-.599.599h-1.727v1.454h1.727c.331 0 .599.269.599.599s-.269.599-.599.599zm4.188-6.258c0-.331-.269-.599-.599-.599s-.599.269-.599.599v5.659c0 .331.269.599.599.599s.599-.269.599-.599v-5.659zm6.221 5.659c0 .331-.269.599-.599.599h-2.326c-.331 0-.599-.269-.599-.599v-5.659c0-.331.269-.599.599-.599s.599.269.599.599v5.06h1.727c.331 0 .599.269.599.599zm4.725-5.659c0 .331-.269.599-.599.599h-1.727v1.454h1.727c.331 0 .599.269.599.599s-.269.599-.599.599h-1.727v1.454h1.727c.331 0 .599.269.599.599s-.269.599-.599.599h-2.326c-.331 0-.599-.269-.599-.599v-5.659c0-.331.269-.599.599-.599h2.326c.331 0 .599.269.599.599z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.036 9.608.391.084.922.258 1.057.592.121.303.079.778.039 1.085l-.171 1.037c-.053.303-.242 1.187 1.043.647 1.285-.539 6.93-4.082 9.457-6.99 1.742-1.921 2.539-3.884 2.539-5.979zm-16.663 3.061h-2.326c-.331 0-.599-.269-.599-.599v-5.659c0-.331.269-.599.599-.599h2.326c.331 0 .599.269.599.599s-.269.599-.599.599h-1.727v1.454h1.727c.331 0 .599.269.599.599s-.269.599-.599.599h-1.727v1.454h1.727c.331 0 .599.269.599.599s-.269.599-.599.599zm4.188-6.258c0-.331-.269-.599-.599-.599s-.599.269-.599.599v5.6592c0 .331.269.-599.599.599s.5992-.269.599-.599v-5V.659zm6.221 65.659c0 .331-.269.599-.599.c599h-2.326c-.331 0-.599-.269-.599-.599v-5.659c0-.331.269-.599.599-.599s.599.269.599.599v5.06h1.727c.331 0 .599.269.599.599zm4.725-5.659c0 .331-.269.599-.599.599h-1.727v1.454h1.727c.331 0 .599.269.599.599s-.269.599-.599.599h-1.727v1.454h1.727c.331 0 .599.269.599.599s-.269.599-.599.599h-2.326c-.331 0-.599-.269-.599-.599v-5.659c0-.331.269-.599.599-.599h2.326c.331 0 .599.269.599.599z"/></svg>
           </div>
           <div class="fcontact-text">
             <span data-en="LINE" data-ja="LINE">LINE</span>
@@ -476,7 +482,7 @@
         <!-- Email -->
         <a href="mailto:Arautotrading7@gmail.com" class="fcontact-item">
           <div class="fcontact-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
           </div>
           <div class="fcontact-text">
             <span data-en="Email" data-ja="メール">Email</span>
@@ -517,17 +523,19 @@
       <form id="enquiryForm">
         <input id="name" name="name" placeholder="Your name" data-en-placeholder="Your name" data-ja-placeholder="お名前" required>
         <input id="contact" name="contact" placeholder="Phone number or email" data-en-placeholder="Phone number or email" data-ja-placeholder="電話番号またはメールアドレス" required>
-        <select id="vehicle" name="vehicle" required>
-          <option value="" data-en="Vehicle / equipment type" data-ja="車両・重機の種類">Vehicle / equipment type</option>
-          <option data-en="Used car" data-ja="中古車">Used car</option>
-          <option data-en="Accident or damaged vehicle" data-ja="事故車・損傷車">Accident or damaged vehicle</option>
-          <option data-en="Non-running vehicle" data-ja="不動車">Non-running vehicle</option>
-          <option data-en="Classic car" data-ja="クラシックカー">Classic car</option>
-          <option data-en="Truck / commercial vehicle" data-ja="トラック・商用車">Truck / commercial vehicle</option>
-          <option data-en="Excavator / forklift / machinery" data-ja="ユンボ・フォークリフト・重機">Excavator / forklift / machinery</option>
-          <option data-en="Other" data-ja="その他">Other</option>
-        </select>
-        <textarea id="details" name="details" placeholder="Make, model, year, mileage, condition and location" data-en-placeholder="Make, model, year, mileage, condition and location" data-ja-placeholder="メーカー、モデル、年式、走行距離、状態、地域"></textarea>
+        
+        <!-- NEW: Maker & Model Dropdowns -->
+        <div class="dropdown-row">
+          <select id="maker" name="maker" required>
+            <option value="" data-en="Select Maker" data-ja="メーカーを選択">Select Maker</option>
+            <!-- Populated by JS -->
+          </select>
+          <select id="model" name="model" required disabled>
+            <option value="" data-en="Select Model" data-ja="車種を選択">Select Model</option>
+          </select>
+        </div>
+
+        <textarea id="details" name="details" placeholder="Year, mileage, condition and location" data-en-placeholder="Year, mileage, condition and location" data-ja-placeholder="年式、走行距離、状態、地域"></textarea>
         <button class="btn" type="submit" style="background:var(--gold); color:#000;" data-en="Prepare Email Enquiry &nearr;" data-ja="メール問い合わせを作成 &nearr;">Prepare Email Enquiry &nearr;</button>
         <p class="form-note" data-en="This form opens your email app. It does not store data on this website." data-ja="このフォームはメールアプリを開きます。ウェブサイト上にデータは保存されません。">This form opens your email app. It does not store data on this website.</p>
       </form>
@@ -540,43 +548,92 @@
 
     // --- LANGUAGE SWITCH LOGIC ---
     function setLanguage(lang) {
-      // 1. Translate all elements with data-en and data-ja
       document.querySelectorAll('[data-en]').forEach(el => {
         el.innerHTML = el.getAttribute('data-' + lang);
       });
-
-      // 2. Translate placeholders
       document.querySelectorAll('[data-en-placeholder]').forEach(el => {
         el.setAttribute('placeholder', el.getAttribute('data-' + lang + '-placeholder'));
       });
-
-      // 3. Update active button styling
       document.getElementById('btn-en').classList.remove('active');
       document.getElementById('btn-ja').classList.remove('active');
       document.getElementById('btn-' + lang).classList.add('active');
     }
+
+    // --- MAKER & MODEL DROPDOWN LOGIC ---
+    // 1. Data for Makers and Models (You can add more here)
+    const carData = {
+      "Toyota": ["Alphard", "Prius", "Land Cruiser", "HiAce", "Supra", "Corolla"],
+      "Honda": ["N-BOX", "Fit", "Civic", "Stepwgn", "CR-V"],
+      "Nissan": ["Serena", "Note", "Skyline", "GT-R", "Elgrand", "X-Trail"],
+      "Lexus": ["RX", "NX", "LX", "LS", "UX"],
+      "Mitsubishi": ["Delica D:5", "Outlander", "Pajero"],
+      "Subaru": ["Forester", "Impreza", "WRX", "Levorg"],
+      "Mazda": ["CX-5", "CX-8", "Roadster"],
+      "Isuzu (Trucks)": ["Elf", "Forward", "Giga"],
+      "Hino (Trucks)": ["Dutro", "Ranger", "Profia"],
+      "Komatsu (Machinery)": ["PC200", "PC120", "WA380"],
+      "Caterpillar (Machinery)": ["320", "313", "950"],
+      "Other / Classic": ["Other"]
+    };
+
+    const makerSelect = document.getElementById('maker');
+    const modelSelect = document.getElementById('model');
+
+    // 2. Populate Maker Dropdown on load
+    window.onload = function() {
+      Object.keys(carData).forEach(maker => {
+        let option = document.createElement('option');
+        option.value = maker;
+        option.textContent = maker;
+        makerSelect.appendChild(option);
+      });
+    };
+
+    // 3. When Maker changes, update Model dropdown
+    makerSelect.addEventListener('change', function() {
+      const selectedMaker = this.value;
+      
+      // Get current language to update the default text
+      const isJapanese = document.getElementById('btn-ja').classList.contains('active');
+      const defaultModelText = isJapanese ? "車種を選択" : "Select Model";
+      
+      modelSelect.innerHTML = '<option value="">' + defaultModelText + '</option>';
+
+      if (selectedMaker) {
+        const models = carData[selectedMaker];
+        models.forEach(model => {
+          let option = document.createElement('option');
+          option.value = model;
+          option.textContent = model;
+          modelSelect.appendChild(option);
+        });
+        modelSelect.disabled = false;
+      } else {
+        modelSelect.disabled = true;
+      }
+    });
 
     // --- MODAL LOGIC ---
     const modal = document.getElementById('contactModal');
     function openModal() { modal.classList.add('active'); }
     function closeModal() { modal.classList.remove('active'); }
     
-    // Close modal on clicking outside
     modal.addEventListener('click', function(e) {
       if(e.target === modal) closeModal();
     });
 
-    // --- FORM LOGIC ---
+    // --- FORM LOGIC (Includes Maker & Model) ---
     document.getElementById('enquiryForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const name = document.getElementById('name').value.trim();
       const contact = document.getElementById('contact').value.trim();
-      const vehicle = document.getElementById('vehicle').value;
+      const maker = document.getElementById('maker').value;
+      const model = document.getElementById('model').value;
       const details = document.getElementById('details').value.trim();
       
       const subject = encodeURIComponent('Vehicle / Equipment Enquiry - AR AUTO TRADING');
       const body = encodeURIComponent(
-        'Name: ' + name + '\nContact: ' + contact + '\nVehicle type: ' + vehicle + '\nDetails: ' + details
+        'Name: ' + name + '\nContact: ' + contact + '\nMaker: ' + maker + '\nModel: ' + model + '\nDetails: ' + details
       );
       
       window.location.href = 'mailto:Arautotrading7@gmail.com?subject=' + subject + '&body=' + body;
