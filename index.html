@@ -247,7 +247,7 @@
     .modal-overlay.active { display: grid; opacity: 1; }
     .modal-content {
       background: var(--bg-panel); border: 1px solid var(--gold);
-      padding: 40px 30px; border-radius: 12px; width: min(500px, 90%); position: relative;
+      padding: 30px 20px; border-radius: 12px; width: min(550px, 95%); position: relative;
       box-shadow: 0 10px 40px rgba(205,163,79,0.2);
       max-height: 90vh; overflow-y: auto;
     }
@@ -256,23 +256,27 @@
       color: var(--text-muted); cursor: pointer; transition: 0.3s;
     }
     .close-modal:hover { color: var(--gold); }
-    .modal-content h2 { color: var(--gold); margin-bottom: 20px; font-size: 22px; text-align: center; }
+    .modal-content h2 { color: var(--gold); margin-bottom: 20px; font-size: 20px; text-align: center; }
     
     /* Form Styles */
-    form { display: grid; gap: 15px; }
+    form { display: grid; gap: 12px; }
+    .step-label { font-size: 11px; color: var(--gold); margin-bottom: 4px; display: block; text-transform: uppercase; letter-spacing: 1px;}
     input, select, textarea {
-      width: 100%; padding: 14px 16px; border: 1px solid rgba(205,163,79,0.3);
+      width: 100%; padding: 12px 14px; border: 1px solid rgba(205,163,79,0.3);
       border-radius: 6px; background: #000; color: #fff; font: inherit; font-size: 14px;
+      appearance: none; -webkit-appearance: none;
     }
     input:focus, select:focus, textarea:focus {
       outline: none; border-color: var(--gold); box-shadow: 0 0 10px rgba(205,163,79,0.1);
     }
-    textarea { min-height: 100px; resize: vertical; }
-    select option { background: #111; }
+    textarea { min-height: 80px; resize: vertical; }
+    select option, select optgroup { background: #111; color: #fff; }
+    
     .form-note { font-size: 11px; color: var(--text-muted); text-align: center; margin-top: 5px; }
     
     /* Dual Dropdown Layout */
     .dropdown-row { display: flex; gap: 10px; }
+    .dropdown-row > div { flex: 1; }
 
     /* ----- RESPONSIVE ----- */
     @media (max-width: 1100px) {
@@ -430,7 +434,7 @@
       </a>
       
       <a href="#" class="cat-card">
-        <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60f?auto=format&fit=crop&w=600&q=80" alt="Trucks & Commercial">
+        <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60f?auto=format&fit=crop&.w=600&q=0780" alt="Trucks  & Commercial">
         <div class="cat-content">
           <h3 data-en="Trucks &amp; Commercial" data-ja="トラック・商用車">Trucks &amp; Commercial</h3>
           <div class="cat-arrow">&#10095;</div>
@@ -460,7 +464,7 @@
         <!-- Phone -->
         <a href="tel:07076707404" class="fcontact-item">
           <div class="fcontact-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-319.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
           </div>
           <div class="fcontact-text">
             <span data-en="Phone" data-ja="電話">Phone</span>
@@ -471,7 +475,7 @@
         <!-- LINE -->
         <a href="https://line.me/ti/p/XSZXtxFExl" target="_blank" class="fcontact-item">
           <div class="fcontact-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.036 9.608.391.084.922.258 1.057.592.121.303.079.778.039 1.085l-.171 1.037c-.053.303-.242 1.187 1.043.647 1.285-.539 6.93-4.082 9.457-6.99 1.742-1.921 2.539-3.884 2.539-5.979zm-16.663 3.061h-2.326c-.331 0-.599-.269-.599-.599v-5.659c0-.331.269-.599.599-.599h2.326c.331 0 .599.269.599.599s-.269.599-.599.599h-1.727v1.454h1.727c.331 0 .599.269.599.599s-.269.599-.599.599h-1.727v1.454h1.727c.331 0 .599.269.599.599s-.269.599-.599.599zm4.188-6.258c0-.331-.269-.599-.599-.599s-.599.269-.599.599v5.6592c0 .331.269.-599.599.599s.5992-.269.599-.599v-5V.659zm6.221 65.659c0 .331-.269.599-.599.c599h-2.326c-.331 0-.599-.269-.599-.599v-5.659c0-.331.269-.599.599-.599s.599.269.599.599v5.06h1.727c.331 0 .599.269.599.599zm4.725-5.659c0 .331-.269.599-.599.599h-1.727v1.454h1.727c.331 0 .599.269.599.599s-.269.599-.599.599h-1.727v1.454h1.727c.331 0 .599.269.599.599s-.269.599-.599.599h-2.326c-.331 0-.599-.269-.599-.599v-5.659c0-.331.269-.599.599-.599h2.326c.331 0 .599.269.599.599z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.036 9.608.391.084.922.258 1.057.592.121.303.079.778.039 1.085l-.171 1.037c-.053.303-.242 1.187 1.043.647 1.285-.539 6.93-4.082 9.457-6.99 1.742-1.921 2.539-3.884 2.539-5.979zm-16.663 3.061h-2.326c-.331 0-.599-.269-.599-.599v-5.659c0-.331.269-.599.599-.599h2.326c.331 0 .599.269.599.599s-.269.599-.599.599h-1.727v1.454h1.727c.331 0 .599.269.599.599s-.269.599-.599.599h-1.727v1.454h1.727c.331 0 .599.269.599.599s-.269.599-.599.599zm4.188-6.258c0-.331-.269-.599-.599-.599s-.599.269-.599.599v5.659c0 .331.269.599.599.599s.599-.269.599-.599v-5.659zm6.221 5.659c0 .331-.269.599-.599.599h-2.326c-.331 0-.599-.269-.599-.599v-5.659c0-.331.269-.599.599-.599s.599.269.599.599v5.06h1.727c.331 0 .599.269.599.599zm4.725-5.659c0 .331-.269.599-.599.599h-1.727v1.454h1.727c.331 0 .599.269.599.599s-.269.599-.599.599h-1.727v1.454h1.727c.331 0 .599.269.599.599s-.269.599-.599.599h-2.326c-.331 0-.599-.269-.599-.599v-5.659c0-.331.269-.599.599-.599h2.326c.331 0 .599.269.599.599z"/></svg>
           </div>
           <div class="fcontact-text">
             <span data-en="LINE" data-ja="LINE">LINE</span>
@@ -482,7 +486,7 @@
         <!-- Email -->
         <a href="mailto:Arautotrading7@gmail.com" class="fcontact-item">
           <div class="fcontact-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
           </div>
           <div class="fcontact-text">
             <span data-en="Email" data-ja="メール">Email</span>
@@ -519,24 +523,111 @@
   <div class="modal-overlay" id="contactModal">
     <div class="modal-content">
       <span class="close-modal" onclick="closeModal()">&times;</span>
-      <h2 data-en="Vehicle / Equipment Enquiry" data-ja="車両・重機のお問い合わせ">Vehicle / Equipment Enquiry</h2>
+      <h2 data-en="Vehicle Enquiry" data-ja="車両のお問い合わせ">Vehicle Enquiry</h2>
+      
       <form id="enquiryForm">
         <input id="name" name="name" placeholder="Your name" data-en-placeholder="Your name" data-ja-placeholder="お名前" required>
         <input id="contact" name="contact" placeholder="Phone number or email" data-en-placeholder="Phone number or email" data-ja-placeholder="電話番号またはメールアドレス" required>
         
-        <!-- NEW: Maker & Model Dropdowns -->
-        <div class="dropdown-row">
+        <!-- STEP 1: MAKER -->
+        <div>
+          <span class="step-label" data-en="STEP 1: Maker" data-ja="STEP1: メーカー">STEP 1: Maker</span>
           <select id="maker" name="maker" required>
-            <option value="" data-en="Select Maker" data-ja="メーカーを選択">Select Maker</option>
-            <!-- Populated by JS -->
-          </select>
-          <select id="model" name="model" required disabled>
-            <option value="" data-en="Select Model" data-ja="車種を選択">Select Model</option>
+            <option value="" data-en="Select Maker" data-ja="メーカーを選択してください">Select Maker</option>
+            
+            <!-- Domestic Cars -->
+            <optgroup label="国産車 (Domestic)">
+              <option value="トヨタ" data-en="Toyota" data-ja="トヨタ">トヨタ (Toyota)</option>
+              <option value="日産" data-en="Nissan" data-ja="日産">日産 (Nissan)</option>
+              <option value="スズキ" data-en="Suzuki" data-ja="スズキ">スズキ (Suzuki)</option>
+              <option value="ダイハツ" data-en="Daihatsu" data-ja="ダイハツ">ダイハツ (Daihatsu)</option>
+              <option value="ホンダ" data-en="Honda" data-ja="ホンダ">ホンダ (Honda)</option>
+              <option value="マツダ" data-en="Mazda" data-ja="マツダ">マツダ (Mazda)</option>
+              <option value="スバル" data-en="Subaru" data-ja="スバル">スバル (Subaru)</option>
+              <option value="三菱" data-en="Mitsubishi" data-ja="三菱">三菱 (Mitsubishi)</option>
+              <option value="いすゞ" data-en="Isuzu" data-ja="いすゞ">いすゞ (Isuzu)</option>
+              <option value="日野" data-en="Hino" data-ja="日野">日野 (Hino)</option>
+              <option value="レクサス" data-en="Lexus" data-ja="レクサス">レクサス (Lexus)</option>
+              <option value="三菱ふそう" data-en="Mitsubishi Fuso" data-ja="三菱ふそう">三菱ふそう (Fuso)</option>
+              <option value="光岡" data-en="Mitsuoka" data-ja="光岡">光岡 (Mitsuoka)</option>
+              <option value="UDトラックス" data-en="UD Trucks" data-ja="UDトラックス">UDトラックス (UD Trucks)</option>
+            </optgroup>
+
+            <!-- Imported Cars -->
+            <optgroup label="輸入車 (Imported)">
+              <option value="メルセデス・ベンツ" data-en="Mercedes-Benz" data-ja="メルセデス・ベンツ">メルセデス・ベンツ (Mercedes-Benz)</option>
+              <option value="BMW" data-en="BMW" data-ja="BMW">BMW</option>
+              <option value="フォルクスワーゲン" data-en="Volkswagen" data-ja="フォルクスワーゲン">フォルクスワーゲン (VW)</option>
+              <option value="アウディ" data-en="Audi" data-ja="アウディ">アウディ (Audi)</option>
+              <option value="MINI" data-en="MINI" data-ja="MINI">MINI</option>
+              <option value="ボルボ" data-en="Volvo" data-ja="ボルボ">ボルボ (Volvo)</option>
+              <option value="ジープ" data-en="Jeep" data-ja="ジープ">ジープ (Jeep)</option>
+              <option value="プジョー" data-en="Peugeot" data-ja="プジョー">プジョー (Peugeot)</option>
+              <option value="ルノー" data-en="Renault" data-ja="ルノー">ルノー (Renault)</option>
+              <option value="ポルシェ" data-en="Porsche" data-ja="ポルシェ">ポルシェ (Porsche)</option>
+              <option value="フィアット" data-en="Fiat" data-ja="フィアット">フィアット (Fiat)</option>
+              <option value="スマート" data-en="Smart" data-ja="スマート">スマート (Smart)</option>
+              <option value="ランドローバー" data-en="Land Rover" data-ja="ランドローバー">ランドローバー (Land Rover)</option>
+              <option value="シトロエン" data-en="Citroen" data-ja="シトロエン">シトロエン (Citroen)</option>
+              <option value="ジャガー" data-en="Jaguar" data-ja="ジャガー">ジャガー (Jaguar)</option>
+              <option value="アバルト" data-en="Abarth" data-ja="アバルト">アバルト (Abarth)</option>
+              <option value="アルファロメオ" data-en="Alfa Romeo" data-ja="アルファロメオ">アルファロメオ (Alfa Romeo)</option>
+              <option value="マセラティ" data-en="Maserati" data-ja="マセラティ">マセラティ (Maserati)</option>
+              <option value="シボレー" data-en="Chevrolet" data-ja="シボレー">シボレー (Chevrolet)</option>
+              <option value="フェラーリ" data-en="Ferrari" data-ja="フェラーリ">フェラーリ (Ferrari)</option>
+              <option value="キャデラック" data-en="Cadillac" data-ja="キャデラック">キャデラック (Cadillac)</option>
+              <option value="フォード" data-en="Ford" data-ja="フォード">フォード (Ford)</option>
+              <option value="ランボルギーニ" data-en="Lamborghini" data-ja="ランボルギーニ">ランボルギーニ (Lamborghini)</option>
+              <option value="ベントレー" data-en="Bentley" data-ja="ベントレー">ベントレー (Bentley)</option>
+              <option value="ダッジ" data-en="Dodge" data-ja="ダッジ">ダッジ (Dodge)</option>
+              <option value="アストンマーチン" data-en="Aston Martin" data-ja="アストンマーチン">アストンマーチン (Aston Martin)</option>
+              <option value="ロールス・ロイス" data-en="Rolls-Royce" data-ja="ロールス・ロイス">ロールス・ロイス (Rolls-Royce)</option>
+              <option value="アルピナ" data-en="Alpina" data-ja="アルピナ">アルピナ (Alpina)</option>
+              <option value="クライスラー" data-en="Chrysler" data-ja="クライスラー">クライスラー (Chrysler)</option>
+              <option value="ロータス" data-en="Lotus" data-ja="ロータス">ロータス (Lotus)</option>
+              <option value="ヒュンダイ" data-en="Hyundai" data-ja="ヒュンダイ">ヒュンダイ (Hyundai)</option>
+              <option value="GMC" data-en="GMC" data-ja="GMC">GMC</option>
+              <option value="ローバー" data-en="Rover" data-ja="ローバー">ローバー (Rover)</option>
+              <option value="ランチア" data-en="Lancia" data-ja="ランチア">ランチア (Lancia)</option>
+              <option value="MG" data-en="MG" data-ja="MG">MG</option>
+              <option value="ポンティアック" data-en="Pontiac" data-ja="ポンティアック">ポンティアック (Pontiac)</option>
+              <option value="ビュイック" data-en="Buick" data-ja="ビュイック">ビュイック (Buick)</option>
+              <option value="サーブ" data-en="Saab" data-ja="サーブ">サーブ (Saab)</option>
+              <option value="ハマー" data-en="Hummer" data-ja="ハマー">ハマー (Hummer)</option>
+              <option value="オペル" data-en="Opel" data-ja="オペル">オペル (Opel)</option>
+              <option value="リンカーン" data-en="Lincoln" data-ja="リンカーン">リンカーン (Lincoln)</option>
+              <option value="サターン" data-en="Saturn" data-ja="サターン">サターン (Saturn)</option>
+              <option value="AMG" data-en="AMG" data-ja="AMG">AMG</option>
+              <option value="デイムラー" data-en="Daimler" data-ja="デイムラー">デイムラー (Daimler)</option>
+              <option value="マーキュリー" data-en="Mercury" data-ja="マーキュリー">マーキュリー (Mercury)</option>
+              <option value="その他・不明" data-en="Other / Unknown" data-ja="その他・不明">その他・不明 (Other)</option>
+            </optgroup>
           </select>
         </div>
 
-        <textarea id="details" name="details" placeholder="Year, mileage, condition and location" data-en-placeholder="Year, mileage, condition and location" data-ja-placeholder="年式、走行距離、状態、地域"></textarea>
-        <button class="btn" type="submit" style="background:var(--gold); color:#000;" data-en="Prepare Email Enquiry &nearr;" data-ja="メール問い合わせを作成 &nearr;">Prepare Email Enquiry &nearr;</button>
+        <!-- STEP 2: MODEL -->
+        <div>
+          <span class="step-label" data-en="STEP 2: Model" data-ja="STEP2: 車種">STEP 2: Model</span>
+          <select id="model" name="model" required disabled>
+            <option value="" data-en="Select Maker First" data-ja="メーカーを先に選択">Select Maker First</option>
+          </select>
+        </div>
+
+        <!-- STEP 3 & 4: YEAR AND MILEAGE -->
+        <div class="dropdown-row">
+          <div>
+            <span class="step-label" data-en="STEP 3: Year" data-ja="STEP3: 年式">STEP 3: Year</span>
+            <input type="number" id="year" name="year" placeholder="e.g. 2018" min="1950" max="2025">
+          </div>
+          <div>
+            <span class="step-label" data-en="STEP 4: Mileage" data-ja="STEP4: 走行距離">STEP 4: Mileage</span>
+            <input type="text" id="mileage" name="mileage" placeholder="e.g. 50,000 km">
+          </div>
+        </div>
+
+        <textarea id="details" name="details" placeholder="Condition, damage details, location, etc." data-en-placeholder="Condition, damage details, location, etc." data-ja-placeholder="状態、損傷の詳細、地域など"></textarea>
+        
+        <button class="btn" type="submit" style="background:var(--gold); color:#000; margin-top: 10px;" data-en="Prepare Email Enquiry &nearr;" data-ja="メール問い合わせを作成 &nearr;">Prepare Email Enquiry &nearr;</button>
         <p class="form-note" data-en="This form opens your email app. It does not store data on this website." data-ja="このフォームはメールアプリを開きます。ウェブサイト上にデータは保存されません。">This form opens your email app. It does not store data on this website.</p>
       </form>
     </div>
@@ -548,67 +639,92 @@
 
     // --- LANGUAGE SWITCH LOGIC ---
     function setLanguage(lang) {
+      // Translate text elements
       document.querySelectorAll('[data-en]').forEach(el => {
-        el.innerHTML = el.getAttribute('data-' + lang);
+        if (el.tagName === 'OPTION') {
+           el.textContent = el.getAttribute('data-' + lang);
+        } else {
+           el.innerHTML = el.getAttribute('data-' + lang);
+        }
       });
+      
+      // Translate placeholders
       document.querySelectorAll('[data-en-placeholder]').forEach(el => {
         el.setAttribute('placeholder', el.getAttribute('data-' + lang + '-placeholder'));
       });
+
+      // Update active state
       document.getElementById('btn-en').classList.remove('active');
       document.getElementById('btn-ja').classList.remove('active');
       document.getElementById('btn-' + lang).classList.add('active');
     }
 
     // --- MAKER & MODEL DROPDOWN LOGIC ---
-    // 1. Data for Makers and Models (You can add more here)
-    const carData = {
-      "Toyota": ["Alphard", "Prius", "Land Cruiser", "HiAce", "Supra", "Corolla"],
-      "Honda": ["N-BOX", "Fit", "Civic", "Stepwgn", "CR-V"],
-      "Nissan": ["Serena", "Note", "Skyline", "GT-R", "Elgrand", "X-Trail"],
-      "Lexus": ["RX", "NX", "LX", "LS", "UX"],
-      "Mitsubishi": ["Delica D:5", "Outlander", "Pajero"],
-      "Subaru": ["Forester", "Impreza", "WRX", "Levorg"],
-      "Mazda": ["CX-5", "CX-8", "Roadster"],
-      "Isuzu (Trucks)": ["Elf", "Forward", "Giga"],
-      "Hino (Trucks)": ["Dutro", "Ranger", "Profia"],
-      "Komatsu (Machinery)": ["PC200", "PC120", "WA380"],
-      "Caterpillar (Machinery)": ["320", "313", "950"],
-      "Other / Classic": ["Other"]
+    // Dictionary of popular models for major makers. 
+    // If a maker isn't listed here, it will just show "Other / その他"
+    const carModels = {
+      "トヨタ": ["Alphard", "Prius", "Land Cruiser", "HiAce", "Supra", "Corolla", "Harrier", "Yaris", "Crown", "Aqua", "Lexus (See Lexus)"],
+      "日産": ["Serena", "Note", "Skyline", "GT-R", "Elgrand", "X-Trail", "Kicks", "Leaf", "Sakura", "Fairlady Z"],
+      "ホンダ": ["N-BOX", "Fit", "Civic", "Stepwgn", "CR-V", "Freed", "Vezel", "Accord", "Odyssey"],
+      "スズキ": ["Swift", "Hustler", "Jimny", "Spacia", "Solio", "Alto", "Wagon R", "Every"],
+      "ダイハツ": ["Tanto", "Move", "Mira e:S", "Hijet", "Copen", "Rocky", "Thor"],
+      "マツダ": ["CX-5", "CX-8", "Mazda3", "Mazda2", "Roadster (MX-5)", "CX-60"],
+      "スバル": ["Forester", "Impreza", "Levorg", "Outback", "WRX", "BRZ", "Crosstrek"],
+      "三菱": ["Delica D:5", "Outlander", "Pajero", "Eclipse Cross", "Lancer Evolution"],
+      "レクサス": ["RX", "NX", "LX", "LS", "UX", "ES", "IS", "LC"],
+      "いすゞ": ["Elf", "Forward", "Giga"],
+      "日野": ["Dutro", "Ranger", "Profia"],
+      "メルセデス・ベンツ": ["C-Class", "E-Class", "S-Class", "GLC", "GLE", "A-Class", "Sprinter"],
+      "BMW": ["3 Series", "5 Series", "7 Series", "X1", "X3", "X5", "M3", "M5"],
+      "フォルクスワーゲン": ["Golf", "Polo", "Tiguan", "Passat", "T-Roc"],
+      "アウディ": ["A3", "A4", "A6", "Q3", "Q5", "Q7", "R8"],
+      "ポルシェ": ["911", "Cayenne", "Macan", "Panamera", "Taycan"],
+      "フェラーリ": ["488", "F8", "Roma", "Portofino", "SF90", "812"],
+      "ランボルギーニ": ["Huracan", "Aventador", "Urus"],
+      "トヨタ": ["Alphard", "Prius", "Land Cruiser", "HiAce", "Supra", "Corolla", "Harrier", "Yaris", "Crown", "Aqua"],
     };
 
     const makerSelect = document.getElementById('maker');
     const modelSelect = document.getElementById('model');
 
-    // 2. Populate Maker Dropdown on load
-    window.onload = function() {
-      Object.keys(carData).forEach(maker => {
-        let option = document.createElement('option');
-        option.value = maker;
-        option.textContent = maker;
-        makerSelect.appendChild(option);
-      });
-    };
-
-    // 3. When Maker changes, update Model dropdown
     makerSelect.addEventListener('change', function() {
       const selectedMaker = this.value;
-      
-      // Get current language to update the default text
       const isJapanese = document.getElementById('btn-ja').classList.contains('active');
-      const defaultModelText = isJapanese ? "車種を選択" : "Select Model";
       
-      modelSelect.innerHTML = '<option value="">' + defaultModelText + '</option>';
+      // Reset Model Dropdown
+      modelSelect.innerHTML = '';
+      
+      let defaultText = isJapanese ? "車種を選択" : "Select Model";
+      let otherText = isJapanese ? "その他・不明" : "Other / Unknown";
 
       if (selectedMaker) {
-        const models = carData[selectedMaker];
+        let models = carModels[selectedMaker] || [otherText];
+        
+        // Add default placeholder
+        let defaultOpt = document.createElement('option');
+        defaultOpt.value = "";
+        defaultOpt.textContent = defaultText;
+        modelSelect.appendChild(defaultOpt);
+
+        // Add models
         models.forEach(model => {
           let option = document.createElement('option');
           option.value = model;
           option.textContent = model;
           modelSelect.appendChild(option);
         });
+
+        // Add "Other" at the end just in case
+        if(!models.includes(otherText)) {
+           let otherOpt = document.createElement('option');
+           otherOpt.value = "Other";
+           otherOpt.textContent = otherText;
+           modelSelect.appendChild(otherOpt);
+        }
+
         modelSelect.disabled = false;
       } else {
+        modelSelect.innerHTML = `<option value="">${defaultText}</option>`;
         modelSelect.disabled = true;
       }
     });
@@ -622,18 +738,26 @@
       if(e.target === modal) closeModal();
     });
 
-    // --- FORM LOGIC (Includes Maker & Model) ---
+    // --- FORM LOGIC ---
     document.getElementById('enquiryForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const name = document.getElementById('name').value.trim();
       const contact = document.getElementById('contact').value.trim();
       const maker = document.getElementById('maker').value;
       const model = document.getElementById('model').value;
+      const year = document.getElementById('year').value;
+      const mileage = document.getElementById('mileage').value;
       const details = document.getElementById('details').value.trim();
       
-      const subject = encodeURIComponent('Vehicle / Equipment Enquiry - AR AUTO TRADING');
+      const subject = encodeURIComponent('Vehicle Enquiry - AR AUTO TRADING');
       const body = encodeURIComponent(
-        'Name: ' + name + '\nContact: ' + contact + '\nMaker: ' + maker + '\nModel: ' + model + '\nDetails: ' + details
+        'Name: ' + name + '\n' +
+        'Contact: ' + contact + '\n' +
+        'Maker: ' + maker + '\n' +
+        'Model: ' + model + '\n' +
+        'Year: ' + year + '\n' +
+        'Mileage: ' + mileage + '\n\n' +
+        'Details/Condition:\n' + details
       );
       
       window.location.href = 'mailto:Arautotrading7@gmail.com?subject=' + subject + '&body=' + body;
