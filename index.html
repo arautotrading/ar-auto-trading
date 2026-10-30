@@ -3,330 +3,318 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#19243b">
-<title>AR AUTO TRADING｜無料車両査定</title>
+<meta name="theme-color" content="#101010">
+<title>AR AUTO TRADING</title>
 
 <style>
 :root {
-  --navy: #202c46;
-  --red: #ed4c3d;
-  --blue: #1769c2;
-  --yellow: #fffcc9;
-  --gold: #f0c957;
-  --text: #222;
-  --gray: #d3d3d3;
+  --bg: #101010;
+  --panel: #1b1b1b;
+  --gold: #d9b45b;
+  --gold-light: #f3dda0;
+  --text: #f8f5ed;
+  --muted: #bdb7a9;
+  --border: #403725;
+  --input: #fffbd7;
 }
 
 * { box-sizing: border-box; }
 
 body {
   margin: 0;
+  background: var(--bg);
   color: var(--text);
-  background: #fff;
   font-family: Arial, "Noto Sans JP", sans-serif;
-  line-height: 1.55;
+  line-height: 1.6;
 }
+
+button, input, select, textarea { font: inherit; }
 
 header {
-  background: var(--navy);
-  color: white;
-  text-align: center;
+  background: #111;
+  border-bottom: 1px solid var(--border);
 }
 
-.header-top {
-  padding: 23px 10px 19px;
-  font-size: clamp(30px, 8vw, 53px);
-  font-weight: 1000;
-  color: #ffdc72;
-  text-shadow: 2px 3px 0 #88651d;
+.header-inner {
+  max-width: 760px;
+  margin: auto;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.brand {
+  color: var(--gold-light);
+  font-size: clamp(16px, 4vw, 24px);
+  font-weight: 900;
   letter-spacing: 1px;
 }
 
-.company {
-  display: block;
-  color: white;
-  font-size: 13px;
-  letter-spacing: 3px;
-  margin-top: 4px;
-  text-shadow: none;
-}
-
-.header-banner {
-  position: relative;
-  background: var(--red);
-  color: white;
-  padding: 13px 8px 19px;
-  font-size: clamp(17px, 4.3vw, 26px);
-  font-weight: 900;
-}
-
-.header-banner:after {
-  content: "";
-  position: absolute;
-  left: calc(50% - 17px);
-  bottom: -17px;
-  border-left: 17px solid transparent;
-  border-right: 17px solid transparent;
-  border-top: 17px solid var(--red);
+.brand-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 37px;
+  height: 37px;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  margin-right: 7px;
 }
 
 .language {
   display: flex;
-  justify-content: flex-end;
-  gap: 6px;
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 10px 14px 0;
+  gap: 5px;
 }
 
 .language button {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background: #fff;
-  padding: 6px 12px;
-  font-weight: bold;
+  padding: 7px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: #222;
+  color: white;
 }
 
 .language button.active {
-  background: var(--navy);
-  color: white;
+  background: var(--gold);
+  color: #17130a;
+  font-weight: bold;
 }
 
 main {
-  max-width: 700px;
+  max-width: 760px;
   margin: auto;
+  padding: 18px 16px 45px;
 }
 
-.form-area {
-  padding: 28px 22px 30px;
-}
-
-.section-heading {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  justify-content: center;
-  margin: 5px 0 24px;
-  font-size: 21px;
-  font-weight: 900;
+.hero {
   text-align: center;
-}
-
-.section-heading:before,
-.section-heading:after {
-  content: "";
-  height: 1px;
-  flex: 1;
-  background: #bbb;
-}
-
-.field {
-  margin: 0 0 17px;
-}
-
-label {
-  display: block;
-  font-size: 20px;
-  margin-bottom: 9px;
-  font-weight: 500;
-}
-
-.required {
-  display: inline-block;
-  background: #f14348;
-  color: white;
-  border-radius: 4px;
-  padding: 2px 7px;
-  font-size: 16px;
-  margin-right: 6px;
-  vertical-align: 2px;
-}
-
-select,
-input,
-textarea {
-  display: block;
-  width: 100%;
-  border: 2px solid #dedbc1;
-  background: var(--yellow);
+  padding: 28px 16px;
+  border: 1px solid var(--border);
   border-radius: 13px;
-  padding: 17px 20px;
-  color: #333;
-  font-size: 20px;
-  min-height: 76px;
+  background: radial-gradient(ellipse at top, #40351e, #151515 75%);
 }
 
-select {
-  appearance: auto;
+.hero h1 {
+  margin: 0 0 8px;
+  color: var(--gold-light);
+  font-size: clamp(24px, 5vw, 34px);
 }
 
-input,
-textarea {
-  background: #fff;
+.hero p {
+  margin: 0;
+  color: var(--muted);
 }
 
-textarea {
-  min-height: 115px;
-  resize: vertical;
+.form-card {
+  margin-top: 22px;
+  padding: 22px 18px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 13px;
 }
 
-.next-button,
-.submit-button {
-  display: block;
-  width: 94%;
-  margin: 25px auto 26px;
-  padding: 20px 12px;
-  border: 0;
-  border-radius: 9px;
-  background: linear-gradient(#2079d1, #1256ae);
-  color: white;
-  font-size: 27px;
-  font-weight: 900;
-  box-shadow: 0 4px 0 #aaa;
-}
-
-.next-button:active,
-.submit-button:active {
-  transform: translateY(2px);
-  box-shadow: 0 2px 0 #aaa;
-}
-
-.security {
-  font-size: 16px;
-  line-height: 1.45;
-  margin: 25px 0 0;
-  overflow-wrap: anywhere;
-}
-
-.security strong {
-  display: block;
+.heading {
+  margin: 0 0 22px;
+  text-align: center;
   font-size: 21px;
+  color: var(--gold-light);
 }
-
-.security-icon {
-  color: #e3a326;
-}
-
-.error {
-  display: none;
-  color: #c90000;
-  font-size: 15px;
-  font-weight: bold;
-  margin: 6px 0;
-}
-
-.step-panel { display: none; }
-.step-panel.active { display: block; }
 
 .progress {
-  display: flex;
-  gap: 5px;
-  margin: 0 0 22px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7px;
+  margin-bottom: 22px;
 }
 
 .progress div {
-  flex: 1;
-  background: #eee;
-  color: #555;
-  border-radius: 5px;
   text-align: center;
+  border: 1px solid var(--border);
+  border-radius: 6px;
   padding: 8px 3px;
+  color: var(--muted);
   font-size: 12px;
 }
 
 .progress div.active {
-  background: var(--red);
-  color: white;
+  background: var(--gold);
+  color: #15110a;
+  border-color: var(--gold);
   font-weight: bold;
 }
 
-.back-button {
+.step { display: none; }
+.step.active { display: block; }
+
+.field { margin-bottom: 18px; }
+
+label {
   display: block;
-  margin: 10px auto 0;
-  border: 1px solid #aaa;
-  background: white;
-  padding: 11px 25px;
-  border-radius: 7px;
-  font-size: 16px;
-}
-
-.promo {
-  margin-top: 10px;
-  background: linear-gradient(120deg, #e84935, #d93629);
-  color: white;
-  text-align: center;
-  padding: 36px 16px 42px;
-  position: relative;
-}
-
-.promo:after {
-  content: "";
-  position: absolute;
-  bottom: -18px;
-  left: calc(50% - 18px);
-  border-left: 18px solid transparent;
-  border-right: 18px solid transparent;
-  border-top: 18px solid #d93629;
-}
-
-.promo-small {
+  margin-bottom: 8px;
   font-size: 18px;
   font-weight: bold;
 }
 
-.promo h2 {
-  font-size: 31px;
-  margin: 6px 0;
-  line-height: 1.3;
+.required {
+  display: inline-block;
+  padding: 2px 7px;
+  margin-right: 5px;
+  border-radius: 4px;
+  background: #bb3434;
+  color: white;
+  font-size: 12px;
+  vertical-align: 2px;
 }
 
-.benefits {
-  background: #fffef0;
-  padding: 32px 22px;
+select, input, textarea {
+  width: 100%;
+  min-height: 58px;
+  padding: 13px 15px;
+  border: 1px solid #a99c68;
+  border-radius: 9px;
+  background: var(--input);
+  color: #252115;
+  font-size: 17px;
 }
 
-.benefit {
-  background: white;
-  border: 1px solid #eee3d2;
+select:disabled {
+  opacity: .65;
+  cursor: not-allowed;
+}
+
+input, textarea { background: #fff; }
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+select:focus, input:focus, textarea:focus {
+  outline: 2px solid var(--gold);
+}
+
+.btn {
+  width: 100%;
+  min-height: 57px;
+  padding: 14px;
+  margin-top: 8px;
+  border: 1px solid var(--gold-light);
+  border-radius: 8px;
+  background: linear-gradient(#f0d27e, #c69b3d);
+  color: #191307;
+  font-size: 21px;
+  font-weight: 900;
+  box-shadow: 0 3px 0 #75551e;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  opacity: .6;
+  cursor: wait;
+}
+
+.btn.secondary {
+  background: transparent;
+  color: var(--gold-light);
+  border-color: var(--border);
+  box-shadow: none;
+  font-size: 16px;
+}
+
+.security {
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.security strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--gold-light);
+  font-size: 17px;
+}
+
+.error {
+  display: none;
+  margin-top: 6px;
+  color: #ff8c83;
+  font-size: 13px;
+}
+
+.status {
+  display: none;
+  padding: 13px;
+  margin-top: 16px;
+  border-radius: 8px;
+  overflow-wrap: anywhere;
+}
+
+.status.success {
+  display: block;
+  background: #173a29;
+  color: #d9ffe6;
+}
+
+.status.error {
+  display: block;
+  background: #471d1d;
+  color: #ffe0e0;
+}
+
+.review-row {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  overflow-wrap: anywhere;
+}
+
+.review-row strong {
+  display: block;
+  color: var(--gold-light);
+}
+
+.promo {
+  margin-top: 28px;
+  padding: 27px 18px;
+  border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 16px;
-  margin: 13px 0;
+  background: linear-gradient(135deg, #292214, #111);
+  text-align: center;
 }
 
-.benefit h3 {
-  margin: 0 0 6px;
-  color: #d83d30;
-  font-size: 19px;
+.promo h2 {
+  margin: 0 0 8px;
+  color: var(--gold-light);
 }
 
-.benefit p {
+.promo p {
   margin: 0;
-  color: #555;
+  color: var(--muted);
 }
 
 footer {
-  background: var(--navy);
-  color: white;
+  padding: 25px 12px;
+  border-top: 1px solid var(--border);
   text-align: center;
-  padding: 25px 15px;
+  color: var(--muted);
+  font-size: 13px;
 }
 
 footer strong {
-  color: #ffdc72;
-  font-size: 21px;
+  display: block;
+  color: var(--gold-light);
+  font-size: 20px;
   letter-spacing: 1px;
 }
 
-footer p {
-  font-size: 12px;
-  margin-bottom: 0;
-}
-
-@media (max-width: 380px) {
-  .form-area { padding-left: 16px; padding-right: 16px; }
-  label { font-size: 18px; }
-  select, input, textarea { font-size: 18px; padding: 15px; }
-  .header-top { font-size: 29px; }
+@media (max-width: 390px) {
+  .header-inner { padding: 12px 9px; }
+  .brand { font-size: 14px; letter-spacing: 0; }
+  .brand-icon { width: 30px; height: 30px; }
+  .language button { padding: 6px; font-size: 12px; }
+  .form-card { padding: 18px 13px; }
+  label { font-size: 16px; }
 }
 </style>
 </head>
@@ -334,26 +322,26 @@ footer p {
 <body>
 
 <header>
-  <div class="header-top">
-    高価買取！
-    <span class="company">AR AUTO TRADING</span>
-  </div>
-  <div class="header-banner" data-i18n="banner">
-    WEBなら24時間受付・無料査定
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-icon">AR</span>AR AUTO TRADING
+    </div>
+
+    <div class="language">
+      <button id="jaButton" class="active" type="button">日本語</button>
+      <button id="enButton" type="button">English</button>
+    </div>
   </div>
 </header>
 
-<div class="language">
-  <button type="button" id="jaBtn" class="active">日本語</button>
-  <button type="button" id="enBtn">English</button>
-</div>
-
 <main>
-  <div class="form-area">
+  <section class="hero">
+    <h1 data-i18n="heroTitle">無料車両査定</h1>
+    <p data-i18n="heroText">お車の情報を入力してお問い合わせください。</p>
+  </section>
 
-    <div class="section-heading" data-i18n="heading">
-      ご利用の愛車について
-    </div>
+  <form id="enquiryForm" class="form-card">
+    <h2 class="heading" data-i18n="formHeading">ご利用の愛車について</h2>
 
     <div class="progress">
       <div id="progress1" class="active" data-i18n="progress1">車両情報</div>
@@ -361,19 +349,34 @@ footer p {
       <div id="progress3" data-i18n="progress3">確認・送信</div>
     </div>
 
-    <!-- STEP 1: VEHICLE -->
-    <section id="panel1" class="step-panel active">
+    <!-- STEP 1 -->
+    <section id="step1" class="step active">
 
       <div class="field">
-        <label for="makerModel">
+        <label for="maker">
           <span class="required" data-i18n="required">必須</span>
-          <span data-i18n="makerModelLabel">メーカー／車種</span>
+          <span data-i18n="makerLabel">メーカー</span>
         </label>
-
-        <select id="makerModel" required>
-          <option value="" data-i18n="makerPlaceholder">メーカー・車種を選択</option>
+        <select id="maker" required>
+          <option value="" data-i18n="makerPlaceholder">メーカーを選択</option>
         </select>
-        <div class="error" id="makerError"></div>
+        <div id="makerError" class="error"></div>
+      </div>
+
+      <div class="field">
+        <label for="model">
+          <span class="required" data-i18n="required">必須</span>
+          <span data-i18n="modelLabel">車種</span>
+        </label>
+        <select id="model" required disabled>
+          <option value="" data-i18n="modelPlaceholder">先にメーカーを選択してください</option>
+        </select>
+        <div id="modelError" class="error"></div>
+      </div>
+
+      <div class="field" id="otherModelField" hidden>
+        <label for="otherModel" data-i18n="otherModelLabel">その他の車種</label>
+        <input id="otherModel" type="text">
       </div>
 
       <div class="field">
@@ -384,7 +387,7 @@ footer p {
         <select id="year" required>
           <option value="" data-i18n="yearPlaceholder">年式を選択</option>
         </select>
-        <div class="error" id="yearError"></div>
+        <div id="yearError" class="error"></div>
       </div>
 
       <div class="field">
@@ -395,33 +398,28 @@ footer p {
         <select id="mileage" required>
           <option value="" data-i18n="mileagePlaceholder">走行距離を選択</option>
         </select>
-        <div class="error" id="mileageError"></div>
+        <div id="mileageError" class="error"></div>
       </div>
 
-      <button class="next-button" type="button" id="next1" data-i18n="next">
-        次へ
-      </button>
+      <button type="button" class="btn" id="next1" data-i18n="next">次へ</button>
 
       <div class="security">
-        <strong><span class="security-icon">🔒</span>
-          <span data-i18n="securityTitle">SSL暗号化通信</span>
-        </strong>
+        <strong data-i18n="securityTitle">🔒 SSL暗号化通信</strong>
         <span data-i18n="securityText">
-          お客様の個人情報は安全に取り扱います。ご入力いただいた情報は、お問い合わせへの対応に使用します。
+          お客様の個人情報はお問い合わせへの対応に使用します。
         </span>
       </div>
     </section>
 
-    <!-- STEP 2: CUSTOMER INFORMATION -->
-    <section id="panel2" class="step-panel">
-
+    <!-- STEP 2 -->
+    <section id="step2" class="step">
       <div class="field">
         <label for="customerName">
           <span class="required" data-i18n="required">必須</span>
           <span data-i18n="nameLabel">お名前</span>
         </label>
         <input id="customerName" autocomplete="name" required>
-        <div class="error" id="nameError"></div>
+        <div id="nameError" class="error"></div>
       </div>
 
       <div class="field">
@@ -429,81 +427,51 @@ footer p {
           <span class="required" data-i18n="required">必須</span>
           <span data-i18n="contactLabel">電話番号またはメールアドレス</span>
         </label>
-        <input id="contact" autocomplete="email" required>
-        <div class="error" id="contactError"></div>
+        <input id="contact" required>
+        <div id="contactError" class="error"></div>
       </div>
 
       <div class="field">
-        <label for="details" data-i18n="detailsLabel">ご希望・その他の情報</label>
+        <label for="details" data-i18n="detailsLabel">詳細・ご希望</label>
         <textarea id="details"></textarea>
       </div>
 
       <div class="field">
-        <label for="photos" data-i18n="photosLabel">
-          車両写真（任意・最大5枚）
-        </label>
+        <label for="photos" data-i18n="photosLabel">車両写真（最大5枚）</label>
         <input id="photos" type="file" accept="image/*" multiple>
         <small data-i18n="photosHint">各画像は10MB以下にしてください。</small>
       </div>
 
-      <button class="next-button" type="button" id="next2" data-i18n="next">
-        次へ
-      </button>
-      <button class="back-button" type="button" id="back2" data-i18n="back">
-        戻る
-      </button>
+      <button type="button" class="btn" id="next2" data-i18n="next">次へ</button>
+      <button type="button" class="btn secondary" id="back2" data-i18n="back">戻る</button>
     </section>
 
-    <!-- STEP 3: REVIEW -->
-    <section id="panel3" class="step-panel">
-      <h2 data-i18n="reviewTitle">入力内容をご確認ください</h2>
-      <div id="review" class="benefit"></div>
+    <!-- STEP 3 -->
+    <section id="step3" class="step">
+      <h3 data-i18n="reviewHeading">入力内容をご確認ください</h3>
+      <div id="review"></div>
 
-      <button class="submit-button" type="button" id="submitButton"
-              data-i18n="submit">
+      <button type="submit" class="btn" id="submitButton" data-i18n="submit">
         無料査定を申し込む
       </button>
 
-      <button class="back-button" type="button" id="back3" data-i18n="back">
+      <button type="button" class="btn secondary" id="back3" data-i18n="back">
         戻る
       </button>
     </section>
 
-    <div id="status" role="status" aria-live="polite"></div>
-  </div>
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+  </form>
 
   <section class="promo">
-    <div class="promo-small" data-i18n="promoSmall">
-      AR AUTO TRADINGの車両査定
-    </div>
-    <h2 data-i18n="promoTitle">選ばれる3つの理由</h2>
-  </section>
-
-  <section class="benefits">
-    <div class="benefit">
-      <h3 data-i18n="benefit1Title">① いつでもお問い合わせ</h3>
-      <p data-i18n="benefit1Text">
-        Webフォームから、いつでも車両査定についてお問い合わせいただけます。
-      </p>
-    </div>
-    <div class="benefit">
-      <h3 data-i18n="benefit2Title">② 幅広い車種に対応</h3>
-      <p data-i18n="benefit2Text">
-        国産車・輸入車・旧車など、幅広いメーカーの車両情報をお送りいただけます。
-      </p>
-    </div>
-    <div class="benefit">
-      <h3 data-i18n="benefit3Title">③ 簡単な入力フォーム</h3>
-      <p data-i18n="benefit3Text">
-        車両情報と連絡先を入力して、簡単にお問い合わせいただけます。
-      </p>
-    </div>
+    <h2 data-i18n="promoTitle">AR AUTO TRADING</h2>
+    <p data-i18n="promoText">車両に関するお問い合わせはこちらから。</p>
   </section>
 </main>
 
 <footer>
   <strong>AR AUTO TRADING</strong>
-  <p data-i18n="footerText">無料車両査定・お問い合わせ</p>
+  <span data-i18n="footerText">無料車両査定・お問い合わせ</span>
 </footer>
 
 <script>
@@ -511,374 +479,401 @@ footer p {
 const SUPABASE_URL = "https://wgxjmqqpdnzxodacvucq.supabase.co";
 const SUPABASE_KEY = "sb_publishable_1jkh0BxfGfW7StQFGeC8Ig_O3gvj0PZ";
 const TABLE_URL = SUPABASE_URL + "/rest/v1/vehicle_enquiries";
-const BUCKET = "vehicle-submissions";
-const STORAGE_URL = SUPABASE_URL + "/storage/v1/object/" + BUCKET;
+const STORAGE_URL = SUPABASE_URL + "/storage/v1/object/vehicle-submissions";
 
-const makers = {
-  "トヨタ": {
-    en: "Toyota",
+/* Manufacturer-specific model lists.
+   Add more models to the relevant manufacturer as needed. */
+const vehicles = {
+  "Toyota": {
+    ja: "トヨタ",
     models: [
-      "プリウス|Prius", "アクア|Aqua", "カローラ|Corolla",
-      "クラウン|Crown", "ヤリス|Yaris", "ヴィッツ|Vitz",
-      "アルファード|Alphard", "ヴェルファイア|Vellfire",
-      "ノア|Noah", "ヴォクシー|Voxy", "シエンタ|Sienta",
-      "ハリアー|Harrier", "RAV4|RAV4",
-      "ランドクルーザー|Land Cruiser", "ランドクルーザープラド|Land Cruiser Prado",
-      "ハイエース|Hiace", "ハイラックス|Hilux",
-      "86|86", "GR86|GR86", "スープラ|Supra",
-      "C-HR|C-HR", "ルーミー|Roomy", "ライズ|Raize",
-      "センチュリー|Century", "その他|Other"
+      "Prius", "Aqua", "Corolla", "Crown", "Yaris", "Vitz",
+      "Alphard", "Vellfire", "Noah", "Voxy", "Sienta",
+      "Harrier", "RAV4", "Land Cruiser", "Land Cruiser Prado",
+      "Hiace", "Hilux", "86", "GR86", "Supra", "C-HR",
+      "Roomy", "Raize", "Century", "Probox", "Other"
     ]
   },
-  "日産": {
-    en: "Nissan",
+  "Nissan": {
+    ja: "日産",
     models: [
-      "スカイライン|Skyline", "GT-R|GT-R", "フェアレディZ|Fairlady Z",
-      "シルビア|Silvia", "ノート|Note", "オーラ|Aura",
-      "リーフ|Leaf", "セレナ|Serena", "エルグランド|Elgrand",
-      "エクストレイル|X-Trail", "キックス|Kicks", "ジューク|Juke",
-      "マーチ|March", "キューブ|Cube", "フーガ|Fuga",
-      "デイズ|Dayz", "ルークス|Roox", "サクラ|Sakura",
-      "キャラバン|Caravan", "その他|Other"
+      "Skyline", "GT-R", "Fairlady Z", "Silvia", "Note", "Aura",
+      "Leaf", "Serena", "Elgrand", "X-Trail", "Kicks", "Juke",
+      "March", "Cube", "Fuga", "Dayz", "Roox", "Sakura",
+      "Caravan", "AD Van", "Other"
     ]
   },
-  "ホンダ": {
-    en: "Honda",
+  "Honda": {
+    ja: "ホンダ",
     models: [
-      "シビック|Civic", "アコード|Accord", "フィット|Fit",
-      "ヴェゼル|Vezel", "CR-V|CR-V", "ZR-V|ZR-V",
-      "フリード|Freed", "ステップワゴン|Stepwgn",
-      "オデッセイ|Odyssey", "N-BOX|N-BOX",
-      "N-WGN|N-WGN", "N-ONE|N-ONE",
-      "S660|S660", "NSX|NSX", "その他|Other"
+      "Civic", "Accord", "Fit", "Vezel", "CR-V", "ZR-V",
+      "Freed", "Stepwgn", "Odyssey", "N-BOX", "N-WGN",
+      "N-ONE", "S660", "NSX", "Other"
     ]
   },
-  "マツダ": {
-    en: "Mazda",
+  "Mazda": {
+    ja: "マツダ",
     models: [
-      "デミオ|Demio", "MAZDA2|Mazda2", "MAZDA3|Mazda3",
-      "アテンザ|Atenza", "MAZDA6|Mazda6",
-      "CX-3|CX-3", "CX-30|CX-30", "CX-5|CX-5",
-      "CX-60|CX-60", "CX-8|CX-8", "ロードスター|Roadster",
-      "RX-7|RX-7", "RX-8|RX-8", "その他|Other"
+      "Demio", "Mazda2", "Mazda3", "Atenza", "Mazda6",
+      "CX-3", "CX-30", "CX-5", "CX-60", "CX-8",
+      "Roadster", "RX-7", "RX-8", "Other"
     ]
   },
-  "スバル": {
-    en: "Subaru",
+  "Subaru": {
+    ja: "スバル",
     models: [
-      "インプレッサ|Impreza", "WRX|WRX", "レガシィ|Legacy",
-      "レヴォーグ|Levorg", "フォレスター|Forester",
-      "アウトバック|Outback", "XV|XV", "クロストレック|Crosstrek",
-      "BRZ|BRZ", "サンバー|Sambar", "その他|Other"
+      "Impreza", "WRX", "Legacy", "Levorg", "Forester",
+      "Outback", "XV", "Crosstrek", "BRZ", "Sambar", "Other"
     ]
   },
-  "スズキ": {
-    en: "Suzuki",
+  "Suzuki": {
+    ja: "スズキ",
     models: [
-      "スイフト|Swift", "ジムニー|Jimny", "ハスラー|Hustler",
-      "ワゴンR|Wagon R", "スペーシア|Spacia", "アルト|Alto",
-      "エブリイ|Every", "キャリイ|Carry", "ソリオ|Solio",
-      "エスクード|Escudo", "その他|Other"
+      "Swift", "Jimny", "Hustler", "Wagon R", "Spacia",
+      "Alto", "Every", "Carry", "Solio", "Escudo", "Other"
     ]
   },
-  "ダイハツ": {
-    en: "Daihatsu",
+  "Daihatsu": {
+    ja: "ダイハツ",
     models: [
-      "タント|Tanto", "ムーヴ|Move", "ミラ|Mira",
-      "ハイゼット|Hijet", "ロッキー|Rocky", "タフト|Taft",
-      "コペン|Copen", "トール|Thor", "その他|Other"
+      "Tanto", "Move", "Mira", "Hijet", "Rocky", "Taft",
+      "Copen", "Thor", "Other"
     ]
   },
-  "三菱": {
-    en: "Mitsubishi",
+  "Mitsubishi": {
+    ja: "三菱",
     models: [
-      "アウトランダー|Outlander", "デリカD:5|Delica D:5",
-      "パジェロ|Pajero", "エクリプスクロス|Eclipse Cross",
-      "ランサー|Lancer", "ランサーエボリューション|Lancer Evolution",
-      "ミラージュ|Mirage", "eKワゴン|eK Wagon",
-      "トライトン|Triton", "その他|Other"
+      "Outlander", "Delica D:5", "Pajero", "Eclipse Cross",
+      "Lancer", "Lancer Evolution", "Mirage", "eK Wagon",
+      "Triton", "Minicab", "Other"
     ]
   },
-  "レクサス": {
-    en: "Lexus",
+  "Lexus": {
+    ja: "レクサス",
     models: [
-      "LS|LS", "ES|ES", "IS|IS", "GS|GS", "UX|UX",
-      "NX|NX", "RX|RX", "GX|GX", "LX|LX",
-      "LC|LC", "RC|RC", "LBX|LBX", "LM|LM",
-      "RZ|RZ", "その他|Other"
+      "LS", "ES", "IS", "GS", "UX", "NX", "RX", "GX",
+      "LX", "LC", "RC", "LBX", "LM", "RZ", "Other"
     ]
+  },
+  "Isuzu": {
+    ja: "いすゞ",
+    models: ["Elf", "Forward", "Giga", "D-Max", "Bighorn", "Other"]
+  },
+  "Hino": {
+    ja: "日野",
+    models: ["Dutro", "Ranger", "Profia", "Other"]
+  },
+  "Mitsuoka": {
+    ja: "光岡",
+    models: ["Viewt", "Buddy", "Himiko", "Rock Star", "Galue", "Other"]
+  },
+  "Mitsubishi FUSO": {
+    ja: "三菱ふそう",
+    models: ["Canter", "Fighter", "Super Great", "Rosa", "Other"]
+  },
+  "UD Trucks": {
+    ja: "UDトラックス",
+    models: ["Condor", "Quon", "Other"]
   },
   "BMW": {
-    en: "BMW",
+    ja: "BMW",
     models: [
-      "1シリーズ|1 Series", "2シリーズ|2 Series",
-      "3シリーズ|3 Series", "4シリーズ|4 Series",
-      "5シリーズ|5 Series", "7シリーズ|7 Series",
-      "X1|X1", "X3|X3", "X5|X5", "X7|X7",
-      "Z4|Z4", "M3|M3", "M4|M4", "その他|Other"
+      "1 Series", "2 Series", "3 Series", "4 Series", "5 Series",
+      "6 Series", "7 Series", "8 Series", "X1", "X2", "X3",
+      "X4", "X5", "X6", "X7", "Z3", "Z4", "M2", "M3", "M4",
+      "M5", "Other"
     ]
   },
-  "メルセデス・ベンツ": {
-    en: "Mercedes-Benz",
+  "Mercedes-Benz": {
+    ja: "メルセデス・ベンツ",
     models: [
-      "Aクラス|A-Class", "Cクラス|C-Class", "Eクラス|E-Class",
-      "Sクラス|S-Class", "GLA|GLA", "GLB|GLB",
-      "GLC|GLC", "GLE|GLE", "Gクラス|G-Class",
-      "Vクラス|V-Class", "その他|Other"
+      "A-Class", "B-Class", "C-Class", "E-Class", "S-Class",
+      "CLA", "CLS", "GLA", "GLB", "GLC", "GLE", "GLS",
+      "G-Class", "V-Class", "SL", "AMG GT", "Other"
     ]
   },
-  "フォルクスワーゲン": {
-    en: "Volkswagen",
+  "Audi": {
+    ja: "アウディ",
     models: [
-      "ゴルフ|Golf", "ポロ|Polo", "パサート|Passat",
-      "ティグアン|Tiguan", "ビートル|Beetle",
-      "T-Cross|T-Cross", "T-Roc|T-Roc", "その他|Other"
+      "A1", "A3", "A4", "A5", "A6", "A7", "A8",
+      "Q2", "Q3", "Q5", "Q7", "Q8", "TT", "R8", "Other"
     ]
   },
-  "アウディ": {
-    en: "Audi",
+  "Volkswagen": {
+    ja: "フォルクスワーゲン",
     models: [
-      "A1|A1", "A3|A3", "A4|A4", "A5|A5", "A6|A6",
-      "A7|A7", "A8|A8", "Q3|Q3", "Q5|Q5", "Q7|Q7",
-      "TT|TT", "R8|R8", "その他|Other"
+      "Golf", "Polo", "Passat", "Tiguan", "T-Roc",
+      "T-Cross", "Touareg", "Beetle", "ID.4", "Other"
     ]
   },
-  "ポルシェ": {
-    en: "Porsche",
+  "Porsche": {
+    ja: "ポルシェ",
     models: [
-      "911|911", "718ケイマン|718 Cayman", "ボクスター|Boxster",
-      "パナメーラ|Panamera", "マカン|Macan", "カイエン|Cayenne",
-      "タイカン|Taycan", "その他|Other"
+      "911", "718 Cayman", "718 Boxster", "Panamera",
+      "Taycan", "Macan", "Cayenne", "944", "928", "Other"
     ]
   },
-  "アルファロメオ": {
-    en: "Alfa Romeo",
+  "MINI": {
+    ja: "MINI",
+    models: ["Cooper", "Cooper S", "Clubman", "Countryman", "Cabrio", "Other"]
+  },
+  "Volvo": {
+    ja: "ボルボ",
+    models: ["S60", "S90", "V40", "V60", "V90", "XC40", "XC60", "XC90", "Other"]
+  },
+  "Alfa Romeo": {
+    ja: "アルファロメオ",
     models: [
-      "ジュリア|Giulia", "ジュリエッタ|Giulietta",
-      "ステルヴィオ|Stelvio", "トナーレ|Tonale",
-      "アルフェッタ|Alfetta", "スパイダー|Spider",
-      "156|156", "147|147", "その他|Other"
+      "Giulia", "Giulietta", "Stelvio", "Tonale", "4C",
+      "Brera", "Spider", "159", "156", "147", "GT",
+      "GTV", "Alfetta", "33", "75", "164", "Other"
     ]
   },
-  "フォード": {
-    en: "Ford",
-    models: [
-      "マスタング|Mustang", "フォーカス|Focus",
-      "フィエスタ|Fiesta", "エクスプローラー|Explorer",
-      "ブロンコ|Bronco", "F-150|F-150", "その他|Other"
-    ]
+  "Fiat": {
+    ja: "フィアット",
+    models: ["500", "500X", "Panda", "Punto", "Tipo", "124 Spider", "Other"]
   },
-  "シボレー": {
-    en: "Chevrolet",
-    models: [
-      "コルベット|Corvette", "カマロ|Camaro",
-      "タホ|Tahoe", "シルバラード|Silverado", "その他|Other"
-    ]
+  "Ferrari": {
+    ja: "フェラーリ",
+    models: ["296 GTB", "Roma", "SF90", "488", "458 Italia", "California", "F40", "Other"]
   },
-  "テスラ": {
-    en: "Tesla",
-    models: [
-      "モデルS|Model S", "モデル3|Model 3",
-      "モデルX|Model X", "モデルY|Model Y", "その他|Other"
-    ]
+  "Lamborghini": {
+    ja: "ランボルギーニ",
+    models: ["Aventador", "Huracan", "Urus", "Gallardo", "Murcielago", "Other"]
   },
-  "ヒョンデ": {
-    en: "Hyundai",
-    models: [
-      "IONIQ 5|IONIQ 5", "IONIQ 6|IONIQ 6",
-      "コナ|Kona", "ツーソン|Tucson", "その他|Other"
-    ]
+  "Maserati": {
+    ja: "マセラティ",
+    models: ["Ghibli", "Quattroporte", "Levante", "Grecale", "GranTurismo", "Other"]
+  },
+  "Bentley": {
+    ja: "ベントレー",
+    models: ["Continental GT", "Flying Spur", "Bentayga", "Mulsanne", "Other"]
+  },
+  "Rolls-Royce": {
+    ja: "ロールス・ロイス",
+    models: ["Phantom", "Ghost", "Wraith", "Cullinan", "Spectre", "Other"]
+  },
+  "Jaguar": {
+    ja: "ジャガー",
+    models: ["XE", "XF", "XJ", "F-Type", "F-Pace", "E-Type", "Other"]
+  },
+  "Land Rover": {
+    ja: "ランドローバー",
+    models: ["Defender", "Discovery", "Range Rover", "Range Rover Sport", "Evoque", "Other"]
+  },
+  "Renault": {
+    ja: "ルノー",
+    models: ["Clio", "Megane", "Captur", "Kangoo", "Twingo", "Other"]
+  },
+  "Peugeot": {
+    ja: "プジョー",
+    models: ["208", "2008", "308", "3008", "408", "508", "5008", "Other"]
+  },
+  "Citroen": {
+    ja: "シトロエン",
+    models: ["C3", "C4", "C5 Aircross", "Berlingo", "Other"]
+  },
+  "Ford": {
+    ja: "フォード",
+    models: ["Mustang", "Focus", "Fiesta", "Explorer", "Bronco", "Ranger", "F-150", "Other"]
+  },
+  "Chevrolet": {
+    ja: "シボレー",
+    models: ["Corvette", "Camaro", "Impala", "Tahoe", "Silverado", "Other"]
+  },
+  "Cadillac": {
+    ja: "キャデラック",
+    models: ["Escalade", "CT4", "CT5", "XT4", "XT5", "Other"]
+  },
+  "Jeep": {
+    ja: "ジープ",
+    models: ["Wrangler", "Grand Cherokee", "Cherokee", "Compass", "Renegade", "Other"]
+  },
+  "Tesla": {
+    ja: "テスラ",
+    models: ["Model S", "Model 3", "Model X", "Model Y", "Cybertruck", "Other"]
+  },
+  "Hyundai": {
+    ja: "ヒョンデ",
+    models: ["IONIQ 5", "IONIQ 6", "Kona", "Tucson", "Santa Fe", "Other"]
+  },
+  "Kia": {
+    ja: "キア",
+    models: ["EV3", "EV6", "EV9", "Niro", "Sportage", "Sorento", "Other"]
+  },
+  "Genesis": {
+    ja: "ジェネシス",
+    models: ["G70", "G80", "G90", "GV60", "GV70", "GV80", "Other"]
   },
   "BYD": {
-    en: "BYD",
-    models: [
-      "ATTO 3|ATTO 3", "ドルフィン|Dolphin",
-      "シール|Seal", "その他|Other"
-    ]
+    ja: "BYD",
+    models: ["Atto 3", "Dolphin", "Seal", "Sealion 7", "Other"]
   },
-  "その他": {
-    en: "Other",
-    models: ["その他の車種|Other model"]
+  "Tata": {
+    ja: "タタ",
+    models: ["Nexon", "Punch", "Harrier", "Safari", "Other"]
+  },
+  "Mahindra": {
+    ja: "マヒンドラ",
+    models: ["Thar", "Scorpio", "XUV700", "Bolero", "Other"]
+  },
+  "Other": {
+    ja: "その他",
+    models: ["Other"]
   }
 };
-
-const extraMakers = [
-  ["いすゞ", "Isuzu"], ["日野", "Hino"],
-  ["光岡", "Mitsuoka"], ["三菱ふそう", "Mitsubishi FUSO"],
-  ["UDトラックス", "UD Trucks"], ["MINI", "MINI"],
-  ["ボルボ", "Volvo"], ["フィアット", "Fiat"],
-  ["フェラーリ", "Ferrari"], ["ランボルギーニ", "Lamborghini"],
-  ["マセラティ", "Maserati"], ["ベントレー", "Bentley"],
-  ["ロールス・ロイス", "Rolls-Royce"],
-  ["ジャガー", "Jaguar"], ["ランドローバー", "Land Rover"],
-  ["ルノー", "Renault"], ["プジョー", "Peugeot"],
-  ["シトロエン", "Citroën"], ["ジープ", "Jeep"],
-  ["キャデラック", "Cadillac"], ["GMC", "GMC"],
-  ["クライスラー", "Chrysler"], ["ダッジ", "Dodge"],
-  ["キア", "Kia"], ["ジェネシス", "Genesis"],
-  ["BYD", "BYD"], ["タタ", "Tata"],
-  ["マヒンドラ", "Mahindra"], ["その他", "Other"]
-];
-
-/* Add additional manufacturers to the selection list.
-   Their models use a general model field if not listed above. */
-extraMakers.forEach(([ja, en]) => {
-  if (!makers[ja]) {
-    makers[ja] = {
-      en: en,
-      models: ["その他|Other"]
-    };
-  }
-});
 
 const translations = {
   ja: {
-    banner: "WEBなら24時間受付・無料査定",
-    heading: "ご利用の愛車について",
-    progress1: "車両情報",
-    progress2: "お客様情報",
-    progress3: "確認・送信",
+    heroTitle: "無料車両査定",
+    heroText: "お車の情報を入力してお問い合わせください。",
+    formHeading: "ご利用の愛車について",
+    progress1: "車両情報", progress2: "お客様情報", progress3: "確認・送信",
     required: "必須",
-    makerModelLabel: "メーカー／車種",
-    makerPlaceholder: "メーカー・車種を選択",
-    yearLabel: "年式",
-    yearPlaceholder: "年式を選択",
-    mileageLabel: "走行距離",
-    mileagePlaceholder: "走行距離を選択",
-    next: "次へ",
-    back: "戻る",
-    securityTitle: "SSL暗号化通信",
-    securityText: "お客様のプライバシー保護のため、個人情報は安全に取り扱います。",
-    nameLabel: "お名前",
-    contactLabel: "電話番号またはメールアドレス",
-    detailsLabel: "ご希望・その他の情報",
-    photosLabel: "車両写真（任意・最大5枚）",
+    makerLabel: "メーカー", modelLabel: "車種",
+    makerPlaceholder: "メーカーを選択",
+    modelPlaceholder: "先にメーカーを選択してください",
+    otherModelLabel: "その他の車種",
+    yearLabel: "年式", yearPlaceholder: "年式を選択",
+    mileageLabel: "走行距離", mileagePlaceholder: "走行距離を選択",
+    next: "次へ", back: "戻る",
+    securityTitle: "🔒 SSL暗号化通信",
+    securityText: "お客様の個人情報はお問い合わせへの対応に使用します。",
+    nameLabel: "お名前", contactLabel: "電話番号またはメールアドレス",
+    detailsLabel: "詳細・ご希望", photosLabel: "車両写真（最大5枚）",
     photosHint: "各画像は10MB以下にしてください。",
-    reviewTitle: "入力内容をご確認ください",
+    reviewHeading: "入力内容をご確認ください",
     submit: "無料査定を申し込む",
-    promoSmall: "AR AUTO TRADINGの車両査定",
-    promoTitle: "選ばれる3つの理由",
-    benefit1Title: "① いつでもお問い合わせ",
-    benefit1Text: "Webフォームから、いつでも車両査定についてお問い合わせいただけます。",
-    benefit2Title: "② 幅広い車種に対応",
-    benefit2Text: "国産車・輸入車・旧車など、幅広いメーカーの車両情報をお送りいただけます。",
-    benefit3Title: "③ 簡単な入力フォーム",
-    benefit3Text: "車両情報と連絡先を入力して、簡単にお問い合わせいただけます。",
+    promoTitle: "AR AUTO TRADING",
+    promoText: "車両に関するお問い合わせはこちらから。",
     footerText: "無料車両査定・お問い合わせ",
-    needMaker: "メーカーと車種を選択してください。",
+    needMaker: "メーカーを選択してください。",
+    needModel: "車種を選択してください。",
     needYear: "年式を選択してください。",
     needMileage: "走行距離を選択してください。",
     needName: "お名前を入力してください。",
-    needContact: "電話番号またはメールアドレスを入力してください。",
+    needContact: "連絡先を入力してください。",
     tooMany: "写真は最大5枚までです。",
     tooLarge: "各写真は10MB以下にしてください。",
-    uploading: "送信中です...",
+    sending: "送信中...",
     success: "お問い合わせを送信しました。ありがとうございます。",
-    failure: "送信に失敗しました。入力内容とSupabaseの設定をご確認ください。"
+    failure: "送信に失敗しました。入力内容とSupabaseの設定をご確認ください。",
+    unknown: "不明",
+    over: "30万Km超え"
   },
   en: {
-    banner: "Online enquiries 24/7 · Free vehicle appraisal",
-    heading: "Tell us about your vehicle",
-    progress1: "Vehicle",
-    progress2: "Your details",
-    progress3: "Review",
+    heroTitle: "Free Vehicle Appraisal",
+    heroText: "Enter your vehicle information to contact us.",
+    formHeading: "Tell us about your vehicle",
+    progress1: "Vehicle", progress2: "Your details", progress3: "Review",
     required: "Required",
-    makerModelLabel: "Manufacturer / Model",
-    makerPlaceholder: "Select manufacturer and model",
-    yearLabel: "Year",
-    yearPlaceholder: "Select year",
-    mileageLabel: "Mileage",
-    mileagePlaceholder: "Select mileage",
-    next: "Next",
-    back: "Back",
-    securityTitle: "SSL encrypted communication",
-    securityText: "Your personal information will be handled securely and used to respond to your enquiry.",
-    nameLabel: "Your name",
-    contactLabel: "Phone number or email address",
-    detailsLabel: "Additional information",
-    photosLabel: "Vehicle photos (optional, up to 5)",
+    makerLabel: "Manufacturer", modelLabel: "Model",
+    makerPlaceholder: "Select manufacturer",
+    modelPlaceholder: "Select a manufacturer first",
+    otherModelLabel: "Other model",
+    yearLabel: "Year", yearPlaceholder: "Select year",
+    mileageLabel: "Mileage", mileagePlaceholder: "Select mileage",
+    next: "Next", back: "Back",
+    securityTitle: "🔒 SSL encrypted communication",
+    securityText: "Your personal information will be used to respond to your enquiry.",
+    nameLabel: "Name", contactLabel: "Phone number or email address",
+    detailsLabel: "Details / request", photosLabel: "Vehicle photos (up to 5)",
     photosHint: "Each image must be 10MB or smaller.",
-    reviewTitle: "Please review your information",
+    reviewHeading: "Please review your information",
     submit: "Request free appraisal",
-    promoSmall: "Vehicle appraisal by AR AUTO TRADING",
-    promoTitle: "Three reasons to choose us",
-    benefit1Title: "1. Enquire anytime",
-    benefit1Text: "Send your vehicle enquiry through our online form at any time.",
-    benefit2Title: "2. Wide range of vehicles",
-    benefit2Text: "Enquire about Japanese cars, imported cars and classic vehicles.",
-    benefit3Title: "3. Simple online form",
-    benefit3Text: "Enter your vehicle information and contact details to get started.",
+    promoTitle: "AR AUTO TRADING",
+    promoText: "Contact us about your vehicle.",
     footerText: "Free vehicle appraisal and enquiries",
-    needMaker: "Please select a manufacturer and model.",
+    needMaker: "Please select a manufacturer.",
+    needModel: "Please select a model.",
     needYear: "Please select a year.",
     needMileage: "Please select mileage.",
     needName: "Please enter your name.",
-    needContact: "Please enter a phone number or email address.",
-    tooMany: "Please select no more than 5 photos.",
+    needContact: "Please enter your contact information.",
+    tooMany: "Please upload up to 5 photos.",
     tooLarge: "Each photo must be 10MB or smaller.",
-    uploading: "Submitting...",
+    sending: "Submitting...",
     success: "Your enquiry has been sent. Thank you.",
-    failure: "Submission failed. Check the form and Supabase settings."
+    failure: "Submission failed. Check your details and Supabase settings.",
+    unknown: "Unknown",
+    over: "Over 300,000 km"
   }
 };
 
-let lang = "ja";
-let step = 1;
+let language = "ja";
+let currentStep = 1;
 
 function t(key) {
-  return translations[lang][key] || key;
+  return translations[language][key] || key;
 }
 
-function setLanguage(language) {
-  lang = language;
-  document.documentElement.lang = language;
-
-  document.getElementById("jaBtn").classList.toggle("active", language === "ja");
-  document.getElementById("enBtn").classList.toggle("active", language === "en");
-
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.dataset.i18n;
-    if (translations[language][key] !== undefined) {
-      el.textContent = translations[language][key];
-    }
-  });
-
-  populateMakerModels();
-  populateYears();
-  populateMileage();
-}
-
-document.getElementById("jaBtn").onclick = () => setLanguage("ja");
-document.getElementById("enBtn").onclick = () => setLanguage("en");
-
-function populateMakerModels() {
-  const select = document.getElementById("makerModel");
-  const oldValue = select.value;
+/* Populate manufacturers */
+function populateMakers() {
+  const select = document.getElementById("maker");
+  const old = select.value;
   select.innerHTML = "";
 
-  const placeholder = document.createElement("option");
-  placeholder.value = "";
-  placeholder.textContent = t("makerPlaceholder");
-  select.appendChild(placeholder);
+  addOption(select, "", t("makerPlaceholder"));
 
-  Object.entries(makers).forEach(([ja, data]) => {
-    data.models.forEach(pair => {
-      const [modelJa, modelEn] = pair.split("|");
-      const option = document.createElement("option");
-      option.value = ja + "||" + (modelEn || modelJa);
-      option.textContent = lang === "ja"
-        ? ja + "・" + modelJa
-        : data.en + " · " + (modelEn || modelJa);
-      select.appendChild(option);
-    });
+  Object.entries(vehicles).forEach(([key, data]) => {
+    addOption(select, key, language === "ja" ? data.ja : key);
   });
 
-  if ([...select.options].some(o => o.value === oldValue)) {
-    select.value = oldValue;
-  }
+  select.value = old;
 }
 
-function era(year) {
+/* Models depend on the selected manufacturer */
+function populateModels() {
+  const maker = document.getElementById("maker").value;
+  const select = document.getElementById("model");
+  const old = select.value;
+
+  select.innerHTML = "";
+  addOption(select, "", t("modelPlaceholder"));
+
+  if (!maker || !vehicles[maker]) {
+    select.disabled = true;
+    document.getElementById("otherModelField").hidden = true;
+    return;
+  }
+
+  select.disabled = false;
+
+  vehicles[maker].models.forEach(model => {
+    const display = model === "Other"
+      ? (language === "ja" ? "その他（車種を入力）" : "Other (enter model)")
+      : model;
+
+    addOption(select, model, display);
+  });
+
+  if ([...select.options].some(option => option.value === old)) {
+    select.value = old;
+  }
+
+  document.getElementById("otherModelField").hidden =
+    select.value !== "Other";
+}
+
+function addOption(select, value, text) {
+  const option = document.createElement("option");
+  option.value = value;
+  option.textContent = text;
+  select.appendChild(option);
+}
+
+document.getElementById("maker").addEventListener("change", () => {
+  populateModels();
+  clearErrors();
+});
+
+document.getElementById("model").addEventListener("change", () => {
+  document.getElementById("otherModelField").hidden =
+    document.getElementById("model").value !== "Other";
+});
+
+/* Japanese era names */
+function japaneseEra(year) {
   if (year === 2019) return "平成31年／令和元年";
   if (year >= 2019) return "令和" + (year - 2018) + "年";
   if (year >= 1989) return "平成" + (year - 1988) + "年";
@@ -889,65 +884,75 @@ function populateYears() {
   const select = document.getElementById("year");
   const old = select.value;
   select.innerHTML = "";
-
-  const placeholder = document.createElement("option");
-  placeholder.value = "";
-  placeholder.textContent = t("yearPlaceholder");
-  select.appendChild(placeholder);
+  addOption(select, "", t("yearPlaceholder"));
 
   for (let year = 2026; year >= 1960; year--) {
-    const option = document.createElement("option");
-    option.value = String(year);
-    option.textContent = lang === "ja"
-      ? era(year) + "（" + year + "年）"
-      : String(year);
-    select.appendChild(option);
+    addOption(
+      select,
+      String(year),
+      language === "ja"
+        ? japaneseEra(year) + "（" + year + "年）"
+        : String(year)
+    );
   }
 
   select.value = old;
 }
 
+/* Mileage: every 10,000 km from 20,000 to 300,000 */
 function populateMileage() {
   const select = document.getElementById("mileage");
   const old = select.value;
   select.innerHTML = "";
+  addOption(select, "", t("mileagePlaceholder"));
 
-  const placeholder = document.createElement("option");
-  placeholder.value = "";
-  placeholder.textContent = t("mileagePlaceholder");
-  select.appendChild(placeholder);
-
-  for (let km = 20000; km <= 300000; km += 20000) {
-    const option = document.createElement("option");
-    option.value = String(km);
-    option.textContent = lang === "ja"
+  for (let km = 20000; km <= 300000; km += 10000) {
+    const label = language === "ja"
       ? (km / 10000) + "万Km以下"
       : "Up to " + km.toLocaleString("en-US") + " km";
-    select.appendChild(option);
+
+    addOption(select, String(km), label);
   }
 
-  const over = document.createElement("option");
-  over.value = "over";
-  over.textContent = lang === "ja" ? "30万Km超え" : "Over 300,000 km";
-  select.appendChild(over);
-
-  const unknown = document.createElement("option");
-  unknown.value = "unknown";
-  unknown.textContent = lang === "ja" ? "不明" : "Unknown";
-  select.appendChild(unknown);
-
+  addOption(select, "over", t("over"));
+  addOption(select, "unknown", t("unknown"));
   select.value = old;
 }
 
+/* Language switch */
+function setLanguage(lang) {
+  language = lang;
+  document.documentElement.lang = lang;
+
+  document.getElementById("jaButton").classList.toggle("active", lang === "ja");
+  document.getElementById("enButton").classList.toggle("active", lang === "en");
+
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.dataset.i18n;
+    if (translations[lang][key] !== undefined) {
+      el.textContent = translations[lang][key];
+    }
+  });
+
+  populateMakers();
+  populateModels();
+  populateYears();
+  populateMileage();
+}
+
+document.getElementById("jaButton").onclick = () => setLanguage("ja");
+document.getElementById("enButton").onclick = () => setLanguage("en");
+
+/* Step navigation */
 function showStep(number) {
-  step = number;
+  currentStep = number;
 
   for (let i = 1; i <= 3; i++) {
-    document.getElementById("panel" + i).classList.toggle("active", i === number);
+    document.getElementById("step" + i).classList.toggle("active", i === number);
     document.getElementById("progress" + i).classList.toggle("active", i === number);
   }
 
-  document.querySelector(".form-area").scrollIntoView({
+  document.querySelector(".form-card").scrollIntoView({
     behavior: "smooth",
     block: "start"
   });
@@ -955,12 +960,12 @@ function showStep(number) {
 
 function clearErrors() {
   document.querySelectorAll(".error").forEach(el => {
-    el.style.display = "none";
     el.textContent = "";
+    el.style.display = "none";
   });
 }
 
-function error(id, message) {
+function showError(id, message) {
   const el = document.getElementById(id);
   el.textContent = message;
   el.style.display = "block";
@@ -969,16 +974,29 @@ function error(id, message) {
 document.getElementById("next1").onclick = () => {
   clearErrors();
 
-  if (!document.getElementById("makerModel").value) {
-    error("makerError", t("needMaker"));
+  if (!document.getElementById("maker").value) {
+    showError("makerError", t("needMaker"));
     return;
   }
+
+  if (!document.getElementById("model").value) {
+    showError("modelError", t("needModel"));
+    return;
+  }
+
+  if (document.getElementById("model").value === "Other" &&
+      !document.getElementById("otherModel").value.trim()) {
+    showError("modelError", t("needModel"));
+    return;
+  }
+
   if (!document.getElementById("year").value) {
-    error("yearError", t("needYear"));
+    showError("yearError", t("needYear"));
     return;
   }
+
   if (!document.getElementById("mileage").value) {
-    error("mileageError", t("needMileage"));
+    showError("mileageError", t("needMileage"));
     return;
   }
 
@@ -989,28 +1007,28 @@ document.getElementById("next2").onclick = () => {
   clearErrors();
 
   if (!document.getElementById("customerName").value.trim()) {
-    error("nameError", t("needName"));
+    showError("nameError", t("needName"));
     return;
   }
 
   if (!document.getElementById("contact").value.trim()) {
-    error("contactError", t("needContact"));
+    showError("contactError", t("needContact"));
     return;
   }
 
   const photos = [...document.getElementById("photos").files];
 
   if (photos.length > 5) {
-    error("contactError", t("tooMany"));
+    showError("contactError", t("tooMany"));
     return;
   }
 
-  if (photos.some(f => f.size > 10 * 1024 * 1024)) {
-    error("contactError", t("tooLarge"));
+  if (photos.some(file => file.size > 10 * 1024 * 1024)) {
+    showError("contactError", t("tooLarge"));
     return;
   }
 
-  makeReview();
+  renderReview();
   showStep(3);
 };
 
@@ -1022,34 +1040,44 @@ function selectedText(id) {
   return select.options[select.selectedIndex]?.textContent || "";
 }
 
-function makeReview() {
-  const lines = [
-    ["メーカー／車種", "Manufacturer / Model", selectedText("makerModel")],
-    ["年式", "Year", selectedText("year")],
-    ["走行距離", "Mileage", selectedText("mileage")],
-    ["お名前", "Name", document.getElementById("customerName").value.trim()],
-    ["連絡先", "Contact", document.getElementById("contact").value.trim()],
-    ["詳細", "Details", document.getElementById("details").value.trim() || "—"],
-    ["写真", "Photos", String(document.getElementById("photos").files.length)]
+function renderReview() {
+  const box = document.getElementById("review");
+  box.innerHTML = "";
+
+  const data = [
+    ["Manufacturer", selectedText("maker")],
+    ["Model", document.getElementById("model").value === "Other"
+      ? document.getElementById("otherModel").value.trim()
+      : selectedText("model")],
+    ["Year", selectedText("year")],
+    ["Mileage", selectedText("mileage")],
+    ["Name", document.getElementById("customerName").value.trim()],
+    ["Contact", document.getElementById("contact").value.trim()],
+    ["Details", document.getElementById("details").value.trim() || "—"],
+    ["Photos", String(document.getElementById("photos").files.length)]
   ];
 
-  document.getElementById("review").innerHTML = "";
+  data.forEach(([key, value]) => {
+    const row = document.createElement("div");
+    row.className = "review-row";
 
-  lines.forEach(([ja, en, value]) => {
-    const p = document.createElement("p");
-    const strong = document.createElement("strong");
-    strong.textContent = (lang === "ja" ? ja : en) + ": ";
-    p.appendChild(strong);
-    p.appendChild(document.createTextNode(value));
-    document.getElementById("review").appendChild(p);
+    const label = document.createElement("strong");
+    label.textContent = key;
+
+    const content = document.createElement("span");
+    content.textContent = value;
+
+    row.append(label, content);
+    box.appendChild(row);
   });
 }
 
+/* Private photo upload: save only storage paths, not public URLs */
 function safeFilename(name) {
   return name.replace(/[^a-zA-Z0-9._-]/g, "_").slice(-100) || "photo";
 }
 
-async function uploadPrivatePhoto(file) {
+async function uploadPhoto(file) {
   const id = crypto.randomUUID
     ? crypto.randomUUID()
     : Date.now() + "-" + Math.random().toString(36).slice(2);
@@ -1074,38 +1102,30 @@ async function uploadPrivatePhoto(file) {
   return path;
 }
 
-function setStatus(message, success) {
+function setStatus(message, type) {
   const el = document.getElementById("status");
   el.textContent = message;
-  el.style.cssText =
-    "margin:15px;padding:15px;border-radius:8px;" +
-    "background:" + (success ? "#e0f6e5" : "#ffe6e6") +
-    ";color:#222;";
+  el.className = "status " + type;
 }
 
-document.getElementById("submitButton").onclick = async () => {
-  const button = document.getElementById("submitButton");
-  const original = t("submit");
+document.getElementById("enquiryForm").addEventListener("submit", async event => {
+  event.preventDefault();
 
+  const button = document.getElementById("submitButton");
   button.disabled = true;
-  button.textContent = t("uploading");
+  button.textContent = t("sending");
 
   try {
-    const makerModel = document.getElementById("makerModel").value;
-    const [makerJa, modelEn] = makerModel.split("||");
-    const maker = makers[makerJa];
-    const model = (maker.models || [])
-      .map(x => x.split("|"))
-      .find(x => x[1] === modelEn);
+    const makerKey = document.getElementById("maker").value;
+    const makerData = vehicles[makerKey];
+    const modelValue = document.getElementById("model").value;
 
-    const photos = [...document.getElementById("photos").files];
-    const photoPaths = [];
-
-    for (const file of photos) {
-      photoPaths.push(await uploadPrivatePhoto(file));
-    }
+    const modelName = modelValue === "Other"
+      ? document.getElementById("otherModel").value.trim()
+      : modelValue;
 
     const mileageValue = document.getElementById("mileage").value;
+
     const mileage = mileageValue === "unknown"
       ? null
       : mileageValue === "over"
@@ -1122,11 +1142,17 @@ document.getElementById("submitButton").onclick = async () => {
       details += (details ? "\n" : "") + "Mileage unknown";
     }
 
+    const photoPaths = [];
+
+    for (const file of document.getElementById("photos").files) {
+      photoPaths.push(await uploadPhoto(file));
+    }
+
     const payload = {
       name: document.getElementById("customerName").value.trim(),
       contact: document.getElementById("contact").value.trim(),
-      maker: lang === "ja" ? makerJa : maker.en,
-      model: model ? (lang === "ja" ? model[0] : model[1]) : modelEn,
+      maker: language === "ja" ? makerData.ja : makerKey,
+      model: modelName,
       year: Number(document.getElementById("year").value),
       mileage: mileage,
       details: details,
@@ -1146,22 +1172,22 @@ document.getElementById("submitButton").onclick = async () => {
     });
 
     if (!response.ok) {
-      console.error(await response.text());
+      console.error("Supabase error:", await response.text());
       throw new Error("Submission failed");
     }
 
-    setStatus(t("success"), true);
+    setStatus(t("success"), "success");
     button.textContent = t("success");
 
-  } catch (err) {
-    console.error(err);
-    setStatus(t("failure"), false);
+  } catch (error) {
+    console.error(error);
+    setStatus(t("failure"), "error");
     button.disabled = false;
-    button.textContent = original;
+    button.textContent = t("submit");
   }
-};
+});
 
-/* Japanese default on first visit */
+/* Start in Japanese */
 setLanguage("ja");
 showStep(1);
 </script>
