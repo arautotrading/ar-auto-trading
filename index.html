@@ -4,29 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#080808">
-
-  <title>AR AUTO TRADING | 車の買取・販売</title>
-
-  <meta name="description"
-        content="AR AUTO TRADING — Japanese used cars, vehicle purchasing, sales and automotive parts. お車の買取・販売・パーツのご相談はこちら。">
-
+  <title>AR AUTO TRADING | 高価買取・中古車・大型車・建設機械</title>
+  <meta name="description" content="中古車・トラック・ダンプ・建設機械・フォークリフト・不動車などを高価買取。AR AUTO TRADINGへお気軽にお問い合わせください。">
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #080808;
+      --gold: #d8ad4b;
+      --gold-light: #f6d783;
+      --black: #080808;
       --panel: #111111;
-      --panel-2: #171717;
-      --gold: #d6ad55;
-      --gold-light: #f5d88b;
+      --panel2: #171717;
+      --border: rgba(216,173,75,.28);
       --text: #f5f5f5;
-      --muted: #a1a1a1;
-      --border: rgba(214, 173, 85, 0.22);
-      --radius: 18px;
-      --max-width: 1200px;
+      --muted: #a7a7a7;
+      --green: #06c755;
     }
 
     * {
@@ -37,23 +32,14 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 95px;
+      scroll-padding-top: 90px;
     }
 
     body {
-      background: var(--bg);
+      font-family: "Noto Sans JP", Arial, sans-serif;
+      background: var(--black);
       color: var(--text);
-      font-family: "DM Sans", "Noto Sans JP", sans-serif;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-
-    body,
-    input,
-    select,
-    textarea,
-    button {
-      font-family: "DM Sans", "Noto Sans JP", sans-serif;
+      line-height: 1.8;
     }
 
     a {
@@ -61,547 +47,502 @@
       text-decoration: none;
     }
 
-    button,
-    input,
-    select,
-    textarea {
-      font-size: 15px;
+    button, input, select, textarea {
+      font: inherit;
     }
 
-    button {
-      cursor: pointer;
+    button, a {
+      -webkit-tap-highlight-color: transparent;
     }
 
-    img,
-    svg {
+    img {
       max-width: 100%;
+      display: block;
     }
 
     .container {
-      width: min(var(--max-width), calc(100% - 40px));
+      width: min(1160px, 92%);
       margin: 0 auto;
     }
 
     .gold {
-      color: var(--gold);
+      color: var(--gold-light);
     }
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
+    .section {
+      padding: 76px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .section-heading .eyebrow {
       color: var(--gold);
-      font-size: 12px;
-      font-weight: 800;
+      font-family: "Orbitron", sans-serif;
+      font-size: 11px;
       letter-spacing: 3px;
       text-transform: uppercase;
     }
 
-    .eyebrow::before {
-      content: "";
-      width: 25px;
-      height: 1px;
-      background: var(--gold);
-    }
-
-    .section {
-      padding: 95px 0;
-    }
-
-    .section-heading {
-      margin-bottom: 42px;
-    }
-
     .section-heading h2 {
-      font-size: clamp(30px, 4vw, 48px);
-      line-height: 1.25;
-      letter-spacing: -1.5px;
-      margin: 14px 0;
+      margin: 8px 0;
+      font-size: clamp(25px, 4vw, 37px);
+      line-height: 1.4;
     }
 
     .section-heading p {
       color: var(--muted);
-      max-width: 650px;
-    }
-
-    .btn {
-      min-height: 50px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 13px 23px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: transparent;
-      color: var(--text);
-      font-weight: 700;
-      transition: 0.25s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      border-color: var(--gold);
-    }
-
-    .btn-gold {
-      color: #111;
-      border-color: var(--gold);
-      background: linear-gradient(135deg, var(--gold-light), var(--gold));
-    }
-
-    .btn-gold:hover {
-      background: #ffe5a0;
-    }
-
-    .btn-outline {
-      border-color: rgba(255, 255, 255, 0.2);
+      font-size: 14px;
     }
 
     /* HEADER */
 
-    .site-header {
+    header {
       position: sticky;
-      z-index: 1000;
       top: 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-      background: rgba(8, 8, 8, 0.94);
-      backdrop-filter: blur(18px);
+      z-index: 1000;
+      background: rgba(8,8,8,.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
     }
 
     .header-inner {
-      min-height: 78px;
+      min-height: 76px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 25px;
+      gap: 18px;
     }
 
     .brand {
-      display: inline-flex;
+      display: flex;
       align-items: center;
       gap: 12px;
-      flex-shrink: 0;
+      min-width: 0;
     }
 
     .brand-mark {
-      width: 48px;
-      height: 48px;
+      width: 47px;
+      height: 47px;
+      flex-shrink: 0;
       display: grid;
       place-items: center;
-      border: 1px solid var(--gold);
-      border-radius: 12px 3px 12px 3px;
-      background: linear-gradient(145deg, #242016, #090909);
+      border: 2px solid var(--gold);
       color: var(--gold-light);
-      font-size: 21px;
+      font-family: "Orbitron", sans-serif;
       font-weight: 800;
-      letter-spacing: -2px;
-      box-shadow: 0 0 25px rgba(214, 173, 85, 0.08);
+      font-size: 18px;
+      transform: skew(-5deg);
+      box-shadow: 0 0 18px rgba(216,173,75,.12);
     }
 
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.25;
+    .brand-name {
+      font-family: "Orbitron", sans-serif;
+      color: var(--gold-light);
+      font-size: clamp(13px, 2vw, 20px);
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      line-height: 1.3;
     }
 
-    .brand-text strong {
-      font-size: 17px;
-      letter-spacing: 1.2px;
-    }
-
-    .brand-text span {
-      color: var(--gold);
-      font-size: 9px;
-      letter-spacing: 2.6px;
+    .brand-tagline {
+      display: block;
+      color: #aaa;
+      font-size: 10px;
+      letter-spacing: 1px;
       margin-top: 4px;
     }
 
-    .nav {
+    nav {
       display: flex;
       align-items: center;
-      gap: 24px;
-    }
-
-    .nav a {
-      color: #ddd;
+      gap: 23px;
       font-size: 13px;
-      transition: color 0.2s;
     }
 
-    .nav a:hover {
-      color: var(--gold);
+    nav a:hover {
+      color: var(--gold-light);
     }
 
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .language-switch {
-      display: flex;
-      padding: 4px;
-      border: 1px solid rgba(255,255,255,0.14);
-      border-radius: 8px;
-      background: #111;
-    }
-
-    .language-switch button {
-      border: 0;
-      border-radius: 5px;
-      padding: 7px 10px;
-      background: transparent;
-      color: #aaa;
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .language-switch button.active {
-      background: var(--gold);
-      color: #111;
-    }
-
-    .menu-toggle {
-      display: none;
-      width: 42px;
-      height: 42px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: #111;
-      color: var(--gold);
-      font-size: 22px;
+    .nav-contact {
+      border: 1px solid var(--gold);
+      padding: 8px 15px;
+      color: var(--gold-light);
     }
 
     /* HERO */
 
     .hero {
       position: relative;
-      min-height: 610px;
+      min-height: 580px;
       display: flex;
       align-items: center;
       overflow: hidden;
       background:
-        radial-gradient(ellipse at 82% 45%, rgba(214,173,85,0.13), transparent 38%),
-        linear-gradient(115deg, #080808 20%, #13110c 100%);
-      border-bottom: 1px solid rgba(214,173,85,0.12);
+        linear-gradient(90deg, rgba(0,0,0,.94) 0%, rgba(0,0,0,.72) 46%, rgba(0,0,0,.18) 100%),
+        url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2000&q=85")
+        center 52% / cover no-repeat;
     }
 
     .hero::after {
-      content: "AR";
+      content: "";
       position: absolute;
-      right: -25px;
-      top: 25px;
-      font-size: clamp(220px, 38vw, 490px);
-      line-height: 1;
-      font-weight: 800;
-      letter-spacing: -30px;
-      color: rgba(214,173,85,0.035);
-      pointer-events: none;
+      inset: auto 0 0;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
     }
 
-    .hero-grid {
+    .hero-content {
       position: relative;
       z-index: 1;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      align-items: center;
-      gap: 45px;
-      padding-top: 70px;
-      padding-bottom: 70px;
+      padding: 85px 0;
+      max-width: 720px;
+    }
+
+    .hero-label {
+      display: inline-block;
+      border: 1px solid var(--gold);
+      color: var(--gold-light);
+      padding: 5px 13px;
+      font-size: 11px;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+      background: rgba(0,0,0,.45);
     }
 
     .hero h1 {
-      max-width: 720px;
-      margin: 20px 0;
-      font-size: clamp(39px, 5.3vw, 70px);
-      line-height: 1.13;
-      letter-spacing: -2.6px;
+      font-size: clamp(35px, 6vw, 65px);
+      line-height: 1.25;
+      font-weight: 800;
+      letter-spacing: .5px;
     }
 
-    .hero h1 .highlight {
-      color: var(--gold);
+    .hero h1 span {
+      color: var(--gold-light);
     }
 
-    .hero-copy {
-      max-width: 580px;
-      color: #bdbdbd;
-      font-size: 16px;
-      line-height: 1.9;
+    .hero p {
+      color: #e0e0e0;
+      margin-top: 20px;
+      font-size: clamp(14px, 2vw, 17px);
+      max-width: 590px;
     }
 
-    .hero-buttons {
+    .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 13px;
       margin-top: 30px;
     }
 
-    .hero-stats {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      margin-top: 42px;
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 19px;
-      color: var(--gold);
-    }
-
-    .stat span {
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    .hero-visual {
-      min-height: 360px;
-      position: relative;
-      display: flex;
+    .btn {
+      display: inline-flex;
+      align-items: center;
       justify-content: center;
-      align-items: center;
+      gap: 9px;
+      min-height: 48px;
+      padding: 12px 22px;
+      border: 1px solid var(--gold);
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 14px;
+      transition: .2s ease;
     }
 
-    .hero-visual-card {
-      width: 100%;
-      max-width: 440px;
-      min-height: 330px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 28px;
-      border: 1px solid rgba(214,173,85,0.35);
-      border-radius: 22px;
-      background:
-        linear-gradient(145deg, rgba(255,255,255,0.055), transparent 55%),
-        #10100e;
-      box-shadow: 0 30px 90px rgba(0,0,0,0.4);
-      transform: rotate(2deg);
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold-light), #bb8b2d);
+      color: #111;
+      border-color: var(--gold-light);
     }
 
-    .visual-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      align-items: center;
+    .btn-gold:hover {
+      filter: brightness(1.08);
+      transform: translateY(-2px);
     }
 
-    .visual-label {
-      font-size: 10px;
-      color: var(--gold);
-      letter-spacing: 2px;
+    .btn-outline {
+      background: rgba(0,0,0,.35);
+      color: var(--gold-light);
     }
 
-    .visual-number {
-      font-size: 11px;
-      color: #777;
+    .btn-outline:hover {
+      background: var(--gold);
+      color: #111;
     }
 
-    .car-art {
-      width: 100%;
-      color: var(--gold);
-      filter: drop-shadow(0 12px 18px rgba(214,173,85,0.1));
+    /* QUICK BENEFITS */
+
+    .benefits {
+      border-bottom: 1px solid var(--border);
+      background: #0d0d0d;
     }
 
-    .visual-bottom {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .visual-bottom strong {
-      display: block;
-      font-size: 20px;
-    }
-
-    .visual-bottom span {
-      color: var(--muted);
-      font-size: 11px;
-    }
-
-    /* TRUST STRIP */
-
-    .trust-strip {
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      background: #0e0e0e;
-    }
-
-    .trust-grid {
+    .benefit-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
     }
 
-    .trust-item {
-      padding: 27px 16px;
+    .benefit {
       text-align: center;
-      border-right: 1px solid rgba(255,255,255,0.07);
+      padding: 24px 10px;
+      border-right: 1px solid #292929;
     }
 
-    .trust-item:last-child {
-      border-right: 0;
+    .benefit:last-child {
+      border-right: none;
     }
 
-    .trust-item strong {
-      display: block;
-      color: var(--gold);
-      font-size: 14px;
+    .benefit-icon {
+      color: var(--gold-light);
+      font-size: 25px;
       margin-bottom: 4px;
     }
 
-    .trust-item span {
-      font-size: 11px;
-      color: #999;
+    .benefit h3 {
+      font-size: 14px;
     }
 
-    /* SERVICES */
+    .benefit p {
+      color: var(--muted);
+      font-size: 11px;
+    }
 
-    .services-grid {
+    /* BUYING CATEGORIES */
+
+    .categories {
+      background: #0b0b0b;
+    }
+
+    .category-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 18px;
     }
 
-    .service-card {
-      padding: 30px;
-      min-height: 230px;
-      border: 1px solid rgba(255,255,255,0.09);
-      border-radius: var(--radius);
-      background: linear-gradient(145deg, #151515, #0e0e0e);
-      transition: 0.25s ease;
+    .category-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 245px;
+      border: 1px solid #292929;
+      background: var(--panel);
     }
 
-    .service-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--border);
+    .category-card img {
+      width: 100%;
+      height: 245px;
+      object-fit: cover;
+      transition: transform .45s ease;
+      opacity: .78;
     }
 
-    .service-icon {
-      width: 49px;
-      height: 49px;
-      display: grid;
-      place-items: center;
-      margin-bottom: 23px;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      color: var(--gold);
-      font-size: 23px;
+    .category-card:hover img {
+      transform: scale(1.06);
+      opacity: .95;
     }
 
-    .service-card h3 {
+    .category-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(0,0,0,.96), rgba(0,0,0,.03) 80%);
+      pointer-events: none;
+    }
+
+    .category-text {
+      position: absolute;
+      z-index: 1;
+      bottom: 17px;
+      left: 19px;
+      right: 15px;
+    }
+
+    .category-text h3 {
+      color: var(--gold-light);
       font-size: 19px;
-      margin-bottom: 10px;
     }
 
-    .service-card p {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.9;
+    .category-text p {
+      color: #ddd;
+      font-size: 12px;
     }
 
-    /* VEHICLE ENQUIRY */
+    /* BUYING MESSAGE */
+
+    .buy-message {
+      background:
+        linear-gradient(100deg, rgba(0,0,0,.94), rgba(0,0,0,.75)),
+        url("https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1800&q=80")
+        center / cover no-repeat;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .buy-inner {
+      text-align: center;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .buy-inner h2 {
+      font-size: clamp(26px, 4vw, 43px);
+      line-height: 1.45;
+    }
+
+    .buy-inner h2 span {
+      color: var(--gold-light);
+    }
+
+    .buy-inner > p {
+      color: #ddd;
+      margin: 18px auto 26px;
+      max-width: 760px;
+      font-size: 14px;
+    }
+
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 9px;
+      margin: 24px 0;
+    }
+
+    .service-tags span {
+      border: 1px solid var(--border);
+      background: rgba(20,20,20,.8);
+      padding: 6px 13px;
+      color: #eee;
+      font-size: 12px;
+    }
+
+    .service-tags span::before {
+      content: "◆ ";
+      color: var(--gold);
+      font-size: 9px;
+    }
+
+    /* ENQUIRY SECTION */
 
     .enquiry-section {
-      position: relative;
       background:
-        radial-gradient(ellipse at 10% 0%, rgba(214,173,85,0.07), transparent 35%),
-        #0d0d0d;
-      border-top: 1px solid rgba(214,173,85,0.1);
-      border-bottom: 1px solid rgba(214,173,85,0.1);
+        radial-gradient(ellipse at top, rgba(216,173,75,.07), transparent 55%),
+        #090909;
     }
 
     .enquiry-layout {
       display: grid;
-      grid-template-columns: 0.72fr 1.28fr;
-      gap: 45px;
+      grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+      gap: 26px;
       align-items: start;
     }
 
-    .enquiry-intro {
-      position: sticky;
-      top: 115px;
+    .enquiry-intro,
+    .enquiry-form {
+      border: 1px solid var(--border);
+      background: linear-gradient(145deg, #151515, #0e0e0e);
+      padding: clamp(20px, 4vw, 32px);
     }
 
-    .enquiry-intro h2 {
-      font-size: clamp(31px, 4vw, 47px);
-      line-height: 1.25;
-      margin: 17px 0;
+    .enquiry-intro h3 {
+      font-size: 24px;
+      line-height: 1.5;
+      margin-bottom: 13px;
     }
 
     .enquiry-intro > p {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.95;
+      font-size: 13px;
+      color: #bdbdbd;
+      margin-bottom: 22px;
     }
 
-    .enquiry-benefits {
+    .intro-list {
       list-style: none;
-      margin-top: 28px;
+      margin: 20px 0;
     }
 
-    .enquiry-benefits li {
-      display: flex;
-      gap: 12px;
-      margin: 15px 0;
-      color: #ddd;
+    .intro-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid #292929;
       font-size: 13px;
     }
 
-    .check {
-      color: var(--gold);
+    .intro-list li::before {
+      content: "✓";
+      color: var(--gold-light);
       font-weight: 800;
+      margin-right: 10px;
     }
 
-    .form-card {
-      padding: clamp(20px, 4vw, 38px);
-      border: 1px solid rgba(214,173,85,0.22);
-      border-radius: 18px;
-      background: linear-gradient(145deg, #171717, #101010);
-      box-shadow: 0 25px 80px rgba(0,0,0,0.25);
+    .contact-details {
+      display: none;
+      margin-top: 20px;
+      padding: 18px;
+      background: #080808;
+      border: 1px solid var(--border);
     }
 
-    .form-heading {
-      margin-bottom: 27px;
-      padding-bottom: 22px;
-      border-bottom: 1px solid rgba(255,255,255,0.09);
+    .contact-details.open {
+      display: block;
+      animation: appear .25s ease;
     }
 
-    .form-heading h3 {
-      font-size: 23px;
-      margin-bottom: 7px;
+    @keyframes appear {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    .form-heading p {
-      font-size: 12px;
-      color: var(--muted);
+    .contact-details h4 {
+      color: var(--gold-light);
+      margin-bottom: 12px;
     }
 
-    .form-section-title {
+    .contact-link {
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin: 27px 0 18px;
-      color: var(--gold);
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 0.5px;
+      gap: 12px;
+      padding: 13px;
+      border: 1px solid #292929;
+      margin-top: 10px;
+      overflow-wrap: anywhere;
+      transition: .2s ease;
     }
 
-    .form-section-title span {
-      display: grid;
-      place-items: center;
-      width: 25px;
-      height: 25px;
-      border-radius: 7px;
-      background: rgba(214,173,85,0.12);
+    .contact-link:hover {
+      border-color: var(--gold);
+      background: #151515;
+    }
+
+    .contact-link .contact-icon {
+      font-size: 23px;
+    }
+
+    .contact-link strong {
+      display: block;
+      font-size: 13px;
+    }
+
+    .contact-link small {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .form-title {
+      font-size: 21px;
+      margin-bottom: 4px;
+    }
+
+    .form-subtitle {
+      color: var(--muted);
       font-size: 12px;
+      margin-bottom: 22px;
     }
 
     .form-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
+      gap: 16px;
     }
 
     .field {
@@ -614,15 +555,15 @@
 
     .field label {
       display: block;
-      margin-bottom: 8px;
-      color: #e1e1e1;
+      color: #e4e4e4;
       font-size: 12px;
       font-weight: 600;
+      margin-bottom: 7px;
     }
 
     .required {
-      margin-left: 5px;
-      color: var(--gold);
+      color: var(--gold-light);
+      margin-left: 4px;
       font-size: 10px;
     }
 
@@ -630,610 +571,294 @@
     .field select,
     .field textarea {
       width: 100%;
-      min-height: 48px;
-      padding: 12px 13px;
+      min-height: 46px;
+      padding: 11px 12px;
+      background: #090909;
+      color: #fff;
+      border: 1px solid #373737;
+      border-radius: 0;
       outline: none;
-      color: #f4f4f4;
-      background: #0a0a0a;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 8px;
-      transition: border-color 0.2s;
-    }
-
-    .field select {
-      color-scheme: dark;
     }
 
     .field input:focus,
     .field select:focus,
     .field textarea:focus {
       border-color: var(--gold);
+      box-shadow: 0 0 0 2px rgba(216,173,75,.08);
     }
 
-    .field input::placeholder,
-    .field textarea::placeholder {
-      color: #666;
+    .field select option {
+      background: #111;
+      color: #fff;
     }
 
     .field textarea {
-      min-height: 125px;
+      min-height: 115px;
       resize: vertical;
     }
 
-    .field-help {
-      margin-top: 7px;
-      font-size: 11px;
-      color: #888;
-      line-height: 1.7;
-    }
-
-    .manufacturer-grid {
+    .maker-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 9px;
+      gap: 8px;
     }
 
     .maker-option {
       position: relative;
-      min-width: 0;
     }
 
     .maker-option input {
       position: absolute;
-      width: 1px;
-      height: 1px;
       opacity: 0;
       pointer-events: none;
     }
 
     .maker-option label {
-      height: 74px;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      gap: 4px;
-      padding: 8px 3px;
-      margin: 0;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 9px;
-      background: #0d0d0d;
-      color: #ccc;
+      justify-content: center;
+      min-height: 44px;
+      padding: 7px 4px;
       text-align: center;
+      font-size: 11px;
+      border: 1px solid #343434;
+      background: #0b0b0b;
+      color: #ddd;
       cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .maker-option label:hover {
-      border-color: rgba(214,173,85,0.5);
-    }
-
-    .maker-option input:checked + label {
-      border-color: var(--gold);
-      background: rgba(214,173,85,0.1);
-      color: var(--gold-light);
-      box-shadow: inset 0 0 0 1px rgba(214,173,85,0.12);
-    }
-
-    .maker-logo {
-      font-size: 20px;
-      line-height: 1.2;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-    }
-
-    .maker-name {
-      font-size: 10px;
-      line-height: 1.3;
+      transition: .2s ease;
       overflow-wrap: anywhere;
     }
 
+    .maker-option input:checked + label {
+      border-color: var(--gold-light);
+      color: var(--gold-light);
+      background: rgba(216,173,75,.11);
+      box-shadow: inset 0 0 0 1px rgba(216,173,75,.15);
+    }
+
+    .maker-option label:hover {
+      border-color: var(--gold);
+    }
+
     .maker-search {
-      margin-bottom: 13px;
+      margin-bottom: 12px;
     }
 
     .maker-search input {
       width: 100%;
-      min-height: 44px;
-      padding: 10px 13px;
+      padding: 10px 12px;
+      background: #080808;
+      border: 1px solid #373737;
       color: white;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 8px;
-      background: #0a0a0a;
-      outline: none;
     }
 
-    .maker-search input:focus {
-      border-color: var(--gold);
-    }
-
-    .selected-maker-note {
-      margin-top: 12px;
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    /* PHOTO UPLOAD */
-
-    .upload-area {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 155px;
-      padding: 25px;
-      border: 1px dashed rgba(214,173,85,0.5);
-      border-radius: 10px;
-      background: rgba(214,173,85,0.035);
+    .photo-box {
+      border: 1px dashed #555;
+      background: #0b0b0b;
+      padding: 18px;
       text-align: center;
-      transition: 0.2s;
     }
 
-    .upload-area:hover,
-    .upload-area.dragover {
-      border-color: var(--gold-light);
-      background: rgba(214,173,85,0.08);
+    .photo-box p {
+      color: #bbb;
+      font-size: 12px;
     }
 
-    .upload-icon {
-      font-size: 30px;
-      color: var(--gold);
-      margin-bottom: 7px;
+    .photo-box strong {
+      color: var(--gold-light);
     }
 
-    .upload-area strong {
-      font-size: 13px;
-      margin-bottom: 5px;
-    }
-
-    .upload-area p {
-      color: var(--muted);
-      font-size: 11px;
-    }
-
-    .upload-area input {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      cursor: pointer;
+    .photo-box input {
+      margin-top: 12px;
+      max-width: 100%;
+      color: #ddd;
+      font-size: 12px;
     }
 
     .photo-preview {
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 9px;
+      gap: 8px;
       margin-top: 12px;
     }
 
-    .photo-item {
-      position: relative;
-      aspect-ratio: 1;
-      overflow: hidden;
-      border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.15);
-      background: #080808;
-    }
-
-    .photo-item img {
+    .photo-preview img {
       width: 100%;
-      height: 100%;
+      height: 75px;
       object-fit: cover;
-    }
-
-    .remove-photo {
-      position: absolute;
-      top: 4px;
-      right: 4px;
-      width: 24px;
-      height: 24px;
-      border: 0;
-      border-radius: 50%;
-      background: rgba(0,0,0,0.85);
-      color: white;
-      font-size: 15px;
+      border: 1px solid #333;
     }
 
     .privacy-note {
-      display: flex;
-      gap: 10px;
-      margin: 20px 0;
-      padding: 13px;
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 8px;
-      background: #0c0c0c;
-      color: #999;
       font-size: 11px;
-      line-height: 1.8;
+      color: #999;
+      margin: 17px 0;
     }
 
-    .privacy-note strong {
-      color: var(--gold);
-    }
-
-    .submit-button {
+    .submit-btn {
       width: 100%;
-      min-height: 55px;
-      border: 0;
-      border-radius: 9px;
-      background: linear-gradient(135deg, var(--gold-light), var(--gold));
-      color: #111;
+      min-height: 51px;
       font-size: 15px;
-      font-weight: 800;
-      transition: 0.2s;
-    }
-
-    .submit-button:hover {
-      filter: brightness(1.08);
-      transform: translateY(-1px);
-    }
-
-    .submit-button:disabled {
-      opacity: 0.6;
-      cursor: wait;
-      transform: none;
     }
 
     .form-status {
       display: none;
-      margin-top: 17px;
-      padding: 14px;
-      border-radius: 8px;
+      margin-top: 15px;
+      padding: 12px;
+      border: 1px solid var(--border);
       font-size: 13px;
       overflow-wrap: anywhere;
     }
 
-    .form-status.success {
+    .form-status.show {
       display: block;
-      border: 1px solid rgba(80,200,120,0.3);
-      background: rgba(80,200,120,0.08);
-      color: #a4efb9;
+    }
+
+    .form-status.success {
+      color: #b7f5c9;
+      border-color: #286d3d;
+      background: #0b1c10;
     }
 
     .form-status.error {
-      display: block;
-      border: 1px solid rgba(255,90,90,0.3);
-      background: rgba(255,90,90,0.08);
-      color: #ffb3b3;
-    }
-
-    /* PROCESS */
-
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .process-card {
-      position: relative;
-      padding: 25px;
-      border: 1px solid rgba(255,255,255,0.09);
-      border-radius: 14px;
-      background: #101010;
-    }
-
-    .process-number {
-      display: block;
-      margin-bottom: 20px;
-      color: var(--gold);
-      font-size: 32px;
-      font-weight: 800;
-      line-height: 1;
-    }
-
-    .process-card h3 {
-      font-size: 16px;
-      margin-bottom: 10px;
-    }
-
-    .process-card p {
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.9;
-    }
-
-    /* CONTACT */
-
-    .contact-section {
-      padding: 85px 0;
-      background:
-        radial-gradient(ellipse at 50% 100%, rgba(214,173,85,0.08), transparent 55%),
-        #0d0d0d;
-      border-top: 1px solid rgba(214,173,85,0.12);
-    }
-
-    .contact-box {
-      display: grid;
-      grid-template-columns: 1fr 0.85fr;
-      gap: 40px;
-      align-items: center;
-      padding: clamp(25px, 5vw, 55px);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      background: linear-gradient(135deg, #181713, #101010);
-    }
-
-    .contact-box h2 {
-      margin: 14px 0;
-      font-size: clamp(30px, 4vw, 45px);
-      line-height: 1.25;
-    }
-
-    .contact-box p {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .contact-buttons {
-      display: grid;
-      gap: 13px;
-    }
-
-    .contact-button {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      min-height: 73px;
-      padding: 14px 18px;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 10px;
-      background: rgba(0,0,0,0.3);
-      transition: 0.2s;
-    }
-
-    .contact-button:hover {
-      border-color: var(--gold);
-      transform: translateX(3px);
-    }
-
-    .contact-icon {
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      flex-shrink: 0;
-      border-radius: 10px;
-      background: rgba(214,173,85,0.12);
-      color: var(--gold);
-      font-size: 20px;
-      font-weight: 800;
-    }
-
-    .contact-button strong {
-      display: block;
-      font-size: 14px;
-    }
-
-    .contact-button small {
-      display: block;
-      margin-top: 3px;
-      color: var(--muted);
-      font-size: 11px;
-      overflow-wrap: anywhere;
+      color: #ffb7b7;
+      border-color: #7b2929;
+      background: #210c0c;
     }
 
     /* FOOTER */
 
-    .site-footer {
-      padding: 35px 0 25px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      background: #080808;
+    footer {
+      background: #050505;
+      border-top: 1px solid var(--border);
+      padding: 32px 0;
     }
 
-    .footer-top {
+    .footer-inner {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 25px;
-      padding-bottom: 28px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-brand {
+      font-family: "Orbitron", sans-serif;
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: var(--gold-light);
+    }
+
+    .footer-note {
+      color: #888;
+      font-size: 11px;
+      margin-top: 5px;
     }
 
     .footer-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .footer-links a {
-      color: #aaa;
+      gap: 18px;
       font-size: 12px;
     }
 
     .footer-links a:hover {
-      color: var(--gold);
+      color: var(--gold-light);
     }
 
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,0.07);
-      color: #777;
+    .copyright {
+      text-align: center;
+      border-top: 1px solid #222;
+      margin-top: 25px;
+      padding-top: 18px;
       font-size: 11px;
+      color: #777;
     }
 
-    .back-to-top {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      z-index: 50;
-      width: 44px;
-      height: 44px;
-      display: grid;
-      place-items: center;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      background: rgba(17,17,17,0.94);
-      color: var(--gold);
-      font-size: 20px;
-      opacity: 0;
-      pointer-events: none;
-      transition: 0.2s;
-    }
+    /* RESPONSIVE */
 
-    .back-to-top.visible {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    @media (max-width: 1000px) {
-      .nav {
-        gap: 14px;
-      }
-
-      .nav a {
+    @media (max-width: 850px) {
+      nav {
+        gap: 12px;
         font-size: 12px;
       }
 
-      .hero-grid {
-        gap: 20px;
-      }
-
       .enquiry-layout {
-        grid-template-columns: 0.65fr 1.35fr;
-        gap: 25px;
+        grid-template-columns: 1fr;
       }
 
-      .manufacturer-grid {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-      }
-
-      .process-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .category-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
-    @media (max-width: 760px) {
-      .container {
-        width: min(100% - 30px, var(--max-width));
-      }
-
-      .section {
-        padding: 68px 0;
-      }
-
+    @media (max-width: 600px) {
       .header-inner {
-        min-height: 70px;
+        min-height: 68px;
       }
 
       .brand-mark {
-        width: 42px;
-        height: 42px;
+        width: 39px;
+        height: 39px;
+        font-size: 15px;
       }
 
-      .brand-text strong {
-        font-size: 14px;
+      .brand-name {
+        font-size: 13px;
+        letter-spacing: .8px;
       }
 
-      .brand-text span {
-        font-size: 8px;
-        letter-spacing: 1.7px;
+      .brand-tagline {
+        font-size: 9px;
       }
 
-      .menu-toggle {
-        display: block;
-      }
-
-      .nav {
-        position: absolute;
-        top: 69px;
-        left: 0;
-        right: 0;
+      nav a:not(.nav-contact) {
         display: none;
-        align-items: stretch;
-        flex-direction: column;
-        gap: 0;
-        padding: 10px 20px 20px;
-        background: #0a0a0a;
-        border-bottom: 1px solid var(--border);
       }
 
-      .nav.open {
-        display: flex;
-      }
-
-      .nav a {
-        padding: 13px 0;
-        border-bottom: 1px solid rgba(255,255,255,0.06);
-        font-size: 14px;
-      }
-
-      .header-actions {
-        gap: 7px;
-      }
-
-      .language-switch button {
-        padding: 7px;
+      .nav-contact {
+        padding: 7px 10px;
+        font-size: 11px;
       }
 
       .hero {
-        min-height: auto;
+        min-height: 520px;
+        background-position: 59% center;
       }
 
-      .hero-grid {
-        grid-template-columns: 1fr;
-        padding-top: 65px;
-        padding-bottom: 45px;
+      .hero-content {
+        padding: 65px 0;
       }
 
       .hero h1 {
-        font-size: clamp(39px, 10vw, 58px);
-        letter-spacing: -1.5px;
+        font-size: 36px;
       }
 
-      .hero-copy {
-        font-size: 14px;
+      .section {
+        padding: 54px 0;
       }
 
-      .hero-visual {
-        min-height: 290px;
-        margin-top: 5px;
-      }
-
-      .hero-visual-card {
-        min-height: 270px;
-        max-width: 430px;
-        padding: 22px;
-      }
-
-      .trust-grid {
+      .benefit-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .trust-item {
-        border-bottom: 1px solid rgba(255,255,255,0.07);
+      .benefit:nth-child(2) {
+        border-right: none;
       }
 
-      .trust-item:nth-child(2) {
-        border-right: 0;
+      .benefit:nth-child(-n+2) {
+        border-bottom: 1px solid #292929;
       }
 
-      .trust-item:nth-child(n+3) {
-        border-bottom: 0;
-      }
-
-      .services-grid {
+      .category-grid {
         grid-template-columns: 1fr;
       }
 
-      .service-card {
-        min-height: auto;
-      }
-
-      .enquiry-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .enquiry-intro {
-        position: static;
-      }
-
-      .form-card {
-        padding: 20px 16px;
+      .category-card,
+      .category-card img {
+        height: 230px;
+        min-height: 230px;
       }
 
       .form-grid {
@@ -1244,62 +869,17 @@
         grid-column: auto;
       }
 
-      .manufacturer-grid {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 7px;
-      }
-
-      .maker-option label {
-        height: 69px;
-      }
-
-      .maker-logo {
-        font-size: 17px;
-      }
-
-      .maker-name {
-        font-size: 9px;
+      .maker-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
       .photo-preview {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
-      .contact-box {
-        grid-template-columns: 1fr;
-        gap: 27px;
-      }
-
-      .footer-top,
-      .footer-bottom {
-        flex-direction: column;
+      .footer-inner {
         align-items: flex-start;
-      }
-
-      .footer-links {
-        gap: 15px;
-      }
-    }
-
-    @media (max-width: 380px) {
-      .brand {
-        gap: 8px;
-      }
-
-      .brand-text strong {
-        font-size: 12px;
-      }
-
-      .brand-text span {
-        letter-spacing: 1px;
-      }
-
-      .manufacturer-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .hero-buttons .btn {
-        width: 100%;
+        flex-direction: column;
       }
     }
 
@@ -1308,11 +888,9 @@
         scroll-behavior: auto;
       }
 
-      *,
-      *::before,
-      *::after {
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
       }
     }
   </style>
@@ -1321,641 +899,414 @@
 <body>
 
   <!-- HEADER -->
-
-  <header class="site-header">
+  <header>
     <div class="container header-inner">
-
-      <a href="#home" class="brand" aria-label="AR AUTO TRADING home">
-        <span class="brand-mark">AR</span>
-        <span class="brand-text">
-          <strong>AR AUTO TRADING</strong>
-          <span>DRIVE YOUR VALUE</span>
-        </span>
+      <a class="brand" href="#home" aria-label="AR AUTO TRADING Home">
+        <div class="brand-mark">AR</div>
+        <div>
+          <div class="brand-name">AR AUTO TRADING</div>
+          <span class="brand-tagline">VEHICLES · MACHINERY · EXPORT</span>
+        </div>
       </a>
 
-      <nav class="nav" id="mainNav">
-        <a href="#home" data-i18n="navHome">ホーム</a>
-        <a href="#services" data-i18n="navServices">サービス</a>
-        <a href="#enquiry" data-i18n="navEnquiry">車両情報入力</a>
-        <a href="#process" data-i18n="navProcess">ご利用の流れ</a>
-        <a href="#contact" data-i18n="navContact">お問い合わせ</a>
+      <nav aria-label="Main navigation">
+        <a href="#home">ホーム</a>
+        <a href="#services">買取品目</a>
+        <a href="#contact">お問い合わせ</a>
+        <a href="#contact" class="nav-contact">無料査定・お問い合わせ →</a>
       </nav>
-
-      <div class="header-actions">
-
-        <div class="language-switch" aria-label="Language selection">
-          <button type="button" class="active" data-lang="ja">日本語</button>
-          <button type="button" data-lang="en">EN</button>
-        </div>
-
-        <button type="button"
-                class="menu-toggle"
-                id="menuToggle"
-                aria-label="Toggle navigation"
-                aria-expanded="false">☰</button>
-      </div>
-
     </div>
   </header>
 
   <main>
 
     <!-- HERO -->
-
     <section class="hero" id="home">
-      <div class="container hero-grid">
-
+      <div class="container">
         <div class="hero-content">
-          <span class="eyebrow" data-i18n="heroEyebrow">
-            YOUR AUTOMOTIVE PARTNER
-          </span>
+          <div class="hero-label">AR AUTO TRADING · JAPAN</div>
 
           <h1>
-            <span data-i18n="heroTitle1">愛車の価値を、</span><br>
-            <span class="highlight" data-i18n="heroTitle2">次のステージへ。</span>
+            あなたの愛車に、<br>
+            <span>納得の買取価格を。</span>
           </h1>
 
-          <p class="hero-copy" data-i18n="heroCopy">
-            お車の買取・販売から自動車パーツまで。
-            AR AUTO TRADING が、お客様のご要望に合わせてサポートします。
+          <p>
+            中古車から大型トラック、建設機械、不動車まで幅広く対応。
+            お車・機械の価値を丁寧に査定し、高価買取を目指します。
           </p>
 
-          <div class="hero-buttons">
-            <a href="#enquiry" class="btn btn-gold">
-              <span data-i18n="heroButton">車両情報を送信する</span>
-              <span aria-hidden="true">↗</span>
-            </a>
-
-            <a href="#contact" class="btn btn-outline">
-              <span data-i18n="heroContact">お問い合わせ</span>
-            </a>
-          </div>
-
-          <div class="hero-stats">
-            <div class="stat">
-              <strong>01</strong>
-              <span data-i18n="stat1">お客様に合わせた対応</span>
-            </div>
-
-            <div class="stat">
-              <strong>02</strong>
-              <span data-i18n="stat2">幅広いメーカーに対応</span>
-            </div>
-
-            <div class="stat">
-              <strong>03</strong>
-              <span data-i18n="stat3">簡単なオンライン相談</span>
-            </div>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-gold">無料査定を申し込む ↗</a>
+            <a href="#services" class="btn btn-outline">買取品目を見る</a>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="hero-visual">
-          <div class="hero-visual-card">
+    <!-- BENEFITS -->
+    <section class="benefits" aria-label="Our services">
+      <div class="container benefit-grid">
 
-            <div class="visual-top">
-              <span class="visual-label">AR AUTO TRADING</span>
-              <span class="visual-number">AUTOMOTIVE / JAPAN</span>
-            </div>
+        <div class="benefit">
+          <div class="benefit-icon">◇</div>
+          <h3>幅広い買取品目</h3>
+          <p>国産車・輸入車・各種機械</p>
+        </div>
 
-            <svg class="car-art"
-                 viewBox="0 0 620 260"
-                 role="img"
-                 aria-label="Decorative outline illustration of a car"
-                 xmlns="http://www.w3.org/2000/svg">
+        <div class="benefit">
+          <div class="benefit-icon">◆</div>
+          <h3>高価買取を目指します</h3>
+          <p>一台一台、丁寧に査定</p>
+        </div>
 
-              <defs>
-                <linearGradient id="carGold" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#f5d88b"/>
-                  <stop offset="100%" stop-color="#9e742d"/>
-                </linearGradient>
-              </defs>
+        <div class="benefit">
+          <div class="benefit-icon">▣</div>
+          <h3>写真で簡単査定</h3>
+          <p>最大5枚の画像を送信</p>
+        </div>
 
-              <path d="M60 171
-                       L88 145
-                       Q102 133 132 128
-                       L194 72
-                       Q208 58 239 58
-                       L388 58
-                       Q414 58 435 82
-                       L486 132
-                       L535 145
-                       Q554 151 562 169
-                       L562 194
-                       L516 194
-                       Q509 155 473 155
-                       Q437 155 430 194
-                       L198 194
-                       Q191 155 155 155
-                       Q119 155 112 194
-                       L70 194
-                       Z"
-                    fill="rgba(214,173,85,0.07)"
-                    stroke="url(#carGold)"
-                    stroke-width="5"
-                    stroke-linejoin="round"/>
-
-              <path d="M207 82 L240 82 L240 125 L161 125 Z"
-                    fill="rgba(214,173,85,0.13)"
-                    stroke="url(#carGold)"
-                    stroke-width="3"/>
-
-              <path d="M254 82 L382 82 Q398 82 411 98 L437 125 L254 125 Z"
-                    fill="rgba(214,173,85,0.13)"
-                    stroke="url(#carGold)"
-                    stroke-width="3"/>
-
-              <path d="M254 82 L254 125"
-                    stroke="url(#carGold)"
-                    stroke-width="3"/>
-
-              <circle cx="155" cy="194" r="31"
-                      fill="#10100e"
-                      stroke="url(#carGold)"
-                      stroke-width="5"/>
-
-              <circle cx="155" cy="194" r="13"
-                      fill="none"
-                      stroke="url(#carGold)"
-                      stroke-width="4"/>
-
-              <circle cx="473" cy="194" r="31"
-                      fill="#10100e"
-                      stroke="url(#carGold)"
-                      stroke-width="5"/>
-
-              <circle cx="473" cy="194" r="13"
-                      fill="none"
-                      stroke="url(#carGold)"
-                      stroke-width="4"/>
-
-              <path d="M75 169 L107 169"
-                    stroke="#f5d88b"
-                    stroke-width="5"
-                    stroke-linecap="round"/>
-
-              <path d="M527 164 L548 171"
-                    stroke="#f5d88b"
-                    stroke-width="5"
-                    stroke-linecap="round"/>
-
-              <path d="M83 221 L540 221"
-                    stroke="rgba(214,173,85,0.3)"
-                    stroke-width="2"
-                    stroke-linecap="round"/>
-
-            </svg>
-
-            <div class="visual-bottom">
-              <div>
-                <strong data-i18n="visualTitle">YOUR CAR. YOUR VALUE.</strong>
-                <span data-i18n="visualSubtitle">A smarter automotive experience.</span>
-              </div>
-              <span>AR / 01</span>
-            </div>
-
-          </div>
+        <div class="benefit">
+          <div class="benefit-icon">✉</div>
+          <h3>オンラインお問い合わせ</h3>
+          <p>フォームから簡単申し込み</p>
         </div>
 
       </div>
     </section>
 
-    <!-- TRUST STRIP -->
-
-    <div class="trust-strip">
-      <div class="container trust-grid">
-
-        <div class="trust-item">
-          <strong data-i18n="trust1Title">多メーカー対応</strong>
-          <span data-i18n="trust1Copy">国産車・輸入車</span>
-        </div>
-
-        <div class="trust-item">
-          <strong data-i18n="trust2Title">簡単な入力</strong>
-          <span data-i18n="trust2Copy">オンライン車両情報送信</span>
-        </div>
-
-        <div class="trust-item">
-          <strong data-i18n="trust3Title">写真を送信</strong>
-          <span data-i18n="trust3Copy">最大5枚まで添付可能</span>
-        </div>
-
-        <div class="trust-item">
-          <strong data-i18n="trust4Title">直接お問い合わせ</strong>
-          <span data-i18n="trust4Copy">LINE・メール対応</span>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- SERVICES -->
-
-    <section class="section" id="services">
+    <!-- VEHICLE AND MACHINERY CATEGORIES -->
+    <section class="section categories" id="services">
       <div class="container">
 
         <div class="section-heading">
-          <span class="eyebrow" data-i18n="servicesEyebrow">WHAT WE DO</span>
-
-          <h2 data-i18n="servicesTitle">
-            お車に関することを、<span class="gold">まとめてサポート。</span>
-          </h2>
-
-          <p data-i18n="servicesIntro">
-            車両の買取・販売やパーツに関するご相談を受け付けています。
-            まずはお気軽にお問い合わせください。
-          </p>
+          <div class="eyebrow">WHAT WE BUY</div>
+          <h2>買取品目</h2>
+          <p>乗用車から商用車・建設機械まで、お気軽にご相談ください。</p>
         </div>
 
-        <div class="services-grid">
+        <div class="category-grid">
 
-          <article class="service-card">
-            <div class="service-icon" aria-hidden="true">↗</div>
-            <h3 data-i18n="service1Title">中古車買取</h3>
-            <p data-i18n="service1Copy">
-              メーカー、年式、走行距離、車両の状態をお知らせください。
-              お車の情報を確認し、ご相談を進めます。
-            </p>
+          <article class="category-card">
+            <img
+              src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1000&q=85"
+              alt="中古乗用車"
+              loading="lazy">
+            <div class="category-text">
+              <h3>中古車・輸入車</h3>
+              <p>国産車・輸入車・SUV・四輪駆動車</p>
+            </div>
           </article>
 
-          <article class="service-card">
-            <div class="service-icon" aria-hidden="true">◇</div>
-            <h3 data-i18n="service2Title">中古車・車両販売</h3>
-            <p data-i18n="service2Copy">
-              お探しのお車やご希望の条件についてご相談いただけます。
-              メーカーやモデルなどの情報をお知らせください。
-            </p>
+          <article class="category-card">
+            <img
+              src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=1000&q=85"
+              alt="大型トラック"
+              loading="lazy">
+            <div class="category-text">
+              <h3>トラック・大型車</h3>
+              <p>大型・中型・2トン車・ダンプ・特殊車両</p>
+            </div>
           </article>
 
-          <article class="service-card">
-            <div class="service-icon" aria-hidden="true">⚙</div>
-            <h3 data-i18n="service3Title">自動車パーツ</h3>
-            <p data-i18n="service3Copy">
-              車両部品やパーツについてのお問い合わせも受け付けています。
-              車種と必要な部品の情報をお送りください。
-            </p>
+          <article class="category-card">
+            <img
+              src="https://images.unsplash.com/photo-1580901368919-7738efb0f87e?auto=format&fit=crop&w=1000&q=85"
+              alt="建設機械"
+              loading="lazy">
+            <div class="category-text">
+              <h3>建設機械・重機</h3>
+              <p>油圧ショベル・ブルドーザー・ロードローラー</p>
+            </div>
+          </article>
+
+          <article class="category-card">
+            <img
+              src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1000&q=85"
+              alt="産業機械"
+              loading="lazy">
+            <div class="category-text">
+              <h3>産業機械・設備</h3>
+              <p>フォークリフト・発電機・コンプレッサー</p>
+            </div>
+          </article>
+
+          <article class="category-card">
+            <img
+              src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1000&q=85"
+              alt="中古車の査定"
+              loading="lazy">
+            <div class="category-text">
+              <h3>事故車・不動車</h3>
+              <p>故障車・事故車・長期保管車もご相談ください</p>
+            </div>
+          </article>
+
+          <article class="category-card">
+            <img
+              src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1000&q=85"
+              alt="自動車輸出"
+              loading="lazy">
+            <div class="category-text">
+              <h3>自動車・機械の輸出入</h3>
+              <p>車両・機械の買取、輸出入のご相談</p>
+            </div>
           </article>
 
         </div>
       </div>
     </section>
 
-    <!-- VEHICLE ENQUIRY -->
+    <!-- PROFESSIONAL JAPANESE SALES MESSAGE -->
+    <section class="section buy-message">
+      <div class="container buy-inner">
 
-    <section class="section enquiry-section" id="enquiry">
-      <div class="container enquiry-layout">
+        <div class="section-heading">
+          <div class="eyebrow">FAIR VALUE · PROFESSIONAL SERVICE</div>
+        </div>
 
-        <aside class="enquiry-intro">
-          <span class="eyebrow" data-i18n="formEyebrow">VEHICLE ENQUIRY</span>
+        <h2>
+          お車・機械を<br>
+          <span>高価買取いたします。</span>
+        </h2>
 
-          <h2>
-            <span data-i18n="formIntro1">あなたのお車を</span><br>
-            <span class="gold" data-i18n="formIntro2">教えてください。</span>
-          </h2>
+        <p>
+          中古車・大型車・トラック・ダンプ・特殊車両・建設機械・産業機械など、
+          幅広い車両・機械の買取に対応しております。
+          事故車・不動車もお気軽にご相談ください。
+          車両の状態や市場価値を考慮し、丁寧に査定いたします。
+        </p>
 
-          <p data-i18n="formIntroCopy">
-            メーカーやモデル、年式、走行距離などをご入力ください。
-            写真を添付すると、車両の状態をより詳しくお知らせいただけます。
-          </p>
+        <div class="service-tags">
+          <span>中古車・輸入車</span>
+          <span>ランドクルーザー・パジェロ</span>
+          <span>大型・中型・2トントラック</span>
+          <span>ダンプ・ユニック車</span>
+          <span>冷凍車・トレーラー</span>
+          <span>バス・特殊車両</span>
+          <span>フォークリフト</span>
+          <span>油圧ショベル・重機</span>
+          <span>発電機・コンプレッサー</span>
+          <span>事故車・不動車</span>
+          <span>各種産業機械</span>
+          <span>車両・機械の輸出入</span>
+        </div>
 
-          <ul class="enquiry-benefits">
-            <li>
-              <span class="check">✓</span>
-              <span data-i18n="benefit1">国産車・輸入車に対応</span>
-            </li>
-            <li>
-              <span class="check">✓</span>
-              <span data-i18n="benefit2">メーカーに合わせてモデルを自動表示</span>
-            </li>
-            <li>
-              <span class="check">✓</span>
-              <span data-i18n="benefit3">最大5枚の写真を添付可能</span>
-            </li>
-            <li>
-              <span class="check">✓</span>
-              <span data-i18n="benefit4">LINEまたはメールでお問い合わせ可能</span>
-            </li>
-          </ul>
-        </aside>
+        <a href="#contact" class="btn btn-gold">無料査定・お問い合わせ →</a>
 
-        <div class="form-card">
+      </div>
+    </section>
 
-          <div class="form-heading">
-            <h3 data-i18n="formTitle">車両情報・お問い合わせフォーム</h3>
-            <p data-i18n="formSubtitle">
-              必須項目をご入力ください。分からない項目は「不明」を選択できます。
+    <!-- VEHICLE INFORMATION & ENQUIRY -->
+    <section class="section enquiry-section" id="contact">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="eyebrow">VEHICLE INFORMATION & ENQUIRY</div>
+          <h2>車両情報・お問い合わせ</h2>
+          <p>お車・機械の情報をご入力ください。写真を添付すると査定の参考になります。</p>
+        </div>
+
+        <div class="enquiry-layout">
+
+          <!-- LEFT: INFORMATION AND DIRECT CONTACT -->
+          <aside class="enquiry-intro">
+
+            <h3>
+              あなたの車に、<br>
+              <span class="gold">最適な買取価格を。</span>
+            </h3>
+
+            <p>
+              国産車・輸入車・トラック・建設機械・不動車など、
+              さまざまな車両・機械の査定を承ります。
+              まずはお気軽にお問い合わせください。
             </p>
-          </div>
 
-          <form id="vehicleForm">
+            <ul class="intro-list">
+              <li>国産車・輸入車・多彩なメーカーに対応</li>
+              <li>車両情報を入力するだけの簡単フォーム</li>
+              <li>写真は最大5枚まで添付可能</li>
+              <li>事故車・不動車もご相談可能</li>
+            </ul>
 
-            <!-- CONTACT DETAILS -->
-
-            <div class="form-section-title">
-              <span>01</span>
-              <span data-i18n="personalSection">お客様の情報</span>
-            </div>
-
-            <div class="form-grid">
-
-              <div class="field">
-                <label for="customerName">
-                  <span data-i18n="nameLabel">お名前</span>
-                  <span class="required" data-i18n="required">必須</span>
-                </label>
-
-                <input id="customerName"
-                       name="name"
-                       type="text"
-                       required
-                       maxlength="150"
-                       autocomplete="name"
-                       placeholder="お名前 / Your name">
-              </div>
-
-              <div class="field">
-                <label for="customerContact">
-                  <span data-i18n="contactLabel">メールアドレス・LINE IDなど</span>
-                  <span class="required" data-i18n="required">必須</span>
-                </label>
-
-                <input id="customerContact"
-                       name="contact"
-                       type="text"
-                       required
-                       maxlength="254"
-                       autocomplete="email"
-                       placeholder="Email address or LINE ID">
-              </div>
-
-            </div>
-
-            <!-- MAKER -->
-
-            <div class="form-section-title">
-              <span>02</span>
-              <span data-i18n="vehicleSection">お車の情報</span>
-            </div>
-
-            <div class="field">
-              <label for="makerSearch" data-i18n="makerSearchLabel">
-                メーカーを検索
-              </label>
-
-              <div class="maker-search">
-                <input id="makerSearch"
-                       type="search"
-                       autocomplete="off"
-                       placeholder="メーカー名を検索 / Search manufacturer">
-              </div>
-            </div>
-
-            <div class="field">
-              <label>
-                <span data-i18n="makerLabel">メーカーを選択</span>
-                <span class="required" data-i18n="required">必須</span>
-              </label>
-
-              <div class="manufacturer-grid" id="manufacturerGrid"></div>
-
-              <p class="selected-maker-note" id="selectedMakerNote"
-                 data-i18n="makerNote">
-                メーカーを選択すると、対応する車種が表示されます。
-              </p>
-            </div>
-
-            <div class="form-grid" style="margin-top: 22px;">
-
-              <div class="field">
-                <label for="model">
-                  <span data-i18n="modelLabel">車種・モデル</span>
-                  <span class="required" data-i18n="required">必須</span>
-                </label>
-
-                <select id="model" name="model" required disabled>
-                  <option value="" data-i18n="selectMakerFirst">
-                    先にメーカーを選択してください
-                  </option>
-                </select>
-              </div>
-
-              <div class="field">
-                <label for="year">
-                  <span data-i18n="yearLabel">年式</span>
-                  <span class="required" data-i18n="required">必須</span>
-                </label>
-
-                <select id="year" name="year" required>
-                  <option value="" data-i18n="selectYear">年式を選択</option>
-                </select>
-              </div>
-
-              <div class="field full">
-                <label for="mileage">
-                  <span data-i18n="mileageLabel">走行距離</span>
-                  <span class="required" data-i18n="required">必須</span>
-                </label>
-
-                <select id="mileage" name="mileage" required>
-                  <option value="" data-i18n="selectMileage">
-                    走行距離を選択
-                  </option>
-                </select>
-
-                <p class="field-help" data-i18n="mileageHelp">
-                  10,000 km単位で選択できます。30万kmを超える場合は「30万km超」を選択してください。
-                </p>
-              </div>
-
-            </div>
-
-            <!-- PHOTOS -->
-
-            <div class="form-section-title">
-              <span>03</span>
-              <span data-i18n="photoSection">車両写真</span>
-            </div>
-
-            <div class="field">
-              <label for="photos" data-i18n="photoLabel">
-                写真を添付（任意）
-              </label>
-
-              <div class="upload-area" id="uploadArea">
-
-                <div class="upload-icon" aria-hidden="true">＋</div>
-
-                <strong data-i18n="uploadTitle">
-                  クリックまたは写真をドラッグ
-                </strong>
-
-                <p data-i18n="uploadCopy">
-                  JPG・PNG・WebP / 最大5枚 / 1枚10MBまで
-                </p>
-
-                <input id="photos"
-                       name="photos"
-                       type="file"
-                       accept="image/jpeg,image/png,image/webp"
-                       multiple
-                       aria-label="Upload vehicle photos">
-              </div>
-
-              <div class="photo-preview" id="photoPreview"></div>
-
-              <p class="field-help" id="photoCount" data-i18n="photoCount">
-                写真は最大5枚まで選択できます。
-              </p>
-            </div>
-
-            <!-- DETAILS -->
-
-            <div class="form-section-title">
-              <span>04</span>
-              <span data-i18n="detailsSection">追加情報</span>
-            </div>
-
-            <div class="field">
-              <label for="details" data-i18n="detailsLabel">
-                ご希望・車両の状態・その他
-              </label>
-
-              <textarea id="details"
-                        name="details"
-                        maxlength="5000"
-                        placeholder="車両の状態、グレード、色、事故歴、ご希望などをご入力ください。"></textarea>
-
-              <p class="field-help" data-i18n="detailsHelp">
-                任意項目です。分かる範囲でご入力ください。
-              </p>
-            </div>
-
-            <div class="privacy-note">
-              <span aria-hidden="true">🔒</span>
-              <div>
-                <strong data-i18n="privacyTitle">写真と情報の取り扱い</strong><br>
-                <span data-i18n="privacyCopy">
-                  送信された情報は、お問い合わせへの対応に使用されます。
-                  アップロードされた写真は非公開ストレージに保存されます。
-                </span>
-              </div>
-            </div>
-
-            <button type="submit" class="submit-button" id="submitButton">
-              <span data-i18n="submitButton">車両情報を送信する →</span>
+            <button
+              type="button"
+              class="btn btn-outline"
+              id="directContactBtn"
+              aria-expanded="false"
+              aria-controls="directContactDetails"
+              style="width:100%;">
+              ✉　Direct Contact ／ 直接お問い合わせ
             </button>
 
-            <div class="form-status" id="formStatus"
-                 role="status" aria-live="polite"></div>
+            <!-- CONTACT DETAILS APPEAR WHEN CLICKED -->
+            <div class="contact-details" id="directContactDetails">
+              <h4>AR AUTO TRADING に連絡する</h4>
 
-          </form>
+              <a
+                class="contact-link"
+                href="https://line.me/ti/p/XSZXtxFExl"
+                target="_blank"
+                rel="noopener noreferrer">
+                <span class="contact-icon">💬</span>
+                <span>
+                  <strong>LINEでお問い合わせ</strong>
+                  <small>LINEを開いてメッセージを送信</small>
+                </span>
+              </a>
 
-        </div>
-      </div>
-    </section>
+              <a
+                class="contact-link"
+                href="mailto:Arautotrading7@gmail.com?subject=Vehicle%20Purchase%20Enquiry">
+                <span class="contact-icon">✉️</span>
+                <span>
+                  <strong>メールでお問い合わせ</strong>
+                  <small>Arautotrading7@gmail.com</small>
+                </span>
+              </a>
+            </div>
 
-    <!-- PROCESS -->
+          </aside>
 
-    <section class="section" id="process">
-      <div class="container">
+          <!-- RIGHT: ENQUIRY FORM -->
+          <div class="enquiry-form">
 
-        <div class="section-heading">
-          <span class="eyebrow" data-i18n="processEyebrow">HOW IT WORKS</span>
-          <h2 data-i18n="processTitle">
-            お問い合わせは、<span class="gold">4つのステップ。</span>
-          </h2>
-          <p data-i18n="processIntro">
-            必要な情報をお送りいただき、その後の流れをご案内します。
-          </p>
-        </div>
-
-        <div class="process-grid">
-
-          <article class="process-card">
-            <span class="process-number">01</span>
-            <h3 data-i18n="process1Title">車両情報を入力</h3>
-            <p data-i18n="process1Copy">
-              メーカー、モデル、年式、走行距離などを入力します。
+            <h3 class="form-title">Vehicle Information & Enquiry</h3>
+            <p class="form-subtitle">
+              必須項目をご入力のうえ、送信してください。
             </p>
-          </article>
 
-          <article class="process-card">
-            <span class="process-number">02</span>
-            <h3 data-i18n="process2Title">情報を送信</h3>
-            <p data-i18n="process2Copy">
-              車両写真や追加情報があれば、一緒に送信してください。
-            </p>
-          </article>
+            <form id="vehicleEnquiryForm">
 
-          <article class="process-card">
-            <span class="process-number">03</span>
-            <h3 data-i18n="process3Title">内容を確認</h3>
-            <p data-i18n="process3Copy">
-              送信された情報を確認し、必要に応じて追加情報を伺います。
-            </p>
-          </article>
+              <div class="form-grid">
 
-          <article class="process-card">
-            <span class="process-number">04</span>
-            <h3 data-i18n="process4Title">ご相談・ご案内</h3>
-            <p data-i18n="process4Copy">
-              買取や販売など、ご相談の内容に応じてご案内します。
-            </p>
-          </article>
+                <div class="field">
+                  <label for="customerName">
+                    お名前 / Name <span class="required">必須</span>
+                  </label>
+                  <input
+                    id="customerName"
+                    name="name"
+                    type="text"
+                    autocomplete="name"
+                    placeholder="お名前"
+                    required>
+                </div>
 
-        </div>
-      </div>
-    </section>
+                <div class="field">
+                  <label for="customerContact">
+                    メール・LINEなどの連絡先 / Contact
+                    <span class="required">必須</span>
+                  </label>
+                  <input
+                    id="customerContact"
+                    name="contact"
+                    type="text"
+                    placeholder="メールアドレスまたはLINE ID"
+                    required>
+                </div>
 
-    <!-- CONTACT -->
+                <div class="field full">
+                  <label>
+                    メーカー / Manufacturer
+                    <span class="required">必須</span>
+                  </label>
 
-    <section class="contact-section" id="contact">
-      <div class="container">
+                  <div class="maker-search">
+                    <input
+                      type="search"
+                      id="makerSearch"
+                      placeholder="メーカーを検索 / Search manufacturer"
+                      aria-label="メーカーを検索">
+                  </div>
 
-        <div class="contact-box">
+                  <div class="maker-grid" id="makerGrid"></div>
 
-          <div>
-            <span class="eyebrow" data-i18n="contactEyebrow">GET IN TOUCH</span>
+                  <input type="hidden" name="maker" id="makerValue" required>
+                </div>
 
-            <h2>
-              <span data-i18n="contactTitle1">お気軽に</span><br>
-              <span class="gold" data-i18n="contactTitle2">ご相談ください。</span>
-            </h2>
+                <div class="field full">
+                  <label for="vehicleModel">
+                    車種・モデル / Model
+                    <span class="required">必須</span>
+                  </label>
+                  <select id="vehicleModel" name="model" required>
+                    <option value="">先にメーカーを選択してください</option>
+                  </select>
+                </div>
 
-            <p data-i18n="contactCopy">
-              お車の買取・販売・パーツについてのお問い合わせは、
-              LINEまたはメールでご連絡ください。
-            </p>
-          </div>
+                <div class="field">
+                  <label for="vehicleYear">
+                    年式 / Year <span class="required">必須</span>
+                  </label>
+                  <select id="vehicleYear" name="year" required>
+                    <option value="">年式を選択</option>
+                  </select>
+                </div>
 
-          <div class="contact-buttons">
+                <div class="field">
+                  <label for="vehicleMileage">
+                    走行距離 / Mileage <span class="required">必須</span>
+                  </label>
+                  <select id="vehicleMileage" name="mileage" required>
+                    <option value="">走行距離を選択</option>
+                  </select>
+                </div>
 
-            <a class="contact-button"
-               href="https://line.me/ti/p/XSZXtxFExl"
-               target="_blank"
-               rel="noopener noreferrer">
+                <div class="field full">
+                  <label for="vehicleDetails">
+                    車両・機械の状態 / Details
+                  </label>
+                  <textarea
+                    id="vehicleDetails"
+                    name="details"
+                    placeholder="車両の状態、故障箇所、車検の有無、所在地、ご希望価格などをご記入ください。&#10;Please describe the condition, faults, location, and expected price."></textarea>
+                </div>
 
-              <span class="contact-icon" aria-hidden="true">L</span>
+                <div class="field full">
+                  <label for="vehiclePhotos">
+                    車両写真 / Upload Photos
+                  </label>
 
-              <span>
-                <strong>LINE</strong>
-                <small data-i18n="lineCopy">LINEでお問い合わせ</small>
-              </span>
+                  <div class="photo-box">
+                    <p><strong>写真は最大5枚</strong>まで添付できます。</p>
+                    <p>1枚あたり10MB以下・JPG / PNG / WebP</p>
 
-              <span style="margin-left:auto;color:var(--gold);">↗</span>
-            </a>
+                    <input
+                      id="vehiclePhotos"
+                      name="photos"
+                      type="file"
+                      accept="image/jpeg,image/png,image/webp"
+                      multiple
+                      aria-describedby="photoHelp">
 
-            <a class="contact-button"
-               href="mailto:Arautotrading7@gmail.com">
+                    <p id="photoHelp" style="margin-top:8px;">
+                      外装・内装・メーター・損傷箇所などの写真があると便利です。
+                    </p>
 
-              <span class="contact-icon" aria-hidden="true">✉</span>
+                    <div class="photo-preview" id="photoPreview"></div>
+                  </div>
+                </div>
 
-              <span>
-                <strong>Gmail</strong>
-                <small>Arautotrading7@gmail.com</small>
-              </span>
+              </div>
 
-              <span style="margin-left:auto;color:var(--gold);">↗</span>
-            </a>
+              <p class="privacy-note">
+                送信された情報は、お問い合わせへの対応および査定のために使用します。
+                写真のアップロードに失敗した場合は、写真なしで送信されることがあります。
+              </p>
 
+              <button class="btn btn-gold submit-btn" id="submitBtn" type="submit">
+                お問い合わせを送信する　→
+              </button>
+
+              <div
+                class="form-status"
+                id="formStatus"
+                role="status"
+                aria-live="polite"></div>
+
+            </form>
           </div>
 
         </div>
@@ -1965,55 +1316,44 @@
   </main>
 
   <!-- FOOTER -->
-
-  <footer class="site-footer">
+  <footer>
     <div class="container">
 
-      <div class="footer-top">
-
-        <a href="#home" class="brand">
-          <span class="brand-mark">AR</span>
-          <span class="brand-text">
-            <strong>AR AUTO TRADING</strong>
-            <span>DRIVE YOUR VALUE</span>
-          </span>
-        </a>
-
-        <div class="footer-links">
-          <a href="#home" data-i18n="navHome">ホーム</a>
-          <a href="#services" data-i18n="navServices">サービス</a>
-          <a href="#enquiry" data-i18n="navEnquiry">車両情報入力</a>
-          <a href="#contact" data-i18n="navContact">お問い合わせ</a>
+      <div class="footer-inner">
+        <div>
+          <div class="footer-brand">AR AUTO TRADING</div>
+          <p class="footer-note">
+            中古車・大型車・建設機械・各種機械の買取と輸出入
+          </p>
         </div>
 
+        <div class="footer-links">
+          <a href="#home">ホーム</a>
+          <a href="#services">買取品目</a>
+          <a href="#contact">お問い合わせ</a>
+          <a href="https://line.me/ti/p/XSZXtxFExl" target="_blank" rel="noopener noreferrer">LINE</a>
+          <a href="mailto:Arautotrading7@gmail.com">メール</a>
+        </div>
       </div>
 
-      <div class="footer-bottom">
-        <span>
-          © <span id="currentYear"></span> AR AUTO TRADING.
-          <span data-i18n="copyright">All rights reserved.</span>
-        </span>
-
-        <span data-i18n="footerTagline">
-          Automotive Trading & Vehicle Enquiries
-        </span>
+      <div class="copyright">
+        © <span id="currentYear"></span> AR AUTO TRADING. All Rights Reserved.
       </div>
 
     </div>
   </footer>
 
-  <a href="#home" class="back-to-top" id="backToTop"
-     aria-label="Back to top">↑</a>
-
-  <!-- Supabase JavaScript client -->
+  <!-- SUPABASE -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <script>
     "use strict";
 
-    /* =========================================================
-       SUPABASE CONFIGURATION
-       ========================================================= */
+    /*
+      Supabase configuration.
+      The publishable/anonymous client key is intended for browser use.
+      Keep database Row Level Security enabled.
+    */
 
     const SUPABASE_URL =
       "https://wgxjmqqpdnzxodacvucq.supabase.co";
@@ -2022,1710 +1362,643 @@
       "sb_publishable_1jkh0BxfGfW7StQFGeC8Ig_O3gvj0PZ";
 
     const STORAGE_BUCKET = "vehicle-submissions";
+    const ENQUIRY_TABLE = "vehicle_enquiries";
 
-    const TABLE_NAME = "vehicle_enquiries";
+    const supabaseClient = window.supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_PUBLISHABLE_KEY
+    );
 
-    const supabaseClient =
-      window.supabase &&
-      window.supabase.createClient(
-        SUPABASE_URL,
-        SUPABASE_PUBLISHABLE_KEY
-      );
+    /* -----------------------------
+       DIRECT CONTACT TOGGLE
+    ----------------------------- */
 
+    const directContactBtn = document.getElementById("directContactBtn");
+    const directContactDetails = document.getElementById("directContactDetails");
 
-    /* =========================================================
-       MANUFACTURERS AND VEHICLE MODELS
+    directContactBtn.addEventListener("click", function () {
+      const isOpen = directContactDetails.classList.toggle("open");
 
-       Models are displayed dynamically according to the
-       selected manufacturer. The "Other" option is always
-       available for uncommon or unlisted models.
-       ========================================================= */
+      directContactBtn.setAttribute("aria-expanded", String(isOpen));
 
-    const MAKERS = [
-
-      {
-        id: "toyota",
-        ja: "トヨタ",
-        en: "Toyota",
-        logo: "T",
-        models: [
-          "Prius", "Aqua", "Corolla", "Corolla Cross",
-          "C-HR", "RAV4", "Harrier", "Land Cruiser",
-          "Land Cruiser Prado", "Hilux", "Yaris",
-          "Yaris Cross", "Crown", "Camry", "Mark X",
-          "Alphard", "Vellfire", "Noah", "Voxy",
-          "Sienta", "Roomy", "Raize", "86",
-          "GR86", "GR Yaris", "GR Corolla",
-          "Hiace", "Regius Ace", "Probox",
-          "Succeed", "Estima", "Wish", "bB",
-          "Passo", "Vitz", "Auris", "Premio",
-          "Allion", "Century", "Coaster", "Other"
-        ]
-      },
-
-      {
-        id: "nissan",
-        ja: "日産",
-        en: "Nissan",
-        logo: "N",
-        models: [
-          "Note", "Note Aura", "Leaf", "Ariya",
-          "Serena", "Elgrand", "X-Trail", "Qashqai",
-          "Juke", "Kicks", "Skyline", "GT-R",
-          "Fairlady Z", "Silvia", "180SX",
-          "Laurel", "Cedric", "Gloria", "Fuga",
-          "Teana", "Tiida", "March", "Cube",
-          "Dayz", "Roox", "Sakura", "AD Van",
-          "NV200", "NV350 Caravan", "Caravan",
-          "Atlas", "Datsun", "Other"
-        ]
-      },
-
-      {
-        id: "honda",
-        ja: "ホンダ",
-        en: "Honda",
-        logo: "H",
-        models: [
-          "Fit", "Civic", "Civic Type R",
-          "Accord", "Insight", "Prelude",
-          "N-BOX", "N-WGN", "N-ONE", "N-VAN",
-          "Freed", "Stepwgn", "Odyssey",
-          "Vezel", "ZR-V", "CR-V", "WR-V",
-          "Shuttle", "Grace", "Legend",
-          "S2000", "NSX", "Integra", "CR-Z",
-          "Life", "Zest", "Stream", "Airwave",
-          "Acty", "Vamos", "Other"
-        ]
-      },
-
-      {
-        id: "mazda",
-        ja: "マツダ",
-        en: "Mazda",
-        logo: "M",
-        models: [
-          "CX-3", "CX-30", "CX-5", "CX-60",
-          "CX-80", "CX-8", "CX-9", "CX-90",
-          "Mazda2", "Mazda3", "Mazda6",
-          "Demio", "Axela", "Atenza", "Roadster",
-          "MX-5", "RX-7", "RX-8", "Cosmo",
-          "MPV", "Biante", "Premacy", "Tribute",
-          "Scrum", "Bongo", "Titan", "Other"
-        ]
-      },
-
-      {
-        id: "subaru",
-        ja: "スバル",
-        en: "Subaru",
-        logo: "S",
-        models: [
-          "Impreza", "WRX", "WRX STI",
-          "Legacy", "Levorg", "Forester",
-          "Outback", "Crosstrek", "XV",
-          "BRZ", "Justy", "Rex", "Stella",
-          "Pleo", "Sambar", "Exiga",
-          "Tribeca", "Chiffon", "Other"
-        ]
-      },
-
-      {
-        id: "suzuki",
-        ja: "スズキ",
-        en: "Suzuki",
-        logo: "S",
-        models: [
-          "Jimny", "Jimny Sierra", "Jimny Nomade",
-          "Swift", "Swift Sport", "Solio",
-          "Spacia", "Wagon R", "Alto",
-          "Hustler", "Every", "Carry",
-          "Escudo", "Vitara", "SX4",
-          "Ignis", "Lapin", "Palette",
-          "Kei", "Cappuccino", "X-90", "Other"
-        ]
-      },
-
-      {
-        id: "daihatsu",
-        ja: "ダイハツ",
-        en: "Daihatsu",
-        logo: "D",
-        models: [
-          "Tanto", "Move", "Mira", "Mira e:S",
-          "Hijet", "Atrai", "Wake", "Cast",
-          "Taft", "Rocky", "Thor", "Tocot",
-          "Copen", "Coo", "Be-Go", "Terios",
-          "Esse", "Sonica", "Other"
-        ]
-      },
-
-      {
-        id: "mitsubishi",
-        ja: "三菱",
-        en: "Mitsubishi",
-        logo: "三",
-        models: [
-          "Outlander", "Pajero", "Delica D:5",
-          "Delica Mini", "eK Wagon", "eK Space",
-          "eK X", "Triton", "Lancer",
-          "Lancer Evolution", "Colt", "RVR",
-          "ASX", "Eclipse Cross", "i-MiEV",
-          "Mirage", "Galant", "FTO",
-          "GTO", "Minicab", "Canter", "Other"
-        ]
-      },
-
-      {
-        id: "lexus",
-        ja: "レクサス",
-        en: "Lexus",
-        logo: "L",
-        models: [
-          "LS", "ES", "IS", "GS", "HS",
-          "LC", "LFA", "RC", "RC F",
-          "UX", "NX", "RX", "GX", "LX",
-          "LBX", "LM", "RZ", "CT",
-          "SC", "Other"
-        ]
-      },
-
-      {
-        id: "isuzu",
-        ja: "いすゞ",
-        en: "Isuzu",
-        logo: "I",
-        models: [
-          "Elf", "Forward", "Giga", "Como",
-          "D-Max", "MU-X", "Bighorn",
-          "Trooper", "Gemini", "Piazza", "Other"
-        ]
-      },
-
-      {
-        id: "hino",
-        ja: "日野",
-        en: "Hino",
-        logo: "H",
-        models: [
-          "Dutro", "Ranger", "Profia",
-          "Poncho", "Liesse", "Melpha", "Other"
-        ]
-      },
-
-      {
-        id: "mitsubishi-fuso",
-        ja: "三菱ふそう",
-        en: "Mitsubishi Fuso",
-        logo: "F",
-        models: [
-          "Canter", "Fighter", "Super Great",
-          "Rosa", "Aero Star", "Aero Queen", "Other"
-        ]
-      },
-
-      {
-        id: "ud-trucks",
-        ja: "UDトラックス",
-        en: "UD Trucks",
-        logo: "UD",
-        models: [
-          "Condor", "Quon", "Kuzer", "Other"
-        ]
-      },
-
-      {
-        id: "mits uoka".replace(/\s/g, ""),
-        ja: "光岡",
-        en: "Mitsuoka",
-        logo: "M",
-        models: [
-          "Viewt", "Buddy", "Himiko", "Rock Star",
-          "Ryugi", "Galue", "Orochi", "Other"
-        ]
-      },
-
-      {
-        id: "bmw",
-        ja: "BMW",
-        en: "BMW",
-        logo: "BMW",
-        models: [
-          "1 Series", "2 Series", "3 Series",
-          "4 Series", "5 Series", "6 Series",
-          "7 Series", "8 Series",
-          "M2", "M3", "M4", "M5", "M8",
-          "X1", "X2", "X3", "X4", "X5",
-          "X6", "X7", "XM",
-          "Z3", "Z4", "i3", "i4", "i5",
-          "i7", "iX", "iX1", "Other"
-        ]
-      },
-
-      {
-        id: "mercedes",
-        ja: "メルセデス・ベンツ",
-        en: "Mercedes-Benz",
-        logo: "MB",
-        models: [
-          "A-Class", "B-Class", "C-Class",
-          "E-Class", "S-Class", "CLA",
-          "CLS", "CLE", "GLA", "GLB",
-          "GLC", "GLE", "GLS", "G-Class",
-          "AMG GT", "SL", "SLK", "SLC",
-          "V-Class", "EQA", "EQB", "EQE",
-          "EQS", "EQC", "Sprinter", "Other"
-        ]
-      },
-
-      {
-        id: "audi",
-        ja: "アウディ",
-        en: "Audi",
-        logo: "A",
-        models: [
-          "A1", "A3", "A4", "A5", "A6",
-          "A7", "A8", "Q2", "Q3", "Q4 e-tron",
-          "Q5", "Q7", "Q8", "TT", "R8",
-          "RS3", "RS4", "RS5", "RS6", "RS7",
-          "e-tron GT", "Other"
-        ]
-      },
-
-      {
-        id: "volkswagen",
-        ja: "フォルクスワーゲン",
-        en: "Volkswagen",
-        logo: "VW",
-        models: [
-          "Golf", "Polo", "Passat", "Arteon",
-          "Tiguan", "T-Roc", "T-Cross",
-          "Touareg", "ID.3", "ID.4", "ID. Buzz",
-          "Beetle", "New Beetle", "Up!",
-          "Touran", "Sharan", "Transporter",
-          "Scirocco", "Other"
-        ]
-      },
-
-      {
-        id: "porsche",
-        ja: "ポルシェ",
-        en: "Porsche",
-        logo: "P",
-        models: [
-          "911", "718 Cayman", "718 Boxster",
-          "Cayenne", "Macan", "Panamera",
-          "Taycan", "Carrera GT", "918 Spyder",
-          "Other"
-        ]
-      },
-
-      {
-        id: "mini",
-        ja: "MINI",
-        en: "MINI",
-        logo: "MINI",
-        models: [
-          "Cooper", "Cooper S", "John Cooper Works",
-          "Clubman", "Countryman", "Paceman",
-          "Convertible", "Coupe", "Roadster", "Other"
-        ]
-      },
-
-      {
-        id: "volvo",
-        ja: "ボルボ",
-        en: "Volvo",
-        logo: "V",
-        models: [
-          "S60", "S90", "V40", "V60", "V70",
-          "V90", "XC40", "XC60", "XC70",
-          "XC90", "EX30", "EX40", "EX90", "Other"
-        ]
-      },
-
-      {
-        id: "alfa-romeo",
-        ja: "アルファロメオ",
-        en: "Alfa Romeo",
-        logo: "AR",
-        models: [
-          "Giulia", "Giulietta", "Stelvio",
-          "Tonale", "147", "156", "159",
-          "166", "Brera", "Spider",
-          "Alfetta", "Giulia Super",
-          "GT", "GTV", "33", "75",
-          "155", "164", "Other"
-        ]
-      },
-
-      {
-        id: "fiat",
-        ja: "フィアット",
-        en: "Fiat",
-        logo: "FIAT",
-        models: [
-          "500", "500X", "500L", "Panda",
-          "Punto", "Bravo", "Barchetta",
-          "124 Spider", "Ducato", "Other"
-        ]
-      },
-
-      {
-        id: "ferrari",
-        ja: "フェラーリ",
-        en: "Ferrari",
-        logo: "F",
-        models: [
-          "308", "328", "348", "355", "360",
-          "430", "458", "488", "296 GTB",
-          "Roma", "Portofino", "California",
-          "F8 Tributo", "812 Superfast",
-          "F40", "F50", "Enzo", "LaFerrari", "Other"
-        ]
-      },
-
-      {
-        id: "lamborghini",
-        ja: "ランボルギーニ",
-        en: "Lamborghini",
-        logo: "L",
-        models: [
-          "Miura", "Countach", "Diablo",
-          "Murcielago", "Gallardo", "Huracan",
-          "Aventador", "Revuelto", "Urus", "Other"
-        ]
-      },
-
-      {
-        id: "maserati",
-        ja: "マセラティ",
-        en: "Maserati",
-        logo: "M",
-        models: [
-          "Ghibli", "Quattroporte", "Levante",
-          "Grecale", "GranTurismo", "GranCabrio",
-          "MC20", "Other"
-        ]
-      },
-
-      {
-        id: "bentley",
-        ja: "ベントレー",
-        en: "Bentley",
-        logo: "B",
-        models: [
-          "Continental GT", "Flying Spur",
-          "Bentayga", "Mulsanne", "Arnage", "Other"
-        ]
-      },
-
-      {
-        id: "rolls-royce",
-        ja: "ロールス・ロイス",
-        en: "Rolls-Royce",
-        logo: "RR",
-        models: [
-          "Phantom", "Ghost", "Wraith",
-          "Dawn", "Cullinan", "Spectre", "Other"
-        ]
-      },
-
-      {
-        id: "jaguar",
-        ja: "ジャガー",
-        en: "Jaguar",
-        logo: "J",
-        models: [
-          "XE", "XF", "XJ", "F-Type",
-          "E-Pace", "F-Pace", "I-Pace",
-          "X-Type", "S-Type", "XK", "Other"
-        ]
-      },
-
-      {
-        id: "land-rover",
-        ja: "ランドローバー",
-        en: "Land Rover",
-        logo: "LR",
-        models: [
-          "Defender", "Discovery",
-          "Discovery Sport", "Range Rover",
-          "Range Rover Sport", "Range Rover Velar",
-          "Range Rover Evoque", "Freelander", "Other"
-        ]
-      },
-
-      {
-        id: "renault",
-        ja: "ルノー",
-        en: "Renault",
-        logo: "R",
-        models: [
-          "Clio", "Captur", "Megane",
-          "Kangoo", "Arkana", "Twingo",
-          "Lutecia", "Grand Scenic", "Other"
-        ]
-      },
-
-      {
-        id: "peugeot",
-        ja: "プジョー",
-        en: "Peugeot",
-        logo: "P",
-        models: [
-          "208", "308", "408", "508",
-          "2008", "3008", "5008",
-          "RCZ", "Partner", "Other"
-        ]
-      },
-
-      {
-        id: "citroen",
-        ja: "シトロエン",
-        en: "Citroen",
-        logo: "C",
-        models: [
-          "C3", "C3 Aircross", "C4",
-          "C4 Picasso", "C5 Aircross",
-          "Berlingo", "DS3", "DS4", "Other"
-        ]
-      },
-
-      {
-        id: "ford",
-        ja: "フォード",
-        en: "Ford",
-        logo: "F",
-        models: [
-          "Mustang", "Focus", "Fiesta",
-          "Explorer", "Bronco", "Ranger",
-          "F-150", "Edge", "Escape", "Other"
-        ]
-      },
-
-      {
-        id: "chevrolet",
-        ja: "シボレー",
-        en: "Chevrolet",
-        logo: "C",
-        models: [
-          "Camaro", "Corvette", "Impala",
-          "Tahoe", "Suburban", "Silverado",
-          "Trailblazer", "Other"
-        ]
-      },
-
-      {
-        id: "cadillac",
-        ja: "キャデラック",
-        en: "Cadillac",
-        logo: "C",
-        models: [
-          "CT4", "CT5", "CTS", "ATS",
-          "XT4", "XT5", "Escalade", "Other"
-        ]
-      },
-
-      {
-        id: "jeep",
-        ja: "ジープ",
-        en: "Jeep",
-        logo: "J",
-        models: [
-          "Wrangler", "Grand Cherokee",
-          "Cherokee", "Compass", "Renegade",
-          "Gladiator", "Commander", "Other"
-        ]
-      },
-
-      {
-        id: "tesla",
-        ja: "テスラ",
-        en: "Tesla",
-        logo: "T",
-        models: [
-          "Model S", "Model 3", "Model X",
-          "Model Y", "Cybertruck", "Other"
-        ]
-      },
-
-      {
-        id: "dodge",
-        ja: "ダッジ",
-        en: "Dodge",
-        logo: "D",
-        models: [
-          "Charger", "Challenger", "Durango",
-          "Viper", "Ram", "Other"
-        ]
-      },
-
-      {
-        id: "gmc",
-        ja: "GMC",
-        en: "GMC",
-        logo: "GMC",
-        models: [
-          "Sierra", "Yukon", "Terrain",
-          "Acadia", "Canyon", "Hummer EV", "Other"
-        ]
-      },
-
-      {
-        id: "chrysler",
-        ja: "クライスラー",
-        en: "Chrysler",
-        logo: "C",
-        models: [
-          "300", "300C", "Pacifica",
-          "Voyager", "PT Cruiser", "Other"
-        ]
-      },
-
-      {
-        id: "lincoln",
-        ja: "リンカーン",
-        en: "Lincoln",
-        logo: "L",
-        models: [
-          "Navigator", "Aviator", "Corsair",
-          "Continental", "Town Car", "Other"
-        ]
-      },
-
-      {
-        id: "hyundai",
-        ja: "ヒョンデ",
-        en: "Hyundai",
-        logo: "H",
-        models: [
-          "Ioniq 5", "Ioniq 6", "Kona",
-          "Tucson", "Santa Fe", "Elantra",
-          "Sonata", "Palisade", "Other"
-        ]
-      },
-
-      {
-        id: "kia",
-        ja: "キア",
-        en: "Kia",
-        logo: "K",
-        models: [
-          "EV3", "EV6", "EV9", "Sportage",
-          "Sorento", "Seltos", "K5", "Carnival", "Other"
-        ]
-      },
-
-      {
-        id: "genesis",
-        ja: "ジェネシス",
-        en: "Genesis",
-        logo: "G",
-        models: [
-          "G70", "G80", "G90",
-          "GV60", "GV70", "GV80", "Other"
-        ]
-      },
-
-      {
-        id: "byd",
-        ja: "BYD",
-        en: "BYD",
-        logo: "BYD",
-        models: [
-          "Dolphin", "Atto 3", "Seal",
-          "Sealion 7", "Tang", "Other"
-        ]
-      },
-
-      {
-        id: "tata",
-        ja: "タタ",
-        en: "Tata",
-        logo: "T",
-        models: [
-          "Nexon", "Harrier", "Safari",
-          "Punch", "Tiago", "Other"
-        ]
-      },
-
-      {
-        id: "mahindra",
-        ja: "マヒンドラ",
-        en: "Mahindra",
-        logo: "M",
-        models: [
-          "Thar", "Scorpio", "XUV700",
-          "XUV300", "Bolero", "Other"
-        ]
-      },
-
-      {
-        id: "other",
-        ja: "その他",
-        en: "Other",
-        logo: "＋",
-        models: ["Other"]
-      }
-
-    ];
-
-
-    /* =========================================================
-       TRANSLATIONS
-       ========================================================= */
-
-    const TRANSLATIONS = {
-
-      ja: {
-        navHome: "ホーム",
-        navServices: "サービス",
-        navEnquiry: "車両情報入力",
-        navProcess: "ご利用の流れ",
-        navContact: "お問い合わせ",
-
-        heroEyebrow: "YOUR AUTOMOTIVE PARTNER",
-        heroTitle1: "愛車の価値を、",
-        heroTitle2: "次のステージへ。",
-        heroCopy: "お車の買取・販売から自動車パーツまで。AR AUTO TRADING が、お客様のご要望に合わせてサポートします。",
-        heroButton: "車両情報を送信する",
-        heroContact: "お問い合わせ",
-        stat1: "お客様に合わせた対応",
-        stat2: "幅広いメーカーに対応",
-        stat3: "簡単なオンライン相談",
-        visualTitle: "YOUR CAR. YOUR VALUE.",
-        visualSubtitle: "A smarter automotive experience.",
-
-        trust1Title: "多メーカー対応",
-        trust1Copy: "国産車・輸入車",
-        trust2Title: "簡単な入力",
-        trust2Copy: "オンライン車両情報送信",
-        trust3Title: "写真を送信",
-        trust3Copy: "最大5枚まで添付可能",
-        trust4Title: "直接お問い合わせ",
-        trust4Copy: "LINE・メール対応",
-
-        servicesEyebrow: "WHAT WE DO",
-        servicesTitle: "お車に関することを、まとめてサポート。",
-        servicesIntro: "車両の買取・販売やパーツに関するご相談を受け付けています。まずはお気軽にお問い合わせください。",
-        service1Title: "中古車買取",
-        service1Copy: "メーカー、年式、走行距離、車両の状態をお知らせください。お車の情報を確認し、ご相談を進めます。",
-        service2Title: "中古車・車両販売",
-        service2Copy: "お探しのお車やご希望の条件についてご相談いただけます。メーカーやモデルなどの情報をお知らせください。",
-        service3Title: "自動車パーツ",
-        service3Copy: "車両部品やパーツについてのお問い合わせも受け付けています。車種と必要な部品の情報をお送りください。",
-
-        formEyebrow: "VEHICLE ENQUIRY",
-        formIntro1: "あなたのお車を",
-        formIntro2: "教えてください。",
-        formIntroCopy: "メーカーやモデル、年式、走行距離などをご入力ください。写真を添付すると、車両の状態をより詳しくお知らせいただけます。",
-        benefit1: "国産車・輸入車に対応",
-        benefit2: "メーカーに合わせてモデルを自動表示",
-        benefit3: "最大5枚の写真を添付可能",
-        benefit4: "LINEまたはメールでお問い合わせ可能",
-
-        formTitle: "車両情報・お問い合わせフォーム",
-        formSubtitle: "必須項目をご入力ください。分からない項目は「不明」を選択できます。",
-        personalSection: "お客様の情報",
-        nameLabel: "お名前",
-        contactLabel: "メールアドレス・LINE IDなど",
-        required: "必須",
-
-        vehicleSection: "お車の情報",
-        makerSearchLabel: "メーカーを検索",
-        makerLabel: "メーカーを選択",
-        makerNote: "メーカーを選択すると、対応する車種が表示されます。",
-        modelLabel: "車種・モデル",
-        yearLabel: "年式",
-        mileageLabel: "走行距離",
-
-        selectMakerFirst: "先にメーカーを選択してください",
-        selectModel: "車種・モデルを選択",
-        selectYear: "年式を選択",
-        selectMileage: "走行距離を選択",
-
-        mileageHelp: "10,000 km単位で選択できます。30万kmを超える場合は「30万km超」を選択してください。",
-
-        photoSection: "車両写真",
-        photoLabel: "写真を添付（任意）",
-        uploadTitle: "クリックまたは写真をドラッグ",
-        uploadCopy: "JPG・PNG・WebP / 最大5枚 / 1枚10MBまで",
-        photoCount: "写真は最大5枚まで選択できます。",
-
-        detailsSection: "追加情報",
-        detailsLabel: "ご希望・車両の状態・その他",
-        detailsHelp: "任意項目です。分かる範囲でご入力ください。",
-
-        privacyTitle: "写真と情報の取り扱い",
-        privacyCopy: "送信された情報は、お問い合わせへの対応に使用されます。アップロードされた写真は非公開ストレージに保存されます。",
-        submitButton: "車両情報を送信する →",
-
-        processEyebrow: "HOW IT WORKS",
-        processTitle: "お問い合わせは、4つのステップ。",
-        processIntro: "必要な情報をお送りいただき、その後の流れをご案内します。",
-        process1Title: "車両情報を入力",
-        process1Copy: "メーカー、モデル、年式、走行距離などを入力します。",
-        process2Title: "情報を送信",
-        process2Copy: "車両写真や追加情報があれば、一緒に送信してください。",
-        process3Title: "内容を確認",
-        process3Copy: "送信された情報を確認し、必要に応じて追加情報を伺います。",
-        process4Title: "ご相談・ご案内",
-        process4Copy: "買取や販売など、ご相談の内容に応じてご案内します。",
-
-        contactEyebrow: "GET IN TOUCH",
-        contactTitle1: "お気軽に",
-        contactTitle2: "ご相談ください。",
-        contactCopy: "お車の買取・販売・パーツについてのお問い合わせは、LINEまたはメールでご連絡ください。",
-        lineCopy: "LINEでお問い合わせ",
-
-        copyright: "All rights reserved.",
-        footerTagline: "Automotive Trading & Vehicle Enquiries",
-
-        unknown: "不明",
-        mileageOver: "30万km超",
-        otherModel: "その他の車種",
-        searching: "メーカーを検索...",
-        uploading: "送信中です...",
-        submitSuccess: "送信が完了しました。お問い合わせありがとうございます。",
-        submitError: "送信できませんでした。通信状況を確認して、もう一度お試しください。",
-        photoLimitError: "写真は最大5枚まで選択できます。",
-        photoSizeError: "写真1枚のサイズは10MB以下にしてください。",
-        photoTypeError: "JPG・PNG・WebP形式の写真を選択してください。",
-        configError: "送信機能を初期化できませんでした。時間をおいて再度お試しください。",
-        noModels: "車種・モデルを選択",
-        makerRequired: "メーカーを選択してください。",
-        modelRequired: "車種・モデルを選択してください。",
-        yearRequired: "年式を選択してください。",
-        mileageRequired: "走行距離を選択してください。",
-        nameRequired: "お名前を入力してください。",
-        contactRequired: "連絡先を入力してください。",
-        otherMaker: "その他のメーカー"
-      },
-
-      en: {
-        navHome: "Home",
-        navServices: "Services",
-        navEnquiry: "Vehicle Enquiry",
-        navProcess: "How It Works",
-        navContact: "Contact",
-
-        heroEyebrow: "YOUR AUTOMOTIVE PARTNER",
-        heroTitle1: "Your Car's Value,",
-        heroTitle2: "Your Next Chapter.",
-        heroCopy: "From vehicle purchasing and sales to automotive parts, AR AUTO TRADING is here to help with your automotive needs.",
-        heroButton: "Submit Vehicle Details",
-        heroContact: "Contact Us",
-        stat1: "Personalized Service",
-        stat2: "Multiple Manufacturers",
-        stat3: "Easy Online Enquiries",
-        visualTitle: "YOUR CAR. YOUR VALUE.",
-        visualSubtitle: "A smarter automotive experience.",
-
-        trust1Title: "Multiple Brands",
-        trust1Copy: "Japanese & Imported Cars",
-        trust2Title: "Easy Form",
-        trust2Copy: "Online Vehicle Enquiries",
-        trust3Title: "Upload Photos",
-        trust3Copy: "Up to 5 Images",
-        trust4Title: "Direct Contact",
-        trust4Copy: "LINE & Email",
-
-        servicesEyebrow: "WHAT WE DO",
-        servicesTitle: "Automotive Services, Made Simple.",
-        servicesIntro: "Contact us about vehicle purchasing, sales, and automotive parts. We look forward to hearing from you.",
-        service1Title: "Used Vehicle Purchasing",
-        service1Copy: "Tell us your vehicle's make, year, mileage, and condition so we can review the details and discuss your enquiry.",
-        service2Title: "Vehicle Sales",
-        service2Copy: "Tell us what kind of vehicle you're looking for and share your preferred make, model, and requirements.",
-        service3Title: "Automotive Parts",
-        service3Copy: "We also accept enquiries about automotive parts. Please provide the vehicle model and the parts you need.",
-
-        formEyebrow: "VEHICLE ENQUIRY",
-        formIntro1: "Tell Us About",
-        formIntro2: "Your Vehicle.",
-        formIntroCopy: "Enter your vehicle's make, model, year, and mileage. You can also attach photos to help describe its condition.",
-        benefit1: "Japanese and imported vehicles",
-        benefit2: "Models update automatically by make",
-        benefit3: "Upload up to 5 photos",
-        benefit4: "Contact us through LINE or email",
-
-        formTitle: "Vehicle Information & Enquiry",
-        formSubtitle: "Complete the required fields. Select Unknown when you don't know an answer.",
-        personalSection: "Your Information",
-        nameLabel: "Your Name",
-        contactLabel: "Email Address, LINE ID, or Other Contact",
-        required: "Required",
-
-        vehicleSection: "Vehicle Information",
-        makerSearchLabel: "Search Manufacturers",
-        makerLabel: "Select Manufacturer",
-        makerNote: "Choose a manufacturer to display its available models.",
-        modelLabel: "Vehicle Model",
-        yearLabel: "Model Year",
-        mileageLabel: "Mileage",
-
-        selectMakerFirst: "Please select a manufacturer first",
-        selectModel: "Select a model",
-        selectYear: "Select model year",
-        selectMileage: "Select mileage",
-
-        mileageHelp: "Mileage is available in 10,000 km increments. Select Over 300,000 km for higher mileage.",
-
-        photoSection: "Vehicle Photos",
-        photoLabel: "Attach Photos (Optional)",
-        uploadTitle: "Click or drag photos here",
-        uploadCopy: "JPG, PNG, or WebP / Up to 5 photos / 10 MB each",
-        photoCount: "You can select up to 5 photos.",
-
-        detailsSection: "Additional Information",
-        detailsLabel: "Requirements, Condition, or Other Details",
-        detailsHelp: "Optional. Enter as much information as you know.",
-
-        privacyTitle: "Privacy & Photo Storage",
-        privacyCopy: "Your information is used to respond to your enquiry. Uploaded photos are stored in private storage.",
-        submitButton: "Submit Vehicle Enquiry →",
-
-        processEyebrow: "HOW IT WORKS",
-        processTitle: "Four Simple Steps.",
-        processIntro: "Send us the necessary information and we'll guide you through the next steps.",
-        process1Title: "Enter Vehicle Details",
-        process1Copy: "Enter the manufacturer, model, year, mileage, and other details.",
-        process2Title: "Submit Your Enquiry",
-        process2Copy: "Attach photos and additional information if available.",
-        process3Title: "Information Review",
-        process3Copy: "We'll review the information and may ask for additional details.",
-        process4Title: "Next Steps",
-        process4Copy: "We'll discuss the next steps based on your purchasing or sales enquiry.",
-
-        contactEyebrow: "GET IN TOUCH",
-        contactTitle1: "Let's Talk About",
-        contactTitle2: "Your Automotive Needs.",
-        contactCopy: "Contact us about vehicle purchasing, sales, and automotive parts through LINE or email.",
-        lineCopy: "Contact us on LINE",
-
-        copyright: "All rights reserved.",
-        footerTagline: "Automotive Trading & Vehicle Enquiries",
-
-        unknown: "Unknown",
-        mileageOver: "Over 300,000 km",
-        otherModel: "Other Model",
-        searching: "Search manufacturers...",
-        uploading: "Submitting...",
-        submitSuccess: "Your enquiry was submitted successfully. Thank you for contacting us.",
-        submitError: "We couldn't submit your enquiry. Check your connection and try again.",
-        photoLimitError: "You can upload a maximum of 5 photos.",
-        photoSizeError: "Each photo must be 10 MB or smaller.",
-        photoTypeError: "Please select JPG, PNG, or WebP photos.",
-        configError: "The submission service could not be initialized. Please try again later.",
-        noModels: "Select a model",
-        makerRequired: "Please select a manufacturer.",
-        modelRequired: "Please select a vehicle model.",
-        yearRequired: "Please select a model year.",
-        mileageRequired: "Please select the mileage.",
-        nameRequired: "Please enter your name.",
-        contactRequired: "Please enter your contact information.",
-        otherMaker: "Other Manufacturer"
-      }
-
-    };
-
-
-    /* =========================================================
-       GLOBAL STATE
-       ========================================================= */
-
-    let currentLanguage = "ja";
-    let selectedMakerId = "";
-    let selectedPhotos = [];
-    let isSubmitting = false;
-
-
-    /* =========================================================
-       ELEMENT REFERENCES
-       ========================================================= */
-
-    const $ = (selector) => document.querySelector(selector);
-
-    const manufacturerGrid = $("#manufacturerGrid");
-    const makerSearch = $("#makerSearch");
-    const modelSelect = $("#model");
-    const yearSelect = $("#year");
-    const mileageSelect = $("#mileage");
-    const photoInput = $("#photos");
-    const photoPreview = $("#photoPreview");
-    const photoCount = $("#photoCount");
-    const form = $("#vehicleForm");
-    const submitButton = $("#submitButton");
-    const formStatus = $("#formStatus");
-    const uploadArea = $("#uploadArea");
-
-
-    /* =========================================================
-       TRANSLATION HELPER
-       ========================================================= */
-
-    function t(key) {
-      return TRANSLATIONS[currentLanguage][key]
-        ?? TRANSLATIONS.en[key]
-        ?? key;
-    }
-
-
-    /* =========================================================
-       SAFE DOM HELPERS
-       ========================================================= */
-
-    function createOption(value, label) {
-      const option = document.createElement("option");
-      option.value = value;
-      option.textContent = label;
-      return option;
-    }
-
-    function clearElement(element) {
-      while (element.firstChild) {
-        element.removeChild(element.firstChild);
-      }
-    }
-
-
-    /* =========================================================
-       LANGUAGE SWITCH
-       Japanese is the default language on first page load.
-       The user's subsequent choice is remembered.
-       ========================================================= */
-
-    function setLanguage(language) {
-      if (!TRANSLATIONS[language]) {
-        language = "ja";
-      }
-
-      currentLanguage = language;
-
-      document.documentElement.lang = language;
-
-      document.querySelectorAll("[data-i18n]").forEach((element) => {
-        const key = element.dataset.i18n;
-        const translated = t(key);
-
-        if (translated !== undefined) {
-          element.textContent = translated;
-        }
-      });
-
-      document.querySelectorAll("[data-lang]").forEach((button) => {
-        const active = button.dataset.lang === language;
-
-        button.classList.toggle("active", active);
-        button.setAttribute("aria-pressed", String(active));
-      });
-
-      makerSearch.placeholder = t("searching");
-
-      renderManufacturers(makerSearch.value);
-
-      renderModels(modelSelect.value);
-
-      renderYears(yearSelect.value);
-
-      renderMileage(mileageSelect.value);
-
-      renderPhotoPreviews();
-
-      updateSubmitLabel();
-
-      try {
-        localStorage.setItem("ar_auto_language", language);
-      } catch (_) {
-        // The page still works if browser storage is unavailable.
-      }
-    }
-
-    document.querySelectorAll("[data-lang]").forEach((button) => {
-      button.addEventListener("click", () => {
-        setLanguage(button.dataset.lang);
-      });
+      directContactBtn.innerHTML = isOpen
+        ? "✕　連絡先を閉じる / Close Contact"
+        : "✉　Direct Contact ／ 直接お問い合わせ";
     });
 
+    /* -----------------------------
+       MANUFACTURERS AND MODELS
+    ----------------------------- */
 
-    /* =========================================================
-       MANUFACTURER SELECTOR
-       ========================================================= */
+    const manufacturers = {
+      "Toyota": [
+        "Aqua", "Alphard", "Auris", "bB", "Camry", "C-HR",
+        "Coaster", "Corolla", "Crown", "Dyna", "Hiace", "Hilux",
+        "Land Cruiser", "Land Cruiser Prado", "Mark X", "Noah",
+        "Prius", "Probox", "RAV4", "Regius Ace", "Roomy",
+        "Sienta", "Supra", "Tundra", "Vellfire", "Vitz / Yaris",
+        "Voxy", "Other / その他"
+      ],
 
-    function makerDisplayName(maker) {
-      return currentLanguage === "ja" ? maker.ja : maker.en;
-    }
+      "Nissan": [
+        "AD Van", "Atlas", "Caravan", "Dayz", "Elgrand",
+        "Fuga", "GT-R", "Leaf", "March", "Note", "NV100 Clipper",
+        "NV200", "NV350 Caravan", "Rogue / X-Trail", "Serena",
+        "Skyline", "Sylphy", "Teana", "Vanette", "Other / その他"
+      ],
+
+      "Honda": [
+        "Accord", "Acty", "Civic", "CR-V", "Fit", "Freed",
+        "Grace", "HR-V / Vezel", "N-BOX", "N-VAN", "Odyssey",
+        "Stepwgn", "Stream", "Other / その他"
+      ],
+
+      "Mazda": [
+        "Atenza / Mazda6", "Axela / Mazda3", "Bongo",
+        "CX-3", "CX-5", "CX-8", "CX-30", "Demio / Mazda2",
+        "Roadster / MX-5", "Titan", "Other / その他"
+      ],
+
+      "Subaru": [
+        "BRZ", "Exiga", "Forester", "Impreza", "Legacy",
+        "Levorg", "Sambar", "XV / Crosstrek", "Other / その他"
+      ],
+
+      "Suzuki": [
+        "Alto", "Carry", "Every", "Hustler", "Jimny",
+        "Solio", "Spacia", "Swift", "Wagon R", "Other / その他"
+      ],
+
+      "Daihatsu": [
+        "Atrai", "Cast", "Copen", "Hijet", "Move",
+        "Rocky", "Tanto", "Wake", "Other / その他"
+      ],
+
+      "Mitsubishi": [
+        "Canter", "Delica", "eK Wagon", "Fuso", "Lancer",
+        "Outlander", "Pajero", "RVR", "Other / その他"
+      ],
+
+      "Lexus": [
+        "CT", "ES", "GS", "GX", "IS", "LC", "LS",
+        "LX", "NX", "RC", "RX", "UX", "Other / その他"
+      ],
+
+      "Isuzu": [
+        "Bighorn", "Elf", "Forward", "Giga", "MU-X",
+        "Other / その他"
+      ],
+
+      "Hino": [
+        "Dutro", "Ranger", "Profia", "Liesse",
+        "Other / その他"
+      ],
+
+      "Mitsuoka": [
+        "Buddy", "Galue", "Himiko", "Like", "Viewt",
+        "Other / その他"
+      ],
+
+      "Mitsubishi FUSO": [
+        "Canter", "Fighter", "Super Great", "Rosa",
+        "Other / その他"
+      ],
+
+      "UD Trucks": [
+        "Condor", "Quon", "Croner", "Kazet",
+        "Other / その他"
+      ],
+
+      "BMW": [
+        "1 Series", "2 Series", "3 Series", "4 Series",
+        "5 Series", "6 Series", "7 Series", "8 Series",
+        "X1", "X2", "X3", "X4", "X5", "X6", "X7",
+        "Z3", "Z4", "i3", "i4", "iX", "Other / その他"
+      ],
+
+      "Mercedes-Benz": [
+        "A-Class", "B-Class", "C-Class", "E-Class",
+        "S-Class", "CLA", "CLS", "GLA", "GLB", "GLC",
+        "GLE", "GLS", "G-Class", "V-Class", "Sprinter",
+        "Other / その他"
+      ],
+
+      "Audi": [
+        "A1", "A3", "A4", "A5", "A6", "A7", "A8",
+        "Q2", "Q3", "Q5", "Q7", "Q8", "TT", "Other / その他"
+      ],
+
+      "Volkswagen": [
+        "Golf", "Polo", "Passat", "T-Cross", "T-Roc",
+        "Tiguan", "Touran", "Transporter", "Other / その他"
+      ],
+
+      "Porsche": [
+        "911", "718 Boxster", "718 Cayman", "Cayenne",
+        "Macan", "Panamera", "Taycan", "Other / その他"
+      ],
+
+      "MINI": [
+        "3 Door", "5 Door", "Clubman", "Convertible",
+        "Countryman", "Cooper", "Other / その他"
+      ],
+
+      "Volvo": [
+        "S60", "S90", "V40", "V60", "V90",
+        "XC40", "XC60", "XC90", "Other / その他"
+      ],
+
+      "Alfa Romeo": [
+        "Giulia", "Giulietta", "Stelvio", "MiTo",
+        "159", "156", "147", "Alfetta", "Other / その他"
+      ],
+
+      "Fiat": [
+        "500", "500X", "Panda", "Punto", "Doblo",
+        "Other / その他"
+      ],
+
+      "Ferrari": [
+        "296", "458 Italia", "488", "812", "F8",
+        "Portofino", "Roma", "Other / その他"
+      ],
+
+      "Lamborghini": [
+        "Aventador", "Gallardo", "Huracan", "Urus",
+        "Other / その他"
+      ],
+
+      "Maserati": [
+        "Ghibli", "GranTurismo", "Grecale", "Levante",
+        "Quattroporte", "Other / その他"
+      ],
+
+      "Bentley": [
+        "Bentayga", "Continental GT", "Flying Spur",
+        "Other / その他"
+      ],
+
+      "Rolls-Royce": [
+        "Cullinan", "Dawn", "Ghost", "Phantom", "Wraith",
+        "Other / その他"
+      ],
+
+      "Jaguar": [
+        "E-PACE", "F-PACE", "F-TYPE", "I-PACE",
+        "XE", "XF", "XJ", "Other / その他"
+      ],
+
+      "Land Rover": [
+        "Defender", "Discovery", "Discovery Sport",
+        "Range Rover", "Range Rover Evoque",
+        "Range Rover Sport", "Other / その他"
+      ],
+
+      "Renault": [
+        "Captur", "Clio", "Kangoo", "Megane",
+        "Other / その他"
+      ],
+
+      "Peugeot": [
+        "208", "308", "2008", "3008", "5008",
+        "Other / その他"
+      ],
+
+      "Citroen": [
+        "C3", "C4", "C5 Aircross", "Berlingo",
+        "Other / その他"
+      ],
+
+      "Ford": [
+        "EcoSport", "Escape", "Explorer", "F-150",
+        "Focus", "Mustang", "Ranger", "Other / その他"
+      ],
+
+      "Chevrolet": [
+        "Camaro", "Corvette", "Silverado", "Tahoe",
+        "Other / その他"
+      ],
+
+      "Cadillac": [
+        "CT5", "Escalade", "XT4", "XT5", "Other / その他"
+      ],
+
+      "Jeep": [
+        "Cherokee", "Compass", "Gladiator", "Grand Cherokee",
+        "Renegade", "Wrangler", "Other / その他"
+      ],
+
+      "Tesla": [
+        "Model 3", "Model S", "Model X", "Model Y",
+        "Cybertruck", "Other / その他"
+      ],
+
+      "Dodge": [
+        "Challenger", "Charger", "Durango", "Other / その他"
+      ],
+
+      "GMC": [
+        "Sierra", "Terrain", "Yukon", "Other / その他"
+      ],
+
+      "Chrysler": [
+        "300", "Pacifica", "Other / その他"
+      ],
+
+      "Lincoln": [
+        "Aviator", "Navigator", "Other / その他"
+      ],
+
+      "Hyundai": [
+        "Elantra", "Ioniq", "Kona", "Santa Fe",
+        "Sonata", "Tucson", "Other / その他"
+      ],
+
+      "Kia": [
+        "Carnival", "EV6", "Sportage", "Sorento",
+        "Other / その他"
+      ],
+
+      "Genesis": [
+        "G70", "G80", "G90", "GV70", "GV80",
+        "Other / その他"
+      ],
+
+      "BYD": [
+        "ATTO 3", "DOLPHIN", "SEAL", "Other / その他"
+      ],
+
+      "Tata": [
+        "Harrier", "Nexon", "Safari", "Other / その他"
+      ],
+
+      "Mahindra": [
+        "Scorpio", "Thar", "XUV700", "Other / その他"
+      ],
+
+      "Other / その他": [
+        "Other / その他"
+      ]
+    };
+
+    const makerGrid = document.getElementById("makerGrid");
+    const makerSearch = document.getElementById("makerSearch");
+    const makerValue = document.getElementById("makerValue");
+    const modelSelect = document.getElementById("vehicleModel");
 
     function renderManufacturers(filter = "") {
-      clearElement(manufacturerGrid);
+      makerGrid.innerHTML = "";
 
       const query = filter.trim().toLowerCase();
 
-      const filtered = MAKERS.filter((maker) => {
-        const searchText = [
-          maker.ja,
-          maker.en,
-          maker.id
-        ].join(" ").toLowerCase();
+      Object.keys(manufacturers)
+        .filter(name => name.toLowerCase().includes(query))
+        .forEach((name, index) => {
+          const wrapper = document.createElement("div");
+          wrapper.className = "maker-option";
 
-        return searchText.includes(query);
-      });
+          const input = document.createElement("input");
+          input.type = "radio";
+          input.name = "makerChoice";
+          input.id = "maker-" + index;
+          input.value = name;
+          input.checked = makerValue.value === name;
 
-      filtered.forEach((maker) => {
-        const wrapper = document.createElement("div");
-        wrapper.className = "maker-option";
+          const label = document.createElement("label");
+          label.htmlFor = input.id;
+          label.textContent = name;
 
-        const input = document.createElement("input");
-        input.type = "radio";
-        input.name = "maker";
-        input.id = "maker-" + maker.id;
-        input.value = maker.id;
-        input.required = true;
-        input.checked = selectedMakerId === maker.id;
+          input.addEventListener("change", function () {
+            makerValue.value = name;
+            populateModels(name);
+          });
 
-        input.addEventListener("change", () => {
-          selectedMakerId = maker.id;
-          renderManufacturers(makerSearch.value);
-          renderModels("");
-          updateSelectedMakerNote();
+          wrapper.appendChild(input);
+          wrapper.appendChild(label);
+          makerGrid.appendChild(wrapper);
         });
-
-        const label = document.createElement("label");
-        label.htmlFor = input.id;
-
-        const logo = document.createElement("span");
-        logo.className = "maker-logo";
-        logo.textContent = maker.logo;
-
-        const name = document.createElement("span");
-        name.className = "maker-name";
-        name.textContent = makerDisplayName(maker);
-
-        label.append(logo, name);
-        wrapper.append(input, label);
-        manufacturerGrid.appendChild(wrapper);
-      });
-
-      if (!filtered.length) {
-        const empty = document.createElement("p");
-        empty.className = "selected-maker-note";
-        empty.textContent =
-          currentLanguage === "ja"
-            ? "該当するメーカーがありません。「その他」をお選びください。"
-            : "No manufacturers found. Please select Other.";
-
-        manufacturerGrid.appendChild(empty);
-      }
     }
 
-    makerSearch.addEventListener("input", () => {
+    function populateModels(maker) {
+      modelSelect.innerHTML = "";
+
+      const placeholder = document.createElement("option");
+      placeholder.value = "";
+      placeholder.textContent = "車種・モデルを選択";
+      modelSelect.appendChild(placeholder);
+
+      const models = manufacturers[maker] || ["Other / その他"];
+
+      models.forEach(model => {
+        const option = document.createElement("option");
+        option.value = model;
+        option.textContent = model;
+        modelSelect.appendChild(option);
+      });
+
+      modelSelect.value = "";
+    }
+
+    makerSearch.addEventListener("input", function () {
       renderManufacturers(makerSearch.value);
     });
 
-    function updateSelectedMakerNote() {
-      const maker = MAKERS.find((item) => item.id === selectedMakerId);
+    renderManufacturers();
 
-      $("#selectedMakerNote").textContent = maker
-        ? (
-            currentLanguage === "ja"
-              ? "選択中：" + maker.ja + " — 対応する車種を選択してください。"
-              : "Selected: " + maker.en + " — Choose a model below."
-          )
-        : t("makerNote");
-    }
+    /* -----------------------------
+       YEAR SELECTOR
+       2026 DOWN TO 1960
+       WITH JAPANESE ERAS
+    ----------------------------- */
 
-
-    /* =========================================================
-       DYNAMIC MODEL SELECTOR
-       ========================================================= */
-
-    function renderModels(previousValue = "") {
-      clearElement(modelSelect);
-
-      const placeholder = selectedMakerId
-        ? t("selectModel")
-        : t("selectMakerFirst");
-
-      modelSelect.appendChild(createOption("", placeholder));
-
-      const maker = MAKERS.find(
-        (item) => item.id === selectedMakerId
-      );
-
-      if (!maker) {
-        modelSelect.disabled = true;
-        return;
-      }
-
-      modelSelect.disabled = false;
-
-      maker.models.forEach((model) => {
-        let display = model;
-
-        if (model === "Other") {
-          display = t("otherModel");
-        }
-
-        modelSelect.appendChild(createOption(model, display));
-      });
-
-      const optionExists = Array.from(modelSelect.options)
-        .some((option) => option.value === previousValue);
-
-      if (optionExists && previousValue) {
-        modelSelect.value = previousValue;
-      } else {
-        modelSelect.value = "";
-      }
-    }
-
-
-    /* =========================================================
-       MODEL YEAR SELECTOR
-       2026 DOWN TO 1960 + UNKNOWN
-       Japanese mode includes Japanese era labels.
-       ========================================================= */
+    const yearSelect = document.getElementById("vehicleYear");
 
     function getJapaneseEra(year) {
       if (year >= 2019) {
-        const n = year - 2018;
-        return "令和" + (n === 1 ? "元" : n) + "年";
+        const eraYear = year - 2018;
+        return "令和" + (eraYear === 1 ? "元" : eraYear) + "年";
       }
 
       if (year >= 1989) {
-        const n = year - 1988;
-        return "平成" + (n === 1 ? "元" : n) + "年";
+        const eraYear = year - 1988;
+        return "平成" + (eraYear === 1 ? "元" : eraYear) + "年";
       }
 
       if (year >= 1926) {
-        const n = year - 1925;
-        return "昭和" + (n === 1 ? "元" : n) + "年";
+        const eraYear = year - 1925;
+        return "昭和" + (eraYear === 1 ? "元" : eraYear) + "年";
       }
 
-      if (year >= 1912) {
-        const n = year - 1911;
-        return "大正" + (n === 1 ? "元" : n) + "年";
-      }
-
-      return year + "年";
+      return "";
     }
 
-    function renderYears(previousValue = "") {
-      clearElement(yearSelect);
-
-      yearSelect.appendChild(createOption("", t("selectYear")));
-
-      for (let year = 2026; year >= 1960; year--) {
-        const label = currentLanguage === "ja"
-          ? year + "年 / " + getJapaneseEra(year)
-          : String(year);
-
-        yearSelect.appendChild(
-          createOption(String(year), label)
-        );
-      }
-
-      yearSelect.appendChild(
-        createOption("Unknown", t("unknown"))
-      );
-
-      const exists = Array.from(yearSelect.options)
-        .some((option) => option.value === previousValue);
-
-      if (exists && previousValue) {
-        yearSelect.value = previousValue;
-      }
+    for (let year = 2026; year >= 1960; year--) {
+      const option = document.createElement("option");
+      option.value = String(year);
+      option.textContent = year + "年（" + getJapaneseEra(year) + "）";
+      yearSelect.appendChild(option);
     }
 
-
-    /* =========================================================
+    /* -----------------------------
        MILEAGE SELECTOR
-       10,000 KM INCREMENTS THROUGH 300,000 KM
-       PLUS OVER 300,000 KM AND UNKNOWN
-       ========================================================= */
+       EVERY 10,000 KM UP TO 300,000
+    ----------------------------- */
 
-    function renderMileage(previousValue = "") {
-      clearElement(mileageSelect);
+    const mileageSelect = document.getElementById("vehicleMileage");
 
-      mileageSelect.appendChild(
-        createOption("", t("selectMileage"))
-      );
+    for (let km = 0; km <= 300000; km += 10000) {
+      const option = document.createElement("option");
 
-      for (let km = 10000; km <= 300000; km += 10000) {
-        const label = km.toLocaleString("en-US") + " km";
+      option.value = km === 0 ? "0 km" : km.toLocaleString("en-US") + " km";
 
-        mileageSelect.appendChild(
-          createOption(String(km), label)
-        );
-      }
+      option.textContent = km === 0
+        ? "0 km"
+        : km.toLocaleString("en-US") + " km";
 
-      mileageSelect.appendChild(
-        createOption("Over 300000", t("mileageOver"))
-      );
-
-      mileageSelect.appendChild(
-        createOption("Unknown", t("unknown"))
-      );
-
-      const exists = Array.from(mileageSelect.options)
-        .some((option) => option.value === previousValue);
-
-      if (exists && previousValue) {
-        mileageSelect.value = previousValue;
-      }
+      mileageSelect.appendChild(option);
     }
 
+    const overOption = document.createElement("option");
+    overOption.value = "Over 300,000 km";
+    overOption.textContent = "300,000 km超";
+    mileageSelect.appendChild(overOption);
 
-    /* =========================================================
-       PHOTO VALIDATION AND PREVIEW
-       Maximum 5 images, 10 MB each.
-       Supported: JPEG, PNG, WebP.
-       ========================================================= */
+    const unknownOption = document.createElement("option");
+    unknownOption.value = "Unknown";
+    unknownOption.textContent = "不明 / Unknown";
+    mileageSelect.appendChild(unknownOption);
 
+    /* -----------------------------
+       PHOTO PREVIEW AND VALIDATION
+    ----------------------------- */
+
+    const photoInput = document.getElementById("vehiclePhotos");
+    const photoPreview = document.getElementById("photoPreview");
     const MAX_PHOTOS = 5;
-    const MAX_PHOTO_SIZE = 10 * 1024 * 1024;
+    const MAX_FILE_SIZE = 10 * 1024 * 1024;
 
-    const ALLOWED_IMAGE_TYPES = new Set([
-      "image/jpeg",
-      "image/png",
-      "image/webp"
-    ]);
+    let selectedPhotos = [];
 
-    function setStatus(message, type = "") {
-      formStatus.textContent = message;
-      formStatus.className = "form-status";
+    photoInput.addEventListener("change", function () {
+      const files = Array.from(photoInput.files || []);
+      photoPreview.innerHTML = "";
+      selectedPhotos = [];
 
-      if (type) {
-        formStatus.classList.add(type);
-      }
-    }
-
-    function addPhotoFiles(fileList) {
-      const incoming = Array.from(fileList || []);
-
-      if (!incoming.length) {
+      if (files.length > MAX_PHOTOS) {
+        showStatus("写真は最大5枚まで選択できます。", "error");
+        photoInput.value = "";
         return;
       }
 
-      const existing = [...selectedPhotos];
-      let errorMessage = "";
-
-      for (const file of incoming) {
-        if (!ALLOWED_IMAGE_TYPES.has(file.type)) {
-          errorMessage = t("photoTypeError");
-          continue;
+      for (const file of files) {
+        if (!["image/jpeg", "image/png", "image/webp"].includes(file.type)) {
+          showStatus("JPG、PNG、WebP形式の画像を選択してください。", "error");
+          photoInput.value = "";
+          selectedPhotos = [];
+          photoPreview.innerHTML = "";
+          return;
         }
 
-        if (file.size > MAX_PHOTO_SIZE) {
-          errorMessage = t("photoSizeError");
-          continue;
+        if (file.size > MAX_FILE_SIZE) {
+          showStatus("画像1枚あたりのサイズは10MB以下にしてください。", "error");
+          photoInput.value = "";
+          selectedPhotos = [];
+          photoPreview.innerHTML = "";
+          return;
         }
-
-        if (existing.length >= MAX_PHOTOS) {
-          errorMessage = t("photoLimitError");
-          break;
-        }
-
-        existing.push(file);
       }
 
-      selectedPhotos = existing;
+      selectedPhotos = files;
 
-      renderPhotoPreviews();
-
-      if (errorMessage) {
-        setStatus(errorMessage, "error");
-      } else {
-        setStatus("");
-      }
-
-      // Allow the same file to be selected again after removal.
-      photoInput.value = "";
-    }
-
-    function renderPhotoPreviews() {
-      clearElement(photoPreview);
-
-      selectedPhotos.forEach((file, index) => {
-        const item = document.createElement("div");
-        item.className = "photo-item";
-
+      files.forEach(file => {
         const image = document.createElement("img");
-        image.alt = "Vehicle photo " + (index + 1);
+        image.alt = "選択した車両写真";
 
         const objectUrl = URL.createObjectURL(file);
         image.src = objectUrl;
 
         image.onload = () => URL.revokeObjectURL(objectUrl);
 
-        const removeButton = document.createElement("button");
-        removeButton.type = "button";
-        removeButton.className = "remove-photo";
-        removeButton.textContent = "×";
-
-        removeButton.setAttribute(
-          "aria-label",
-          currentLanguage === "ja"
-            ? "写真を削除"
-            : "Remove photo"
-        );
-
-        removeButton.addEventListener("click", () => {
-          selectedPhotos.splice(index, 1);
-          renderPhotoPreviews();
-          setStatus("");
-        });
-
-        item.append(image, removeButton);
-        photoPreview.appendChild(item);
+        photoPreview.appendChild(image);
       });
 
-      photoCount.textContent = currentLanguage === "ja"
-        ? "選択中：" + selectedPhotos.length + " / " + MAX_PHOTOS + " 枚"
-        : "Selected: " + selectedPhotos.length + " / " + MAX_PHOTOS + " photos";
+      clearStatus();
+    });
+
+    /* -----------------------------
+       STATUS MESSAGES
+    ----------------------------- */
+
+    const formStatus = document.getElementById("formStatus");
+
+    function showStatus(message, type) {
+      formStatus.textContent = message;
+      formStatus.className = "form-status show " + type;
     }
 
-    photoInput.addEventListener("change", () => {
-      addPhotoFiles(photoInput.files);
-    });
-
-    uploadArea.addEventListener("dragover", (event) => {
-      event.preventDefault();
-      uploadArea.classList.add("dragover");
-    });
-
-    uploadArea.addEventListener("dragleave", () => {
-      uploadArea.classList.remove("dragover");
-    });
-
-    uploadArea.addEventListener("drop", (event) => {
-      event.preventDefault();
-      uploadArea.classList.remove("dragover");
-
-      addPhotoFiles(event.dataTransfer.files);
-    });
-
-
-    /* =========================================================
-       PRIVATE PHOTO UPLOADS
-       Store STORAGE PATHS, NOT PUBLIC URLS.
-
-       Expected Supabase Storage bucket:
-       vehicle-submissions
-
-       Expected table column:
-       photo_urls (text array or JSON-compatible column)
-
-       Uploaded photos are not made public.
-       ========================================================= */
-
-    function safeFileExtension(file) {
-      const typeToExtension = {
-        "image/jpeg": "jpg",
-        "image/png": "png",
-        "image/webp": "webp"
-      };
-
-      return typeToExtension[file.type] || "jpg";
+    function clearStatus() {
+      formStatus.textContent = "";
+      formStatus.className = "form-status";
     }
 
-    function createRandomId() {
-      if (window.crypto && crypto.randomUUID) {
-        return crypto.randomUUID();
-      }
+    /* -----------------------------
+       FORM SUBMISSION
+       INSERTS ENQUIRY INTO SUPABASE
+       UPLOADS PHOTOS TO PRIVATE BUCKET
+       SAVES STORAGE PATHS, NOT PUBLIC URLS
+    ----------------------------- */
 
-      return Date.now().toString(36) +
-        Math.random().toString(36).slice(2);
+    const enquiryForm = document.getElementById("vehicleEnquiryForm");
+    const submitBtn = document.getElementById("submitBtn");
+
+    function safeFileName(fileName) {
+      return fileName
+        .normalize("NFKD")
+        .replace(/[^a-zA-Z0-9._-]/g, "_")
+        .slice(-100);
     }
 
-    async function uploadPrivatePhotos() {
+    async function uploadPrivatePhotos(files) {
       const storagePaths = [];
 
-      if (!selectedPhotos.length) {
-        return storagePaths;
-      }
+      for (const file of files) {
+        const uniqueName =
+          Date.now() + "_" +
+          Math.random().toString(36).slice(2, 10) + "_" +
+          safeFileName(file.name);
 
-      if (!supabaseClient) {
-        throw new Error("Supabase client is not available.");
-      }
-
-      for (const file of selectedPhotos) {
-        const extension = safeFileExtension(file);
-
-        const path =
-          "enquiries/" +
-          new Date().toISOString().slice(0, 10) +
-          "/" +
-          createRandomId() +
-          "." +
-          extension;
+        const storagePath = "enquiries/" + uniqueName;
 
         const { error } = await supabaseClient
           .storage
           .from(STORAGE_BUCKET)
-          .upload(path, file, {
+          .upload(storagePath, file, {
             cacheControl: "3600",
             upsert: false,
             contentType: file.type
           });
 
         if (error) {
-          // Clean up photos uploaded earlier in this submission.
-          if (storagePaths.length) {
-            await supabaseClient
-              .storage
-              .from(STORAGE_BUCKET)
-              .remove(storagePaths)
-              .catch(() => {});
-          }
+          console.error("Photo upload error:", error);
 
-          throw error;
+          /*
+            Keep the submission usable even if a photo fails.
+            The failed photo is not recorded as uploaded.
+          */
+          continue;
         }
 
-        // Save the private object path, not a public URL.
-        storagePaths.push(path);
+        /*
+          Save the private Storage path.
+          Do not call getPublicUrl() for this private bucket.
+        */
+        storagePaths.push(storagePath);
       }
 
       return storagePaths;
     }
 
-
-    /* =========================================================
-       FORM SUBMISSION
-       Table: public.vehicle_enquiries
-
-       Expected columns:
-       name, contact, maker, model, year, mileage,
-       details, photo_urls, created_at
-
-       No phone number is collected or displayed.
-       ========================================================= */
-
-    function updateSubmitLabel() {
-      if (isSubmitting) {
-        submitButton.textContent = t("uploading");
-      } else {
-        submitButton.textContent = t("submitButton");
-      }
-    }
-
-    function validateVehicleForm() {
-      const customerName = $("#customerName").value.trim();
-      const customerContact = $("#customerContact").value.trim();
-
-      if (!customerName) {
-        return t("nameRequired");
-      }
-
-      if (!customerContact) {
-        return t("contactRequired");
-      }
-
-      if (!selectedMakerId) {
-        return t("makerRequired");
-      }
-
-      if (!modelSelect.value) {
-        return t("modelRequired");
-      }
-
-      if (!yearSelect.value) {
-        return t("yearRequired");
-      }
-
-      if (!mileageSelect.value) {
-        return t("mileageRequired");
-      }
-
-      return "";
-    }
-
-    function getSelectedMaker() {
-      return MAKERS.find(
-        (maker) => maker.id === selectedMakerId
-      );
-    }
-
-    function getMakerDatabaseValue() {
-      const maker = getSelectedMaker();
-
-      if (!maker) {
-        return "";
-      }
-
-      // Save the readable manufacturer name to Supabase.
-      return currentLanguage === "ja"
-        ? maker.ja
-        : maker.en;
-    }
-
-    form.addEventListener("submit", async (event) => {
+    enquiryForm.addEventListener("submit", async function (event) {
       event.preventDefault();
+      clearStatus();
 
-      if (isSubmitting) {
+      if (!makerValue.value) {
+        showStatus("メーカーを選択してください。", "error");
+        makerGrid.scrollIntoView({ behavior: "smooth", block: "center" });
         return;
       }
 
-      setStatus("");
-
-      const validationError = validateVehicleForm();
-
-      if (validationError) {
-        setStatus(validationError, "error");
+      if (!enquiryForm.reportValidity()) {
         return;
       }
 
-      if (!supabaseClient) {
-        setStatus(t("configError"), "error");
+      if (selectedPhotos.length > MAX_PHOTOS) {
+        showStatus("写真は最大5枚までです。", "error");
         return;
       }
 
-      isSubmitting = true;
-      submitButton.disabled = true;
-      updateSubmitLabel();
-
-      let uploadedPaths = [];
+      submitBtn.disabled = true;
+      submitBtn.textContent = "送信中です...";
 
       try {
-        uploadedPaths = await uploadPrivatePhotos();
+        let photoPaths = [];
 
-        const record = {
-          name: $("#customerName").value.trim(),
-          contact: $("#customerContact").value.trim(),
-          maker: getMakerDatabaseValue(),
-          model: modelSelect.value,
-          year: yearSelect.value,
-          mileage: mileageSelect.value,
-          details: $("#details").value.trim(),
-          photo_urls: uploadedPaths
+        if (selectedPhotos.length > 0) {
+          photoPaths = await uploadPrivatePhotos(selectedPhotos);
+        }
+
+        const formData = new FormData(enquiryForm);
+
+        const enquiry = {
+          name: String(formData.get("name") || "").trim(),
+          contact: String(formData.get("contact") || "").trim(),
+          maker: makerValue.value,
+          model: String(formData.get("model") || "").trim(),
+          year: String(formData.get("year") || ""),
+          mileage: String(formData.get("mileage") || ""),
+          details: String(formData.get("details") || "").trim(),
+          photo_urls: photoPaths
         };
 
         const { error } = await supabaseClient
-          .from(TABLE_NAME)
-          .insert([record]);
+          .from(ENQUIRY_TABLE)
+          .insert([enquiry]);
 
         if (error) {
-          // Prevent orphaned uploads if the database insert fails.
-          if (uploadedPaths.length) {
-            await supabaseClient
-              .storage
-              .from(STORAGE_BUCKET)
-              .remove(uploadedPaths)
-              .catch(() => {});
-          }
+          console.error("Enquiry submission error:", error);
 
-          throw error;
+          showStatus(
+            "送信できませんでした。通信状況をご確認のうえ、もう一度お試しください。LINEまたはメールでもお問い合わせいただけます。",
+            "error"
+          );
+
+          return;
         }
 
-        setStatus(t("submitSuccess"), "success");
+        const photosFailed =
+          selectedPhotos.length > photoPaths.length;
 
-        form.reset();
+        if (photosFailed) {
+          showStatus(
+            "お問い合わせを受け付けました。ただし、一部の写真をアップロードできませんでした。",
+            "success"
+          );
+        } else {
+          showStatus(
+            "お問い合わせありがとうございます。送信が完了しました。",
+            "success"
+          );
+        }
 
-        selectedMakerId = "";
+        enquiryForm.reset();
+        makerValue.value = "";
         selectedPhotos = [];
+        photoPreview.innerHTML = "";
+        modelSelect.innerHTML =
+          '<option value="">先にメーカーを選択してください</option>';
 
-        renderManufacturers("");
-        renderModels("");
-        renderYears("");
-        renderMileage("");
-        renderPhotoPreviews();
-        updateSelectedMakerNote();
-
-        // Scroll to the confirmation message.
-        formStatus.scrollIntoView({
-          behavior: "smooth",
-          block: "center"
-        });
+        renderManufacturers();
 
       } catch (error) {
-        console.error("Vehicle enquiry submission failed:", error);
+        console.error("Unexpected submission error:", error);
 
-        let message = t("submitError");
-
-        if (error && error.message) {
-          console.error("Submission error details:", error.message);
-        }
-
-        setStatus(message, "error");
+        showStatus(
+          "エラーが発生しました。しばらくしてから再度お試しください。",
+          "error"
+        );
 
       } finally {
-        isSubmitting = false;
-        submitButton.disabled = false;
-        updateSubmitLabel();
+        submitBtn.disabled = false;
+        submitBtn.textContent = "お問い合わせを送信する　→";
       }
     });
 
+    /* -----------------------------
+       FOOTER YEAR
+    ----------------------------- */
 
-    /* =========================================================
-       MOBILE NAVIGATION
-       ========================================================= */
-
-    const menuToggle = $("#menuToggle");
-    const mainNav = $("#mainNav");
-
-    menuToggle.addEventListener("click", () => {
-      const isOpen = mainNav.classList.toggle("open");
-
-      menuToggle.setAttribute("aria-expanded", String(isOpen));
-      menuToggle.textContent = isOpen ? "×" : "☰";
-    });
-
-    mainNav.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        mainNav.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.textContent = "☰";
-      });
-    });
-
-
-    /* =========================================================
-       BACK TO TOP
-       ========================================================= */
-
-    const backToTop = $("#backToTop");
-
-    window.addEventListener("scroll", () => {
-      backToTop.classList.toggle(
-        "visible",
-        window.scrollY > 450
-      );
-    });
-
-
-    /* =========================================================
-       INITIALIZE THE PAGE
-       ========================================================= */
-
-    function initializePage() {
-      $("#currentYear").textContent = new Date().getFullYear();
-
-      renderManufacturers();
-      renderModels();
-      renderYears();
-      renderMileage();
-      renderPhotoPreviews();
-
-      // Default is Japanese. Restore the saved preference if one exists.
-      let savedLanguage = "ja";
-
-      try {
-        const stored = localStorage.getItem("ar_auto_language");
-
-        if (stored === "ja" || stored === "en") {
-          savedLanguage = stored;
-        }
-      } catch (_) {
-        // Japanese remains the default if storage is unavailable.
-      }
-
-      setLanguage(savedLanguage);
-      updateSelectedMakerNote();
-      updateSubmitLabel();
-    }
-
-    initializePage();
+    document.getElementById("currentYear").textContent =
+      new Date().getFullYear();
 
   </script>
 
