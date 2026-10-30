@@ -807,4 +807,1900 @@ button {
 
 .form-status.error {
   background: #2a1111;
-  border: 1
+  border: 1px solid #8a3838;
+  color: #ffd0d0;
+}
+
+/* FOOTER */
+
+.site-footer {
+  padding: 55px 0 20px;
+  background: #050505;
+  border-top: 1px solid var(--border);
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  align-items: flex-start;
+  padding-bottom: 32px;
+}
+
+.footer-description {
+  max-width: 460px;
+  color: #aaa;
+  font-size: .85rem;
+  margin-top: 16px;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 17px;
+  color: #c9c9c9;
+  font-size: .82rem;
+}
+
+.footer-links a:hover {
+  color: var(--gold);
+}
+
+.footer-bottom {
+  border-top: 1px solid #222;
+  padding-top: 18px;
+  color: #777;
+  font-size: .76rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* LANGUAGE */
+
+[lang="en"] .ja-only {
+  display: none !important;
+}
+
+[lang="ja"] .en-only {
+  display: none !important;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 950px) {
+  .nav {
+    gap: 13px;
+  }
+
+  .nav a {
+    font-size: .75rem;
+  }
+
+  .header-contact {
+    display: none;
+  }
+
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .enquiry-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .enquiry-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .enquiry-intro h3,
+  .enquiry-intro > p,
+  .enquiry-intro .eyebrow {
+    grid-column: 1 / -1;
+  }
+
+  .benefit-list {
+    margin: 0;
+  }
+
+  .contact-direct,
+  .contact-details {
+    align-self: start;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .section {
+    padding: 65px 0;
+  }
+
+  .header-inner {
+    min-height: 70px;
+  }
+
+  .brand-mark {
+    width: 42px;
+    height: 42px;
+  }
+
+  .brand-name {
+    font-size: .78rem;
+  }
+
+  .brand-caption {
+    font-size: .55rem;
+  }
+
+  .header-actions {
+    gap: 8px;
+  }
+
+  .language-switch {
+    padding: 8px 9px;
+    font-size: .8rem;
+  }
+
+  .mobile-menu {
+    display: inline-block;
+  }
+
+  .nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 16px 4%;
+    background: #0a0a0a;
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .nav.open {
+    display: flex;
+  }
+
+  .nav a {
+    padding: 12px 4px;
+    border-bottom: 1px solid #222;
+    font-size: .9rem;
+  }
+
+  .hero {
+    min-height: 610px;
+    background-position: 60% center;
+  }
+
+  .hero-content {
+    padding: 80px 0 110px;
+  }
+
+  .hero h1 {
+    font-size: clamp(3rem, 13vw, 4.8rem);
+  }
+
+  .hero p {
+    font-size: .9rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .trust-item:nth-child(2) {
+    border-right: none;
+  }
+
+  .trust-item:nth-child(-n+2) {
+    border-bottom: 1px solid #292929;
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-image {
+    height: 230px;
+  }
+
+  .buy-banner-inner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 230px 160px 160px;
+  }
+
+  .gallery-item:first-child {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .enquiry-intro {
+    display: block;
+  }
+
+  .benefit-list {
+    margin: 22px 0;
+  }
+
+  .contact-direct {
+    margin-top: 20px;
+  }
+
+  .contact-details {
+    margin-top: 15px;
+  }
+
+  .form-panel {
+    padding: 21px 16px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .form-field.full {
+    grid-column: auto;
+  }
+
+  .photo-preview {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-top {
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a href="#home" class="brand" aria-label="AR AUTO TRADING Home">
+      <div class="brand-mark">AR</div>
+      <div>
+        <div class="brand-name">AR AUTO TRADING</div>
+        <div class="brand-caption">VEHICLES · MACHINERY · EXPORT</div>
+      </div>
+    </a>
+
+    <nav class="nav" id="mainNav">
+      <a href="#home">
+        <span class="ja-only">ホーム</span>
+        <span class="en-only">Home</span>
+      </a>
+      <a href="#services">
+        <span class="ja-only">サービス</span>
+        <span class="en-only">Services</span>
+      </a>
+      <a href="#about">
+        <span class="ja-only">選ばれる理由</span>
+        <span class="en-only">Why Us</span>
+      </a>
+      <a href="#gallery">
+        <span class="ja-only">車両イメージ</span>
+        <span class="en-only">Gallery</span>
+      </a>
+      <a href="#contact">
+        <span class="ja-only">お問い合わせ</span>
+        <span class="en-only">Contact</span>
+      </a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="language-switch" id="languageToggle"
+      type="button" aria-label="Switch language">EN</button>
+
+      <a href="#contact" class="btn btn-gold header-contact">
+        <span class="ja-only">無料査定</span>
+        <span class="en-only">Free Valuation</span>
+      </a>
+
+      <button class="mobile-menu" id="mobileMenu"
+      type="button" aria-label="Open navigation" aria-expanded="false">
+        ☰
+      </button>
+    </div>
+
+  </div>
+</header>
+
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-content">
+
+      <div class="hero-kicker">
+        AR AUTO TRADING
+      </div>
+
+      <h1>
+        YOUR CAR.<br>
+        <span>YOUR VALUE.</span>
+      </h1>
+
+      <h2 class="ja-only">
+        お車・トラック・建設機械の買取
+      </h2>
+
+      <h2 class="en-only">
+        Professional Vehicle & Machinery Buying
+      </h2>
+
+      <p class="ja-only">
+        中古車・輸入車・トラック・建設機械から、
+        事故車・不動車まで幅広くご相談いただけます。
+        お客様の大切な車両や機械を、丁寧に査定いたします。
+      </p>
+
+      <p class="en-only">
+        We buy and trade used vehicles, imported cars, trucks,
+        construction machinery, accident-damaged vehicles and
+        non-running vehicles. Contact us for a professional valuation.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-gold">
+          <span class="ja-only">無料査定を依頼する →</span>
+          <span class="en-only">GET A FREE VALUATION →</span>
+        </a>
+
+        <button type="button" class="btn btn-outline"
+        id="heroDirectContact">
+          <span class="ja-only">直接お問い合わせ</span>
+          <span class="en-only">DIRECT CONTACT</span>
+        </button>
+      </div>
+
+      <div class="hero-note ja-only">
+        お車・機械の写真を送って簡単にお問い合わせいただけます。
+      </div>
+
+      <div class="hero-note en-only">
+        Send vehicle photos with your enquiry for a convenient valuation.
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- TRUST STRIP -->
+<section class="trust-strip" aria-label="Our services">
+  <div class="container trust-grid">
+
+    <div class="trust-item">
+      <strong class="ja-only">幅広い買取</strong>
+      <strong class="en-only">Wide Range</strong>
+      <span class="ja-only">車両・機械に対応</span>
+      <span class="en-only">Vehicles & machinery</span>
+    </div>
+
+    <div class="trust-item">
+      <strong class="ja-only">事故車も相談可</strong>
+      <strong class="en-only">Accident Vehicles</strong>
+      <span class="ja-only">状態を問わずご相談</span>
+      <span class="en-only">Ask about damaged vehicles</span>
+    </div>
+
+    <div class="trust-item">
+      <strong class="ja-only">不動車も相談可</strong>
+      <strong class="en-only">Non-Running</strong>
+      <span class="ja-only">動かない車両もご相談</span>
+      <span class="en-only">Ask about non-running vehicles</span>
+    </div>
+
+    <div class="trust-item">
+      <strong class="ja-only">輸出入にも対応</strong>
+      <strong class="en-only">Export & Import</strong>
+      <span class="ja-only">車両・機械の取引</span>
+      <span class="en-only">Vehicle & machinery trade</span>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- SERVICES -->
+<section class="section services-section" id="services">
+  <div class="container">
+
+    <div class="section-heading">
+      <div class="eyebrow">WHAT WE DO</div>
+
+      <h2 class="ja-only">買取・取引サービス</h2>
+      <h2 class="en-only">Our Services</h2>
+
+      <p class="ja-only">
+        乗用車から商用車、建設機械まで、
+        さまざまな車両・機械の買取や取引についてご相談いただけます。
+      </p>
+
+      <p class="en-only">
+        From everyday vehicles to commercial trucks and heavy machinery,
+        we welcome enquiries across a broad range of vehicles and equipment.
+      </p>
+    </div>
+
+    <div class="service-grid">
+
+      <article class="service-card">
+        <div class="service-image">
+          <img
+          src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1000&q=85"
+          alt="Premium sports car"
+          loading="lazy">
+          <span class="service-number">01</span>
+        </div>
+        <div class="service-body">
+          <h3 class="ja-only">中古車・輸入車</h3>
+          <h3 class="en-only">Used & Imported Vehicles</h3>
+          <p class="ja-only">
+            一般中古車から輸入車、SUV、スポーツカーまで、
+            お車の売却についてご相談ください。
+          </p>
+          <p class="en-only">
+            Enquire about selling used vehicles, imported cars,
+            SUVs and sports cars.
+          </p>
+          <a href="#contact" class="text-link">
+            <span class="ja-only">査定を依頼する →</span>
+            <span class="en-only">Request a valuation →</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-image">
+          <img
+          src="https://images.unsplash.com/photo-1519003722824-194d4455a60e?auto=format&fit=crop&w=1000&q=85"
+          alt="Commercial truck"
+          loading="lazy">
+          <span class="service-number">02</span>
+        </div>
+        <div class="service-body">
+          <h3 class="ja-only">トラック・商用車</h3>
+          <h3 class="en-only">Trucks & Commercial Vehicles</h3>
+          <p class="ja-only">
+            大型・中型トラック、2トン車、ダンプ、
+            冷凍車など幅広くご相談いただけます。
+          </p>
+          <p class="en-only">
+            Enquiries welcome for heavy and medium trucks,
+            2-ton trucks, dump trucks and refrigerated vehicles.
+          </p>
+          <a href="#contact" class="text-link">
+            <span class="ja-only">お問い合わせ →</span>
+            <span class="en-only">Make an enquiry →</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-image">
+          <img
+          src="https://images.unsplash.com/photo-1580901368919-7738efb0f87e?auto=format&fit=crop&w=1000&q=85"
+          alt="Construction excavator"
+          loading="lazy">
+          <span class="service-number">03</span>
+        </div>
+        <div class="service-body">
+          <h3 class="ja-only">建設機械・重機</h3>
+          <h3 class="en-only">Construction Machinery</h3>
+          <p class="ja-only">
+            油圧ショベル、フォークリフト、発電機、
+            コンプレッサーなどの機械もご相談ください。
+          </p>
+          <p class="en-only">
+            Ask about excavators, forklifts, generators,
+            compressors and other equipment.
+          </p>
+          <a href="#contact" class="text-link">
+            <span class="ja-only">査定を依頼する →</span>
+            <span class="en-only">Request a valuation →</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-image">
+          <img
+          src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1000&q=85"
+          alt="Modern vehicle"
+          loading="lazy">
+          <span class="service-number">04</span>
+        </div>
+        <div class="service-body">
+          <h3 class="ja-only">事故車・不動車</h3>
+          <h3 class="en-only">Damaged & Non-Running Vehicles</h3>
+          <p class="ja-only">
+            事故車や故障車、長期間動かしていない車両も、
+            まずは状態をお知らせください。
+          </p>
+          <p class="en-only">
+            Have an accident-damaged, faulty or long-stored vehicle?
+            Tell us about its condition.
+          </p>
+          <a href="#contact" class="text-link">
+            <span class="ja-only">車両情報を送る →</span>
+            <span class="en-only">Send vehicle details →</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-image">
+          <img
+          src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1000&q=85"
+          alt="SUV and off-road vehicle"
+          loading="lazy">
+          <span class="service-number">05</span>
+        </div>
+        <div class="service-body">
+          <h3 class="ja-only">SUV・四輪駆動車</h3>
+          <h3 class="en-only">SUVs & 4WD Vehicles</h3>
+          <p class="ja-only">
+            SUVや四輪駆動車など、
+            多様な車両の買取についてご相談いただけます。
+          </p>
+          <p class="en-only">
+            Contact us about selling SUVs, four-wheel-drive
+            vehicles and other vehicle types.
+          </p>
+          <a href="#contact" class="text-link">
+            <span class="ja-only">無料査定 →</span>
+            <span class="en-only">Free valuation →</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-image">
+          <img
+          src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1000&q=85"
+          alt="Automotive trade"
+          loading="lazy">
+          <span class="service-number">06</span>
+        </div>
+        <div class="service-body">
+          <h3 class="ja-only">車両・機械の輸出入</h3>
+          <h3 class="en-only">Vehicle & Machinery Trade</h3>
+          <p class="ja-only">
+            車両・機械の輸出入や取引に関する
+            ご相談を受け付けております。
+          </p>
+          <p class="en-only">
+            Enquire about vehicle and machinery trading,
+            export and import opportunities.
+          </p>
+          <a href="#contact" class="text-link">
+            <span class="ja-only">お問い合わせ →</span>
+            <span class="en-only">Contact us →</span>
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- BUYING BANNER -->
+<section class="buy-banner">
+  <div class="container buy-banner-inner">
+
+    <div>
+      <div class="eyebrow">SELL WITH CONFIDENCE</div>
+
+      <h2 class="ja-only">
+        お車・機械の売却を<br>
+        もっとシンプルに。
+      </h2>
+
+      <h2 class="en-only">
+        Make Your Vehicle<br>
+        Selling Enquiry Simple.
+      </h2>
+
+      <p class="ja-only">
+        車両情報と写真をお送りください。
+        内容を確認のうえ、査定についてご案内いたします。
+      </p>
+
+      <p class="en-only">
+        Send us your vehicle details and photos.
+        We will review your enquiry and discuss the valuation process.
+      </p>
+    </div>
+
+    <a href="#contact" class="btn btn-gold">
+      <span class="ja-only">無料査定を依頼する →</span>
+      <span class="en-only">REQUEST A VALUATION →</span>
+    </a>
+
+  </div>
+</section>
+
+
+<!-- WHY CHOOSE US -->
+<section class="section why-section" id="about">
+  <div class="container">
+
+    <div class="section-heading">
+      <div class="eyebrow">WHY AR AUTO TRADING</div>
+
+      <h2 class="ja-only">選ばれる理由</h2>
+      <h2 class="en-only">A Straightforward Service</h2>
+
+      <p class="ja-only">
+        お客様の車両・機械の情報を確認し、
+        それぞれの状況に合わせて対応いたします。
+      </p>
+
+      <p class="en-only">
+        We review each vehicle or machinery enquiry individually
+        and discuss the next steps based on its condition.
+      </p>
+    </div>
+
+    <div class="why-grid">
+
+      <article class="why-card">
+        <div class="why-icon">◇</div>
+        <h3 class="ja-only">幅広い車両・機械</h3>
+        <h3 class="en-only">A Wide Range</h3>
+        <p class="ja-only">
+          乗用車、商用車、トラック、建設機械など、
+          幅広い種類の車両・機械についてご相談いただけます。
+        </p>
+        <p class="en-only">
+          Enquiries are welcome for passenger cars, commercial
+          vehicles, trucks and construction machinery.
+        </p>
+      </article>
+
+      <article class="why-card">
+        <div class="why-icon">✓</div>
+        <h3 class="ja-only">写真で簡単お問い合わせ</h3>
+        <h3 class="en-only">Easy Photo Enquiries</h3>
+        <p class="ja-only">
+          車両情報と写真をフォームから送信できます。
+          詳しい情報が分からない場合も、まずはご相談ください。
+        </p>
+        <p class="en-only">
+          Submit vehicle details and photos using our enquiry form.
+          Contact us even if you do not know every detail.
+        </p>
+      </article>
+
+      <article class="why-card">
+        <div class="why-icon">↗</div>
+        <h3 class="ja-only">個別にご案内</h3>
+        <h3 class="en-only">Individual Attention</h3>
+        <p class="ja-only">
+          車両の状態やご希望を確認し、
+          査定・取引の進め方をご案内いたします。
+        </p>
+        <p class="en-only">
+          We review the vehicle's condition and your requirements
+          before discussing valuation and possible next steps.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- VEHICLE GALLERY -->
+<section class="section" id="gallery">
+  <div class="container">
+
+    <div class="section-heading">
+      <div class="eyebrow">VEHICLE & MACHINERY</div>
+
+      <h2 class="ja-only">車両・機械ギャラリー</h2>
+      <h2 class="en-only">Vehicle & Machinery Gallery</h2>
+
+      <p class="ja-only">
+        乗用車から商用車・重機まで、
+        幅広い分野の車両・機械を取り扱っております。
+      </p>
+
+      <p class="en-only">
+        Explore the range of vehicles and machinery relevant
+        to our buying and trading services.
+      </p>
+    </div>
+
+    <div class="gallery-grid">
+
+      <a href="#contact" class="gallery-item">
+        <img
+        src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=85"
+        alt="Sports car"
+        loading="lazy">
+        <span class="gallery-label">
+          <span class="ja-only">乗用車・スポーツカー</span>
+          <span class="en-only">Cars & Sports Cars</span>
+        </span>
+      </a>
+
+      <a href="#contact" class="gallery-item">
+        <img
+        src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=900&q=85"
+        alt="SUV"
+        loading="lazy">
+        <span class="gallery-label">SUV & 4WD</span>
+      </a>
+
+      <a href="#contact" class="gallery-item">
+        <img
+        src="https://images.unsplash.com/photo-1519003722824-194d4455a60e?auto=format&fit=crop&w=900&q=85"
+        alt="Commercial truck"
+        loading="lazy">
+        <span class="gallery-label">
+          <span class="ja-only">トラック・商用車</span>
+          <span class="en-only">Trucks</span>
+        </span>
+      </a>
+
+      <a href="#contact" class="gallery-item">
+        <img
+        src="https://images.unsplash.com/photo-1580901368919-7738efb0f87e?auto=format&fit=crop&w=900&q=85"
+        alt="Construction machinery"
+        loading="lazy">
+        <span class="gallery-label">
+          <span class="ja-only">建設機械・重機</span>
+          <span class="en-only">Heavy Equipment</span>
+        </span>
+      </a>
+
+      <a href="#contact" class="gallery-item">
+        <img
+        src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=900&q=85"
+        alt="Automobile"
+        loading="lazy">
+        <span class="gallery-label">
+          <span class="ja-only">車両買取</span>
+          <span class="en-only">Vehicle Buying</span>
+        </span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- VEHICLE INFORMATION & ENQUIRY -->
+<section class="section enquiry-section" id="contact">
+  <div class="container">
+
+    <div class="section-heading">
+      <div class="eyebrow">CONTACT AR AUTO TRADING</div>
+
+      <h2 class="ja-only">車両情報・お問い合わせ</h2>
+      <h2 class="en-only">Vehicle Information & Enquiry</h2>
+
+      <p class="ja-only">
+        車両・機械の情報をご入力ください。
+        写真も添付いただくと、状態の確認に役立ちます。
+      </p>
+
+      <p class="en-only">
+        Enter the vehicle or machinery details below.
+        Photos can help us understand its condition.
+      </p>
+    </div>
+
+    <div class="enquiry-layout">
+
+      <!-- LEFT CONTACT PANEL -->
+      <aside class="enquiry-intro">
+
+        <div class="eyebrow">AR AUTO TRADING</div>
+
+        <h3 class="ja-only">
+          大切な車両を、<br>
+          まずはご相談ください。
+        </h3>
+
+        <h3 class="en-only">
+          Tell Us About<br>
+          Your Vehicle.
+        </h3>
+
+        <p class="ja-only">
+          車両・機械の種類、年式、走行距離、
+          現在の状態などをお知らせください。
+          分かる範囲でご入力いただけます。
+        </p>
+
+        <p class="en-only">
+          Tell us the type, year, mileage and current condition
+          of your vehicle or machinery. Fill in what you know.
+        </p>
+
+        <ul class="benefit-list">
+          <li class="ja-only">乗用車・輸入車・SUV</li>
+          <li class="en-only">Passenger cars, imports & SUVs</li>
+
+          <li class="ja-only">トラック・商用車・ダンプ</li>
+          <li class="en-only">Trucks, commercial vehicles & dump trucks</li>
+
+          <li class="ja-only">建設機械・各種機械</li>
+          <li class="en-only">Construction machinery & equipment</li>
+
+          <li class="ja-only">事故車・不動車もご相談可</li>
+          <li class="en-only">Accident-damaged & non-running vehicles</li>
+        </ul>
+
+        <button type="button" class="btn btn-outline contact-direct"
+        id="directContactToggle" aria-expanded="false">
+          <span class="ja-only">直接お問い合わせ ＋</span>
+          <span class="en-only">Direct Contact ＋</span>
+        </button>
+
+        <div class="contact-details" id="contactDetails">
+          <p class="ja-only">
+            LINEまたはメールでお問い合わせいただけます。
+          </p>
+          <p class="en-only">
+            Contact us through LINE or email.
+          </p>
+
+          <a href="https://line.me/ti/p/XSZXtxFExl"
+          target="_blank" rel="noopener noreferrer"
+          class="btn btn-gold">
+            LINE
+          </a>
+
+          <a href="mailto:Arautotrading7@gmail.com"
+          class="btn btn-dark">
+            Email AR AUTO TRADING
+          </a>
+
+          <p style="margin-top:12px;margin-bottom:0;">
+            Arautotrading7@gmail.com
+          </p>
+        </div>
+
+      </aside>
+
+
+      <!-- RIGHT ENQUIRY FORM -->
+      <div class="form-panel">
+
+        <h3 class="ja-only">車両情報を入力</h3>
+        <h3 class="en-only">Vehicle Details</h3>
+
+        <p class="form-description ja-only">
+          <span class="required">*</span> は必須項目です。
+        </p>
+
+        <p class="form-description en-only">
+          Fields marked <span class="required">*</span> are required.
+        </p>
+
+        <form id="vehicleForm">
+
+          <div class="form-grid">
+
+            <div class="form-field">
+              <label for="customerName">
+                <span class="ja-only">お名前</span>
+                <span class="en-only">Your Name</span>
+                <span class="required">*</span>
+              </label>
+              <input id="customerName" name="name"
+              type="text" required maxlength="120"
+              autocomplete="name"
+              placeholder="お名前 / Your name">
+            </div>
+
+            <div class="form-field">
+              <label for="customerContact">
+                <span class="ja-only">連絡先（メール・LINE等）</span>
+                <span class="en-only">Contact (Email, LINE, etc.)</span>
+                <span class="required">*</span>
+              </label>
+              <input id="customerContact" name="contact"
+              type="text" required maxlength="200"
+              autocomplete="email"
+              placeholder="連絡先 / Contact details">
+            </div>
+
+            <div class="form-field">
+              <label for="maker">
+                <span class="ja-only">メーカー</span>
+                <span class="en-only">Manufacturer</span>
+                <span class="required">*</span>
+              </label>
+              <select id="maker" name="maker" required>
+                <option value="">選択してください / Select</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="model">
+                <span class="ja-only">車種・モデル</span>
+                <span class="en-only">Model</span>
+                <span class="required">*</span>
+              </label>
+              <select id="model" name="model" required disabled>
+                <option value="">先にメーカーを選択 / Select manufacturer first</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="year">
+                <span class="ja-only">年式</span>
+                <span class="en-only">Year</span>
+              </label>
+              <select id="year" name="year">
+                <option value="">選択してください / Select</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="mileage">
+                <span class="ja-only">走行距離</span>
+                <span class="en-only">Mileage</span>
+              </label>
+              <select id="mileage" name="mileage">
+                <option value="">選択してください / Select</option>
+              </select>
+            </div>
+
+            <div class="form-field full">
+              <label for="details">
+                <span class="ja-only">車両・機械の状態、その他の情報</span>
+                <span class="en-only">Condition & Additional Details</span>
+              </label>
+              <textarea id="details" name="details"
+              maxlength="5000"
+              placeholder="状態、故障箇所、希望価格など / Condition, faults, asking price, etc."></textarea>
+            </div>
+
+            <div class="form-field full">
+              <label for="photos">
+                <span class="ja-only">車両写真（最大5枚）</span>
+                <span class="en-only">Vehicle Photos (up to 5)</span>
+              </label>
+
+              <div class="photo-drop">
+                <p class="ja-only">
+                  車両の外観・内装・メーター・故障箇所などの写真を選択してください。
+                </p>
+                <p class="en-only">
+                  Select photos of the exterior, interior, odometer
+                  or damaged areas.
+                </p>
+
+                <input id="photos" name="photos"
+                type="file" accept="image/jpeg,image/png,image/webp"
+                multiple>
+
+                <p class="field-note">
+                  JPG, PNG, WebP · Maximum 5 photos · 10 MB each
+                </p>
+
+                <div class="photo-preview" id="photoPreview"></div>
+              </div>
+            </div>
+
+          </div>
+
+          <p class="consent-note ja-only">
+            送信された情報は、お問い合わせへの対応および査定のために使用します。
+            個人情報や機密情報は、必要な範囲でのみご入力ください。
+          </p>
+
+          <p class="consent-note en-only">
+            The information you submit will be used to respond to your
+            enquiry and assess the vehicle. Only provide information
+            necessary for this purpose.
+          </p>
+
+          <button type="submit" class="btn btn-gold submit-button"
+          id="submitButton">
+            <span class="ja-only">車両情報を送信する →</span>
+            <span class="en-only">SUBMIT VEHICLE ENQUIRY →</span>
+          </button>
+
+          <div class="form-status" id="formStatus"
+          role="status" aria-live="polite"></div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+
+    <div class="footer-top">
+
+      <div>
+        <a href="#home" class="brand">
+          <div class="brand-mark">AR</div>
+          <div>
+            <div class="brand-name">AR AUTO TRADING</div>
+            <div class="brand-caption">VEHICLES · MACHINERY · EXPORT</div>
+          </div>
+        </a>
+
+        <p class="footer-description ja-only">
+          中古車・輸入車・トラック・建設機械などの買取、
+          車両・機械の取引および輸出入に関するお問い合わせを承ります。
+        </p>
+
+        <p class="footer-description en-only">
+          Enquiries welcome for used vehicles, imported cars,
+          trucks, construction machinery, vehicle trading and export/import.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#home">
+          <span class="ja-only">ホーム</span>
+          <span class="en-only">Home</span>
+        </a>
+        <a href="#services">
+          <span class="ja-only">サービス</span>
+          <span class="en-only">Services</span>
+        </a>
+        <a href="#gallery">
+          <span class="ja-only">ギャラリー</span>
+          <span class="en-only">Gallery</span>
+        </a>
+        <a href="#contact">
+          <span class="ja-only">お問い合わせ</span>
+          <span class="en-only">Contact</span>
+        </a>
+        <a href="https://line.me/ti/p/XSZXtxFExl"
+        target="_blank" rel="noopener noreferrer">LINE</a>
+        <a href="mailto:Arautotrading7@gmail.com">Email</a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="copyrightYear"></span> AR AUTO TRADING. All rights reserved.</span>
+      <span class="ja-only">車両・機械の買取と取引</span>
+      <span class="en-only">Vehicle & Machinery Trading</span>
+    </div>
+
+  </div>
+</footer>
+
+
+<script>
+/* =========================================================
+   AR AUTO TRADING
+   Language switch, navigation, vehicle form and Supabase.
+   ========================================================= */
+
+
+/* -------------------------
+   SUPABASE CONFIGURATION
+   ------------------------- */
+
+const SUPABASE_URL =
+  "https://wgxjmqqpdnzxodacvucq.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+  "sb_publishable_1jkh0BxfGfW7StQFGeC8Ig_O3gvj0PZ";
+
+const SUPABASE_TABLE = "vehicle_enquiries";
+
+const STORAGE_BUCKET = "vehicle-submissions";
+
+const MAX_PHOTOS = 5;
+
+const MAX_FILE_SIZE = 10 * 1024 * 1024;
+
+
+/* -------------------------
+   LANGUAGE SWITCH
+   ------------------------- */
+
+const languageToggle =
+  document.getElementById("languageToggle");
+
+let currentLanguage = "ja";
+
+function setLanguage(language) {
+  currentLanguage = language;
+
+  document.documentElement.lang = language;
+
+  languageToggle.textContent =
+    language === "ja" ? "EN" : "日本語";
+
+  document.title =
+    language === "ja"
+      ? "AR AUTO TRADING | 車両・機械買取"
+      : "AR AUTO TRADING | Vehicle & Machinery Buying";
+
+  try {
+    localStorage.setItem("arAutoLanguage", language);
+  } catch (error) {
+    // The page still works if localStorage is unavailable.
+  }
+}
+
+languageToggle.addEventListener("click", () => {
+  setLanguage(currentLanguage === "ja" ? "en" : "ja");
+});
+
+try {
+  const savedLanguage = localStorage.getItem("arAutoLanguage");
+
+  if (savedLanguage === "en" || savedLanguage === "ja") {
+    setLanguage(savedLanguage);
+  }
+} catch (error) {
+  // Use Japanese as the default language.
+}
+
+
+/* -------------------------
+   MOBILE NAVIGATION
+   ------------------------- */
+
+const mobileMenu = document.getElementById("mobileMenu");
+const mainNav = document.getElementById("mainNav");
+
+mobileMenu.addEventListener("click", () => {
+  const isOpen = mainNav.classList.toggle("open");
+
+  mobileMenu.setAttribute("aria-expanded", String(isOpen));
+  mobileMenu.textContent = isOpen ? "✕" : "☰";
+});
+
+mainNav.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    mainNav.classList.remove("open");
+    mobileMenu.setAttribute("aria-expanded", "false");
+    mobileMenu.textContent = "☰";
+  });
+});
+
+
+/* -------------------------
+   DIRECT CONTACT EXPANSION
+   ------------------------- */
+
+const directContactToggle =
+  document.getElementById("directContactToggle");
+
+const contactDetails =
+  document.getElementById("contactDetails");
+
+function toggleDirectContact() {
+  const isOpen = contactDetails.classList.toggle("show");
+
+  directContactToggle.setAttribute(
+    "aria-expanded",
+    String(isOpen)
+  );
+
+  if (currentLanguage === "ja") {
+    directContactToggle.textContent =
+      isOpen ? "直接お問い合わせ −" : "直接お問い合わせ ＋";
+  } else {
+    directContactToggle.textContent =
+      isOpen ? "Direct Contact −" : "Direct Contact +";
+  }
+
+  if (isOpen) {
+    contactDetails.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest"
+    });
+  }
+}
+
+directContactToggle.addEventListener(
+  "click",
+  toggleDirectContact
+);
+
+document.getElementById("heroDirectContact")
+  .addEventListener("click", () => {
+    document.getElementById("contact").scrollIntoView({
+      behavior: "smooth"
+    });
+
+    if (!contactDetails.classList.contains("show")) {
+      toggleDirectContact();
+    }
+  });
+
+
+/* -------------------------
+   COPYRIGHT YEAR
+   ------------------------- */
+
+document.getElementById("copyrightYear").textContent =
+  new Date().getFullYear();
+
+
+/* -------------------------
+   MANUFACTURERS
+   Manufacturers are displayed
+   only in the enquiry form.
+   ------------------------- */
+
+const manufacturerModels = {
+  "Toyota": [
+    "Aqua", "Alphard", "Allion", "Altezza", "Aristo",
+    "Auris", "bB", "C-HR", "Camry", "Carina",
+    "Celica", "Celsior", "Century", "Crown",
+    "Crown Athlete", "Crown Majesta", "Estima",
+    "FJ Cruiser", "Harrier", "Hiace", "Hilux",
+    "Land Cruiser", "Land Cruiser Prado", "Mark II",
+    "Mark X", "Noah", "Passo", "Pixis",
+    "Premio", "Prius", "RAV4", "Roomy",
+    "Sienta", "Supra", "Vellfire", "Vitz",
+    "Voxy", "Wish", "Other"
+  ],
+
+  "Nissan": [
+    "180SX", "AD", "Caravan", "Cube", "Dayz",
+    "Elgrand", "Fuga", "GT-R", "Juke", "March",
+    "Murano", "Note", "NV200", "NV350 Caravan",
+    "Presage", "Serena", "Skyline", "Sylphy",
+    "Teana", "X-Trail", "Other"
+  ],
+
+  "Honda": [
+    "Accord", "Acty", "Civic", "CR-V", "CR-Z",
+    "Fit", "Freed", "Insight", "Integra",
+    "N-BOX", "N-ONE", "N-WGN", "Odyssey",
+    "S2000", "Stepwgn", "Stream", "Vezel",
+    "Other"
+  ],
+
+  "Mazda": [
+    "Atenza", "Axela", "CX-3", "CX-5", "CX-8",
+    "Demio", "MPV", "Roadster", "RX-7", "RX-8",
+    "Other"
+  ],
+
+  "Mitsubishi": [
+    "Canter", "Delica", "eK Wagon", "Fuso",
+    "Galant", "Lancer", "Minicab", "Outlander",
+    "Pajero", "RVR", "Other"
+  ],
+
+  "Subaru": [
+    "BRZ", "Exiga", "Forester", "Impreza",
+    "Legacy", "Levorg", "Sambar", "WRX",
+    "XV", "Other"
+  ],
+
+  "Suzuki": [
+    "Alto", "Carry", "Every", "Escudo",
+    "Hustler", "Jimny", "Solio", "Spacia",
+    "Swift", "Wagon R", "Other"
+  ],
+
+  "Daihatsu": [
+    "Atrai", "Boon", "Copen", "Hijet",
+    "Move", "Rocky", "Tanto", "Terios",
+    "Wake", "Other"
+  ],
+
+  "Isuzu": [
+    "117 Coupe", "Elf", "Forward", "Giga",
+    "MU", "Rodeo", "Other"
+  ],
+
+  "Hino": [
+    "Dutro", "Profia", "Ranger", "Other"
+  ],
+
+  "UD Trucks": [
+    "Condor", "Quon", "Other"
+  ],
+
+  "Mitsubishi Fuso": [
+    "Canter", "Fighter", "Super Great", "Other"
+  ],
+
+  "Lexus": [
+    "CT", "ES", "GS", "GX", "HS", "IS",
+    "LC", "LS", "LX", "NX", "RC", "RX",
+    "SC", "UX", "Other"
+  ],
+
+  "Mercedes-Benz": [
+    "A-Class", "B-Class", "C-Class", "E-Class",
+    "S-Class", "CLA", "CLS", "GLA", "GLB",
+    "GLC", "GLE", "GLS", "G-Class",
+    "SL", "Other"
+  ],
+
+  "BMW": [
+    "1 Series", "2 Series", "3 Series", "4 Series",
+    "5 Series", "6 Series", "7 Series", "8 Series",
+    "X1", "X3", "X5", "X6", "Z3", "Z4", "Other"
+  ],
+
+  "Audi": [
+    "A1", "A3", "A4", "A5", "A6", "A7",
+    "A8", "Q2", "Q3", "Q5", "Q7", "TT", "Other"
+  ],
+
+  "Volkswagen": [
+    "Golf", "Polo", "Passat", "Tiguan",
+    "Touareg", "Beetle", "Touran", "Other"
+  ],
+
+  "Porsche": [
+    "911", "718", "Boxster", "Cayman",
+    "Cayenne", "Macan", "Panamera", "Other"
+  ],
+
+  "Volvo": [
+    "S60", "S80", "S90", "V40", "V60",
+    "V90", "XC40", "XC60", "XC90", "Other"
+  ],
+
+  "Jeep": [
+    "Cherokee", "Compass", "Grand Cherokee",
+    "Renegade", "Wrangler", "Other"
+  ],
+
+  "Land Rover": [
+    "Defender", "Discovery", "Discovery Sport",
+    "Range Rover", "Range Rover Evoque",
+    "Range Rover Sport", "Other"
+  ],
+
+  "Jaguar": [
+    "E-PACE", "F-PACE", "F-TYPE", "XE",
+    "XF", "XJ", "Other"
+  ],
+
+  "Alfa Romeo": [
+    "Giulia", "Giulietta", "156", "159",
+    "Alfetta", "Spider", "Stelvio", "Other"
+  ],
+
+  "Peugeot": [
+    "208", "308", "3008", "5008", "Other"
+  ],
+
+  "Renault": [
+    "Captur", "Clio", "Kangoo", "Megane",
+    "Lutecia", "Other"
+  ],
+
+  "Fiat": [
+    "500", "Panda", "Punto", "Other"
+  ],
+
+  "Mini": [
+    "Cooper", "Clubman", "Countryman", "Other"
+  ],
+
+  "Chevrolet": [
+    "Camaro", "Corvette", "Tahoe", "Other"
+  ],
+
+  "Ford": [
+    "Mustang", "Explorer", "Escape", "Other"
+  ],
+
+  "Tesla": [
+    "Model 3", "Model S", "Model X", "Model Y", "Other"
+  ],
+
+  "Yamaha": [
+    "Motorcycle", "FZ400R", "Other"
+  ],
+
+  "Honda Motorcycle": [
+    "Motocompo", "Motorcycle", "Other"
+  ],
+
+  "Other Manufacturer": [
+    "Other"
+  ]
+};
+
+
+/* Populate manufacturer dropdown */
+
+const makerSelect = document.getElementById("maker");
+const modelSelect = document.getElementById("model");
+
+Object.keys(manufacturerModels).forEach(manufacturer => {
+  const option = document.createElement("option");
+
+  option.value = manufacturer;
+  option.textContent = manufacturer;
+
+  makerSelect.appendChild(option);
+});
+
+
+/* Populate models based on manufacturer */
+
+makerSelect.addEventListener("change", () => {
+  const manufacturer = makerSelect.value;
+
+  modelSelect.innerHTML = "";
+
+  if (!manufacturer || !manufacturerModels[manufacturer]) {
+    modelSelect.disabled = true;
+
+    modelSelect.add(
+      new Option(
+        "先にメーカーを選択 / Select manufacturer first",
+        ""
+      )
+    );
+
+    return;
+  }
+
+  modelSelect.disabled = false;
+
+  modelSelect.add(
+    new Option(
+      "選択してください / Select model",
+      ""
+    )
+  );
+
+  manufacturerModels[manufacturer].forEach(model => {
+    modelSelect.add(new Option(model, model));
+  });
+
+  modelSelect.add(
+    new Option("その他・手入力 / Other - type in details", "__OTHER__")
+  );
+});
+
+
+/* Allow custom model name */
+
+modelSelect.addEventListener("change", () => {
+  const oldInput = document.getElementById("customModel");
+
+  if (oldInput) oldInput.remove();
+
+  if (modelSelect.value === "__OTHER__") {
+    const input = document.createElement("input");
+
+    input.type = "text";
+    input.id = "customModel";
+    input.maxLength = 150;
+    input.placeholder = "車種を入力 / Enter model";
+    input.style.marginTop = "10px";
+    input.required = true;
+
+    modelSelect.parentElement.appendChild(input);
+  }
+});
+
+
+/* -------------------------
+   YEAR OPTIONS
+   2026 THROUGH 1960
+   ------------------------- */
+
+const yearSelect = document.getElementById("year");
+
+yearSelect.add(
+  new Option("年式不明 / Unknown", "Unknown")
+);
+
+for (let year = 2026; year >= 1960; year--) {
+  const option = document.createElement("option");
+
+  option.value = String(year);
+  option.textContent = String(year);
+
+  if (year >= 2019) {
+    option.textContent += " (令和" + (year - 2018) + "年)";
+  } else if (year >= 1989) {
+    option.textContent += " (平成" + (year - 1988) + "年)";
+  } else if (year >= 1926) {
+    option.textContent += " (昭和" + (year - 1925) + "年)";
+  }
+
+  yearSelect.appendChild(option);
+}
+
+
+/* -------------------------
+   MILEAGE OPTIONS
+   ------------------------- */
+
+const mileageSelect = document.getElementById("mileage");
+
+mileageSelect.add(
+  new Option("走行距離不明 / Unknown", "Unknown")
+);
+
+for (let km = 20000; km <= 300000; km += 10000) {
+  const option = document.createElement("option");
+
+  option.value = String(km);
+  option.textContent = km.toLocaleString("en-US") + " km";
+
+  mileageSelect.appendChild(option);
+}
+
+mileageSelect.add(
+  new Option("300,000 km以上 / Over 300,000 km", "Over 300000 km")
+);
+
+
+/* -------------------------
+   PHOTO PREVIEW + VALIDATION
+   ------------------------- */
+
+const photosInput = document.getElementById("photos");
+const photoPreview = document.getElementById("photoPreview");
+const formStatus = document.getElementById("formStatus");
+
+function showFormStatus(message, type) {
+  formStatus.textContent = message;
+
+  formStatus.className = "form-status show " + type;
+}
+
+function clearFormStatus() {
+  formStatus.textContent = "";
+  formStatus.className = "form-status";
+}
+
+function validatePhotos(files) {
+  if (files.length > MAX_PHOTOS) {
+    return currentLanguage === "ja"
+      ? "写真は最大5枚まで選択できます。"
+      : "Please select no more than 5 photos.";
+  }
+
+  const allowedTypes = [
+    "image/jpeg",
+    "image/png",
+    "image/webp"
+  ];
+
+  for (const file of files) {
+    if (!allowedTypes.includes(file.type)) {
+      return currentLanguage === "ja"
+        ? "JPG、PNG、WebP形式の画像を選択してください。"
+        : "Please select JPG, PNG or WebP images.";
+    }
+
+    if (file.size > MAX_FILE_SIZE) {
+      return currentLanguage === "ja"
+        ? "各写真のサイズは10MB以下にしてください。"
+        : "Each photo must be 10 MB or smaller.";
+    }
+  }
+
+  return "";
+}
+
+photosInput.addEventListener("change", () => {
+  clearFormStatus();
+  photoPreview.innerHTML = "";
+
+  const files = Array.from(photosInput.files || []);
+  const error = validatePhotos(files);
+
+  if (error) {
+    showFormStatus(error, "error");
+    photosInput.value = "";
+    return;
+  }
+
+  files.forEach(file => {
+    const img = document.createElement("img");
+    const objectUrl = URL.createObjectURL(file);
+
+    img.src = objectUrl;
+    img.alt = file.name;
+
+    img.onload = () => URL.revokeObjectURL(objectUrl);
+
+    photoPreview.appendChild(img);
+  });
+});
+
+
+/* -------------------------
+   SUPABASE REST HELPERS
+   ------------------------- */
+
+function supabaseHeaders(extraHeaders = {}) {
+  return {
+    "apikey": SUPABASE_PUBLISHABLE_KEY,
+    "Authorization": "Bearer " + SUPABASE_PUBLISHABLE_KEY,
+    ...extraHeaders
+  };
+}
+
+function makeSafeFileName(fileName) {
+  const extensionMatch = fileName.match(/\.[a-zA-Z0-9]+$/);
+
+  const extension = extensionMatch
+    ? extensionMatch[0].toLowerCase()
+    : "";
+
+  const base = fileName
+    .replace(/\.[^/.]+$/, "")
+    .normalize("NFKD")
+    .replace(/[^a-zA-Z0-9_-]/g, "-")
+    .replace(/-+/g, "-")
+    .slice(0, 50);
+
+  return (base || "vehicle-photo") + extension;
+}
+
+async function uploadPhoto(file) {
+  const uniquePart =
+    Date.now().toString(36) + "-" +
+    Math.random().toString(36).slice(2, 10);
+
+  const storagePath =
+    "enquiries/" + uniquePart + "-" + makeSafeFileName(file.name);
+
+  const uploadUrl =
+    SUPABASE_URL +
+    "/storage/v1/object/" +
+    encodeURIComponent(STORAGE_BUCKET) +
+    "/" +
+    storagePath.split("/").map(encodeURIComponent).join("/");
+
+  const response = await fetch(uploadUrl, {
+    method: "POST",
+    headers: supabaseHeaders({
+      "Content-Type": file.type,
+      "x-upsert": "false"
+    }),
+    body: file
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+
+    throw new Error(
+      "Photo upload failed (" +
+      response.status +
+      "): " +
+      errorText.slice(0, 250)
+    );
+  }
+
+  // Store the private bucket path, not a public URL.
+  return storagePath;
+}
+
+async function insertEnquiry(payload) {
+  const response = await fetch(
+    SUPABASE_URL +
+    "/rest/v1/" +
+    SUPABASE_TABLE,
+    {
+      method: "POST",
+      headers: supabaseHeaders({
+        "Content-Type": "application/json",
+        "Prefer": "return=minimal"
+      }),
+      body: JSON.stringify(payload)
+    }
+  );
+
+  if (!response.ok) {
+    const errorText = await response.text();
+
+    throw new Error(
+      "Enquiry submission failed (" +
+      response.status +
+      "): " +
+      errorText.slice(0, 300)
+    );
+  }
+}
+
+
+/* -------------------------
+   FORM SUBMISSION
+   ------------------------- */
+
+const vehicleForm = document.getElementById("vehicleForm");
+const submitButton = document.getElementById("submitButton");
+
+vehicleForm.addEventListener("submit", async event => {
+  event.preventDefault();
+
+  clearFormStatus();
+
+  const files = Array.from(photosInput.files || []);
+  const photoError = validatePhotos(files);
+
+  if (photoError) {
+    showFormStatus(photoError, "error");
+    return;
+  }
+
+  const name = document.getElementById("customerName")
+    .value.trim();
+
+  const contact = document.getElementById("customerContact")
+    .value.trim();
+
+  const maker = makerSelect.value;
+
+  let model = modelSelect.value;
+
+  if (model === "__OTHER__") {
+    model = (
+      document.getElementById("customModel")?.value || ""
+    ).trim();
+  }
+
+  const year = yearSelect.value || null;
+  const mileage = mileageSelect.value || null;
+
+  const details = document.getElementById("details")
+    .value.trim();
+
+  if (!name || !contact || !maker || !model) {
+    showFormStatus(
+      currentLanguage === "ja"
+        ? "必須項目を入力してください。"
+        : "Please complete all required fields.",
+      "error"
+    );
+
+    return;
+  }
+
+  if (model.length > 150) {
+    showFormStatus(
+      currentLanguage === "ja"
+        ? "車種名は150文字以内で入力してください。"
+        : "Please keep the model name under 150 characters.",
+      "error"
+    );
+
+    return;
+  }
+
+  submitButton.disabled = true;
+
+  submitButton.textContent =
+    currentLanguage === "ja"
+      ? "送信中です。しばらくお待ちください..."
+      : "Submitting... Please wait.";
+
+  let uploadedPaths = [];
+
+  try {
+    /*
+      Upload the selected photos first.
+      Store their private Storage paths in photo_urls.
+    */
+
+    for (const file of files) {
+      const path = await uploadPhoto(file);
+      uploadedPaths.push(path);
+    }
+
+    const payload = {
+      name: name,
+      contact: contact,
+      maker: maker,
+      model: model,
+      year: year,
+      mileage: mileage,
+      details: details,
+      photo_urls: uploadedPaths
+    };
+
+    await insertEnquiry(payload);
+
+    showFormStatus(
+      currentLanguage === "ja"
+        ? "お問い合わせを送信しました。ありがとうございます。"
+        : "Your enquiry has been submitted successfully. Thank you.",
+      "success"
+    );
+
+    vehicleForm.reset();
+
+    modelSelect.innerHTML = "";
+
+    modelSelect.add(
+      new Option(
+        "先にメーカーを選択 / Select manufacturer first",
+        ""
+      )
+    );
+
+    modelSelect.disabled = true;
+
+    photoPreview.innerHTML = "";
+
+  } catch (error) {
+    console.error("AR AUTO TRADING form error:", error);
+
+    showFormStatus(
+      currentLanguage === "ja"
+        ? "送信できませんでした。通信環境や必須項目をご確認のうえ、再度お試しください。問題が続く場合はLINEまたはメールでお問い合わせください。"
+        : "We could not submit your enquiry. Please check your connection and required fields, then try again. If the problem continues, contact us through LINE or email.",
+      "error"
+    );
+
+    /*
+      If uploads succeeded but the database insert failed,
+      files may remain in private Storage.
+      They are not made public by this script.
+    */
+
+  } finally {
+    submitButton.disabled = false;
+
+    submitButton.innerHTML = `
+      <span class="ja-only">車両情報を送信する →</span>
+      <span class="en-only">SUBMIT VEHICLE ENQUIRY →</span>
+    `;
+  }
+});
+</script>
+
+</body>
+</html>
